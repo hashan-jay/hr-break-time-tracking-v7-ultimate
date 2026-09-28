@@ -11,10 +11,28 @@ import {
   formatLocalClock,
   isOffShift,
   offShiftReason,
+  remainingStarts,
   startLimitReached,
   startLimitReason,
   typeFields,
 } from '../lib/breakHelpers';
+
+function LimitsLeftCell({ employee, mealStartLimit, comfortStartLimit }) {
+  const mealLeft = remainingStarts(employee, BREAK_TYPES.MEAL, mealStartLimit);
+  const comfortLeft = remainingStarts(employee, BREAK_TYPES.COMFORT, comfortStartLimit);
+  return (
+    <td className="tracking-limits-left">
+      <span className="tracking-limits-left__row" title="Meal breaks left this shift">
+        <span className="tracking-limits-left__kind">Meal</span>
+        <strong className={mealLeft === 0 ? 'is-none' : undefined}>{mealLeft}</strong>
+      </span>
+      <span className="tracking-limits-left__row" title="Comfort breaks left this shift">
+        <span className="tracking-limits-left__kind">Comfort</span>
+        <strong className={comfortLeft === 0 ? 'is-none' : undefined}>{comfortLeft}</strong>
+      </span>
+    </td>
+  );
+}
 
 function BreakTypeBoard({
   title,
@@ -22,6 +40,8 @@ function BreakTypeBoard({
   breakType,
   limitMinutes,
   startLimit,
+  mealStartLimit,
+  comfortStartLimit,
   employees,
   selectedId,
   onSelect,
@@ -62,6 +82,17 @@ function BreakTypeBoard({
               <span>{selected.employeeCode} · {selected.departmentName}</span>
               <StatusBadge status={selectedFields.status} color={selectedFields.statusColor} />
               <div className="selected-meta">
+                <div className="tracking-limits-left tracking-limits-left--panel" aria-label="Limits left this shift">
+                  <span className="tracking-limits-left__label">Limits Left</span>
+                  <span className="tracking-limits-left__pair">
+                    <span>
+                      Meal <strong>{remainingStarts(selected, BREAK_TYPES.MEAL, mealStartLimit)}</strong>
+                    </span>
+                    <span>
+                      Comfort <strong>{remainingStarts(selected, BREAK_TYPES.COMFORT, comfortStartLimit)}</strong>
+                    </span>
+                  </span>
+                </div>
                 <div>
                   This shift {breakType.toLowerCase()} total:{' '}
                   <strong>{selectedFields.totalDisplay}</strong>
@@ -123,6 +154,7 @@ function BreakTypeBoard({
               <tr>
                 <th>Code</th>
                 <th>Employee</th>
+                <th>Limits Left</th>
                 <th>Department</th>
                 <th>This shift</th>
                 <th>Status</th>
@@ -161,6 +193,11 @@ function BreakTypeBoard({
                   >
                     <td className="col-code">{e.employeeCode}</td>
                     <td className="col-name">{e.fullName}</td>
+                    <LimitsLeftCell
+                      employee={e}
+                      mealStartLimit={mealStartLimit}
+                      comfortStartLimit={comfortStartLimit}
+                    />
                     <td>{e.departmentName}</td>
                     <td className={`tracking-time${fields.isOnThisBreak ? ' is-live-total' : ''}`}>
                       <strong>{fields.totalDisplay}</strong>
@@ -179,7 +216,7 @@ function BreakTypeBoard({
                 );
               })}
               {!employees.length && (
-                <tr><td colSpan={6} className="empty">{emptyLabel}</td></tr>
+                <tr><td colSpan={7} className="empty">{emptyLabel}</td></tr>
               )}
             </tbody>
           </table>
@@ -204,7 +241,7 @@ function isExceeded(employee) {
   return employee.mealStatus === EXCEEDED || employee.comfortStatus === EXCEEDED;
 }
 
-function OnBreakNowBar({ employees, onOpen }) {
+function OnBreakNowBar({ employees, mealStartLimit, comfortStartLimit, onOpen }) {
   const live = employees.filter((e) => e.isOnBreak);
   return (
     <section className="onbreak-now headlines-card" aria-label="People currently on break">
@@ -237,6 +274,11 @@ function OnBreakNowBar({ employees, onOpen }) {
                 <strong className="onbreak-now__name">{e.fullName}</strong>
                 <span className="onbreak-now__meta">{e.employeeCode} · {e.departmentName}</span>
                 <span className="onbreak-now__timer">{formatElapsed(e.currentBreakElapsedSeconds)}</span>
+                <span className="onbreak-now__limits">
+                  Limits Left
+                  <strong>Meal {remainingStarts(e, BREAK_TYPES.MEAL, mealStartLimit)}</strong>
+                  <strong>Comfort {remainingStarts(e, BREAK_TYPES.COMFORT, comfortStartLimit)}</strong>
+                </span>
                 <span className="onbreak-now__out">Out since {formatLocalClock(e.currentOutTime)}</span>
               </button>
             );
@@ -247,7 +289,7 @@ function OnBreakNowBar({ employees, onOpen }) {
   );
 }
 
-function ExceededShiftBoard({ employees }) {
+function ExceededShiftBoard({ employees, mealStartLimit, comfortStartLimit }) {
   return (
     <section className="exceeded-board headlines-card" aria-label="Employees over break limits">
       <header className="exceeded-board__head">
@@ -266,6 +308,7 @@ function ExceededShiftBoard({ employees }) {
             <tr>
               <th>Code</th>
               <th>Employee</th>
+              <th>Limits Left</th>
               <th>Department</th>
               <th>Shift</th>
               <th>Meal this shift</th>
@@ -280,6 +323,11 @@ function ExceededShiftBoard({ employees }) {
               <tr key={e.employeeId} className={e.isOnBreak ? 'on-break' : undefined}>
                 <td>{e.employeeCode}</td>
                 <td className="col-name">{e.fullName}</td>
+                <LimitsLeftCell
+                  employee={e}
+                  mealStartLimit={mealStartLimit}
+                  comfortStartLimit={comfortStartLimit}
+                />
                 <td>{e.departmentName}</td>
                 <td>{e.shiftDisplay || e.shiftName || '—'}</td>
                 <td>
@@ -303,7 +351,7 @@ function ExceededShiftBoard({ employees }) {
             ))}
             {!employees.length && (
               <tr>
-                <td colSpan={9} className="empty">No one has exceeded a break limit on this shift.</td>
+                <td colSpan={10} className="empty">No one has exceeded a break limit on this shift.</td>
               </tr>
             )}
           </tbody>
@@ -614,6 +662,8 @@ export default function TrackingPage() {
         <>
           <OnBreakNowBar
             employees={employeesView}
+            mealStartLimit={board?.mealStartLimit}
+            comfortStartLimit={board?.comfortStartLimit}
             onOpen={(e) => {
               if (e.currentBreakType === BREAK_TYPES.MEAL) {
                 setActiveType(BREAK_TYPES.MEAL);
@@ -632,6 +682,8 @@ export default function TrackingPage() {
                 breakType={BREAK_TYPES.MEAL}
                 limitMinutes={board?.mealLimitMinutes}
                 startLimit={board?.mealStartLimit}
+                mealStartLimit={board?.mealStartLimit}
+                comfortStartLimit={board?.comfortStartLimit}
                 employees={mealEmployees}
                 selectedId={selectedMealId}
                 onSelect={(id) => {
@@ -653,6 +705,8 @@ export default function TrackingPage() {
                 breakType={BREAK_TYPES.COMFORT}
                 limitMinutes={board?.comfortLimitMinutes}
                 startLimit={board?.comfortStartLimit}
+                mealStartLimit={board?.mealStartLimit}
+                comfortStartLimit={board?.comfortStartLimit}
                 employees={comfortEmployees}
                 selectedId={selectedComfortId}
                 onSelect={(id) => {
@@ -671,7 +725,11 @@ export default function TrackingPage() {
       )}
 
       {listView === 'exceeded' && (
-        <ExceededShiftBoard employees={exceededEmployees} />
+        <ExceededShiftBoard
+          employees={exceededEmployees}
+          mealStartLimit={board?.mealStartLimit}
+          comfortStartLimit={board?.comfortStartLimit}
+        />
       )}
     </div>
   );

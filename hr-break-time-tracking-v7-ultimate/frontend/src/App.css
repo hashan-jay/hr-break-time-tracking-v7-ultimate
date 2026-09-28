@@ -1219,6 +1219,56 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   line-height: 1;
 }
 
+.tracking-page .tracking-limits-left {
+  color: #dc2626;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.tracking-page .tracking-limits-left__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.7rem;
+  min-width: 6.4rem;
+  line-height: 1.15;
+}
+
+.tracking-page .tracking-limits-left__kind,
+.tracking-page .tracking-limits-left__label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tracking-page .tracking-limits-left strong {
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.tracking-page .tracking-limits-left--panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.35rem;
+}
+
+.tracking-page .tracking-limits-left__pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.tracking-page .tracking-limits-left__pair strong {
+  margin-left: 0.15rem;
+  font-size: 1.45rem;
+}
+
 .tracking-page .portal-roster.portal-board {
   display: block;
   grid-template-rows: none;
@@ -1229,7 +1279,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .tracking-page .portal-roster .portal-board__table table {
-  min-width: 540px;
+  min-width: 700px;
 }
 
 .tracking-page .tracking-roster tbody tr:hover {
@@ -1271,6 +1321,11 @@ html[data-theme="dark"] .tracking-page {
 
 html[data-theme="dark"] .tracking-page .tracking-roster tbody tr.selected {
   background: #142033;
+}
+
+html[data-theme="dark"] .tracking-page .tracking-limits-left,
+html[data-theme="dark"] .onbreak-now__limits {
+  color: #ff4d4d;
 }
 
 html[data-theme="dark"] .tracking-page .tracking-capture {
@@ -4217,6 +4272,27 @@ html[data-theme="dark"] .staff-console-page .staff-results h2 {
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.onbreak-now__limits {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.3rem 0.55rem;
+  margin-top: 0.4rem;
+  color: #dc2626;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.onbreak-now__limits strong {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: none;
   font-variant-numeric: tabular-nums;
 }
 
