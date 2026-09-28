@@ -262,11 +262,16 @@ public class BreakTrackingService : IBreakTrackingService
         if (period is null)
             return (false, "This employee is not on a live shift right now. Breaks can only be started during their shift hours.", null);
 
-        var limits = await _settings.GetBreakLimitsForEmployeeAsync(employee.ShiftId, employee.DepartmentId);
-        var startLimit = type == BreakTypes.Meal ? limits.MealStartLimit : limits.ComfortStartLimit;
-        var startedCount = await CountStartsInPeriodAsync(employeeId, type, period.Value);
-        if (startedCount >= startLimit)
-            return (false, $"Cannot start another {type.ToLowerInvariant()} break this shift.", null);
+        // Employee portal calls pass no staff user, so they consume the start allowance.
+        // Live Tracking passes the signed-in HR user and can always start a break.
+        if (string.IsNullOrEmpty(userId))
+        {
+            var limits = await _settings.GetBreakLimitsForEmployeeAsync(employee.ShiftId, employee.DepartmentId);
+            var startLimit = type == BreakTypes.Meal ? limits.MealStartLimit : limits.ComfortStartLimit;
+            var startedCount = await CountStartsInPeriodAsync(employeeId, type, period.Value);
+            if (startedCount >= startLimit)
+                return (false, $"Cannot start another {type.ToLowerInvariant()} break this shift.", null);
+        }
 
         var session = new BreakSession
         {
@@ -498,8 +503,8 @@ public class BreakTrackingService : IBreakTrackingService
                     employee.Shift.EndTime,
                     employee.Shift.SpansNextDay),
             withinShift ? null : ShiftWindow.NextStart(employee.Shift, localNow),
-            comfortSessions.Count,
-            mealSessions.Count,
+            comfortSessions.Count(CountsTowardEmployeeStartLimit),
+            mealSessions.Count(CountsTowardEmployeeStartLimit),
             comfortStartLimit,
             mealStartLimit,
             shiftPeriodEnd,
@@ -548,7 +553,15 @@ public class BreakTrackingService : IBreakTrackingService
         {
             var sessionType = string.IsNullOrWhiteSpace(s.BreakType) ? BreakTypes.Comfort : BreakTypes.Normalize(s.BreakType);
             return type.Equals(sessionType, StringComparison.OrdinalIgnoreCase)
-                && ShiftWindow.StartedIn(s.OutTime, period);
+                && ShiftWindow.StartedIn(s.OutTime, period)
+                && CountsTowardEmployeeStartLimit(s);
         });
     }
+
+    /// <summary>
+    /// Portal starts leave RecordedByUserId empty. Live Tracking stores the HR user id.
+    /// Only portal starts reduce the allowance shown as Limits Left.
+    /// </summary>
+    private static bool CountsTowardEmployeeStartLimit(BreakSession session)
+        => string.IsNullOrEmpty(session.RecordedByUserId);
 }

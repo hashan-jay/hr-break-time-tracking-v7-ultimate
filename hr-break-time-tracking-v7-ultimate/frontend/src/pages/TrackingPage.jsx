@@ -12,8 +12,6 @@ import {
   isOffShift,
   offShiftReason,
   remainingStarts,
-  startLimitReached,
-  startLimitReason,
   typeFields,
 } from '../lib/breakHelpers';
 
@@ -22,11 +20,11 @@ function LimitsLeftCell({ employee, mealStartLimit, comfortStartLimit }) {
   const comfortLeft = remainingStarts(employee, BREAK_TYPES.COMFORT, comfortStartLimit);
   return (
     <td className="tracking-limits-left">
-      <span className="tracking-limits-left__row" title="Meal breaks left this shift">
+      <span className="tracking-limits-left__row" title="Meal starts the employee can still begin on the portal this shift">
         <span className="tracking-limits-left__kind">Meal</span>
         <strong className={mealLeft === 0 ? 'is-none' : undefined}>{mealLeft}</strong>
       </span>
-      <span className="tracking-limits-left__row" title="Comfort breaks left this shift">
+      <span className="tracking-limits-left__row" title="Comfort starts the employee can still begin on the portal this shift">
         <span className="tracking-limits-left__kind">Comfort</span>
         <strong className={comfortLeft === 0 ? 'is-none' : undefined}>{comfortLeft}</strong>
       </span>
@@ -39,7 +37,6 @@ function BreakTypeBoard({
   subtitle,
   breakType,
   limitMinutes,
-  startLimit,
   mealStartLimit,
   comfortStartLimit,
   employees,
@@ -56,8 +53,7 @@ function BreakTypeBoard({
   const onThisBreak = selectedFields?.isOnThisBreak;
   const blockedByOther = selected?.isOnBreak && !onThisBreak;
   const offShift = selected ? isOffShift(selected) : false;
-  const startBlocked = selected ? startLimitReached(selected, breakType, startLimit) : false;
-  const captureLocked = Boolean(blockedByOther || (offShift && !onThisBreak) || (startBlocked && !onThisBreak));
+  const captureLocked = Boolean(blockedByOther || (offShift && !onThisBreak));
 
   return (
     <section className="portal-roster-section break-type-board tracking-roster">
@@ -104,9 +100,7 @@ function BreakTypeBoard({
                       ? `Currently on ${selected.currentBreakType} break — end that first`
                       : offShift
                         ? offShiftReason(selected)
-                        : startBlocked
-                          ? startLimitReason(selected, breakType)
-                          : 'Currently in office'}
+                        : 'Currently in office'}
                 </div>
               </div>
             </div>
@@ -124,7 +118,7 @@ function BreakTypeBoard({
               <button
                 type="button"
                 className="btn btn-ghost"
-                disabled={busy || selected.isOnBreak || offShift || startBlocked}
+                disabled={busy || selected.isOnBreak || offShift}
                 onClick={() => onOut(breakType)}
               >
                 Out only (O)
@@ -166,15 +160,12 @@ function BreakTypeBoard({
                 const fields = typeFields(e, breakType);
                 const blocked = fields.blockedByOther;
                 const offShift = isOffShift(e);
-                const startBlocked = startLimitReached(e, breakType, startLimit);
                 const selectable = canSelectForCapture(e, breakType);
                 const lockReason = blocked
                   ? `On ${e.currentBreakType} break — end that first`
                   : offShift
                     ? offShiftReason(e)
-                    : startBlocked
-                      ? startLimitReason(e, breakType)
-                      : undefined;
+                    : undefined;
                 return (
                   <tr
                     key={`${breakType}-${e.employeeId}`}
@@ -183,7 +174,6 @@ function BreakTypeBoard({
                       fields.isOnThisBreak ? 'on-break' : '',
                       blocked ? 'on-other-break' : '',
                       offShift && !fields.isOnThisBreak ? 'off-shift' : '',
-                      startBlocked && !fields.isOnThisBreak && !offShift && !blocked ? 'start-limit-reached' : '',
                     ].filter(Boolean).join(' ')}
                     aria-disabled={selectable ? undefined : 'true'}
                     title={lockReason}
@@ -484,11 +474,6 @@ export default function TrackingPage() {
         : `On ${employee.currentBreakType} break — end that first.`);
       return;
     }
-    const limit = breakType === BREAK_TYPES.MEAL ? board?.mealStartLimit : board?.comfortStartLimit;
-    if (employee && (mode === 'toggle' || mode === 'out') && startLimitReached(employee, breakType, limit)) {
-      toast.error(startLimitReason(employee, breakType));
-      return;
-    }
     busyRef.current = true;
     setBusy(true);
     try {
@@ -502,12 +487,12 @@ export default function TrackingPage() {
       await load();
     } catch (err) {
       const raw = apiErrorMessage(err, 'Capture failed.');
-      toast.error(/start limit/i.test(raw) ? startLimitReason(employee, breakType) : raw);
+      toast.error(raw);
     } finally {
       busyRef.current = false;
       setBusy(false);
     }
-  }, [selectedMealId, selectedComfortId, load, employeesView, board, toast]);
+  }, [selectedMealId, selectedComfortId, load, employeesView, toast]);
 
   useEffect(() => {
     const onKey = (e) => {
@@ -541,6 +526,8 @@ export default function TrackingPage() {
           <p>
             Capture Meal Break and Comfort Break separately. On All shifts, only staff whose
             shift is live at this local time can start or end a break; others are greyed out.
+            Limits Left counts only breaks employees start on the portal. Starting a break
+            here does not reduce that number.
           </p>
         </div>
         <div className="header-stat-tiles">
@@ -681,7 +668,6 @@ export default function TrackingPage() {
                 subtitle="Lunch / meal time tracking."
                 breakType={BREAK_TYPES.MEAL}
                 limitMinutes={board?.mealLimitMinutes}
-                startLimit={board?.mealStartLimit}
                 mealStartLimit={board?.mealStartLimit}
                 comfortStartLimit={board?.comfortStartLimit}
                 employees={mealEmployees}
@@ -704,7 +690,6 @@ export default function TrackingPage() {
                 subtitle="Short comfort break tracking."
                 breakType={BREAK_TYPES.COMFORT}
                 limitMinutes={board?.comfortLimitMinutes}
-                startLimit={board?.comfortStartLimit}
                 mealStartLimit={board?.mealStartLimit}
                 comfortStartLimit={board?.comfortStartLimit}
                 employees={comfortEmployees}

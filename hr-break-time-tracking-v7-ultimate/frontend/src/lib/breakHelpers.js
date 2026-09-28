@@ -192,7 +192,7 @@ export function startCount(employee, breakType) {
   return typeFields(employee, breakType).startCount;
 }
 
-/** Starts still available this shift. Begins at the granted limit and counts down to 0. */
+/** Portal starts still available this shift. HR starts on Live Tracking are not included. */
 export function remainingStarts(employee, breakType, fallback) {
   const limit = employeeStartLimit(employee, breakType, fallback);
   const used = startCount(employee, breakType);
