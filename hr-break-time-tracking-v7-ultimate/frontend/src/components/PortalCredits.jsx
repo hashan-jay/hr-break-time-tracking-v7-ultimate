@@ -3,7 +3,7 @@ export default function PortalCredits({ className = '', employeePortal = false }
     return (
       <p className={['portal-credits', className].filter(Boolean).join(' ')}>
         <span>HTSK - PortCity BPO (Pvt) Ltd | ©2026 All Rights Reserved</span>
-        <span>Version 6.0 Ultimate - Employee Break Tracking System</span>
+        <span>Version 7.0 PRO - Employee Break Tracking System</span>
       </p>
     );
   }
@@ -13,7 +13,7 @@ export default function PortalCredits({ className = '', employeePortal = false }
       <span>HTSK - PortCity BPO (Pvt) Ltd ©2026</span>
       {/*<span>©2026 All Rights Reserved</span>}*/}
       <span>Employee Break Tracking System</span>
-      <span>Version 6.0 Ultimate</span>
+      <span>Version 7.0 PRO</span>
     </p>
   );
 }
