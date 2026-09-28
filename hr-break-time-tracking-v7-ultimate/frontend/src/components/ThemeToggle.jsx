@@ -1,20 +1,31 @@
 import { useTheme } from '../theme/ThemeContext';
 
 export default function ThemeToggle({ compact = false }) {
-  const { toggleTheme, isDark } = useTheme();
-  const label = isDark ? 'DARK' : 'LIGHT';
+  const { setTheme, isDark } = useTheme();
 
   return (
-    <button
-      type="button"
+    <div
       className={`theme-toggle ${isDark ? 'is-dark' : 'is-light'} ${compact ? 'theme-toggle--compact' : ''}`}
-      role="switch"
-      aria-checked={isDark}
-      aria-label={isDark ? 'DARK theme. Switch to LIGHT' : 'LIGHT theme. Switch to DARK'}
-      title={isDark ? 'Switch to LIGHT' : 'Switch to DARK'}
-      onClick={toggleTheme}
+      role="group"
+      aria-label="Theme"
     >
-      <span className="theme-toggle__word">{label}</span>
-    </button>
+      <span className="theme-toggle__thumb" aria-hidden="true" />
+      <button
+        type="button"
+        className="theme-toggle__word theme-toggle__word--light"
+        aria-pressed={!isDark}
+        onClick={() => setTheme('light')}
+      >
+        LIGHT
+      </button>
+      <button
+        type="button"
+        className="theme-toggle__word theme-toggle__word--dark"
+        aria-pressed={isDark}
+        onClick={() => setTheme('dark')}
+      >
+        DARK
+      </button>
+    </div>
   );
 }
