@@ -1,0 +1,221 @@
+:root {
+  --bg: #f3f0e8;
+  --bg-accent: #e7efe8;
+  --ink: #1c2a24;
+  --muted: #5d6b64;
+  --panel: rgba(255, 252, 246, 0.92);
+  --line: #d5ddd6;
+  --teal: #0f6b5c;
+  --teal-dark: #0a4f44;
+  --amber: #b7791f;
+  --green: #1f7a45;
+  --blue: #1d4f91;
+  --red: #b42318;
+  --shadow: 0 1px 0 rgba(17, 24, 39, 0.04), 0 8px 20px rgba(17, 24, 39, 0.08);
+
+  /* RoarFitnessERP-aligned staff portal tokens */
+  --portal-canvas: #f7f8fa;
+  --portal-ink: #111827;
+  --portal-muted: #6b7280;
+  --portal-accent: #111827;
+  --portal-accent-soft: #f3f4f6;
+  --portal-side: #ffffff;
+  --portal-card: #ffffff;
+  --portal-line: #e5e7eb;
+  --portal-mint: #059669;
+  --portal-fill: #111827;
+  --on-fill: #ffffff;
+  --brand-panel: #111827;
+  --surface: #ffffff;
+  --input-bg: #ffffff;
+  --hover: #f9fafb;
+  --table-head: #f9fafb;
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --radius-full: 999px;
+  --font-portal: "Instrument Sans", "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+  --font-portal-display: "Syne", "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  color-scheme: light;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, #dceee4 0%, transparent 40%),
+    radial-gradient(circle at top right, #f2e4c9 0%, transparent 35%),
+    linear-gradient(160deg, var(--bg), var(--bg-accent));
+  line-height: 1.45;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html[data-theme="dark"] {
+  --bg: #090b0f;
+  --bg-accent: #0d1017;
+  --ink: #e8ecf1;
+  --muted: #8b939e;
+  --panel: #141820;
+  --line: rgba(255, 255, 255, 0.09);
+  --teal: #2dd4bf;
+  --teal-dark: #14b8a6;
+  --amber: #e8b84a;
+  --green: #4ade80;
+  --blue: #63b3ed;
+  --red: #dc2626;
+  --shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 8px 24px rgba(0, 0, 0, 0.42);
+
+  --portal-canvas: #090b0f;
+  --portal-ink: #eef1f5;
+  --portal-muted: #8b939e;
+  --portal-accent: #eef1f5;
+  --portal-accent-soft: #1a2438;
+  --portal-side: #0f1218;
+  --portal-card: #141820;
+  --portal-line: rgba(255, 255, 255, 0.09);
+  --portal-mint: #4ade80;
+  --portal-fill: #243044;
+  --on-fill: #e2e8f0;
+  --portal-fill-hover: #2f3d56;
+  --brand-panel: #06080b;
+  --surface: #141820;
+  --input-bg: #0d1017;
+  --hover: #1a2030;
+  --table-head: #111620;
+
+  color-scheme: dark;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 520px at 50% -120px, rgba(56, 139, 253, 0.09), transparent 72%),
+    radial-gradient(760px 380px at 100% 0%, rgba(45, 212, 191, 0.05), transparent 62%),
+    var(--portal-canvas);
+}
+
+html[data-theme="dark"] .app-portal {
+  background:
+    radial-gradient(1200px 520px at 50% -120px, rgba(56, 139, 253, 0.09), transparent 72%),
+    radial-gradient(760px 380px at 100% 0%, rgba(45, 212, 191, 0.05), transparent 62%),
+    var(--portal-canvas);
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { min-height: 100%; margin: 0; }
+body { min-width: 320px; background: transparent; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea {
+  font: inherit;
+  border-radius: var(--radius-sm);
+}
+code, kbd {
+  font-family: ui-monospace, Consolas, monospace;
+  background: var(--portal-accent-soft);
+  color: var(--portal-ink);
+  padding: 0.12rem 0.4rem;
+  border-radius: var(--radius-xs);
+}
+
+.app-portal {
+  font-family: var(--font-portal);
+  color: var(--portal-ink);
+  background: var(--portal-canvas);
+}
+
+.app-portal h1,
+.app-portal h2,
+.app-portal h3,
+.app-portal .portal-display {
+  font-family: var(--font-portal);
+  letter-spacing: -0.025em;
+  font-weight: 600;
+}
+
+.app-portal .portal-widget-3d {
+  transform: translateY(0);
+  box-shadow:
+    0 1px 0 rgba(15, 23, 42, 0.03),
+    0 8px 22px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.app-portal .portal-widget-3d:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 2px 0 rgba(15, 23, 42, 0.04),
+    0 14px 32px rgba(15, 23, 42, 0.12);
+}
+
+.app-portal .portal-kpi,
+.app-portal .portal-quick,
+.app-portal .portal-board,
+.app-portal .break-type-board,
+.app-portal .table-wrap,
+.app-portal .card-form,
+.app-portal .capture-panel,
+.app-portal .settings-list,
+.app-portal .list-panel,
+.app-portal .stat-card,
+.app-portal .dashboard-title-box,
+.app-portal .section-title-box,
+.app-portal .page-header,
+.app-portal .glance-card,
+.app-portal .headlines-card,
+.app-portal .confirm-dialog,
+.app-portal .login-panel {
+  border-radius: var(--radius-lg);
+}
+
+.app-portal .portal-kpi__icon,
+.app-portal .status-badge,
+.app-portal .portal-onbreak-chip,
+.app-portal .portal-nav__link,
+.app-portal .btn,
+.app-portal .link-btn {
+  border-radius: var(--radius-md);
+}
+
+html[data-theme="dark"] .app-portal .portal-widget-3d {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.35), 0 8px 18px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme="dark"] .app-portal .portal-widget-3d:hover {
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4), 0 14px 28px rgba(0, 0, 0, 0.38);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-portal .portal-widget-3d,
+  .app-portal .portal-widget-3d:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .portal-employee-weather {
+    display: none;
+  }
+}

@@ -1,0 +1,1459 @@
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.AssemblyReference.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfoInputs.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfo.cs
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.CoreCompileInputs.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\scopedcss\bundle\HRTimeTracking.Api.styles.css
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.development.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\swae.build.ex.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTr.199D3FF9.Up2Date
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\refint\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.genruntimeconfig.cache
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Scalar.AspNetCore.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Core.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Identity.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Humanizer.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.NativeInterop.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.ClientModel.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.CodeDom.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Memory.Data.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\linux-x64\native\libmsalruntime.so
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-x64\native\msalruntime.dylib
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+D:\Projects\HRBreakTimeTracking\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.sourcelink.json
+D:\Projects\HRBreakTimeTracking\_buildcheck\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_buildcheck\appsettings.json
+D:\Projects\HRBreakTimeTracking\_buildcheck\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_buildcheck\HRTimeTracking.Api.exe
+D:\Projects\HRBreakTimeTracking\_buildcheck\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_buildcheck\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_buildcheck\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_buildcheck\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_buildcheck2\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_buildcheck2\appsettings.json
+D:\Projects\HRBreakTimeTracking\_buildcheck2\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_buildcheck2\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_buildcheck2\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_buildcheck2\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_buildcheck2\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_shifts\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_shifts\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_shifts\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_shifts\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_shifts\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_shifts\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_shifts\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_shift_filter\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_overlap\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_overlap\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_overlap\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_overlap\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_overlap\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_overlap\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_overlap\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_meal_comfort\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_start_limits\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_start_limits\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_start_limits\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_start_limits\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_start_limits\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_start_limits\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_start_limits\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_perm\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_perm\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_perm\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_perm\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_perm\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_perm\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_perm\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_rbac\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_rbac\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_rbac\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_rbac\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_rbac\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_rbac\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_rbac\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_autoclose\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_autoclose\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_autoclose\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_autoclose\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_autoclose\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_autoclose\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_autoclose\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTracking\_build_username\appsettings.Development.json
+D:\Projects\HRBreakTimeTracking\_build_username\appsettings.json
+D:\Projects\HRBreakTimeTracking\_build_username\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTracking\_build_username\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTracking\_build_username\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTracking\_build_username\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTracking\_build_username\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Core.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Identity.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Humanizer.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.NativeInterop.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Scalar.AspNetCore.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.ClientModel.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.CodeDom.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Memory.Data.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\linux-x64\native\libmsalruntime.so
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-x64\native\msalruntime.dylib
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.AssemblyReference.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfoInputs.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfo.cs
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.CoreCompileInputs.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.sourcelink.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\scopedcss\bundle\HRTimeTracking.Api.styles.css
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.development.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\swae.build.ex.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTr.199D3FF9.Up2Date
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\refint\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.genruntimeconfig.cache
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\appsettings.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\appsettings.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\_buildcheck2\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\appsettings.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Azure.Core.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Azure.Identity.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\BCrypt-Net-Next.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Humanizer.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.AspNetCore.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Bcl.Cryptography.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Build.Framework.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.CodeAnalysis.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Identity.Client.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Identity.Client.Broker.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.Identity.Client.NativeInterop.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.IdentityModel.Logging.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.SqlServer.Server.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Mono.TextTemplating.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Newtonsoft.Json.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Scalar.AspNetCore.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.ClientModel.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.CodeDom.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Composition.AttributedModel.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Composition.Convention.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Composition.Hosting.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Composition.Runtime.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Composition.TypedParts.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Configuration.ConfigurationManager.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Memory.Data.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\de\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\es\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\it\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\de\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\es\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\it\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\linux-x64\native\libmsalruntime.so
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\osx-x64\native\msalruntime.dylib
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win-x64\native\msalruntime.dll
+D:\Projects\HRBreakTimeTrackingV5\HRTimeTracking.Api\_buildcheck\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\appsettings.Development.json
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\appsettings.json
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\HRTimeTracking.Api.deps.json
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\HRTimeTracking.Api.runtimeconfig.json
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\HRTimeTracking.Api.dll
+C:\Users\Administrator\AppData\Local\Temp\hrtt-build-check\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Core.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Identity.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Humanizer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.NativeInterop.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Mono.TextTemplating.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Newtonsoft.Json.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Scalar.AspNetCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.ClientModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.CodeDom.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Convention.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Hosting.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Runtime.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.TypedParts.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Memory.Data.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\linux-x64\native\libmsalruntime.so
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-x64\native\msalruntime.dylib
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.AssemblyReference.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfoInputs.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfo.cs
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.CoreCompileInputs.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cs
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.sourcelink.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\scopedcss\bundle\HRTimeTracking.Api.styles.css
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.development.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\swae.build.ex.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTr.199D3FF9.Up2Date
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\refint\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.genruntimeconfig.cache
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\appsettings.Development.json
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\appsettings.json
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\HRTimeTracking.Api.deps.json
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\HRTimeTracking.Api.runtimeconfig.json
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\HRTimeTracking.Api.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-api-compile-check\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\appsettings.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Azure.Core.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Azure.Identity.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\BCrypt-Net-Next.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Humanizer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.AspNetCore.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Bcl.Cryptography.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Build.Framework.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.CodeAnalysis.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Identity.Client.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Identity.Client.Broker.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.Identity.Client.NativeInterop.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.IdentityModel.Logging.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.SqlServer.Server.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Mono.TextTemplating.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Newtonsoft.Json.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Scalar.AspNetCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.ClientModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.CodeDom.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Composition.AttributedModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Composition.Convention.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Composition.Hosting.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Composition.Runtime.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Composition.TypedParts.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Configuration.ConfigurationManager.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Memory.Data.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\de\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\es\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\it\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\de\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\es\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\it\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\linux-x64\native\libmsalruntime.so
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\osx-x64\native\msalruntime.dylib
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win-x64\native\msalruntime.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\report-verify\runtimes\win-x86\native\msalruntime_x86.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\appsettings.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Azure.Core.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Azure.Identity.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\BCrypt-Net-Next.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Humanizer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.AspNetCore.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Bcl.Cryptography.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Build.Framework.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.CodeAnalysis.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.CodeAnalysis.CSharp.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.CodeAnalysis.Workspaces.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.EntityFrameworkCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.EntityFrameworkCore.Design.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Extensions.DependencyModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Identity.Client.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Identity.Client.Broker.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.Identity.Client.NativeInterop.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.IdentityModel.Abstractions.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.IdentityModel.Logging.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.IdentityModel.Protocols.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.IdentityModel.Tokens.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.OpenApi.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.SqlServer.Server.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Microsoft.VisualStudio.SolutionPersistence.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Mono.TextTemplating.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Newtonsoft.Json.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Scalar.AspNetCore.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Swashbuckle.AspNetCore.Swagger.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.ClientModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.CodeDom.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Composition.AttributedModel.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Composition.Convention.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Composition.Hosting.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Composition.Runtime.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Composition.TypedParts.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Configuration.ConfigurationManager.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.IdentityModel.Tokens.Jwt.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Memory.Data.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\System.Security.Cryptography.ProtectedData.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\cs\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\de\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\es\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\fr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\it\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ja\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ko\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pl\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pt-BR\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ru\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\tr\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\cs\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\de\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\es\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\fr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\it\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ja\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ko\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pl\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\pt-BR\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\ru\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\tr\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\linux-x64\native\libmsalruntime.so
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\osx-x64\native\msalruntime.dylib
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win-arm64\native\msalruntime_arm64.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win-x64\native\msalruntime.dll
+D:\Projects\HRBreakTimeTrackingV6\HRTimeTracking.Api\artifacts\adjust-verify\runtimes\win-x86\native\msalruntime_x86.dll
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\appsettings.json
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\_build_live_efficiency\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\appsettings.Development.json
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\appsettings.json
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\HRTimeTracking.Api.staticwebassets.endpoints.json
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\HRTimeTracking.Api.deps.json
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\HRTimeTracking.Api.runtimeconfig.json
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV6\_build_adjust_time\HRTimeTracking.Api.pdb
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Scalar.AspNetCore.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.Development.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.exe
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.deps.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.runtimeconfig.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Core.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Identity.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Humanizer.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.Hosting.WindowsServices.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.NativeInterop.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Mono.TextTemplating.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.ClientModel.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.CodeDom.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Convention.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Hosting.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Runtime.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Memory.Data.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\System.ServiceProcess.ServiceController.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\linux-x64\native\libmsalruntime.so
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-x64\native\msalruntime.dylib
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.ServiceProcess.ServiceController.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.AssemblyReference.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfoInputs.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfo.cs
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.CoreCompileInputs.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.sourcelink.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\scopedcss\bundle\HRTimeTracking.Api.styles.css
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.development.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\swae.build.ex.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTr.199D3FF9.Up2Date
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\refint\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.pdb
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.genruntimeconfig.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.pdb
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\appsettings.Development.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\appsettings.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\HRTimeTracking.Api.exe
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\HRTimeTracking.Api.deps.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\HRTimeTracking.Api.runtimeconfig.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v6\_build_adjust_time\HRTimeTracking.Api.pdb
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\appsettings.Development.json
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\appsettings.json
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\HRTimeTracking.Api.exe
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\HRTimeTracking.Api.deps.json
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\HRTimeTracking.Api.runtimeconfig.json
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\HRTimeTracking.Api.dll
+C:\Users\USER\AppData\Local\Temp\hr-weather-build\HRTimeTracking.Api.pdb
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.Development.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\appsettings.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.exe
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.deps.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.runtimeconfig.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.pdb
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Core.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Azure.Identity.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\BCrypt-Net-Next.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Humanizer.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Build.Framework.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.ExternalAccess.RazorCompiler.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Data.SqlClient.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.DependencyModel.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Extensions.Hosting.WindowsServices.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Broker.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.Identity.Client.NativeInterop.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.OpenApi.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.SqlServer.Server.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Microsoft.VisualStudio.SolutionPersistence.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Mono.TextTemplating.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Newtonsoft.Json.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Scalar.AspNetCore.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.ClientModel.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.CodeDom.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.AttributedModel.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Convention.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Hosting.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.Runtime.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Composition.TypedParts.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Configuration.ConfigurationManager.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Memory.Data.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.ProtectedData.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\System.ServiceProcess.ServiceController.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\cs\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\de\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\es\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\fr\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\it\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ja\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ko\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pl\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\pt-BR\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\ru\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\tr\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hans\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\zh-Hant\Microsoft.Data.SqlClient.resources.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\unix\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net9.0\Microsoft.Data.SqlClient.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\linux-x64\native\libmsalruntime.so
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-arm64\native\msalruntime_arm64.dylib
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\osx-x64\native\msalruntime.dylib
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-arm64\native\msalruntime_arm64.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x64\native\msalruntime.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win-x86\native\msalruntime_x86.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.ServiceProcess.ServiceController.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.AssemblyReference.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.GeneratedMSBuildEditorConfig.editorconfig
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfoInputs.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.AssemblyInfo.cs
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.csproj.CoreCompileInputs.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cs
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.sourcelink.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\scopedcss\bundle\HRTimeTracking.Api.styles.css
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.json.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.development.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\staticwebassets.build.endpoints.json
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\swae.build.ex.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTr.199D3FF9.Up2Date
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\refint\HRTimeTracking.Api.dll
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.pdb
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.genruntimeconfig.cache
+C:\Employee Break Time Tracking System\HRBreakTimeTrackerV6\hr-break-time-tracking-v7\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\refint\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.pdb
