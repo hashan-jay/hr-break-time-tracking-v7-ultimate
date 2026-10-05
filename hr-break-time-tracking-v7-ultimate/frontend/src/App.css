@@ -741,7 +741,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 
 .portal-employee-header__text {
   min-width: 0;
-  flex: 1 1 16rem;
+  flex: 0 1 auto;
   display: flex;
   align-items: baseline;
   gap: 0.65rem;
@@ -784,10 +784,11 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header__actions {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.5rem;
-  flex: 1 1 20rem;
-  flex-wrap: wrap;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  min-width: max-content;
 }
 
 .portal-employee-header__actions .btn {
@@ -5163,7 +5164,7 @@ html[data-theme="dark"] .login-ig__back {
   .portal-dash-header,
   .portal-employee-header { flex-direction: column; align-items: stretch; }
   .portal-employee-header__text { flex: none; }
-  .portal-employee-header__actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; }
+  .portal-employee-header__actions { width: 100%; min-width: 0; justify-content: center; flex-wrap: wrap; }
   .toast-stack { top: auto; bottom: 1rem; right: 0.75rem; left: 0.75rem; width: auto; }
 }
 
