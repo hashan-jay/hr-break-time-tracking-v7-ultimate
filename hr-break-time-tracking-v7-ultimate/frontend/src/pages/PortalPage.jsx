@@ -284,6 +284,15 @@ export default function PortalPage() {
     [board, nowMs],
   );
 
+  const mealOnBreakCount = useMemo(
+    () => employeesView.filter((employee) => typeFields(employee, BREAK_TYPES.MEAL).isOnThisBreak).length,
+    [employeesView],
+  );
+  const comfortOnBreakCount = useMemo(
+    () => employeesView.filter((employee) => typeFields(employee, BREAK_TYPES.COMFORT).isOnThisBreak).length,
+    [employeesView],
+  );
+
   const selectedEmployee = useMemo(
     () => employeesView.find((e) => e.employeeId === selectedEmployeeId) || null,
     [employeesView, selectedEmployeeId],
@@ -487,9 +496,19 @@ export default function PortalPage() {
           <div className="portal-employee-header__actions">
             <ThemeToggle />
             <PortalClock />
-            <div className="portal-onbreak-chip">
-              <span>On break</span>
-              <strong>{board?.onBreakCount ?? 0}</strong>
+            <div
+              className="portal-onbreak-chip"
+              aria-label={`On Meal Break ${mealOnBreakCount}. On Comfort Break ${comfortOnBreakCount}.`}
+            >
+              <span className="portal-onbreak-chip__item">
+                <span>On Meal Break</span>
+                <strong>{mealOnBreakCount}</strong>
+              </span>
+              <span className="portal-onbreak-chip__sep" aria-hidden="true">|</span>
+              <span className="portal-onbreak-chip__item">
+                <span>On Comfort Break</span>
+                <strong>{comfortOnBreakCount}</strong>
+              </span>
             </div>
             {isAuthenticated ? (
               <button type="button" className="btn btn-primary" onClick={() => navigate('/app')}>

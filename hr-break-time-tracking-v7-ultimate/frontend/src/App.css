@@ -846,9 +846,8 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header .portal-onbreak-chip {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.85rem;
-  min-width: 8.5rem;
+  justify-content: flex-start;
+  gap: 0.65rem;
   min-height: 2.5rem;
   padding: 0.4rem 0.8rem;
   border-radius: var(--ig-radius);
@@ -859,6 +858,17 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--ig-muted);
+}
+
+.portal-employee-header .portal-onbreak-chip__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.portal-employee-header .portal-onbreak-chip__sep {
+  color: var(--ig-line);
+  font-weight: 500;
 }
 
 .portal-employee-header .portal-onbreak-chip strong {
@@ -1557,16 +1567,16 @@ tbody tr.start-limit-reached.selected {
 }
 
 .portal-shell .portal-employee-header__actions .btn-primary {
-  background-color: #16a34a;
-  background-image: linear-gradient(160deg, #86efac 0%, #4ade80 46%, #16a34a 100%);
-  color: #14532d;
+  background-color: #14542d;
+  background-image: none;
+  color: #fff;
   border-color: transparent;
 }
 
 .portal-shell .portal-employee-header__actions .btn-primary:hover {
-  background-color: #15803d;
-  background-image: linear-gradient(160deg, #4ade80 0%, #22c55e 46%, #15803d 100%);
-  color: #14532d;
+  background-color: #104525;
+  background-image: none;
+  color: #fff;
 }
 
 /* Keep break compliance status colors unchanged */
@@ -6148,16 +6158,16 @@ html[data-theme="dark"] .portal-shell .btn-primary:hover {
 }
 
 html[data-theme="dark"] .portal-shell .portal-employee-header__actions .btn-primary {
-  background-color: #4ade80;
-  background-image: linear-gradient(160deg, #dcfce7 0%, #86efac 48%, #4ade80 100%);
-  color: #14532d;
+  background-color: #c2410c;
+  background-image: none;
+  color: #fff;
   border-color: transparent;
 }
 
 html[data-theme="dark"] .portal-shell .portal-employee-header__actions .btn-primary:hover {
-  background-color: #22c55e;
-  background-image: linear-gradient(160deg, #bbf7d0 0%, #4ade80 48%, #22c55e 100%);
-  color: #14532d;
+  background-color: #9f350a;
+  background-image: none;
+  color: #fff;
 }
 
 html[data-theme="dark"] .portal-shell .theme-toggle {
