@@ -48,6 +48,8 @@ export default function LoginPage() {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 autoComplete="username"
+                autoCapitalize="none"
+                spellCheck={false}
                 required
               />
             </label>
@@ -85,11 +87,16 @@ export default function LoginPage() {
               {busy ? 'Signing in…' : 'Sign in'}
             </button>
           </form>
-          <p className="login-ig__usernames">
-            Username of HR Manager: hrmanager
-            <br />
-            Username of HR Assistant: hrassistant
-          </p>
+          <div className="login-ig__usernames">
+            <span className="login-ig__account">
+              <em>HR Manager</em>
+              hrmanager
+            </span>
+            <span className="login-ig__account">
+              <em>HR Assistant</em>
+              hrassistant
+            </span>
+          </div>
         </section>
         <section className="login-ig__card login-ig__card--meta">
           <p>Need the floor board?</p>
