@@ -784,11 +784,12 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header__actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   gap: 0.5rem;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
   flex-wrap: nowrap;
-  min-width: max-content;
+  margin-left: auto;
+  max-width: 100%;
 }
 
 .portal-employee-header__actions .btn {
