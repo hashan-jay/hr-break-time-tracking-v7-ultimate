@@ -1556,6 +1556,19 @@ tbody tr.start-limit-reached.selected {
   transform: none;
 }
 
+.portal-shell .portal-employee-header__actions .btn-primary {
+  background-color: #16a34a;
+  background-image: linear-gradient(160deg, #86efac 0%, #4ade80 46%, #16a34a 100%);
+  color: #14532d;
+  border-color: transparent;
+}
+
+.portal-shell .portal-employee-header__actions .btn-primary:hover {
+  background-color: #15803d;
+  background-image: linear-gradient(160deg, #4ade80 0%, #22c55e 46%, #15803d 100%);
+  color: #14532d;
+}
+
 /* Keep break compliance status colors unchanged */
 .portal-shell .status-badge.status-green {
   background: #e5f6eb;
@@ -6132,6 +6145,19 @@ html[data-theme="dark"] .portal-shell .btn-primary {
 html[data-theme="dark"] .portal-shell .btn-primary:hover {
   background: #1b14b0;
   color: #fff;
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .btn-primary {
+  background-color: #4ade80;
+  background-image: linear-gradient(160deg, #dcfce7 0%, #86efac 48%, #4ade80 100%);
+  color: #14532d;
+  border-color: transparent;
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .btn-primary:hover {
+  background-color: #22c55e;
+  background-image: linear-gradient(160deg, #bbf7d0 0%, #4ade80 48%, #22c55e 100%);
+  color: #14532d;
 }
 
 html[data-theme="dark"] .portal-shell .theme-toggle {
