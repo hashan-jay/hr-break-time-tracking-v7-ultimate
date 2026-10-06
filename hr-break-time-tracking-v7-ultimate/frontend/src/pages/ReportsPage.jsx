@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
 import { StatusBadge } from '../components/UiBits';
 import { renderBreakReportHtml } from '../components/BreakReportDocument';
+import { absentNote, renderAttendanceReportHtml } from '../components/AttendanceReportDocument';
 import { downloadHtmlReport, printHtmlReport } from '../lib/downloadReport';
 import { useFeedback } from '../feedback/FeedbackContext';
 
@@ -24,6 +25,17 @@ function queryId(value) {
   return Number.isInteger(n) && n > 0 ? n : undefined;
 }
 
+function formatWhen(value) {
+  if (!value) return '—';
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return String(value).replace('T', ' ');
+  return parsed.toLocaleString();
+}
+
+function csvText(value) {
+  return `"${String(value ?? '').replaceAll('"', '""')}"`;
+}
+
 export default function ReportsPage() {
   const { toast } = useFeedback();
   const [from, setFrom] = useState(todayIso());
@@ -35,6 +47,8 @@ export default function ReportsPage() {
   const [employees, setEmployees] = useState([]);
   const [shifts, setShifts] = useState([]);
   const [report, setReport] = useState(null);
+  const [attendanceReport, setAttendanceReport] = useState(null);
+  const [kind, setKind] = useState('breaks');
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
@@ -68,21 +82,20 @@ export default function ReportsPage() {
       || report?.shiftName,
   }), [departments, employees, shifts, departmentId, employeeId, shiftId, report]);
 
-  const load = async (event) => {
-    event?.preventDefault?.();
+  const reportParams = () => ({
+    from,
+    to: to || from,
+    fromDate: from,
+    toDate: to || from,
+    departmentId: queryId(departmentId),
+    employeeId: queryId(employeeId),
+    shiftId: queryId(shiftId),
+  });
+
+  const loadBreaks = async () => {
     setBusy(true);
     try {
-      const { data } = await api.get('/reports/breaks', {
-        params: {
-          from,
-          to: to || from,
-          fromDate: from,
-          toDate: to || from,
-          departmentId: queryId(departmentId),
-          employeeId: queryId(employeeId),
-          shiftId: queryId(shiftId),
-        },
-      });
+      const { data } = await api.get('/reports/breaks', { params: reportParams() });
       setReport(data);
     } catch (err) {
       toast.error(apiErrorMessage(err, 'Failed to generate report.'));
@@ -91,12 +104,40 @@ export default function ReportsPage() {
     }
   };
 
+  const loadAttendance = async () => {
+    setBusy(true);
+    try {
+      const { data } = await api.get('/reports/attendance', { params: reportParams() });
+      setAttendanceReport(data);
+    } catch (err) {
+      toast.error(apiErrorMessage(err, 'Failed to generate attendance report.'));
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const load = async (event) => {
+    event?.preventDefault?.();
+    if (kind === 'attendance') await loadAttendance();
+    else await loadBreaks();
+  };
+
   useEffect(() => {
-    load();
+    loadBreaks();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const exportCsv = () => {
+  const downloadCsv = (filename, header, lines) => {
+    const blob = new Blob([[header.join(','), ...lines].join('\n')], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const exportBreakCsv = () => {
     if (!report?.rows?.length) return;
     const header = [
       'Period', 'Code', 'Employee', 'Department', 'Shift',
@@ -116,27 +157,53 @@ export default function ReportsPage() {
       r.comfortBreakSeconds,
       `"${r.comfortStatus}"`,
     ].join(','));
-    const blob = new Blob([[header.join(','), ...lines].join('\n')], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `break-report-${from}-to-${to || from}.csv`;
-    a.click();
-    URL.revokeObjectURL(url);
+    downloadCsv(`break-report-${from}-to-${to || from}.csv`, header, lines);
+  };
+
+  const exportAttendanceCsv = () => {
+    if (!attendanceReport?.rows?.length) return;
+    const header = ['Date', 'Code', 'Employee', 'Department', 'Shift', 'BreaksEnded', 'LastEnded', 'Status'];
+    const lines = attendanceReport.rows.map((row) => [
+      row.date,
+      csvText(row.employeeCode),
+      csvText(row.employeeName),
+      csvText(row.departmentName),
+      csvText(row.shiftDisplay || row.shiftName || ''),
+      csvText(row.breakSummary || ''),
+      csvText(row.lastEndedAt ? formatWhen(row.lastEndedAt) : ''),
+      row.status,
+    ].join(','));
+    downloadCsv(`attendance-report-${from}-to-${to || from}.csv`, header, lines);
+  };
+
+  const exportCsv = () => {
+    if (kind === 'attendance') exportAttendanceCsv();
+    else exportBreakCsv();
   };
 
   const printA4 = () => {
-    if (!report) return;
-    const opened = printHtmlReport(
-      `break-report-${from}-to-${to || from}`,
-      renderBreakReportHtml(report, filters),
-    );
+    const title = kind === 'attendance'
+      ? `attendance-report-${from}-to-${to || from}`
+      : `break-report-${from}-to-${to || from}`;
+    const html = kind === 'attendance'
+      ? (attendanceReport ? renderAttendanceReportHtml(attendanceReport, filters) : null)
+      : (report ? renderBreakReportHtml(report, filters) : null);
+    if (!html) return;
+    const opened = printHtmlReport(title, html);
     if (!opened) {
       toast.error('Could not open the print dialog. Use Save HTML instead.');
     }
   };
 
   const saveHtml = () => {
+    if (kind === 'attendance') {
+      if (!attendanceReport) return;
+      downloadHtmlReport(
+        `attendance-report-${from}-to-${to || from}.html`,
+        renderAttendanceReportHtml(attendanceReport, filters),
+      );
+      return;
+    }
     if (!report) return;
     downloadHtmlReport(
       `break-report-${from}-to-${to || from}.html`,
@@ -144,28 +211,57 @@ export default function ReportsPage() {
     );
   };
 
+  const printable = kind === 'attendance' ? attendanceReport : report;
+  const exportable = kind === 'attendance' ? attendanceReport?.rows?.length : report?.rows?.length;
+  const attendanceHint = absentNote(attendanceReport);
+
   return (
     <div className="page staff-console-page">
       <header className="page-header no-print">
         <div>
           <h1>Reports</h1>
           <p>
-            Choose shift start dates, shift, department, and/or employee, then Generate.
-            A date range lists each employee day by day. A single day still shows one row per employee.
+            {kind === 'attendance'
+              ? 'Generate attendance for a shift-start range. Present is a finished meal or comfort break. Absent names appear only in the last hour of each shift. Export CSV, save HTML, or print A4 from here.'
+              : 'Choose shift start dates, shift, department, and/or employee, then Generate. A date range lists each employee day by day. A single day still shows one row per employee.'}
           </p>
         </div>
         <div className="header-actions">
-          <button type="button" className="btn btn-ghost" onClick={exportCsv} disabled={!report?.rows?.length}>
+          <button type="button" className="btn btn-ghost" onClick={exportCsv} disabled={!exportable}>
             Export CSV
           </button>
-          <button type="button" className="btn btn-ghost" onClick={saveHtml} disabled={!report}>
+          <button type="button" className="btn btn-ghost" onClick={saveHtml} disabled={!printable}>
             Save HTML
           </button>
-          <button type="button" className="btn btn-primary" onClick={printA4} disabled={!report}>
+          <button type="button" className="btn btn-primary" onClick={printA4} disabled={!printable}>
             Print A4 Report
           </button>
         </div>
       </header>
+
+      <div className="list-switch reports-kind no-print" role="tablist" aria-label="Report type">
+        <button
+          type="button"
+          role="tab"
+          aria-selected={kind === 'breaks'}
+          className={`list-switch__btn${kind === 'breaks' ? ' is-active' : ''}`}
+          onClick={() => setKind('breaks')}
+        >
+          Break totals
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected={kind === 'attendance'}
+          className={`list-switch__btn${kind === 'attendance' ? ' is-active' : ''}`}
+          onClick={() => {
+            setKind('attendance');
+            if (!attendanceReport) loadAttendance();
+          }}
+        >
+          Attendance
+        </button>
+      </div>
 
       <form className="toolbar report-filters no-print" onSubmit={load}>
         <label>
@@ -227,7 +323,74 @@ export default function ReportsPage() {
         </button>
       </form>
 
-      {report && (
+      {kind === 'attendance' && attendanceReport && (
+        <section className="staff-results headlines-card no-print">
+          <header className="list-panel__head">
+            <div>
+              <h2>Attendance results</h2>
+              <p className="list-panel__hint">
+                {attendanceHint}
+                {(attendanceReport.shiftDisplay || attendanceReport.shiftName || filters.shiftName) ? (
+                  <> · Shift: <strong>{attendanceReport.shiftDisplay || attendanceReport.shiftName || filters.shiftName}</strong></>
+                ) : <> · Shift: <strong>All shifts</strong></>}
+                {filters.departmentName ? <> · Department: <strong>{filters.departmentName}</strong></> : null}
+                {filters.employeeName ? <> · Employee: <strong>{filters.employeeName}</strong></> : null}
+              </p>
+            </div>
+            <span className="header-stat-tile">
+              <span>Present</span>
+              <strong>{attendanceReport.presentCount ?? 0}</strong>
+            </span>
+          </header>
+
+          <div className="stats-grid compact no-print">
+            <div className="stat-card tone-green">
+              <div className="stat-value">{attendanceReport.presentCount ?? 0}</div>
+              <div className="stat-label">PRESENT</div>
+            </div>
+            <div className="stat-card tone-red">
+              <div className="stat-value">{attendanceReport.absentIncluded ? (attendanceReport.absentCount ?? 0) : 'Hidden'}</div>
+              <div className="stat-label">ABSENT</div>
+            </div>
+          </div>
+
+          <div className="table-wrap no-print">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Code</th>
+                  <th>Employee</th>
+                  <th>Department</th>
+                  <th>Shift</th>
+                  <th>Breaks ended</th>
+                  <th>Last ended</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                {attendanceReport.rows.map((row) => (
+                  <tr key={`${row.date}-${row.shiftId}-${row.employeeId}`}>
+                    <td>{row.date}</td>
+                    <td>{row.employeeCode}</td>
+                    <td>{row.employeeName}</td>
+                    <td>{row.departmentName}</td>
+                    <td>{row.shiftDisplay || row.shiftName || '—'}</td>
+                    <td>{row.breakSummary || '—'}</td>
+                    <td>{formatWhen(row.lastEndedAt)}</td>
+                    <td><StatusBadge status={row.status} color={row.statusColor} /></td>
+                  </tr>
+                ))}
+                {!attendanceReport.rows.length && (
+                  <tr><td colSpan={8} className="empty">No attendance rows for the selected filters.</td></tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      )}
+
+      {kind === 'breaks' && report && (
         <section className="staff-results headlines-card no-print">
           <header className="list-panel__head">
             <div>

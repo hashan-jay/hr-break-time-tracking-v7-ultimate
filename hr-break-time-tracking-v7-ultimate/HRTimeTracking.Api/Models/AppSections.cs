@@ -4,6 +4,7 @@ public static class AppSections
 {
     public const string Dashboard = "dashboard";
     public const string Tracking = "tracking";
+    public const string Attendance = "attendance";
     public const string Employees = "employees";
     public const string Departments = "departments";
     public const string Shifts = "shifts";
@@ -17,6 +18,7 @@ public static class AppSections
     [
         (Dashboard, "Dashboard"),
         (Tracking, "Live Tracking"),
+        (Attendance, "Attendance"),
         (Employees, "Employees"),
         (Departments, "Departments"),
         (Shifts, "Shifts"),
@@ -39,8 +41,8 @@ public static class AppSections
         {
             AppRoles.Developer => All,
             AppRoles.SystemAdministration => [Dashboard, Employees, Settings, Audit],
-            AppRoles.HRManager => [Dashboard, Tracking, Employees, Departments, Shifts, Reports, UserPasscodes],
-            AppRoles.HRAssistant => [Dashboard, Tracking, Employees, Reports],
+            AppRoles.HRManager => [Dashboard, Tracking, Attendance, Employees, Departments, Shifts, Reports, UserPasscodes],
+            AppRoles.HRAssistant => [Dashboard, Tracking, Attendance, Employees, Reports],
             _ => [Dashboard]
         };
 }

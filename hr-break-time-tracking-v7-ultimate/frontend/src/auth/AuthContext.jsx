@@ -6,6 +6,7 @@ const AuthContext = createContext(null);
 export const SECTIONS = [
   { key: 'dashboard', label: 'Dashboard' },
   { key: 'tracking', label: 'Live Tracking' },
+  { key: 'attendance', label: 'Attendance' },
   { key: 'employees', label: 'Employees' },
   { key: 'departments', label: 'Departments' },
   { key: 'shifts', label: 'Shifts' },
@@ -90,6 +91,7 @@ export function AuthProvider({ children }) {
     const order = [
       ['dashboard', '/app'],
       ['tracking', '/app/tracking'],
+      ['attendance', '/app/attendance'],
       ['employees', '/app/employees'],
       ['departments', '/app/departments'],
       ['shifts', '/app/shifts'],

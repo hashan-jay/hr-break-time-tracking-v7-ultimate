@@ -459,5 +459,22 @@ public static class SchemaEnsure
                     ON dbo.BreakTimeAdjustments (EmployeeId, BreakDate, BreakType);
             END
             """);
+
+        // Additive grants only. Existing role rows are never updated or removed.
+        await GrantSectionIfMissingAsync(db, "HRManager", "attendance");
+        await GrantSectionIfMissingAsync(db, "HRAssistant", "attendance");
     }
+
+    private static Task GrantSectionIfMissingAsync(AppDbContext db, string roleName, string sectionKey)
+        => db.Database.ExecuteSqlRawAsync("""
+            IF OBJECT_ID(N'dbo.RolePermissions', N'U') IS NOT NULL
+               AND EXISTS (SELECT 1 FROM dbo.RolePermissions WHERE RoleName = {0})
+               AND NOT EXISTS (
+                    SELECT 1 FROM dbo.RolePermissions
+                    WHERE RoleName = {0} AND SectionKey = {1})
+            BEGIN
+                INSERT INTO dbo.RolePermissions (RoleName, SectionKey)
+                VALUES ({0}, {1});
+            END
+            """, roleName, sectionKey);
 }

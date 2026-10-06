@@ -152,6 +152,7 @@ builder.Services.AddScoped<IPermissionService, PermissionService>();
 builder.Services.AddScoped<IBreakAutoCloseService, BreakAutoCloseService>();
 builder.Services.AddScoped<IBreakTrackingService, BreakTrackingService>();
         builder.Services.AddScoped<IReportService, ReportService>();
+        builder.Services.AddScoped<IAttendanceService, AttendanceService>();
         builder.Services.AddScoped<IBreakTimeAdjustmentService, BreakTimeAdjustmentService>();
 builder.Services.AddScoped<IUserAdminService, UserAdminService>();
 builder.Services.AddHostedService<BreakAutoCloseHostedService>();

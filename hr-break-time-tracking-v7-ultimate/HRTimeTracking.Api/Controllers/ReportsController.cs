@@ -13,10 +13,12 @@ namespace HRTimeTracking.Api.Controllers;
 public class ReportsController : ControllerBase
 {
     private readonly IReportService _reportService;
+    private readonly IAttendanceService _attendance;
 
-    public ReportsController(IReportService reportService)
+    public ReportsController(IReportService reportService, IAttendanceService attendance)
     {
         _reportService = reportService;
+        _attendance = attendance;
     }
 
     [HttpGet("dashboard")]
@@ -61,6 +63,32 @@ public class ReportsController : ControllerBase
         var report = await _reportService.GetReportAsync(
             start, end, ParseId(departmentId), ParseId(employeeId), ParseId(shiftId));
         return Ok(report);
+    }
+
+    [HttpGet("attendance")]
+    [RequireSection(AppSections.Reports)]
+    public async Task<ActionResult<AttendanceReportDto>> Attendance(
+        [FromQuery] string? from = null,
+        [FromQuery] string? to = null,
+        [FromQuery] string? fromDate = null,
+        [FromQuery] string? toDate = null,
+        [FromQuery] string? departmentId = null,
+        [FromQuery] string? employeeId = null,
+        [FromQuery] string? shiftId = null)
+    {
+        var start = ParseDate(fromDate) ?? ParseDate(from) ?? TimeDisplay.TodayLocal();
+        var end = ParseDate(toDate) ?? ParseDate(to) ?? start;
+        var result = await _attendance.GetReportAsync(
+            start, end, ParseId(shiftId), ParseId(departmentId), ParseId(employeeId));
+        if (!result.Ok || result.Data is null)
+        {
+            var message = new ApiMessage(result.Error ?? "Attendance report is unavailable.");
+            if (result.Error is "Shift not found." or "No active shifts are configured.")
+                return NotFound(message);
+            return BadRequest(message);
+        }
+
+        return Ok(result.Data);
     }
 
     private static DateOnly? ParseDate(string? value)

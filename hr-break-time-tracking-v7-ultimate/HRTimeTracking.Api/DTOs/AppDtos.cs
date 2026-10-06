@@ -471,3 +471,56 @@ public record SaveBreakTimeAdjustmentRequest(
     [Required] DateOnly Date,
     [Required] string BreakType,
     [Required] int DisplayedTotalSeconds);
+
+public record AttendancePersonDto(
+    int EmployeeId,
+    string EmployeeCode,
+    string FullName,
+    string DepartmentName,
+    string Status,
+    string BreakSummary,
+    DateTime? LastEndedAt);
+
+public record AttendanceRosterDto(
+    DateOnly Date,
+    int ShiftId,
+    string ShiftName,
+    string ShiftDisplay,
+    string ShiftStart,
+    string ShiftEnd,
+    bool SpansNextDay,
+    DateTime PeriodStart,
+    DateTime PeriodEnd,
+    DateTime AbsentRevealAt,
+    bool ShowAbsent,
+    DateTime ServerNow,
+    int PresentCount,
+    int AbsentCount,
+    IReadOnlyList<AttendancePersonDto> Present,
+    IReadOnlyList<AttendancePersonDto> Absent);
+
+public record AttendanceReportRowDto(
+    DateOnly Date,
+    int EmployeeId,
+    string EmployeeCode,
+    string EmployeeName,
+    string DepartmentName,
+    int ShiftId,
+    string ShiftName,
+    string ShiftDisplay,
+    string Status,
+    string StatusColor,
+    string BreakSummary,
+    DateTime? LastEndedAt);
+
+public record AttendanceReportDto(
+    DateOnly From,
+    DateOnly To,
+    int? ShiftId,
+    string? ShiftName,
+    string? ShiftDisplay,
+    int PresentCount,
+    int AbsentCount,
+    int PendingShiftDays,
+    bool AbsentIncluded,
+    IReadOnlyList<AttendanceReportRowDto> Rows);
