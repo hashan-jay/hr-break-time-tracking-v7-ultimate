@@ -161,8 +161,8 @@
 }
 
 .app-portal .portal-side--ig .portal-nav__link:hover {
-  background: var(--portal-accent-soft);
-  color: var(--portal-ink);
+  background: #d1fae5;
+  color: #14542d;
 }
 
 .app-portal .portal-side--ig .portal-nav__link.is-active,
@@ -5571,6 +5571,11 @@ html[data-theme="dark"] .theme-toggle:hover {
 html[data-theme="dark"] .portal-nav__link:hover {
   background: rgba(255, 255, 255, 0.05);
   color: var(--portal-ink);
+}
+
+html[data-theme="dark"] .app-portal .portal-side--ig .portal-nav__link:hover {
+  background: #d1fae5;
+  color: #14542d;
 }
 
 html[data-theme="dark"] .theme-toggle__thumb {
