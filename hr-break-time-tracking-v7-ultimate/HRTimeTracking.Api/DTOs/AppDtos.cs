@@ -521,6 +521,7 @@ public record AttendanceReportDto(
     string? ShiftDisplay,
     int PresentCount,
     int AbsentCount,
+    int NotYetCount,
     int PendingShiftDays,
     bool AbsentIncluded,
     IReadOnlyList<AttendanceReportRowDto> Rows);

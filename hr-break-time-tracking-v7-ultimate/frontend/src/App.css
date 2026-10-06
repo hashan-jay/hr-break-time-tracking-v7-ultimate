@@ -3962,6 +3962,15 @@ tbody tr.is-deleted:hover { background: var(--portal-accent-soft); }
   margin-bottom: 1rem;
 }
 
+.attendance-table-block + .attendance-table-block {
+  margin-top: 1.25rem;
+}
+
+.attendance-table-block h3 {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+}
+
 .attendance-results__head {
   align-items: center;
   flex-wrap: wrap;

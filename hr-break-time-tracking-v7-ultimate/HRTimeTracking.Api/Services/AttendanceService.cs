@@ -195,6 +195,7 @@ public class AttendanceService : IAttendanceService
             .ToDictionary(g => g.Key, g => g.ToList());
 
         var now = TimeDisplay.NowLocal();
+        var includePendingDay = employeeId.HasValue;
         var rows = new List<AttendanceReportRowDto>();
         var pendingShiftDays = 0;
         var absentIncluded = false;
@@ -226,26 +227,17 @@ public class AttendanceService : IAttendanceService
                         ? found
                         : [];
 
-                    if (AttendanceRules.IsPresent(marks, period))
-                    {
-                        rows.Add(new AttendanceReportRowDto(
-                            day,
-                            employee.Id,
-                            employee.EmployeeCode,
-                            employee.FullName,
-                            employee.DepartmentName,
-                            shift.Id,
-                            shift.Name,
-                            shiftDisplay,
-                            "PRESENT",
-                            "green",
-                            AttendanceRules.Summarize(marks, period),
-                            AttendanceRules.LastEndedAt(marks, period)));
+                    var isPresent = AttendanceRules.IsPresent(marks, period);
+                    var status = AttendanceRules.ReportStatus(isPresent, showAbsent, includePendingDay);
+                    if (status is null)
                         continue;
-                    }
 
-                    if (!showAbsent)
-                        continue;
+                    var color = status switch
+                    {
+                        "PRESENT" => "green",
+                        "ABSENT" => "red",
+                        _ => "blue",
+                    };
 
                     rows.Add(new AttendanceReportRowDto(
                         day,
@@ -256,10 +248,10 @@ public class AttendanceService : IAttendanceService
                         shift.Id,
                         shift.Name,
                         shiftDisplay,
-                        "ABSENT",
-                        "red",
-                        "",
-                        null));
+                        status,
+                        color,
+                        isPresent ? AttendanceRules.Summarize(marks, period) : "",
+                        isPresent ? AttendanceRules.LastEndedAt(marks, period) : null));
                 }
             }
         }
@@ -288,6 +280,7 @@ public class AttendanceService : IAttendanceService
             filterShiftDisplay,
             rows.Count(r => r.Status == "PRESENT"),
             rows.Count(r => r.Status == "ABSENT"),
+            rows.Count(r => r.Status == "NOT YET"),
             pendingShiftDays,
             absentIncluded,
             rows);

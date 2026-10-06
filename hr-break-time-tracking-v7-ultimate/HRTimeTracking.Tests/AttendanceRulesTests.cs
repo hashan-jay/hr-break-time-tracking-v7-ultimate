@@ -41,6 +41,15 @@ public class AttendanceRulesTests
     }
 
     [Fact]
+    public void NamedEmployee_KeepsUndecidedDayInTheRange()
+    {
+        Assert.Equal("PRESENT", AttendanceRules.ReportStatus(true, false, true));
+        Assert.Equal("ABSENT", AttendanceRules.ReportStatus(false, true, true));
+        Assert.Equal("NOT YET", AttendanceRules.ReportStatus(false, false, true));
+        Assert.Null(AttendanceRules.ReportStatus(false, false, false));
+    }
+
+    [Fact]
     public void Present_RequiresStartedAndEndedMealOrComfortBreak()
     {
         var period = Day(new DateTime(2026, 10, 7, 7, 0, 0), new DateTime(2026, 10, 7, 19, 0, 0));

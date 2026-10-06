@@ -26,10 +26,44 @@ export function absentNote(report) {
   return 'Absent names are included. Every shift in this range has reached its final hour or has ended.';
 }
 
-export function attendanceRowsForReport(report, showAbsentRows) {
+export function splitAttendanceRows(report) {
   const rows = report?.rows || [];
-  if (showAbsentRows) return rows;
-  return rows.filter((row) => row.status !== 'ABSENT');
+  return {
+    present: rows.filter((row) => row.status === 'PRESENT'),
+    notYet: rows.filter((row) => row.status === 'NOT YET'),
+    absent: rows.filter((row) => row.status === 'ABSENT'),
+  };
+}
+
+function attendanceRowHtml(row) {
+  return `<tr>
+        <td>${escapeHtml(row.date)}</td>
+        <td>${escapeHtml(row.employeeCode)}</td>
+        <td>${escapeHtml(row.employeeName)}</td>
+        <td>${escapeHtml(row.departmentName)}</td>
+        <td>${escapeHtml(row.shiftDisplay || row.shiftName || '—')}</td>
+        <td>${escapeHtml(row.breakSummary || '—')}</td>
+        <td>${escapeHtml(formatWhen(row.lastEndedAt))}</td>
+        <td class="${statusClass(row.statusColor)}">${escapeHtml(row.status)}</td>
+      </tr>`;
+}
+
+function attendanceTableHtml(title, rows, emptyMessage) {
+  const body = rows.length
+    ? rows.map(attendanceRowHtml).join('')
+    : `<tr><td colspan="8">${escapeHtml(emptyMessage)}</td></tr>`;
+  return `
+    <h3>${escapeHtml(title)}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>Code</th><th>Employee</th><th>Department</th><th>Shift</th>
+          <th>Breaks ended</th><th>Last ended</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody>${body}</tbody>
+    </table>
+  `;
 }
 
 /**
@@ -45,21 +79,20 @@ export function renderAttendanceReportHtml(report, filters, options = {}) {
   const note = absentNote(report);
   const presentCount = report.presentCount ?? 0;
   const absentCount = report.absentCount ?? 0;
+  const notYetCount = report.notYetCount ?? 0;
   const recordNote = showAbsentRows
-    ? 'Absent records are listed below.'
+    ? 'Present people are in the first table. Absent people are in the table below. A selected employee has one row for every day in the range.'
     : 'Absent records are hidden. The absent count above still includes them.';
-  const rows = attendanceRowsForReport(report, showAbsentRows)
-    .map((row) => `<tr>
-        <td>${escapeHtml(row.date)}</td>
-        <td>${escapeHtml(row.employeeCode)}</td>
-        <td>${escapeHtml(row.employeeName)}</td>
-        <td>${escapeHtml(row.departmentName)}</td>
-        <td>${escapeHtml(row.shiftDisplay || row.shiftName || '—')}</td>
-        <td>${escapeHtml(row.breakSummary || '—')}</td>
-        <td>${escapeHtml(formatWhen(row.lastEndedAt))}</td>
-        <td class="${statusClass(row.statusColor)}">${escapeHtml(row.status)}</td>
-      </tr>`)
-    .join('');
+  const { present, notYet, absent } = splitAttendanceRows(report);
+  const tables = [
+    attendanceTableHtml('Present', present, 'No present people for the selected filters.'),
+    notYet.length
+      ? attendanceTableHtml('Not yet', notYet, 'No days are still waiting on the shift.')
+      : '',
+    showAbsentRows
+      ? attendanceTableHtml('Absent', absent, 'No absent people for the shifts that have reached their final hour.')
+      : '',
+  ].join('');
 
   return `
     <h1>HR Break Time Tracking</h1>
@@ -73,27 +106,18 @@ export function renderAttendanceReportHtml(report, filters, options = {}) {
       <div><span>Employee</span><strong>${escapeHtml(empLabel)}</strong></div>
       <div><span>Present</span><strong>${presentCount}</strong></div>
       <div><span>Absent</span><strong>${absentCount}</strong></div>
+      <div><span>Not yet</span><strong>${notYetCount}</strong></div>
       <div><span>Absent records</span><strong>${showAbsentRows ? 'Shown' : 'Hidden'}</strong></div>
     </div>
     <div class="kpis">
       <div class="kpi"><strong>${presentCount}</strong><span>PRESENT</span></div>
       <div class="kpi"><strong>${absentCount}</strong><span>ABSENT</span></div>
+      <div class="kpi"><strong>${notYetCount}</strong><span>NOT YET</span></div>
     </div>
     <p>${escapeHtml(note)} ${escapeHtml(recordNote)} Present means a meal or comfort break was started and ended on that shift.</p>
-    <h3>Attendance</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th><th>Code</th><th>Employee</th><th>Department</th><th>Shift</th>
-          <th>Breaks ended</th><th>Last ended</th><th>Status</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${rows || `<tr><td colspan="8">${showAbsentRows ? 'No attendance rows for the selected filters.' : 'Absent records are hidden. Present and absent counts are shown above.'}</td></tr>`}
-      </tbody>
-    </table>
+    ${tables}
     <div class="footer">
-      Present: ${presentCount} · Absent: ${absentCount}.
+      Present: ${presentCount} · Absent: ${absentCount} · Not yet: ${notYetCount}.
       ${escapeHtml(recordNote)}
       ${escapeHtml(note)}
       A completed meal or comfort break marks the employee present for that shift day.

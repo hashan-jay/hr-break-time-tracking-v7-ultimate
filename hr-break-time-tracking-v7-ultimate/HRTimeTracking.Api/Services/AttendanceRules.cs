@@ -35,6 +35,18 @@ public static class AttendanceRules
     }
 
     /// <summary>
+    /// Day status for a report row. A named employee's unfinished day stays in the
+    /// range as NOT YET instead of being omitted or marked absent early.
+    /// </summary>
+    public static string? ReportStatus(bool isPresent, bool showAbsent, bool includePendingDay)
+    {
+        if (isPresent) return "PRESENT";
+        if (showAbsent) return "ABSENT";
+        if (includePendingDay) return "NOT YET";
+        return null;
+    }
+
+    /// <summary>
     /// Absent is visible only in the last hour of the shift, and after the shift has ended.
     /// Before the shift starts (including a future date) it stays hidden.
     /// </summary>

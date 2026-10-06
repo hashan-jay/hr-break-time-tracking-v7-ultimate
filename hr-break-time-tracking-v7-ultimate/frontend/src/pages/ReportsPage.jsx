@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
 import { StatusBadge } from '../components/UiBits';
 import { renderBreakReportHtml } from '../components/BreakReportDocument';
-import { absentNote, attendanceRowsForReport, renderAttendanceReportHtml } from '../components/AttendanceReportDocument';
+import { absentNote, splitAttendanceRows, renderAttendanceReportHtml } from '../components/AttendanceReportDocument';
 import { downloadHtmlReport, printHtmlReport } from '../lib/downloadReport';
 import { useFeedback } from '../feedback/FeedbackContext';
 
@@ -34,6 +34,60 @@ function formatWhen(value) {
 
 function csvText(value) {
   return `"${String(value ?? '').replaceAll('"', '""')}"`;
+}
+
+function attendanceCsvLines(rows) {
+  return rows.map((row) => [
+    row.date,
+    csvText(row.employeeCode),
+    csvText(row.employeeName),
+    csvText(row.departmentName),
+    csvText(row.shiftDisplay || row.shiftName || ''),
+    csvText(row.breakSummary || ''),
+    csvText(row.lastEndedAt ? formatWhen(row.lastEndedAt) : ''),
+    row.status,
+  ].join(','));
+}
+
+function AttendancePeopleTable({ title, rows, empty }) {
+  return (
+    <div className="attendance-table-block">
+      <h3>{title}</h3>
+      <div className="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Code</th>
+              <th>Employee</th>
+              <th>Department</th>
+              <th>Shift</th>
+              <th>Breaks ended</th>
+              <th>Last ended</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={`${row.date}-${row.shiftId}-${row.employeeId}`}>
+                <td>{row.date}</td>
+                <td>{row.employeeCode}</td>
+                <td>{row.employeeName}</td>
+                <td>{row.departmentName}</td>
+                <td>{row.shiftDisplay || row.shiftName || '—'}</td>
+                <td>{row.breakSummary || '—'}</td>
+                <td>{formatWhen(row.lastEndedAt)}</td>
+                <td><StatusBadge status={row.status} color={row.statusColor} /></td>
+              </tr>
+            ))}
+            {!rows.length && (
+              <tr><td colSpan={8} className="empty">{empty}</td></tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
 }
 
 export default function ReportsPage() {
@@ -166,24 +220,28 @@ export default function ReportsPage() {
     const presentCount = attendanceReport.presentCount ?? 0;
     const absentCount = attendanceReport.absentCount ?? 0;
     const header = ['Date', 'Code', 'Employee', 'Department', 'Shift', 'BreaksEnded', 'LastEnded', 'Status'];
-    const lines = attendanceRowsForReport(attendanceReport, showAbsentPeople).map((row) => [
-      row.date,
-      csvText(row.employeeCode),
-      csvText(row.employeeName),
-      csvText(row.departmentName),
-      csvText(row.shiftDisplay || row.shiftName || ''),
-      csvText(row.breakSummary || ''),
-      csvText(row.lastEndedAt ? formatWhen(row.lastEndedAt) : ''),
-      row.status,
-    ].join(','));
+    const { present, notYet, absent } = splitAttendanceRows(attendanceReport);
+    const notYetCount = attendanceReport.notYetCount ?? notYet.length;
+    const sections = [
+      'Present',
+      header.join(','),
+      ...attendanceCsvLines(present),
+    ];
+    if (notYet.length) {
+      sections.push('', 'NotYet', header.join(','), ...attendanceCsvLines(notYet));
+    }
+    if (showAbsentPeople) {
+      sections.push('', 'Absent', header.join(','), ...attendanceCsvLines(absent));
+    }
     const summary = [
       `Present,${presentCount}`,
       `Absent,${absentCount}`,
+      `NotYet,${notYetCount}`,
       `AbsentRecords,${showAbsentPeople ? 'Shown' : 'Hidden'}`,
       '',
     ];
     const blob = new Blob(
-      [[...summary, header.join(','), ...lines].join('\n')],
+      [[...summary, ...sections].join('\n')],
       { type: 'text/csv;charset=utf-8;' },
     );
     const url = URL.createObjectURL(blob);
@@ -231,7 +289,7 @@ export default function ReportsPage() {
 
   const printable = kind === 'attendance' ? attendanceReport : report;
   const exportable = kind === 'attendance' ? Boolean(attendanceReport) : report?.rows?.length;
-  const attendanceRows = attendanceRowsForReport(attendanceReport, showAbsentPeople);
+  const { present: presentRows, notYet: notYetRows, absent: absentRows } = splitAttendanceRows(attendanceReport);
   const attendanceHint = absentNote(attendanceReport);
 
   return (
@@ -349,6 +407,7 @@ export default function ReportsPage() {
               <h2>Attendance results</h2>
               <p className="list-panel__hint">
                 {attendanceHint}
+                {employeeId ? ' Every day in this range is listed for the selected employee. A day still before the final hour of that shift is Not yet, not Absent.' : ''}
                 {(attendanceReport.shiftDisplay || attendanceReport.shiftName || filters.shiftName) ? (
                   <> · Shift: <strong>{attendanceReport.shiftDisplay || attendanceReport.shiftName || filters.shiftName}</strong></>
                 ) : <> · Shift: <strong>All shifts</strong></>}
@@ -376,6 +435,10 @@ export default function ReportsPage() {
                 <span>Absent</span>
                 <strong>{attendanceReport.absentCount ?? 0}</strong>
               </span>
+              <span className="header-stat-tile">
+                <span>Not yet</span>
+                <strong>{attendanceReport.notYetCount ?? notYetRows.length}</strong>
+              </span>
             </div>
           </header>
 
@@ -388,47 +451,31 @@ export default function ReportsPage() {
               <div className="stat-value">{attendanceReport.absentCount ?? 0}</div>
               <div className="stat-label">ABSENT</div>
             </div>
+            <div className="stat-card">
+              <div className="stat-value">{attendanceReport.notYetCount ?? notYetRows.length}</div>
+              <div className="stat-label">NOT YET</div>
+            </div>
           </div>
 
-          <div className="table-wrap no-print">
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Code</th>
-                  <th>Employee</th>
-                  <th>Department</th>
-                  <th>Shift</th>
-                  <th>Breaks ended</th>
-                  <th>Last ended</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {attendanceRows.map((row) => (
-                  <tr key={`${row.date}-${row.shiftId}-${row.employeeId}`}>
-                    <td>{row.date}</td>
-                    <td>{row.employeeCode}</td>
-                    <td>{row.employeeName}</td>
-                    <td>{row.departmentName}</td>
-                    <td>{row.shiftDisplay || row.shiftName || '—'}</td>
-                    <td>{row.breakSummary || '—'}</td>
-                    <td>{formatWhen(row.lastEndedAt)}</td>
-                    <td><StatusBadge status={row.status} color={row.statusColor} /></td>
-                  </tr>
-                ))}
-                {!attendanceRows.length && (
-                  <tr>
-                    <td colSpan={8} className="empty">
-                      {showAbsentPeople || !attendanceReport.rows?.length
-                        ? 'No attendance rows for the selected filters.'
-                        : 'Absent records are hidden. Present and absent counts stay above.'}
-                    </td>
-                  </tr>
-                )}
-              </tbody>
-            </table>
-          </div>
+          <AttendancePeopleTable
+            title="Present"
+            rows={presentRows}
+            empty="No present people for the selected filters."
+          />
+          {notYetRows.length > 0 && (
+            <AttendancePeopleTable
+              title="Not yet"
+              rows={notYetRows}
+              empty="No days are still waiting on the shift."
+            />
+          )}
+          {showAbsentPeople && (
+            <AttendancePeopleTable
+              title="Absent"
+              rows={absentRows}
+              empty="No absent people for the shifts that have reached their final hour."
+            />
+          )}
         </section>
       )}
 
