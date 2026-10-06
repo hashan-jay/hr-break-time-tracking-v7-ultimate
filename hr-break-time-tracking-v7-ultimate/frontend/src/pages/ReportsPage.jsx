@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
 import { StatusBadge } from '../components/UiBits';
 import { renderBreakReportHtml } from '../components/BreakReportDocument';
-import { absentNote, renderAttendanceReportHtml } from '../components/AttendanceReportDocument';
+import { absentNote, attendanceRowsForReport, renderAttendanceReportHtml } from '../components/AttendanceReportDocument';
 import { downloadHtmlReport, printHtmlReport } from '../lib/downloadReport';
 import { useFeedback } from '../feedback/FeedbackContext';
 
@@ -49,6 +49,7 @@ export default function ReportsPage() {
   const [report, setReport] = useState(null);
   const [attendanceReport, setAttendanceReport] = useState(null);
   const [kind, setKind] = useState('breaks');
+  const [showAbsentPeople, setShowAbsentPeople] = useState(true);
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
@@ -161,9 +162,11 @@ export default function ReportsPage() {
   };
 
   const exportAttendanceCsv = () => {
-    if (!attendanceReport?.rows?.length) return;
+    if (!attendanceReport) return;
+    const presentCount = attendanceReport.presentCount ?? 0;
+    const absentCount = attendanceReport.absentCount ?? 0;
     const header = ['Date', 'Code', 'Employee', 'Department', 'Shift', 'BreaksEnded', 'LastEnded', 'Status'];
-    const lines = attendanceReport.rows.map((row) => [
+    const lines = attendanceRowsForReport(attendanceReport, showAbsentPeople).map((row) => [
       row.date,
       csvText(row.employeeCode),
       csvText(row.employeeName),
@@ -173,7 +176,22 @@ export default function ReportsPage() {
       csvText(row.lastEndedAt ? formatWhen(row.lastEndedAt) : ''),
       row.status,
     ].join(','));
-    downloadCsv(`attendance-report-${from}-to-${to || from}.csv`, header, lines);
+    const summary = [
+      `Present,${presentCount}`,
+      `Absent,${absentCount}`,
+      `AbsentRecords,${showAbsentPeople ? 'Shown' : 'Hidden'}`,
+      '',
+    ];
+    const blob = new Blob(
+      [[...summary, header.join(','), ...lines].join('\n')],
+      { type: 'text/csv;charset=utf-8;' },
+    );
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `attendance-report-${from}-to-${to || from}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
   };
 
   const exportCsv = () => {
@@ -186,7 +204,7 @@ export default function ReportsPage() {
       ? `attendance-report-${from}-to-${to || from}`
       : `break-report-${from}-to-${to || from}`;
     const html = kind === 'attendance'
-      ? (attendanceReport ? renderAttendanceReportHtml(attendanceReport, filters) : null)
+      ? (attendanceReport ? renderAttendanceReportHtml(attendanceReport, filters, { showAbsentRows: showAbsentPeople }) : null)
       : (report ? renderBreakReportHtml(report, filters) : null);
     if (!html) return;
     const opened = printHtmlReport(title, html);
@@ -200,7 +218,7 @@ export default function ReportsPage() {
       if (!attendanceReport) return;
       downloadHtmlReport(
         `attendance-report-${from}-to-${to || from}.html`,
-        renderAttendanceReportHtml(attendanceReport, filters),
+        renderAttendanceReportHtml(attendanceReport, filters, { showAbsentRows: showAbsentPeople }),
       );
       return;
     }
@@ -212,7 +230,8 @@ export default function ReportsPage() {
   };
 
   const printable = kind === 'attendance' ? attendanceReport : report;
-  const exportable = kind === 'attendance' ? attendanceReport?.rows?.length : report?.rows?.length;
+  const exportable = kind === 'attendance' ? Boolean(attendanceReport) : report?.rows?.length;
+  const attendanceRows = attendanceRowsForReport(attendanceReport, showAbsentPeople);
   const attendanceHint = absentNote(attendanceReport);
 
   return (
@@ -325,7 +344,7 @@ export default function ReportsPage() {
 
       {kind === 'attendance' && attendanceReport && (
         <section className="staff-results headlines-card no-print">
-          <header className="list-panel__head">
+          <header className="list-panel__head attendance-results__head">
             <div>
               <h2>Attendance results</h2>
               <p className="list-panel__hint">
@@ -337,10 +356,27 @@ export default function ReportsPage() {
                 {filters.employeeName ? <> · Employee: <strong>{filters.employeeName}</strong></> : null}
               </p>
             </div>
-            <span className="header-stat-tile">
-              <span>Present</span>
-              <strong>{attendanceReport.presentCount ?? 0}</strong>
-            </span>
+            <div className="attendance-results__tools">
+              <label className="absent-switch">
+                <input
+                  type="checkbox"
+                  role="switch"
+                  checked={showAbsentPeople}
+                  onChange={(event) => setShowAbsentPeople(event.target.checked)}
+                  aria-label="Show absent people"
+                />
+                <span className="absent-switch__track" aria-hidden="true" />
+                <span className="absent-switch__label">Show absent</span>
+              </label>
+              <span className="header-stat-tile">
+                <span>Present</span>
+                <strong>{attendanceReport.presentCount ?? 0}</strong>
+              </span>
+              <span className="header-stat-tile">
+                <span>Absent</span>
+                <strong>{attendanceReport.absentCount ?? 0}</strong>
+              </span>
+            </div>
           </header>
 
           <div className="stats-grid compact no-print">
@@ -349,7 +385,7 @@ export default function ReportsPage() {
               <div className="stat-label">PRESENT</div>
             </div>
             <div className="stat-card tone-red">
-              <div className="stat-value">{attendanceReport.absentIncluded ? (attendanceReport.absentCount ?? 0) : 'Hidden'}</div>
+              <div className="stat-value">{attendanceReport.absentCount ?? 0}</div>
               <div className="stat-label">ABSENT</div>
             </div>
           </div>
@@ -369,7 +405,7 @@ export default function ReportsPage() {
                 </tr>
               </thead>
               <tbody>
-                {attendanceReport.rows.map((row) => (
+                {attendanceRows.map((row) => (
                   <tr key={`${row.date}-${row.shiftId}-${row.employeeId}`}>
                     <td>{row.date}</td>
                     <td>{row.employeeCode}</td>
@@ -381,8 +417,14 @@ export default function ReportsPage() {
                     <td><StatusBadge status={row.status} color={row.statusColor} /></td>
                   </tr>
                 ))}
-                {!attendanceReport.rows.length && (
-                  <tr><td colSpan={8} className="empty">No attendance rows for the selected filters.</td></tr>
+                {!attendanceRows.length && (
+                  <tr>
+                    <td colSpan={8} className="empty">
+                      {showAbsentPeople || !attendanceReport.rows?.length
+                        ? 'No attendance rows for the selected filters.'
+                        : 'Absent records are hidden. Present and absent counts stay above.'}
+                    </td>
+                  </tr>
                 )}
               </tbody>
             </table>
