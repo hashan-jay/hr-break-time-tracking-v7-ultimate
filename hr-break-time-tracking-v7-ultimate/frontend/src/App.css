@@ -4885,6 +4885,377 @@ html[data-theme="dark"] .login-ig__back:hover {
 .settings-shift-head .btn {
   flex-shrink: 0;
 }
+
+.shift-limits {
+  gap: 0.9rem;
+}
+
+.shift-limits__head {
+  margin-bottom: 0;
+  align-items: center;
+}
+
+.shift-limits__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem 0.55rem;
+}
+
+.shift-limits .settings-section-title {
+  margin: 0;
+}
+
+.shift-limits .hint {
+  margin: 0.4rem 0 0;
+  max-width: 46rem;
+  line-height: 1.45;
+}
+
+.shift-limits__status {
+  display: inline-flex;
+  align-items: center;
+  height: 1.55rem;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.shift-limits__status {
+  gap: 0.38rem;
+  text-transform: uppercase;
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.shift-limits__status.is-active {
+  background: #dcfce7;
+  color: #14542d;
+}
+
+.shift-limits__status.is-active::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+
+.shift-limits__save-all,
+.shift-limits__save {
+  border-radius: 999px;
+}
+
+.shift-limits__save {
+  padding: 0.38rem 0.85rem;
+  font-size: 0.8rem;
+}
+
+.shift-limits__table {
+  overflow: auto;
+  border: 1px solid #e3ebe6;
+  border-radius: 16px;
+  background: #fbfcfb;
+}
+
+.shift-limits table {
+  min-width: 820px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.shift-limits th,
+.shift-limits td {
+  border-bottom: 1px solid #e7eeea;
+  padding: 0.72rem 0.8rem;
+}
+
+.staff-console-page .shift-limits th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f6f8f7;
+  color: #5d6b64;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.shift-limits th:first-child,
+.shift-limits td.shift-limits__dept {
+  text-align: left;
+}
+
+.shift-limits tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.shift-limits tbody tr.is-deleted {
+  background: transparent;
+  color: inherit;
+}
+
+.shift-limits__kicker {
+  display: block;
+  margin-bottom: 0.12rem;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.staff-console-page .shift-limits th.shift-limits__col--meal,
+.staff-console-page .shift-limits td.shift-limits__cell--meal {
+  background: rgba(183, 121, 31, 0.06);
+}
+
+.shift-limits__col--meal .shift-limits__kicker {
+  color: #9a6708;
+}
+
+.staff-console-page .shift-limits th.shift-limits__col--comfort,
+.staff-console-page .shift-limits td.shift-limits__cell--comfort {
+  background: rgba(15, 107, 92, 0.06);
+}
+
+.shift-limits__col--comfort .shift-limits__kicker {
+  color: #0f6b5c;
+}
+
+.shift-limits__col--split,
+.shift-limits__cell--split {
+  box-shadow: inset 1px 0 0 #e3ebe6;
+}
+
+.staff-console-page .shift-limits tbody tr:hover td {
+  background-color: rgba(20, 84, 45, 0.045);
+}
+
+.staff-console-page .shift-limits tbody tr:hover td.shift-limits__cell--meal {
+  background: rgba(183, 121, 31, 0.13);
+}
+
+.staff-console-page .shift-limits tbody tr:hover td.shift-limits__cell--comfort {
+  background: rgba(15, 107, 92, 0.12);
+}
+
+.shift-limits__name {
+  font-weight: 650;
+  color: #1c2a24;
+}
+
+.shift-limits__tag {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.12rem 0.45rem;
+  border-radius: 999px;
+  background: #fdeceb;
+  color: #b42318;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 1px;
+}
+
+.shift-limits__count {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: #eef3f0;
+  color: #1c2a24;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.shift-limits__cell,
+.shift-limits__people {
+  text-align: center;
+}
+
+.shift-limits__action {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.shift-limits__input {
+  width: 4.6rem;
+  height: 2.15rem;
+  padding: 0 0.35rem;
+  border: 1px solid #d7e0db;
+  border-radius: 10px;
+  background: #fff;
+  color: #1c2a24;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.shift-limits__input::-webkit-outer-spin-button,
+.shift-limits__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.shift-limits__input--meal {
+  border-color: #ead7b0;
+  background: #fffdf8;
+}
+
+.shift-limits__input--comfort {
+  border-color: #c5e4de;
+  background: #f7fffd;
+}
+
+.shift-limits__input:focus {
+  outline: none;
+  border-color: #14542d;
+  box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
+}
+
+.shift-limits tbody tr.is-deleted .shift-limits__name {
+  color: #64748b;
+}
+
+.shift-limits tbody tr.is-deleted .shift-limits__input {
+  opacity: 0.8;
+}
+
+html[data-theme="dark"] .shift-limits .hint {
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .shift-limits__status {
+  background: #262626;
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .shift-limits__status.is-active {
+  background: rgba(20, 84, 45, 0.72);
+  color: #86efac;
+}
+
+html[data-theme="dark"] .shift-limits__status.is-active::before {
+  background: #86efac;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.16);
+}
+
+html[data-theme="dark"] .shift-limits__table {
+  border-color: #2e2e2e;
+  background: #161616;
+}
+
+html[data-theme="dark"] .shift-limits th,
+html[data-theme="dark"] .shift-limits td {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits th {
+  background: #1b1b1b;
+  color: #d4d4d4;
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits th.shift-limits__col--meal,
+html[data-theme="dark"] .staff-console-page .shift-limits td.shift-limits__cell--meal {
+  background: rgba(232, 184, 74, 0.08);
+}
+
+html[data-theme="dark"] .shift-limits__col--meal .shift-limits__kicker {
+  color: #e8b84a;
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits th.shift-limits__col--comfort,
+html[data-theme="dark"] .staff-console-page .shift-limits td.shift-limits__cell--comfort {
+  background: rgba(45, 212, 191, 0.08);
+}
+
+html[data-theme="dark"] .shift-limits__col--comfort .shift-limits__kicker {
+  color: #5eead4;
+}
+
+html[data-theme="dark"] .shift-limits__col--split,
+html[data-theme="dark"] .shift-limits__cell--split {
+  box-shadow: inset 1px 0 0 rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits tbody tr:hover td {
+  background-color: rgba(134, 239, 172, 0.06);
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits tbody tr:hover td.shift-limits__cell--meal {
+  background: rgba(232, 184, 74, 0.16);
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits tbody tr:hover td.shift-limits__cell--comfort {
+  background: rgba(45, 212, 191, 0.16);
+}
+
+html[data-theme="dark"] .staff-console-page .shift-limits tbody tr.is-deleted:hover td {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="dark"] .shift-limits__name {
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .shift-limits tbody tr.is-deleted {
+  background: transparent;
+  color: inherit;
+}
+
+html[data-theme="dark"] .shift-limits tbody tr.is-deleted .shift-limits__name {
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .shift-limits tbody tr.is-deleted:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="dark"] .shift-limits__tag {
+  background: rgba(220, 38, 38, 0.18);
+  color: #fca5a5;
+}
+
+html[data-theme="dark"] .shift-limits__count {
+  background: #262626;
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .shift-limits .shift-limits__input {
+  background: #262626;
+  border-color: #3a3a3a;
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .shift-limits .shift-limits__input--meal {
+  background: #241e14;
+  border-color: rgba(232, 184, 74, 0.38);
+}
+
+html[data-theme="dark"] .shift-limits .shift-limits__input--comfort {
+  background: #10211f;
+  border-color: rgba(45, 212, 191, 0.34);
+}
+
+html[data-theme="dark"] .shift-limits .shift-limits__input:focus {
+  border-color: #86efac;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.16);
+}
 .perm-panel { margin-bottom: 1.25rem; }
 .perm-role-row {
   display: grid;

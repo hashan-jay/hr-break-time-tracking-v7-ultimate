@@ -278,20 +278,23 @@ export default function SettingsPage() {
       )}
 
       {listView === 'shifts' && shiftGroups.map((group) => (
-        <section className="settings-list" key={group.shiftId}>
-          <div className="settings-shift-head">
+        <section className="settings-list shift-limits" key={group.shiftId}>
+          <div className="settings-shift-head shift-limits__head">
             <div>
-              <h2 className="settings-section-title">{group.shiftDisplay}</h2>
+              <div className="shift-limits__title">
+                <h2 className="settings-section-title">{group.shiftDisplay}</h2>
+                <span className={`shift-limits__status${group.isActive ? ' is-active' : ''}`}>
+                  {group.isActive ? 'Active' : 'Inactive'}
+                </span>
+              </div>
               <p className="hint">
-                {group.isActive ? 'Active shift' : 'Inactive shift'} · {group.startTime} – {group.endTime}
-                {group.spansNextDay ? ' (+1)' : ''}. Set Meal/Comfort start counts and duration limits
-                for each department on this shift. Example: Data Team Meal starts 2 on Day shift and
-                5 on Night shift.
+                Set meal and comfort start counts and duration limits for each department on this shift.
+                Example: Data Team meal starts 2 on Day shift and 5 on Night shift.
               </p>
             </div>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary shift-limits__save-all"
               disabled={savingShiftId === group.shiftId || group.departments.length === 0}
               onClick={() => saveShiftGroup(group)}
             >
@@ -299,32 +302,46 @@ export default function SettingsPage() {
             </button>
           </div>
 
-          <div className="table-wrap">
+          <div className="shift-limits__table">
             <table>
               <thead>
                 <tr>
                   <th>Department</th>
                   <th>Employees</th>
-                  <th>Meal starts / shift</th>
-                  <th>Comfort starts / shift</th>
-                  <th>Meal limit (min)</th>
-                  <th>Comfort limit (min)</th>
-                  <th></th>
+                  <th className="shift-limits__col shift-limits__col--meal">
+                    <span className="shift-limits__kicker">Meal</span>
+                    Starts
+                  </th>
+                  <th className="shift-limits__col shift-limits__col--meal">
+                    <span className="shift-limits__kicker">Meal</span>
+                    Minutes
+                  </th>
+                  <th className="shift-limits__col shift-limits__col--comfort shift-limits__col--split">
+                    <span className="shift-limits__kicker">Comfort</span>
+                    Starts
+                  </th>
+                  <th className="shift-limits__col shift-limits__col--comfort">
+                    <span className="shift-limits__kicker">Comfort</span>
+                    Minutes
+                  </th>
+                  <th className="shift-limits__action" aria-label="Save row" />
                 </tr>
               </thead>
               <tbody>
                 {group.departments.map((row) => {
                   const key = rowKey(row.shiftId, row.departmentId);
                   return (
-                    <tr key={key} className={row.departmentIsDeleted ? 'is-muted' : ''}>
-                      <td className="col-name">
-                        {row.departmentName}
-                        {row.departmentIsDeleted ? ' (deleted)' : ''}
+                    <tr key={key} className={row.departmentIsDeleted ? 'is-deleted' : ''}>
+                      <td className="shift-limits__dept">
+                        <span className="shift-limits__name">{row.departmentName}</span>
+                        {row.departmentIsDeleted && <span className="shift-limits__tag">Deleted</span>}
                       </td>
-                      <td>{row.employeeCount}</td>
-                      <td>
+                      <td className="shift-limits__people">
+                        <span className="shift-limits__count">{row.employeeCount}</span>
+                      </td>
+                      <td className="shift-limits__cell shift-limits__cell--meal">
                         <input
-                          className="dept-limit-input"
+                          className="shift-limits__input shift-limits__input--meal"
                           type="number"
                           min={1}
                           max={20}
@@ -333,20 +350,9 @@ export default function SettingsPage() {
                           aria-label={`${row.departmentName} meal start limit on ${group.shiftName}`}
                         />
                       </td>
-                      <td>
+                      <td className="shift-limits__cell shift-limits__cell--meal">
                         <input
-                          className="dept-limit-input"
-                          type="number"
-                          min={1}
-                          max={20}
-                          value={row.comfortStartLimit}
-                          onChange={(e) => updateShiftDeptLocal(row.shiftId, row.departmentId, 'comfortStartLimit', e.target.value)}
-                          aria-label={`${row.departmentName} comfort start limit on ${group.shiftName}`}
-                        />
-                      </td>
-                      <td>
-                        <input
-                          className="dept-limit-input"
+                          className="shift-limits__input shift-limits__input--meal"
                           type="number"
                           min={1}
                           max={240}
@@ -355,9 +361,20 @@ export default function SettingsPage() {
                           aria-label={`${row.departmentName} meal duration on ${group.shiftName}`}
                         />
                       </td>
-                      <td>
+                      <td className="shift-limits__cell shift-limits__cell--comfort shift-limits__cell--split">
                         <input
-                          className="dept-limit-input"
+                          className="shift-limits__input shift-limits__input--comfort"
+                          type="number"
+                          min={1}
+                          max={20}
+                          value={row.comfortStartLimit}
+                          onChange={(e) => updateShiftDeptLocal(row.shiftId, row.departmentId, 'comfortStartLimit', e.target.value)}
+                          aria-label={`${row.departmentName} comfort start limit on ${group.shiftName}`}
+                        />
+                      </td>
+                      <td className="shift-limits__cell shift-limits__cell--comfort">
+                        <input
+                          className="shift-limits__input shift-limits__input--comfort"
                           type="number"
                           min={1}
                           max={240}
@@ -366,10 +383,10 @@ export default function SettingsPage() {
                           aria-label={`${row.departmentName} comfort duration on ${group.shiftName}`}
                         />
                       </td>
-                      <td>
+                      <td className="shift-limits__action">
                         <button
                           type="button"
-                          className="btn btn-primary"
+                          className="btn btn-primary shift-limits__save"
                           disabled={savingKey === key || savingShiftId === group.shiftId}
                           onClick={() => saveShiftDept(row)}
                         >
@@ -381,7 +398,7 @@ export default function SettingsPage() {
                 })}
                 {group.departments.length === 0 && (
                   <tr>
-                    <td colSpan={7}>No departments found. Create departments first.</td>
+                    <td className="empty" colSpan={7}>No departments found. Create departments first.</td>
                   </tr>
                 )}
               </tbody>
