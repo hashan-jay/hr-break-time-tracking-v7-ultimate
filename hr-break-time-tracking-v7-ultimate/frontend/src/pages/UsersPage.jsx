@@ -158,26 +158,30 @@ export default function UsersPage() {
           Passcodes), then save. Login password reset for staff accounts remains Developer-only on this page.
         </p>
         {roleDefaults.map((row) => (
-          <div className="perm-role-row" key={row.role}>
-            <div>
-              <strong>{row.roleLabel}</strong>
-              <div className="muted">{row.locked ? 'Full access (cannot be reduced)' : 'Tick the sections this role should receive by default'}</div>
+          <div className={`perm-role-row${row.locked ? ' is-locked' : ''}`} key={row.role}>
+            <div className="perm-role-row__head">
+              <div>
+                <strong>{row.roleLabel}</strong>
+                <div className="muted">{row.locked ? 'Full access cannot be reduced' : 'Tick the sections this role should receive by default'}</div>
+              </div>
+              {row.locked ? (
+                <span className="perm-role-row__lock">Full access</span>
+              ) : (
+                <button
+                  type="button"
+                  className="btn btn-primary perm-role-row__save"
+                  disabled={savingRole === row.role}
+                  onClick={() => saveRole(row)}
+                >
+                  {savingRole === row.role ? 'Saving…' : 'Save defaults'}
+                </button>
+              )}
             </div>
             <SectionChecks
               values={row.sections || []}
               disabled={row.locked}
               onToggle={(key) => updateRoleLocal(row.role, key)}
             />
-            {!row.locked && (
-              <button
-                type="button"
-                className="btn btn-primary"
-                disabled={savingRole === row.role}
-                onClick={() => saveRole(row)}
-              >
-                {savingRole === row.role ? 'Saving…' : 'Save defaults'}
-              </button>
-            )}
           </div>
         ))}
       </section>
