@@ -170,16 +170,16 @@ export default function AuditPage() {
         </div>
       </header>
 
-      <div className="toolbar report-filters no-print">
-        <label>
-          From
+      <div className="audit-filters no-print">
+        <label className="audit-filters__field">
+          <span>From</span>
           <input type="date" value={from} onChange={(e) => setFrom(e.target.value)} />
         </label>
-        <label>
-          To
+        <label className="audit-filters__field">
+          <span>To</span>
           <input type="date" value={to} onChange={(e) => setTo(e.target.value)} />
         </label>
-        <button type="button" className="btn btn-primary" onClick={load} disabled={busy}>
+        <button type="button" className="btn btn-primary audit-filters__submit" onClick={load} disabled={busy}>
           {busy ? 'Generating…' : 'Generate'}
         </button>
       </div>
