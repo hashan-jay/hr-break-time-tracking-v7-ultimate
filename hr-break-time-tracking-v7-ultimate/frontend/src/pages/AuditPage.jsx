@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
+import AuditDetails from '../components/AuditDetails';
 import { renderAuditReportHtml } from '../components/AuditReportDocument';
 import { downloadHtmlReport, printHtmlReport } from '../lib/downloadReport';
 import { useFeedback } from '../feedback/FeedbackContext';
@@ -22,17 +23,52 @@ function parseLocalDateTime(value) {
 }
 
 function formatWhen(value) {
+  const parts = formatWhenParts(value);
+  if (!parts) return '—';
+  return `${parts.date}, ${parts.time}`;
+}
+
+function formatWhenParts(value) {
   const d = parseLocalDateTime(value);
-  if (!d) return '—';
-  return d.toLocaleString(undefined, {
-    year: 'numeric',
-    month: 'short',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false,
-  });
+  if (!d) return null;
+  return {
+    date: d.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: '2-digit' }),
+    time: d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+  };
+}
+
+const ENTITY_LABELS = {
+  ShiftDepartmentBreakLimit: 'Shift limits',
+  DepartmentStartLimits: 'Start limits',
+  SystemSetting: 'Setting',
+  BreakSession: 'Break',
+  BreakTimeAdjustment: 'Time adjustment',
+  RolePermission: 'Role access',
+  UserPermission: 'User access',
+};
+
+function entityLabel(entityType) {
+  return ENTITY_LABELS[entityType] || entityType || 'Record';
+}
+
+function actionTone(action) {
+  const text = String(action || '').toLowerCase();
+  if (text.includes('delete') || text.includes('deactivat') || text.includes('reset')) return 'danger';
+  if (text.includes('login') || text.includes('create') || text.includes('recover') || text.includes('activat')) return 'good';
+  if (text.includes('break')) return 'time';
+  if (text.includes('update') || text.includes('adjust') || text.includes('password')) return 'change';
+  return 'neutral';
+}
+
+function WhenCell({ value }) {
+  const parts = formatWhenParts(value);
+  if (!parts) return <span className="audit-log__empty">—</span>;
+  return (
+    <span className="audit-log__when">
+      <span>{parts.date}</span>
+      <strong>{parts.time}</strong>
+    </span>
+  );
 }
 
 export default function AuditPage() {
@@ -140,7 +176,7 @@ export default function AuditPage() {
       </div>
 
       {report && (
-        <section className="staff-results headlines-card no-print">
+        <section className="staff-results headlines-card audit-results no-print">
           <header className="list-panel__head">
             <div>
               <h2>Audit results</h2>
@@ -148,10 +184,7 @@ export default function AuditPage() {
                 {report.from === report.to ? report.from : `${report.from} → ${report.to}`}
               </p>
             </div>
-            <span className="header-stat-tile">
-              <span>Entries</span>
-              <strong>{report.totalEntries}</strong>
-            </span>
+            <span className="passcodes-panel__count">{report.totalEntries}</span>
           </header>
           <div className="stats-grid compact no-print">
             <div className="stat-card">
@@ -173,34 +206,24 @@ export default function AuditPage() {
           </div>
 
           {!!report.actionCounts?.length && (
-            <div className="table-wrap no-print">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Action</th>
-                    <th>Count</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {report.actionCounts.map((item) => (
-                    <tr key={item.action}>
-                      <td>{item.action}</td>
-                      <td>{item.count}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="audit-actions" aria-label="Actions in this report">
+              {report.actionCounts.map((item) => (
+                <div key={item.action} className={`audit-actions__item audit-actions__item--${actionTone(item.action)}`}>
+                  <span>{item.action}</span>
+                  <strong>{item.count}</strong>
+                </div>
+              ))}
             </div>
           )}
 
-          <div className="table-wrap no-print">
+          <div className="audit-log">
             <table>
               <thead>
                 <tr>
                   <th>When</th>
                   <th>Employee</th>
-                  <th>Out time</th>
-                  <th>In time</th>
+                  <th>Out</th>
+                  <th>In</th>
                   <th>User</th>
                   <th>Action</th>
                   <th>Entity</th>
@@ -210,17 +233,27 @@ export default function AuditPage() {
               <tbody>
                 {report.rows.map((row) => (
                   <tr key={row.id}>
-                    <td>{formatWhen(row.createdAt)}</td>
-                    <td>{row.employeeName || '—'}</td>
-                    <td>{formatWhen(row.outTime)}</td>
-                    <td>{formatWhen(row.inTime)}</td>
-                    <td>{row.userName || row.userId || '—'}</td>
-                    <td>{row.action}</td>
-                    <td>
-                      {row.entityType}
-                      {row.entityId ? ` #${row.entityId}` : ''}
+                    <td><WhenCell value={row.createdAt} /></td>
+                    <td className="audit-log__employee">{row.employeeName || <span className="audit-log__empty">—</span>}</td>
+                    <td><WhenCell value={row.outTime} /></td>
+                    <td><WhenCell value={row.inTime} /></td>
+                    <td className="audit-log__who">
+                      <span className="audit-log__user">{row.userName || row.userId || '—'}</span>
+                      {row.ipAddress && <span className="audit-log__ip">{row.ipAddress}</span>}
                     </td>
-                    <td>{row.details || '—'}</td>
+                    <td>
+                      <span className={`audit-action audit-action--${actionTone(row.action)}`}>{row.action}</span>
+                    </td>
+                    <td className="audit-log__entity">
+                      <span>{entityLabel(row.entityType)}</span>
+                      <small>
+                        {row.entityType}
+                        {row.entityId ? ` #${row.entityId}` : ''}
+                      </small>
+                    </td>
+                    <td className="audit-log__details">
+                      <AuditDetails details={row.details} />
+                    </td>
                   </tr>
                 ))}
                 {!report.rows.length && (

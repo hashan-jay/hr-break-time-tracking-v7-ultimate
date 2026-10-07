@@ -247,6 +247,7 @@ public class SettingsService : ISettingsService
         if (isStartKey && (!int.TryParse(value, out var starts) || starts < BreakStatusCodes.MinStartLimit || starts > BreakStatusCodes.MaxStartLimit))
             return (false, $"Break start limit must be between {BreakStatusCodes.MinStartLimit} and {BreakStatusCodes.MaxStartLimit} times per shift.", null);
 
+        var previousValue = setting.Value;
         var trimmed = value.Trim();
         if (string.Equals(key, PortalWeatherKey, StringComparison.OrdinalIgnoreCase))
         {
@@ -273,7 +274,8 @@ public class SettingsService : ISettingsService
         }
 
         await _db.SaveChangesAsync();
-        await _audit.LogAsync(userId, "Update", "SystemSetting", setting.Id.ToString(), $"Updated setting '{key}' to '{value}'.");
+        await _audit.LogAsync(userId, "Update", "SystemSetting", setting.Id.ToString(),
+            $"Updated setting '{key}' from '{previousValue}' to '{trimmed}'.");
         await _liveUpdates.NotifyAsync("settings");
 
         return (true, null, new SystemSettingDto(setting.Id, setting.Key, setting.Value, setting.Description));
@@ -365,12 +367,14 @@ public class SettingsService : ISettingsService
         if (department is null) return (false, "Department not found.", null);
         if (department.IsDeleted) return (false, "This department is deleted. Recover it before editing start limits.", null);
 
+        var previousMealStarts = department.MealBreakStartLimit;
+        var previousComfortStarts = department.ComfortBreakStartLimit;
         department.MealBreakStartLimit = mealStartLimit;
         department.ComfortBreakStartLimit = comfortStartLimit;
         department.UpdatedAt = DateTime.UtcNow;
         await _db.SaveChangesAsync();
         await _audit.LogAsync(userId, "Update", "DepartmentStartLimits", department.Id.ToString(),
-            $"Updated start limits for '{department.Name}': Meal {mealStartLimit}, Comfort {comfortStartLimit}.");
+            $"Updated start limits for '{department.Name}': Meal starts {previousMealStarts} → {mealStartLimit}, Comfort starts {previousComfortStarts} → {comfortStartLimit}.");
         await _liveUpdates.NotifyAsync("settings");
 
         return (true, null, new DepartmentStartLimitDto(
@@ -555,6 +559,10 @@ public class SettingsService : ISettingsService
         if (row.Department.IsDeleted)
             return (false, "This department is deleted. Recover it before editing break limits.", null);
 
+        var previousMealStarts = row.MealBreakStartLimit;
+        var previousComfortStarts = row.ComfortBreakStartLimit;
+        var previousMealMinutes = row.MealBreakLimitMinutes;
+        var previousComfortMinutes = row.ComfortBreakLimitMinutes;
         row.MealBreakStartLimit = mealStartLimit;
         row.ComfortBreakStartLimit = comfortStartLimit;
         row.MealBreakLimitMinutes = mealLimitMinutes;
@@ -566,7 +574,7 @@ public class SettingsService : ISettingsService
             !e.IsDeleted && e.ShiftId == shiftId && e.DepartmentId == departmentId);
 
         await _audit.LogAsync(userId, "Update", "ShiftDepartmentBreakLimit", row.Id.ToString(),
-            $"Updated limits for '{row.Department.Name}' on shift '{row.Shift.Name}': Meal starts {mealStartLimit}, Comfort starts {comfortStartLimit}, Meal {mealLimitMinutes} min, Comfort {comfortLimitMinutes} min.");
+            $"Updated limits for '{row.Department.Name}' on shift '{row.Shift.Name}': Meal starts {previousMealStarts} → {mealStartLimit}, Comfort starts {previousComfortStarts} → {comfortStartLimit}, Meal {previousMealMinutes} min → {mealLimitMinutes} min, Comfort {previousComfortMinutes} min → {comfortLimitMinutes} min.");
         await _liveUpdates.NotifyAsync("settings");
 
         return (true, null, new ShiftDepartmentBreakLimitDto(
