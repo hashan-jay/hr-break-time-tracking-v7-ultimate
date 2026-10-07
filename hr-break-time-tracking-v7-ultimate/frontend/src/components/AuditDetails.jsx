@@ -44,6 +44,9 @@ function parseSegment(segment) {
   match = text.match(/^(.*?)\s+(.+?)\s*→\s*(.+)$/);
   if (match && match[1].length <= 42) return makeChange(match[1], match[2], match[3]);
 
+  match = text.match(/^Duration\s+(.+)$/i);
+  if (match) return makeChange('Duration', null, match[1]);
+
   match = text.match(/^(.*?)\s+(\d+)\s*min$/i);
   if (match) return makeChange(match[1], null, `${match[2]} min`);
 
@@ -80,9 +83,28 @@ function parseClause(clause) {
   return parseSegment(text);
 }
 
+function parseBreakDetails(text) {
+  const match = text.match(
+    /^Employee:\s*(.+?)\.\s*([A-Za-z]+)\s+out:\s*(.+?)\.\s*In(?:\s*\(([^)]*)\))?:\s*(.+?)(?:\.\s*Duration\s+(.+?))?\.?$/i,
+  );
+  if (!match) return null;
+  const [, employee, type, outAt, inNote, inAt, duration] = match;
+  return {
+    summary: `${employee.trim()} · ${type.trim()} break`,
+    changes: [
+      makeChange(`${type.trim()} out`, null, outAt.trim()),
+      makeChange(inNote ? `In (${inNote.trim()})` : 'In', null, inAt.trim()),
+      makeChange('Duration', null, (duration || '—').trim()),
+    ],
+  };
+}
+
 export function parseAuditDetails(raw) {
   const text = String(raw || '').trim();
   if (!text) return { summary: '', changes: [] };
+
+  const breakDetails = parseBreakDetails(text);
+  if (breakDetails) return breakDetails;
 
   const login = text.match(/^User '([^']+)' logged in\.?$/i);
   if (login) {
@@ -154,35 +176,31 @@ export default function AuditDetails({ details }) {
 
   return (
     <div className="audit-details" title={details || undefined}>
-      {parsed.summary && <p className="audit-details__summary">{parsed.summary}</p>}
-      {parsed.changes.length > 0 && (
-        <ul className="audit-details__changes">
-          {parsed.changes.map((change, index) => (
-            <li
-              key={`${change.label}-${change.to}-${index}`}
-              className={[
-                'audit-change',
-                `audit-change--${change.tone}`,
-                change.changed ? 'is-changed' : '',
-                change.same ? 'is-same' : '',
-              ].filter(Boolean).join(' ')}
-            >
-              <span className="audit-change__label">{change.label}</span>
-              <span className="audit-change__values">
-                {change.changed && (
-                  <>
-                    <span className="audit-change__from">{change.from}</span>
-                    <span className="audit-change__arrow" aria-hidden="true">→</span>
-                  </>
-                )}
-                <span className="audit-change__to">{change.to || '—'}</span>
-              </span>
-              {change.changed && <span className="audit-change__flag">Changed</span>}
-              {change.same && <span className="audit-change__flag">Unchanged</span>}
-            </li>
-          ))}
-        </ul>
-      )}
+      <p className="audit-details__summary">{parsed.summary || 'Recorded change'}</p>
+      <ul className="audit-details__changes">
+        {(parsed.changes.length ? parsed.changes : [makeChange('Detail', null, '—')]).map((change, index) => (
+          <li
+            key={`${change.label}-${change.to}-${index}`}
+            className={[
+              'audit-change',
+              `audit-change--${change.tone}`,
+              change.changed ? 'is-changed' : '',
+              change.same ? 'is-same' : '',
+            ].filter(Boolean).join(' ')}
+          >
+            <span className="audit-change__label">{change.label}</span>
+            <span className="audit-change__values">
+              {change.changed && (
+                <>
+                  <span className="audit-change__from">{change.from}</span>
+                  <span className="audit-change__arrow" aria-hidden="true">→</span>
+                </>
+              )}
+              <span className="audit-change__to">{change.to || '—'}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }

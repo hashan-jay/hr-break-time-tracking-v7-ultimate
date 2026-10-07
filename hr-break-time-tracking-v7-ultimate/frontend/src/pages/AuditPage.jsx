@@ -62,7 +62,13 @@ function actionTone(action) {
 
 function WhenCell({ value }) {
   const parts = formatWhenParts(value);
-  if (!parts) return <span className="audit-log__empty">—</span>;
+  if (!parts) {
+    return (
+      <span className="audit-log__when is-empty">
+        <strong>—</strong>
+      </span>
+    );
+  }
   return (
     <span className="audit-log__when">
       <span>{parts.date}</span>
@@ -237,19 +243,23 @@ export default function AuditPage() {
                     <td className="audit-log__employee">{row.employeeName || <span className="audit-log__empty">—</span>}</td>
                     <td><WhenCell value={row.outTime} /></td>
                     <td><WhenCell value={row.inTime} /></td>
-                    <td className="audit-log__who">
-                      <span className="audit-log__user">{row.userName || row.userId || '—'}</span>
-                      {row.ipAddress && <span className="audit-log__ip">{row.ipAddress}</span>}
+                    <td>
+                      <div className="audit-log__who">
+                        <span className="audit-log__user">{row.userName || row.userId || '—'}</span>
+                        {row.ipAddress && <span className="audit-log__ip">{row.ipAddress}</span>}
+                      </div>
                     </td>
                     <td>
                       <span className={`audit-action audit-action--${actionTone(row.action)}`}>{row.action}</span>
                     </td>
-                    <td className="audit-log__entity">
-                      <span>{entityLabel(row.entityType)}</span>
-                      <small>
-                        {row.entityType}
-                        {row.entityId ? ` #${row.entityId}` : ''}
-                      </small>
+                    <td>
+                      <div className="audit-log__entity">
+                        <span>{entityLabel(row.entityType)}</span>
+                        <small>
+                          {row.entityType}
+                          {row.entityId ? ` #${row.entityId}` : ''}
+                        </small>
+                      </div>
                     </td>
                     <td className="audit-log__details">
                       <AuditDetails details={row.details} />
