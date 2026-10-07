@@ -7022,6 +7022,119 @@ html[data-theme="dark"] .portal-shell .break-type-focus.is-active {
   gap: 0.95rem;
 }
 
+.audit-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.audit-metric {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.7rem;
+  min-height: 6.5rem;
+  padding: 0.95rem 1rem 1rem;
+  border: 1px solid #e3ebe6;
+  border-radius: 16px;
+  background: #fbfcfb;
+}
+
+.audit-metric__label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #5d6b64;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.audit-metric__label::before {
+  content: "";
+  width: 0.48rem;
+  height: 0.48rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.18);
+}
+
+.audit-metric__value {
+  color: #1c2a24;
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.audit-metric__value--range {
+  font-size: 1.05rem;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+}
+
+.audit-metric--entries {
+  background: #f3faf6;
+  border-color: #c5e4de;
+}
+
+.audit-metric--entries .audit-metric__label::before {
+  background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+
+.audit-metric--entries .audit-metric__value {
+  color: #14542d;
+}
+
+.audit-metric--users {
+  background: #f8faff;
+  border-color: #d5def2;
+}
+
+.audit-metric--users .audit-metric__label::before {
+  background: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
+}
+
+.audit-metric--users .audit-metric__value {
+  color: #1d4e89;
+}
+
+.audit-metric--actions {
+  background: #fffdf8;
+  border-color: #ead7b0;
+}
+
+.audit-metric--actions .audit-metric__label::before {
+  background: #d97706;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.16);
+}
+
+.audit-metric--actions .audit-metric__value {
+  color: #9a6708;
+}
+
+.audit-metric--period .audit-metric__label::before {
+  background: #0f6b5c;
+  box-shadow: 0 0 0 3px rgba(15, 107, 92, 0.16);
+}
+
+@media (max-width: 980px) {
+  .audit-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .audit-metrics {
+    grid-template-columns: 1fr;
+  }
+}
+
 .audit-actions {
   display: flex;
   flex-wrap: wrap;
@@ -7061,6 +7174,12 @@ html[data-theme="dark"] .portal-shell .break-type-focus.is-active {
 .audit-actions__item--danger strong { background: #fdeceb; color: #b42318; }
 .audit-actions__item--time { border-color: #d5def2; background: #f8faff; }
 .audit-actions__item--time strong { background: #e7eef9; color: #1d4e89; }
+.audit-actions__item--breakout { border-color: #fdba74; background: #fff7ed; color: #c2410c; }
+.audit-actions__item--breakout strong { background: #ea580c; color: #fff; }
+.audit-actions__item--breakin { border-color: #d9f99d; background: #f7fee7; color: #3f6212; }
+.audit-actions__item--breakin strong { background: #a3e635; color: #1a2e05; }
+.audit-actions__item--passcodeset { border-color: rgba(127, 29, 29, 0.28); background: rgba(127, 29, 29, 0.1); color: #7f1d1d; }
+.audit-actions__item--passcodeset strong { background: #7f1d1d; color: #fff; }
 
 .audit-log {
   overflow: auto;
@@ -7184,6 +7303,13 @@ html[data-theme="dark"] .portal-shell .break-type-focus.is-active {
 .audit-action--good { background: #dcfce7; color: #14542d; }
 .audit-action--danger { background: #fdeceb; color: #b42318; }
 .audit-action--time { background: #e7eef9; color: #1d4e89; }
+.audit-action--breakout { background: #ffedd5; color: #c2410c; }
+.audit-action--breakin { background: #ecfccb; color: #3f6212; }
+.audit-action--passcodeset {
+  border: 1px solid rgba(127, 29, 29, 0.28);
+  background: rgba(127, 29, 29, 0.1);
+  color: #7f1d1d;
+}
 
 .audit-details {
   display: grid;
@@ -7295,6 +7421,28 @@ html[data-theme="dark"] .portal-shell .break-type-focus.is-active {
   color: #0f6b5c;
 }
 
+.audit-change--breakout {
+  background: #fff7ed;
+  border-color: #fdba74;
+}
+
+.audit-change--breakout .audit-change__label,
+.audit-change--breakout .audit-change__to,
+.audit-change--breakout .audit-change__values {
+  color: #c2410c;
+}
+
+.audit-change--breakin {
+  background: #f7fee7;
+  border-color: #d9f99d;
+}
+
+.audit-change--breakin .audit-change__label,
+.audit-change--breakin .audit-change__to,
+.audit-change--breakin .audit-change__values {
+  color: #3f6212;
+}
+
 .audit-change--danger {
   background: #fff8f7;
   border-color: #f3c7c3;
@@ -7338,10 +7486,66 @@ html[data-theme="dark"] .portal-shell .break-type-focus.is-active {
 
 html[data-theme="dark"] .audit-actions__item,
 html[data-theme="dark"] .audit-log,
-html[data-theme="dark"] .audit-change {
+html[data-theme="dark"] .audit-change,
+html[data-theme="dark"] .audit-metric {
   background: #161616;
   border-color: #2e2e2e;
   color: #f5f5f5;
+}
+
+html[data-theme="dark"] .audit-metric__label {
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .audit-metric__value {
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .audit-metric--entries {
+  background: rgba(20, 84, 45, 0.35);
+  border-color: rgba(134, 239, 172, 0.28);
+}
+
+html[data-theme="dark"] .audit-metric--entries .audit-metric__label::before {
+  background: #86efac;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.16);
+}
+
+html[data-theme="dark"] .audit-metric--entries .audit-metric__value {
+  color: #86efac;
+}
+
+html[data-theme="dark"] .audit-metric--users {
+  background: rgba(29, 78, 137, 0.32);
+  border-color: rgba(213, 222, 242, 0.28);
+}
+
+html[data-theme="dark"] .audit-metric--users .audit-metric__label::before {
+  background: #93c5fd;
+  box-shadow: 0 0 0 3px rgba(147, 197, 253, 0.16);
+}
+
+html[data-theme="dark"] .audit-metric--users .audit-metric__value {
+  color: #bfdbfe;
+}
+
+html[data-theme="dark"] .audit-metric--actions {
+  background: rgba(154, 103, 8, 0.22);
+  border-color: rgba(234, 215, 176, 0.32);
+}
+
+html[data-theme="dark"] .audit-metric--actions .audit-metric__label::before {
+  background: #fbbf24;
+  box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.16);
+}
+
+html[data-theme="dark"] .audit-metric--actions .audit-metric__value {
+  color: #fcd34d;
+}
+
+html[data-theme="dark"] .audit-metric--period .audit-metric__label::before {
+  background: #5eead4;
+  box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.16);
 }
 
 html[data-theme="dark"] .audit-actions__item strong,
@@ -7392,6 +7596,28 @@ html[data-theme="dark"] .audit-change--comfort {
   border-color: rgba(197, 228, 222, 0.28);
 }
 
+html[data-theme="dark"] .audit-change--breakout {
+  background: rgba(234, 88, 12, 0.22);
+  border-color: rgba(253, 186, 116, 0.45);
+}
+
+html[data-theme="dark"] .audit-change--breakout .audit-change__label,
+html[data-theme="dark"] .audit-change--breakout .audit-change__to,
+html[data-theme="dark"] .audit-change--breakout .audit-change__values {
+  color: #fdba74;
+}
+
+html[data-theme="dark"] .audit-change--breakin {
+  background: rgba(163, 230, 53, 0.18);
+  border-color: rgba(217, 249, 157, 0.45);
+}
+
+html[data-theme="dark"] .audit-change--breakin .audit-change__label,
+html[data-theme="dark"] .audit-change--breakin .audit-change__to,
+html[data-theme="dark"] .audit-change--breakin .audit-change__values {
+  color: #d9f99d;
+}
+
 html[data-theme="dark"] .audit-change--user {
   background: rgba(29, 78, 137, 0.28);
   border-color: rgba(213, 222, 242, 0.28);
@@ -7406,3 +7632,10 @@ html[data-theme="dark"] .audit-actions__item--change { background: rgba(154, 103
 html[data-theme="dark"] .audit-actions__item--good { background: rgba(15, 107, 92, 0.2); }
 html[data-theme="dark"] .audit-actions__item--danger { background: rgba(180, 35, 24, 0.2); }
 html[data-theme="dark"] .audit-actions__item--time { background: rgba(29, 78, 137, 0.28); }
+html[data-theme="dark"] .audit-actions__item--breakout { background: rgba(234, 88, 12, 0.22); color: #fdba74; }
+html[data-theme="dark"] .audit-actions__item--breakout strong { background: #ea580c; color: #fff; }
+html[data-theme="dark"] .audit-actions__item--breakin { background: rgba(163, 230, 53, 0.18); color: #d9f99d; }
+html[data-theme="dark"] .audit-actions__item--breakin strong { background: #84cc16; color: #1a2e05; }
+html[data-theme="dark"] .audit-action--passcodeset,
+html[data-theme="dark"] .audit-actions__item--passcodeset { background: rgba(127, 29, 29, 0.28); border-color: rgba(127, 29, 29, 0.55); color: #fecaca; }
+html[data-theme="dark"] .audit-actions__item--passcodeset strong { background: #7f1d1d; color: #fff; }

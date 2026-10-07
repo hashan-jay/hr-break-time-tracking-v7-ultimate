@@ -1,5 +1,7 @@
 function toneFor(label) {
   const text = String(label || '').toLowerCase();
+  if (/\bout\b/.test(text)) return 'breakout';
+  if (/^in\b/.test(text)) return 'breakin';
   if (text.includes('meal')) return 'meal';
   if (text.includes('comfort')) return 'comfort';
   if (text.includes('passcode') || text.includes('delete') || text.includes('deactivat')) return 'danger';

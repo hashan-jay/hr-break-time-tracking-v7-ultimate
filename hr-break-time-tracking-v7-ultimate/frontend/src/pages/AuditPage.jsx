@@ -53,6 +53,9 @@ function entityLabel(entityType) {
 
 function actionTone(action) {
   const text = String(action || '').toLowerCase();
+  if (text === 'breakout') return 'breakout';
+  if (text === 'breakin') return 'breakin';
+  if (text === 'passcodeset') return 'passcodeset';
   if (text.includes('delete') || text.includes('deactivat') || text.includes('reset')) return 'danger';
   if (text.includes('login') || text.includes('create') || text.includes('recover') || text.includes('activat')) return 'good';
   if (text.includes('break')) return 'time';
@@ -192,23 +195,25 @@ export default function AuditPage() {
             </div>
             <span className="passcodes-panel__count">{report.totalEntries}</span>
           </header>
-          <div className="stats-grid compact no-print">
-            <div className="stat-card">
-              <div className="stat-value">{report.totalEntries}</div>
-              <div className="stat-label">Total entries</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">{report.distinctUsers}</div>
-              <div className="stat-label">Distinct users</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">{report.distinctActions}</div>
-              <div className="stat-label">Distinct actions</div>
-            </div>
-            <div className="stat-card">
-              <div className="stat-value">{report.from === report.to ? report.from : `${report.from} → ${report.to}`}</div>
-              <div className="stat-label">Report period</div>
-            </div>
+          <div className="audit-metrics">
+            <article className="audit-metric audit-metric--entries">
+              <span className="audit-metric__label">Total entries</span>
+              <strong className="audit-metric__value">{report.totalEntries}</strong>
+            </article>
+            <article className="audit-metric audit-metric--users">
+              <span className="audit-metric__label">Distinct users</span>
+              <strong className="audit-metric__value">{report.distinctUsers}</strong>
+            </article>
+            <article className="audit-metric audit-metric--actions">
+              <span className="audit-metric__label">Distinct actions</span>
+              <strong className="audit-metric__value">{report.distinctActions}</strong>
+            </article>
+            <article className="audit-metric audit-metric--period">
+              <span className="audit-metric__label">Report period</span>
+              <strong className="audit-metric__value audit-metric__value--range">
+                {report.from === report.to ? report.from : `${report.from} → ${report.to}`}
+              </strong>
+            </article>
           </div>
 
           {!!report.actionCounts?.length && (
