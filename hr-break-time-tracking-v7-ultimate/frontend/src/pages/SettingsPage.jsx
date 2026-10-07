@@ -132,11 +132,12 @@ export default function SettingsPage() {
   };
 
   const saveShiftGroup = async (group) => {
-    if (!group.departments?.length) return;
+    const rowsToSave = (group.departments || []).filter((row) => !row.departmentIsDeleted);
+    if (!rowsToSave.length) return;
     setSavingShiftId(group.shiftId);
     try {
       const updated = [];
-      for (const row of group.departments) {
+      for (const row of rowsToSave) {
         const { data } = await api.put(
           `/settings/shift-department-break-limits/${row.shiftId}/${row.departmentId}`,
           {
@@ -148,12 +149,20 @@ export default function SettingsPage() {
         );
         updated.push(data);
       }
-      setShiftGroups((prev) => prev.map((item) => (
-        item.shiftId === group.shiftId
-          ? { ...item, departments: updated }
-          : item
-      )));
-      toast.success(`Limits saved for all departments on ${group.shiftDisplay}.`);
+      setShiftGroups((prev) => prev.map((item) => {
+        if (item.shiftId !== group.shiftId) return item;
+        const savedByDepartment = new Map(updated.map((row) => [row.departmentId, row]));
+        return {
+          ...item,
+          departments: item.departments.map((row) => savedByDepartment.get(row.departmentId) || row),
+        };
+      }));
+      const skippedDeleted = (group.departments || []).some((row) => row.departmentIsDeleted);
+      toast.success(
+        skippedDeleted
+          ? `Limits saved for active departments on ${group.shiftDisplay}.`
+          : `Limits saved for all departments on ${group.shiftDisplay}.`,
+      );
     } catch (err) {
       toast.error(err.response?.data?.message || 'Could not save all limits for this shift.');
       await load();
@@ -295,7 +304,10 @@ export default function SettingsPage() {
             <button
               type="button"
               className="btn btn-primary shift-limits__save-all"
-              disabled={savingShiftId === group.shiftId || group.departments.length === 0}
+              disabled={
+                savingShiftId === group.shiftId
+                || group.departments.every((row) => row.departmentIsDeleted)
+              }
               onClick={() => saveShiftGroup(group)}
             >
               {savingShiftId === group.shiftId ? 'Saving…' : 'Save all for this shift'}
@@ -387,7 +399,8 @@ export default function SettingsPage() {
                         <button
                           type="button"
                           className="btn btn-primary shift-limits__save"
-                          disabled={savingKey === key || savingShiftId === group.shiftId}
+                          disabled={row.departmentIsDeleted || savingKey === key || savingShiftId === group.shiftId}
+                          title={row.departmentIsDeleted ? 'Recover this department before saving limits.' : undefined}
                           onClick={() => saveShiftDept(row)}
                         >
                           {savingKey === key ? 'Saving…' : 'Save'}

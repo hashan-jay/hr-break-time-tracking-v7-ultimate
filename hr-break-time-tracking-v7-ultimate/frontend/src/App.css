@@ -5136,6 +5136,18 @@ html[data-theme="dark"] .login-ig__back:hover {
   opacity: 0.8;
 }
 
+.shift-limits tbody tr.is-deleted .shift-limits__save,
+.shift-limits tbody tr.is-deleted .shift-limits__save:hover,
+.shift-limits tbody tr.is-deleted .shift-limits__save:disabled {
+  background: #cbd5e1;
+  color: #64748b;
+  border-color: #cbd5e1;
+  opacity: 1;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
 html[data-theme="dark"] .shift-limits .hint {
   color: #a8a8a8;
 }
@@ -5220,6 +5232,14 @@ html[data-theme="dark"] .shift-limits tbody tr.is-deleted {
 
 html[data-theme="dark"] .shift-limits tbody tr.is-deleted .shift-limits__name {
   color: #a8a8a8;
+}
+
+html[data-theme="dark"] .shift-limits tbody tr.is-deleted .shift-limits__save,
+html[data-theme="dark"] .shift-limits tbody tr.is-deleted .shift-limits__save:hover,
+html[data-theme="dark"] .shift-limits tbody tr.is-deleted .shift-limits__save:disabled {
+  background: #3a3a3a;
+  color: #8a8a8a;
+  border-color: #3a3a3a;
 }
 
 html[data-theme="dark"] .shift-limits tbody tr.is-deleted:hover {
