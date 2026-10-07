@@ -12,6 +12,8 @@ export default function DepartmentsPage() {
   const [items, setItems] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [listView, setListView] = useState('active');
   const activeItems = useMemo(() => items.filter((d) => !d.isDeleted), [items]);
   const deletedItems = useMemo(() => items.filter((d) => d.isDeleted), [items]);
@@ -31,9 +33,37 @@ export default function DepartmentsPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [canEdit]);
 
+  const closeEditor = () => {
+    setEditorOpen(false);
+    setEditingId(null);
+    setForm(emptyForm);
+  };
+
+  const openCreate = () => {
+    setEditingId(null);
+    setForm(emptyForm);
+    setEditorOpen(true);
+  };
+
+  const openUpdate = (department) => {
+    setEditingId(department.id);
+    setForm({ name: department.name, description: department.description || '' });
+    setEditorOpen(true);
+  };
+
+  useEffect(() => {
+    if (!editorOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape' && !saving) closeEditor();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [editorOpen, saving]);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!canEdit) return;
+    setSaving(true);
     try {
       if (editingId) {
         await api.put(`/departments/${editingId}`, form);
@@ -42,11 +72,12 @@ export default function DepartmentsPage() {
         await api.post('/departments', form);
         toast.success('Department created.');
       }
-      setForm(emptyForm);
-      setEditingId(null);
+      closeEditor();
       await load();
     } catch (err) {
       toast.error(err.response?.data?.message || 'Save failed.');
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -61,10 +92,7 @@ export default function DepartmentsPage() {
     try {
       await api.delete(`/departments/${id}`);
       toast.success('Department deleted.');
-      if (editingId === id) {
-        setEditingId(null);
-        setForm(emptyForm);
-      }
+      if (editingId === id) closeEditor();
       await load();
     } catch (err) {
       toast.error(err.response?.data?.message || 'Delete failed.');
@@ -111,113 +139,79 @@ export default function DepartmentsPage() {
         </div>
       </header>
 
-      {canEdit && (
-        <div className="list-switch" role="tablist" aria-label="Department lists">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={listView === 'active'}
-            className={`list-switch__btn${listView === 'active' ? ' is-active' : ''}`}
-            onClick={() => setListView('active')}
-          >
-            Active
-            <span className="list-switch__count">{activeItems.length}</span>
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={listView === 'deleted'}
-            className={`list-switch__btn${listView === 'deleted' ? ' is-active' : ''}`}
-            onClick={() => setListView('deleted')}
-          >
-            Deleted
-            <span className="list-switch__count">{deletedItems.length}</span>
-          </button>
+      <section className="users-directory">
+        <div className="users-directory__head">
+          <div>
+            <h2>{listView === 'deleted' ? 'Deleted departments' : 'Departments'}</h2>
+            <p className="muted">
+              {visibleItems.length === 1 ? '1 department' : `${visibleItems.length} departments`}
+            </p>
+          </div>
+          {canEdit && listView !== 'deleted' && (
+            <button type="button" className="btn btn-primary users-directory__create" onClick={openCreate}>
+              Create New Department
+            </button>
+          )}
         </div>
-      )}
 
-      <div className={canEdit ? 'split-forms' : undefined}>
         {canEdit && (
-          <form className="card-form" onSubmit={onSubmit}>
-            <h2>{editingId ? 'Edit department' : 'Add department'}</h2>
-            <label>
-              Name
-              <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
-            </label>
-            <label>
-              Description
-              <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} rows={3} />
-            </label>
-            <div className="form-actions">
-              <button className="btn btn-primary" type="submit">{editingId ? 'Update' : 'Create'}</button>
-              {editingId && (
-                <button type="button" className="btn btn-ghost" onClick={() => { setEditingId(null); setForm(emptyForm); }}>
-                  Cancel
-                </button>
-              )}
-            </div>
-          </form>
+          <div className="list-switch" role="tablist" aria-label="Department lists">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={listView === 'active'}
+              className={`list-switch__btn${listView === 'active' ? ' is-active' : ''}`}
+              onClick={() => setListView('active')}
+            >
+              Active
+              <span className="list-switch__count">{activeItems.length}</span>
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={listView === 'deleted'}
+              className={`list-switch__btn${listView === 'deleted' ? ' is-active' : ''}`}
+              onClick={() => setListView('deleted')}
+            >
+              Deleted
+              <span className="list-switch__count">{deletedItems.length}</span>
+            </button>
+          </div>
         )}
 
-        <section className="list-panel">
-          <header className="list-panel__head">
-            <div>
-              <h2>{listView === 'deleted' ? 'Deleted departments' : 'Active departments'}</h2>
-              <p className="list-panel__hint">
-                {listView === 'deleted'
-                  ? 'Hidden from HR Manager and HR Assistant views until recovered.'
-                  : 'Used for employee assignment, tracking, and reports.'}
-              </p>
-            </div>
-            <span className="header-stat-tile">
-              <span>{listView === 'deleted' ? 'Deleted' : 'Active'}</span>
-              <strong>{visibleItems.length}</strong>
-            </span>
-          </header>
-          <div className="table-wrap">
+        <div className="table-wrap users-table">
           <table>
             <thead>
               <tr>
                 <th>Name</th>
                 <th>Employees</th>
-                {canEdit && <th>Status</th>}
+                <th>Status</th>
                 {canEdit && <th />}
               </tr>
             </thead>
             <tbody>
               {visibleItems.map((d) => (
-                <tr key={d.id} className={d.isDeleted ? 'is-deleted' : undefined}>
+                <tr key={d.id}>
                   <td>
-                    <strong>{d.name}</strong>
+                    <strong className="users-table__name">{d.name}</strong>
                     <div className="muted">{d.description || '—'}</div>
                   </td>
-                  <td>{d.employeeCount}</td>
+                  <td><span className="users-table__handle">{d.employeeCount}</span></td>
+                  <td>
+                    <span className={`users-table__status ${d.isDeleted ? 'is-inactive' : 'is-active'}`}>
+                      {d.isDeleted ? 'Deleted' : 'Active'}
+                    </span>
+                  </td>
                   {canEdit && (
-                    <td>
-                      {d.isDeleted
-                        ? <span className="status-badge status-red">Deleted</span>
-                        : <span className="status-badge status-green">Active</span>}
-                    </td>
-                  )}
-                  {canEdit && (
-                    <td className="row-actions">
+                    <td className="row-actions users-table__actions">
                       {!d.isDeleted && (
                         <>
-                          <button
-                            type="button"
-                            className="btn link-btn"
-                            onClick={() => {
-                              setEditingId(d.id);
-                              setForm({ name: d.name, description: d.description || '' });
-                            }}
-                          >
-                            Edit
-                          </button>
-                          <button type="button" className="btn link-btn danger" onClick={() => remove(d.id)}>Delete</button>
+                          <button type="button" className="btn link-btn users-table__update" onClick={() => openUpdate(d)}>Update</button>
+                          <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => remove(d.id)}>Delete</button>
                         </>
                       )}
                       {d.isDeleted && (
-                        <button type="button" className="btn link-btn recover" onClick={() => recover(d.id)}>Recover</button>
+                        <button type="button" className="btn link-btn users-table__activate" onClick={() => recover(d.id)}>Recover</button>
                       )}
                     </td>
                   )}
@@ -225,16 +219,49 @@ export default function DepartmentsPage() {
               ))}
               {!visibleItems.length && (
                 <tr>
-                  <td className="empty" colSpan={canEdit ? 4 : 2}>
+                  <td className="users-table__empty" colSpan={canEdit ? 4 : 3}>
                     {listView === 'deleted' ? 'No deleted departments.' : 'No departments yet.'}
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {editorOpen && (
+        <div className="confirm-overlay" onClick={() => { if (!saving) closeEditor(); }}>
+          <form
+            className="confirm-dialog users-editor"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="department-editor-title"
+            onClick={(event) => event.stopPropagation()}
+            onSubmit={onSubmit}
+          >
+            <h2 id="department-editor-title">{editingId ? 'Update department' : 'Create department'}</h2>
+            <p>
+              {editingId
+                ? 'Name and description changes apply to this department.'
+                : 'New departments can be assigned to employees and used in reports.'}
+            </p>
+            <label>
+              Name
+              <input required autoFocus value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+            </label>
+            <label>
+              Description
+              <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} rows={3} />
+            </label>
+            <div className="confirm-dialog__actions">
+              <button type="button" className="btn btn-ghost" onClick={closeEditor} disabled={saving}>Cancel</button>
+              <button className="btn btn-primary" type="submit" disabled={saving}>
+                {saving ? 'Saving…' : editingId ? 'Update' : 'Create'}
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

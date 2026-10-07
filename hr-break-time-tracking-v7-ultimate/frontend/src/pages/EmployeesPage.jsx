@@ -49,12 +49,12 @@ function EmployeeTable({
   const colCount = 5 + (showDeactivatedMeta ? 1 : 0) + (showActions ? 1 : 0);
 
   return (
-    <div className="table-wrap">
+    <div className="table-wrap users-table">
       <table>
         <thead>
           <tr>
-            <th>Code</th>
             <th>Name</th>
+            <th>Code</th>
             <th>Department</th>
             <th>Shift</th>
             <th>Passcode</th>
@@ -65,36 +65,40 @@ function EmployeeTable({
         <tbody>
           {rows.length === 0 && (
             <tr>
-              <td className="empty" colSpan={colCount}>{emptyLabel}</td>
+              <td className="users-table__empty" colSpan={colCount}>{emptyLabel}</td>
             </tr>
           )}
           {rows.map((e) => (
-            <tr key={e.id} className={e.isDeactivated ? 'is-deleted' : undefined}>
-              <td>{e.employeeCode}</td>
-              <td>{e.fullName}</td>
-              <td>{e.departmentName}</td>
-              <td>{e.shiftDisplay || e.shiftName || '—'}</td>
-              <td>{e.hasPasscode ? 'Set' : 'Not set'}</td>
-              {showDeactivatedMeta && <td>{formatWhen(e.deactivatedAt)}</td>}
+            <tr key={e.id}>
+              <td><strong className="users-table__name">{e.fullName}</strong></td>
+              <td><span className="users-table__handle">{e.employeeCode}</span></td>
+              <td><span className="users-table__role">{e.departmentName || '—'}</span></td>
+              <td><span className="users-table__role">{e.shiftDisplay || e.shiftName || 'No shift'}</span></td>
+              <td>
+                <span className={`users-table__status ${e.hasPasscode ? 'is-active' : 'is-inactive'}`}>
+                  {e.hasPasscode ? 'Set' : 'Not set'}
+                </span>
+              </td>
+              {showDeactivatedMeta && <td className="muted">{formatWhen(e.deactivatedAt)}</td>}
               {showActions && (
-                <td className="row-actions">
+                <td className="row-actions users-table__actions">
                   {canEdit && !e.isDeactivated && (
-                    <button type="button" className="btn link-btn" onClick={() => onEdit(e)} disabled={busyId === e.id}>
-                      Edit
+                    <button type="button" className="btn link-btn users-table__update" onClick={() => onEdit(e)} disabled={busyId === e.id}>
+                      Update
                     </button>
                   )}
                   {canDeactivate && !e.isDeactivated && (
-                    <button type="button" className="btn link-btn danger" onClick={() => onDeactivate(e)} disabled={busyId === e.id}>
+                    <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => onDeactivate(e)} disabled={busyId === e.id}>
                       Deactivate
                     </button>
                   )}
                   {canDeactivate && e.isDeactivated && (
-                    <button type="button" className="btn link-btn recover" onClick={() => onActivate(e)} disabled={busyId === e.id}>
+                    <button type="button" className="btn link-btn users-table__activate" onClick={() => onActivate(e)} disabled={busyId === e.id}>
                       Activate
                     </button>
                   )}
                   {canPurge && e.isDeactivated && (
-                    <button type="button" className="btn link-btn danger" onClick={() => onPurge(e)} disabled={busyId === e.id}>
+                    <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => onPurge(e)} disabled={busyId === e.id}>
                       Delete
                     </button>
                   )}
@@ -119,6 +123,8 @@ export default function EmployeesPage() {
   const [shifts, setShifts] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [search, setSearch] = useState('');
   const [appliedSearch, setAppliedSearch] = useState('');
   const [listView, setListView] = useState('active');
@@ -189,6 +195,7 @@ export default function EmployeesPage() {
     if (!stillActive) {
       setEditingId(null);
       setForm(emptyForm);
+      setEditorOpen(false);
     }
   }, [employees, editingId]);
 
@@ -236,6 +243,29 @@ export default function EmployeesPage() {
     [employees],
   );
 
+  const closeEditor = () => {
+    setEditorOpen(false);
+    setEditingId(null);
+    setForm(emptyForm);
+    setCodeTaken(false);
+  };
+
+  const openCreate = () => {
+    setEditingId(null);
+    setForm(emptyForm);
+    setCodeTaken(false);
+    setEditorOpen(true);
+  };
+
+  useEffect(() => {
+    if (!editorOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape' && !saving) closeEditor();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [editorOpen, saving]);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!canEdit) return;
@@ -243,6 +273,7 @@ export default function EmployeesPage() {
       setCodeTaken(true);
       return;
     }
+    setSaving(true);
     try {
       const shiftId = form.shiftId ? Number(form.shiftId) : null;
       const payload = {
@@ -266,9 +297,12 @@ export default function EmployeesPage() {
       }
       setForm(emptyForm);
       setEditingId(null);
+      setEditorOpen(false);
       await load();
     } catch (err) {
       toast.error(apiErrorMessage(err, 'Save failed.'));
+    } finally {
+      setSaving(false);
     }
   };
 
@@ -281,6 +315,8 @@ export default function EmployeesPage() {
       departmentId: String(emp.departmentId),
       shiftId: emp.shiftId ? String(emp.shiftId) : '',
     });
+    setCodeTaken(false);
+    setEditorOpen(true);
   };
 
   const deactivate = async (emp) => {
@@ -295,10 +331,7 @@ export default function EmployeesPage() {
     try {
       await api.post(`/employees/${emp.id}/deactivate`);
       toast.success(`${emp.fullName} deactivated.`);
-      if (editingId === emp.id) {
-        setEditingId(null);
-        setForm(emptyForm);
-      }
+      if (editingId === emp.id) closeEditor();
       await load();
     } catch (err) {
       toast.error(apiErrorMessage(err, 'Deactivate failed.'));
@@ -375,13 +408,111 @@ export default function EmployeesPage() {
         </div>
       </header>
 
-      <div className="split-forms">
-        {canEdit && (
-          <form className="card-form" onSubmit={onSubmit}>
-            <h2>{editingId ? 'Edit employee' : 'Add employee'}</h2>
+      <section className="users-directory">
+        <div className="users-directory__head">
+          <div>
+            <h2>{listView === 'deactivated' ? 'Deactivated employees' : 'Employees'}</h2>
+            <p className="muted">
+              {listView === 'deactivated'
+                ? (deactivatedEmployees.length === 1 ? '1 deactivated employee' : `${deactivatedEmployees.length} deactivated employees`)
+                : (activeEmployees.length === 1 ? '1 employee' : `${activeEmployees.length} employees`)}
+            </p>
+          </div>
+          {canEdit && listView !== 'deactivated' && (
+            <button type="button" className="btn btn-primary users-directory__create" onClick={openCreate}>
+              Create New Employee
+            </button>
+          )}
+        </div>
+
+        <div className="users-directory__tools">
+          <input
+            className="search"
+            placeholder="Search employees…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && setAppliedSearch(search.trim())}
+            aria-label="Search employees"
+          />
+          <button type="button" className="btn btn-ghost" onClick={() => setAppliedSearch(search.trim())}>Search</button>
+        </div>
+
+        {canDeactivate && (
+          <div className="list-switch" role="tablist" aria-label="Employee lists">
+            <button
+              type="button"
+              role="tab"
+              aria-selected={listView === 'active'}
+              className={`list-switch__btn${listView === 'active' ? ' is-active' : ''}`}
+              onClick={() => setListView('active')}
+            >
+              Active
+              <span className="list-switch__count">{activeEmployees.length}</span>
+            </button>
+            <button
+              type="button"
+              role="tab"
+              aria-selected={listView === 'deactivated'}
+              className={`list-switch__btn${listView === 'deactivated' ? ' is-active' : ''}`}
+              onClick={() => setListView('deactivated')}
+            >
+              Deactivated
+              <span className="list-switch__count">{deactivatedEmployees.length}</span>
+            </button>
+          </div>
+        )}
+
+        {listView === 'active' && (
+          <EmployeeTable
+            rows={activeEmployees}
+            emptyLabel="No active employees found."
+            canEdit={canEdit}
+            canDeactivate={canDeactivate}
+            canPurge={false}
+            onEdit={startEdit}
+            onDeactivate={deactivate}
+            onActivate={activate}
+            onPurge={purge}
+            busyId={busyId}
+          />
+        )}
+
+        {canDeactivate && listView === 'deactivated' && (
+          <EmployeeTable
+            rows={deactivatedEmployees}
+            emptyLabel="No deactivated employees."
+            showDeactivatedMeta
+            canEdit={false}
+            canDeactivate={canDeactivate}
+            canPurge={canPurge}
+            onEdit={startEdit}
+            onDeactivate={deactivate}
+            onActivate={activate}
+            onPurge={purge}
+            busyId={busyId}
+          />
+        )}
+      </section>
+
+      {editorOpen && canEdit && (
+        <div className="confirm-overlay" onClick={() => { if (!saving) closeEditor(); }}>
+          <form
+            className="confirm-dialog users-editor"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="employee-editor-title"
+            onClick={(event) => event.stopPropagation()}
+            onSubmit={onSubmit}
+          >
+            <h2 id="employee-editor-title">{editingId ? 'Update employee' : 'Create employee'}</h2>
+            <p>
+              {editingId
+                ? 'Name, code, department, and shift changes apply to this employee.'
+                : 'The new employee can be assigned a department and shift immediately.'}
+            </p>
             <label>
               Full name
-              <input required value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} />
+              <input required autoFocus value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} />
             </label>
             <label>
               Code
@@ -414,103 +545,15 @@ export default function EmployeesPage() {
                 ))}
               </select>
             </label>
-            <div className="form-actions">
-              <button className="btn btn-primary" type="submit" disabled={codeTaken}>
-                {editingId ? 'Update' : 'Create'}
+            <div className="confirm-dialog__actions">
+              <button type="button" className="btn btn-ghost" onClick={closeEditor} disabled={saving}>Cancel</button>
+              <button className="btn btn-primary" type="submit" disabled={codeTaken || saving}>
+                {saving ? 'Saving…' : editingId ? 'Update' : 'Create'}
               </button>
-              {editingId && (
-                <button type="button" className="btn btn-ghost" onClick={() => { setEditingId(null); setForm(emptyForm); setCodeTaken(false); }}>
-                  Cancel
-                </button>
-              )}
             </div>
           </form>
-        )}
-
-        <div className="employees-lists">
-          <div className="toolbar">
-            <input
-              className="search"
-              placeholder="Search employees…"
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && setAppliedSearch(search.trim())}
-            />
-            <button type="button" className="btn btn-ghost" onClick={() => setAppliedSearch(search.trim())}>Search</button>
-          </div>
-
-          {canDeactivate && (
-            <div className="list-switch" role="tablist" aria-label="Employee lists">
-              <button
-                type="button"
-                role="tab"
-                aria-selected={listView === 'active'}
-                className={`list-switch__btn${listView === 'active' ? ' is-active' : ''}`}
-                onClick={() => setListView('active')}
-              >
-                Active employees
-                <span className="list-switch__count">{activeEmployees.length}</span>
-              </button>
-              <button
-                type="button"
-                role="tab"
-                aria-selected={listView === 'deactivated'}
-                className={`list-switch__btn${listView === 'deactivated' ? ' is-active' : ''}`}
-                onClick={() => setListView('deactivated')}
-              >
-                Deactivated employees
-                <span className="list-switch__count">{deactivatedEmployees.length}</span>
-              </button>
-            </div>
-          )}
-
-          {listView === 'active' && (
-            <section className="list-panel">
-              <div className="list-panel__head">
-                <h2>Active employees</h2>
-                <span className="list-panel__count">{activeEmployees.length}</span>
-              </div>
-              <EmployeeTable
-                rows={activeEmployees}
-                emptyLabel="No active employees found."
-                canEdit={canEdit}
-                canDeactivate={canDeactivate}
-                canPurge={false}
-                onEdit={startEdit}
-                onDeactivate={deactivate}
-                onActivate={activate}
-                onPurge={purge}
-                busyId={busyId}
-              />
-            </section>
-          )}
-
-          {canDeactivate && listView === 'deactivated' && (
-            <section className="list-panel">
-              <div className="list-panel__head">
-                <h2>Deactivated employees</h2>
-                <span className="list-panel__count">{deactivatedEmployees.length}</span>
-              </div>
-              <p className="list-panel__hint">
-                Hidden from live tracking. Activate to restore them, or permanently delete records with a Developer account.
-              </p>
-              <EmployeeTable
-                rows={deactivatedEmployees}
-                emptyLabel="No deactivated employees."
-                showDeactivatedMeta
-                canEdit={false}
-                canDeactivate={canDeactivate}
-                canPurge={canPurge}
-                onEdit={startEdit}
-                onDeactivate={deactivate}
-                onActivate={activate}
-                onPurge={purge}
-                busyId={busyId}
-              />
-            </section>
-          )}
         </div>
-      </div>
+      )}
     </div>
   );
 }

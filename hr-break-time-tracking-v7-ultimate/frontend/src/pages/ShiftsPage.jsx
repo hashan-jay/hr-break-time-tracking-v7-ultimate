@@ -20,6 +20,8 @@ export default function ShiftsPage() {
   const [items, setItems] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
+  const [editorOpen, setEditorOpen] = useState(false);
+  const [saving, setSaving] = useState(false);
   const [listView, setListView] = useState('active');
   const activeItems = useMemo(() => items.filter((s) => s.isActive), [items]);
   const inactiveItems = useMemo(() => items.filter((s) => !s.isActive), [items]);
@@ -43,22 +45,16 @@ export default function ShiftsPage() {
     });
   }, []);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      if (editingId) {
-        await api.put(`/shifts/${editingId}`, form);
-        toast.success('Shift updated.');
-      } else {
-        await api.post('/shifts', form);
-        toast.success('Shift created.');
-      }
-      setForm(emptyForm);
-      setEditingId(null);
-      await load();
-    } catch (err) {
-      toast.error(err.response?.data?.message || 'Save failed.');
-    }
+  const closeEditor = () => {
+    setEditorOpen(false);
+    setEditingId(null);
+    setForm(emptyForm);
+  };
+
+  const openCreate = () => {
+    setEditingId(null);
+    setForm(emptyForm);
+    setEditorOpen(true);
   };
 
   const startEdit = (shift) => {
@@ -69,6 +65,36 @@ export default function ShiftsPage() {
       endTime: shift.endTime,
       isActive: shift.isActive,
     });
+    setEditorOpen(true);
+  };
+
+  useEffect(() => {
+    if (!editorOpen) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape' && !saving) closeEditor();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [editorOpen, saving]);
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    setSaving(true);
+    try {
+      if (editingId) {
+        await api.put(`/shifts/${editingId}`, form);
+        toast.success('Shift updated.');
+      } else {
+        await api.post('/shifts', form);
+        toast.success('Shift created.');
+      }
+      closeEditor();
+      await load();
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Save failed.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   const deactivate = async (id) => {
@@ -82,13 +108,32 @@ export default function ShiftsPage() {
     try {
       await api.post(`/shifts/${id}/deactivate`);
       toast.success('Shift deactivated.');
-      if (editingId === id) {
-        setEditingId(null);
-        setForm(emptyForm);
-      }
+      if (editingId === id) closeEditor();
       await load();
     } catch (err) {
       toast.error(err.response?.data?.message || 'Deactivate failed.');
+    }
+  };
+
+  const activate = async (shift) => {
+    const ok = await confirm({
+      title: 'Activate shift',
+      message: `Activate ${shift.name}? It can be assigned to employees again.`,
+      confirmLabel: 'Activate',
+      tone: 'success',
+    });
+    if (!ok) return;
+    try {
+      await api.put(`/shifts/${shift.id}`, {
+        name: shift.name,
+        startTime: shift.startTime,
+        endTime: shift.endTime,
+        isActive: true,
+      });
+      toast.success('Shift activated.');
+      await load();
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Activate failed.');
     }
   };
 
@@ -113,126 +158,136 @@ export default function ShiftsPage() {
         </div>
       </header>
 
-      <div className="list-switch" role="tablist" aria-label="Shift lists">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={listView === 'active'}
-          className={`list-switch__btn${listView === 'active' ? ' is-active' : ''}`}
-          onClick={() => setListView('active')}
-        >
-          Active
-          <span className="list-switch__count">{activeItems.length}</span>
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={listView === 'inactive'}
-          className={`list-switch__btn${listView === 'inactive' ? ' is-active' : ''}`}
-          onClick={() => setListView('inactive')}
-        >
-          Inactive
-          <span className="list-switch__count">{inactiveItems.length}</span>
-        </button>
-      </div>
-
-      <div className="split-forms">
-        <form className="card-form" onSubmit={onSubmit}>
-          <h2>{editingId ? 'Edit shift' : 'Add shift'}</h2>
-          <label>
-            Shift name
-            <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Night Shift" />
-          </label>
-          <label>
-            Start time (military)
-            <select required value={form.startTime} onChange={(e) => setForm({ ...form, startTime: e.target.value })}>
-              {HALF_HOUR_OPTIONS.map((t) => <option key={`s-${t}`} value={t}>{t}</option>)}
-            </select>
-          </label>
-          <label>
-            End time (military)
-            <select required value={form.endTime} onChange={(e) => setForm({ ...form, endTime: e.target.value })}>
-              {HALF_HOUR_OPTIONS.map((t) => <option key={`e-${t}`} value={t}>{t}</option>)}
-            </select>
-          </label>
-          {editingId && (
-            <label className="checkbox-row">
-              <input
-                type="checkbox"
-                checked={form.isActive}
-                onChange={(e) => setForm({ ...form, isActive: e.target.checked })}
-              />
-              Active
-            </label>
-          )}
-          <p className="hint">Preview: <strong>{previewLabel}</strong></p>
-          <div className="form-actions">
-            <button className="btn btn-primary" type="submit">{editingId ? 'Update' : 'Create'}</button>
-            {editingId && (
-              <button type="button" className="btn btn-ghost" onClick={() => { setEditingId(null); setForm(emptyForm); }}>
-                Cancel
-              </button>
-            )}
+      <section className="users-directory">
+        <div className="users-directory__head">
+          <div>
+            <h2>{listView === 'inactive' ? 'Inactive shifts' : 'Shifts'}</h2>
+            <p className="muted">{visibleItems.length === 1 ? '1 shift' : `${visibleItems.length} shifts`}</p>
           </div>
-        </form>
+          {listView !== 'inactive' && (
+            <button type="button" className="btn btn-primary users-directory__create" onClick={openCreate}>
+              Create New Shift
+            </button>
+          )}
+        </div>
 
-        <section className="list-panel">
-          <header className="list-panel__head">
-            <div>
-              <h2>{listView === 'inactive' ? 'Inactive shifts' : 'Active shifts'}</h2>
-              <p className="list-panel__hint">
-                {listView === 'inactive'
-                  ? 'Kept on existing employees, but cannot be newly selected.'
-                  : 'Available for employee assignment and live tracking.'}
-              </p>
-            </div>
-            <span className="header-stat-tile">
-              <span>{listView === 'inactive' ? 'Inactive' : 'Active'}</span>
-              <strong>{visibleItems.length}</strong>
-            </span>
-          </header>
-          <div className="table-wrap">
+        <div className="list-switch" role="tablist" aria-label="Shift lists">
+          <button
+            type="button"
+            role="tab"
+            aria-selected={listView === 'active'}
+            className={`list-switch__btn${listView === 'active' ? ' is-active' : ''}`}
+            onClick={() => setListView('active')}
+          >
+            Active
+            <span className="list-switch__count">{activeItems.length}</span>
+          </button>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={listView === 'inactive'}
+            className={`list-switch__btn${listView === 'inactive' ? ' is-active' : ''}`}
+            onClick={() => setListView('inactive')}
+          >
+            Inactive
+            <span className="list-switch__count">{inactiveItems.length}</span>
+          </button>
+        </div>
+
+        <div className="table-wrap users-table">
           <table>
             <thead>
               <tr>
                 <th>Name</th>
-                <th>Start</th>
-                <th>End</th>
+                <th>Hours</th>
                 <th>Overnight</th>
                 <th>Employees</th>
-                <th>Active</th>
+                <th>Status</th>
                 <th />
               </tr>
             </thead>
             <tbody>
               {visibleItems.map((s) => (
                 <tr key={s.id}>
-                  <td>{s.name}</td>
-                  <td>{s.startTime}</td>
-                  <td>{s.spansNextDay ? `${s.endTime} (+1)` : s.endTime}</td>
-                  <td>{s.spansNextDay ? 'Yes' : 'No'}</td>
-                  <td>{s.employeeCount}</td>
-                  <td>{s.isActive ? 'Yes' : 'No'}</td>
-                  <td className="row-actions">
-                    <button type="button" className="btn link-btn" onClick={() => startEdit(s)}>Edit</button>
-                    {s.isActive && (
-                      <button type="button" className="btn link-btn danger" onClick={() => deactivate(s.id)}>Deactivate</button>
+                  <td><strong className="users-table__name">{s.name}</strong></td>
+                  <td><span className="users-table__handle">{s.startTime} – {s.spansNextDay ? `${s.endTime} (+1)` : s.endTime}</span></td>
+                  <td><span className="users-table__role">{s.spansNextDay ? 'Overnight' : 'Same day'}</span></td>
+                  <td><span className="users-table__handle">{s.employeeCount}</span></td>
+                  <td>
+                    <span className={`users-table__status ${s.isActive ? 'is-active' : 'is-inactive'}`}>
+                      {s.isActive ? 'Active' : 'Inactive'}
+                    </span>
+                  </td>
+                  <td className="row-actions users-table__actions">
+                    <button type="button" className="btn link-btn users-table__update" onClick={() => startEdit(s)}>Update</button>
+                    {s.isActive ? (
+                      <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => deactivate(s.id)}>Deactivate</button>
+                    ) : (
+                      <button type="button" className="btn link-btn users-table__activate" onClick={() => activate(s)}>Activate</button>
                     )}
                   </td>
                 </tr>
               ))}
               {!visibleItems.length && (
                 <tr>
-                  <td colSpan={7} className="empty">
-                    {listView === 'inactive' ? 'No inactive shifts.' : 'No shifts yet. Create the first shift.'}
+                  <td className="users-table__empty" colSpan={6}>
+                    {listView === 'inactive' ? 'No inactive shifts.' : 'No shifts yet.'}
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
+
+      {editorOpen && (
+        <div className="confirm-overlay" onClick={() => { if (!saving) closeEditor(); }}>
+          <form
+            className="confirm-dialog users-editor"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="shift-editor-title"
+            onClick={(event) => event.stopPropagation()}
+            onSubmit={onSubmit}
+          >
+            <h2 id="shift-editor-title">{editingId ? 'Update shift' : 'Create shift'}</h2>
+            <p>Times use 30-minute steps. An end time at or before the start time runs overnight.</p>
+            <label>
+              Shift name
+              <input required autoFocus value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Night Shift" />
+            </label>
+            <label>
+              Start time
+              <select required value={form.startTime} onChange={(e) => setForm({ ...form, startTime: e.target.value })}>
+                {HALF_HOUR_OPTIONS.map((t) => <option key={`s-${t}`} value={t}>{t}</option>)}
+              </select>
+            </label>
+            <label>
+              End time
+              <select required value={form.endTime} onChange={(e) => setForm({ ...form, endTime: e.target.value })}>
+                {HALF_HOUR_OPTIONS.map((t) => <option key={`e-${t}`} value={t}>{t}</option>)}
+              </select>
+            </label>
+            {editingId && (
+              <label className="users-editor__check">
+                <input
+                  type="checkbox"
+                  checked={form.isActive}
+                  onChange={(e) => setForm({ ...form, isActive: e.target.checked })}
+                />
+                Active
+              </label>
+            )}
+            <p className="hint">Preview: <strong>{previewLabel}</strong></p>
+            <div className="confirm-dialog__actions">
+              <button type="button" className="btn btn-ghost" onClick={closeEditor} disabled={saving}>Cancel</button>
+              <button className="btn btn-primary" type="submit" disabled={saving}>
+                {saving ? 'Saving…' : editingId ? 'Update' : 'Create'}
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

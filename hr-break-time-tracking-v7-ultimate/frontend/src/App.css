@@ -5688,6 +5688,34 @@ html[data-theme="dark"] .perm-checks input {
   box-shadow: none;
 }
 
+.users-directory__tools {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.1rem 0;
+}
+
+.users-directory__tools .search {
+  height: 2.55rem;
+  border-radius: 12px;
+}
+
+.app-portal .users-directory__tools .btn {
+  min-height: 2.55rem;
+  border-radius: 999px;
+}
+
+.users-editor .field-warning {
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.users-directory .list-switch {
+  margin: 0.85rem 1.1rem 0;
+}
+
 .users-editor {
   width: min(32rem, 100%);
 }
@@ -5703,7 +5731,8 @@ html[data-theme="dark"] .perm-checks input {
 }
 
 .users-editor input,
-.users-editor select {
+.users-editor select,
+.users-editor textarea {
   height: 2.7rem;
   border: 1px solid #d7e0db;
   border-radius: 12px;
@@ -5716,8 +5745,35 @@ html[data-theme="dark"] .perm-checks input {
   text-transform: none;
 }
 
+.users-editor textarea {
+  height: auto;
+  min-height: 5.5rem;
+  padding: 0.7rem 0.8rem;
+  resize: vertical;
+}
+
+.users-editor .users-editor__check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1c2a24;
+}
+
+.users-editor .users-editor__check input {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  padding: 0;
+  accent-color: #14542d;
+}
+
 .users-editor input:focus,
-.users-editor select:focus {
+.users-editor select:focus,
+.users-editor textarea:focus {
   outline: none;
   border-color: #14542d;
   box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
@@ -5926,8 +5982,19 @@ html[data-theme="dark"] .users-editor {
   color: #f5f5f5;
 }
 
+html[data-theme="dark"] .users-editor .users-editor__check {
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .users-directory__tools .search {
+  background: #1c1c1c;
+  border-color: #3a3a3a;
+  color: #f5f5f5;
+}
+
 html[data-theme="dark"] .users-editor input,
-html[data-theme="dark"] .users-editor select {
+html[data-theme="dark"] .users-editor select,
+html[data-theme="dark"] .users-editor textarea {
   background: #1c1c1c;
   border-color: #3a3a3a;
   color: #f5f5f5;
@@ -5940,7 +6007,8 @@ html[data-theme="dark"] .users-editor input:disabled {
 }
 
 html[data-theme="dark"] .users-editor input:focus,
-html[data-theme="dark"] .users-editor select:focus {
+html[data-theme="dark"] .users-editor select:focus,
+html[data-theme="dark"] .users-editor textarea:focus {
   border-color: #86efac;
   box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.16);
 }
