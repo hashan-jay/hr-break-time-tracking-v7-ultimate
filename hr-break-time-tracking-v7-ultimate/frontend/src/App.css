@@ -5645,6 +5645,394 @@ html[data-theme="dark"] .perm-checks input {
   border: 0;
   accent-color: #86efac;
 }
+
+.app-portal .users-directory {
+  overflow: hidden;
+  border: 1px solid #e3ebe6;
+  border-radius: 24px;
+  background: #fbfcfb;
+}
+
+.users-directory__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid #e7eeea;
+}
+
+.users-directory__head h2 {
+  margin: 0;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: #1c2a24;
+}
+
+.users-directory__head p {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+}
+
+.app-portal .users-directory__create {
+  flex-shrink: 0;
+  min-height: 2.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+}
+
+.users-directory .table-wrap.users-table {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.users-editor {
+  width: min(32rem, 100%);
+}
+
+.users-editor label {
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #5d6b64;
+}
+
+.users-editor input,
+.users-editor select {
+  height: 2.7rem;
+  border: 1px solid #d7e0db;
+  border-radius: 12px;
+  background: #fff;
+  color: #1c2a24;
+  padding: 0 0.8rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.users-editor input:focus,
+.users-editor select:focus {
+  outline: none;
+  border-color: #14542d;
+  box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
+}
+
+.users-editor input:disabled {
+  background: #f3f6f4;
+  color: #5d6b64;
+  cursor: not-allowed;
+}
+
+.app-portal .users-editor .btn-primary {
+  border-radius: 999px;
+}
+
+.table-wrap.users-table {
+  border: 1px solid #e3ebe6;
+  border-radius: 16px;
+  background: #fbfcfb;
+}
+
+.users-table table {
+  min-width: 860px;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  border-bottom: 1px solid #e7eeea;
+  padding: 0.72rem 0.85rem;
+  vertical-align: middle;
+}
+
+.users-table th {
+  background: #f6f8f7;
+  color: #5d6b64;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.users-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.users-table tbody tr:hover td {
+  background: rgba(20, 84, 45, 0.045);
+}
+
+.users-table__name {
+  color: #1c2a24;
+  font-weight: 650;
+}
+
+.users-table__handle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.7rem;
+  padding: 0 0.55rem;
+  border-radius: 8px;
+  background: #eef3f0;
+  color: #1c2a24;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.users-table__role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.7rem;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  background: rgba(29, 78, 137, 0.1);
+  color: #1d4e89;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.users-table__empty {
+  text-align: center;
+  color: #5d6b64;
+}
+
+.users-table__status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  height: 1.55rem;
+  padding: 0 0.65rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.users-table__status.is-active {
+  background: #dcfce7;
+  color: #14542d;
+}
+
+.users-table__status.is-active::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #16a34a;
+  box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.16);
+}
+
+.users-table__status.is-inactive {
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.users-table__actions {
+  width: 1%;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.users-table .users-table__update,
+.users-table .users-table__password,
+.users-table .users-table__deactivate,
+.users-table .users-table__activate {
+  min-height: 2rem;
+  padding: 0.32rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+}
+
+.users-table .users-table__update {
+  background: rgba(20, 84, 45, 0.08);
+  border-color: rgba(20, 84, 45, 0.22);
+  color: #14542d;
+}
+
+.users-table .users-table__update:hover {
+  background: rgba(20, 84, 45, 0.14);
+  border-color: rgba(20, 84, 45, 0.32);
+  color: #14542d;
+}
+
+.users-table .users-table__password {
+  background: #f6f8f7;
+  border-color: #d7e0db;
+  color: #3d4f46;
+}
+
+.users-table .users-table__password:hover {
+  background: #eef3f0;
+  border-color: #c5d1cb;
+  color: #14542d;
+}
+
+.users-table .link-btn.danger.users-table__deactivate {
+  background: #fff5f4;
+  border-color: #f3c7c3;
+  color: #b42318;
+}
+
+.users-table .link-btn.danger.users-table__deactivate:hover {
+  background: #fdeceb;
+  border-color: #e8b4ae;
+  color: #912018;
+}
+
+.users-table .users-table__activate {
+  background: #ecfdf3;
+  border-color: #b7ebc9;
+  color: #14542d;
+}
+
+.users-table .users-table__activate:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #14542d;
+}
+
+html[data-theme="dark"] .users-directory,
+html[data-theme="dark"] .table-wrap.users-table {
+  background: #161616;
+  border-color: #2e2e2e;
+}
+
+html[data-theme="dark"] .users-directory__head {
+  border-bottom-color: #2a2a2a;
+}
+
+html[data-theme="dark"] .users-directory__head h2,
+html[data-theme="dark"] .users-table__name {
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .users-directory__head p,
+html[data-theme="dark"] .users-editor label,
+html[data-theme="dark"] .users-table__empty {
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .users-editor {
+  background: #161616;
+  border-color: #2e2e2e;
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .users-editor input,
+html[data-theme="dark"] .users-editor select {
+  background: #1c1c1c;
+  border-color: #3a3a3a;
+  color: #f5f5f5;
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] .users-editor input:disabled {
+  background: #262626;
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .users-editor input:focus,
+html[data-theme="dark"] .users-editor select:focus {
+  border-color: #86efac;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.16);
+}
+
+html[data-theme="dark"] .users-table__role {
+  background: rgba(147, 197, 253, 0.14);
+  color: #bfdbfe;
+}
+
+html[data-theme="dark"] .users-table th,
+html[data-theme="dark"] .users-table td {
+  border-bottom-color: #2a2a2a;
+}
+
+html[data-theme="dark"] .app-portal .users-table th {
+  background: #1c1c1c;
+  color: #a8a8a8;
+  border-bottom-color: #2a2a2a;
+}
+
+html[data-theme="dark"] .app-portal .users-table tbody tr:hover,
+html[data-theme="dark"] .app-portal .users-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="dark"] .users-table__handle {
+  background: #262626;
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .users-table__status.is-active {
+  background: rgba(20, 84, 45, 0.72);
+  color: #86efac;
+}
+
+html[data-theme="dark"] .users-table__status.is-active::before {
+  background: #86efac;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.16);
+}
+
+html[data-theme="dark"] .users-table__status.is-inactive {
+  background: #262626;
+  color: #a8a8a8;
+}
+
+html[data-theme="dark"] .users-table .users-table__update {
+  background: rgba(20, 84, 45, 0.45);
+  border-color: rgba(134, 239, 172, 0.28);
+  color: #86efac;
+}
+
+html[data-theme="dark"] .users-table .users-table__update:hover {
+  background: rgba(20, 84, 45, 0.7);
+  border-color: rgba(134, 239, 172, 0.45);
+  color: #dcfce7;
+}
+
+html[data-theme="dark"] .users-table .users-table__password {
+  background: #262626;
+  border-color: #3a3a3a;
+  color: #d4d4d4;
+}
+
+html[data-theme="dark"] .users-table .users-table__password:hover {
+  background: #303030;
+  border-color: #4a4a4a;
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .users-table .link-btn.danger.users-table__deactivate {
+  background: rgba(180, 35, 24, 0.22);
+  border-color: rgba(252, 165, 165, 0.35);
+  color: #fecaca;
+}
+
+html[data-theme="dark"] .users-table .link-btn.danger.users-table__deactivate:hover {
+  background: rgba(180, 35, 24, 0.34);
+  border-color: rgba(252, 165, 165, 0.5);
+  color: #fff;
+}
+
+html[data-theme="dark"] .users-table .users-table__activate {
+  background: rgba(20, 84, 45, 0.45);
+  border-color: rgba(134, 239, 172, 0.35);
+  color: #86efac;
+}
+
+html[data-theme="dark"] .users-table .users-table__activate:hover {
+  background: rgba(20, 84, 45, 0.7);
+  border-color: rgba(134, 239, 172, 0.5);
+  color: #dcfce7;
+}
 .perm-user-row td {
   background: #f8fafc;
   border-bottom: 1px solid var(--line);

@@ -32,11 +32,16 @@ function toggleValue(list, key) {
   return list.includes(key) ? list.filter((x) => x !== key) : [...list, key];
 }
 
+function roleLabel(value) {
+  return RBAC_CATEGORIES.find((role) => role.value === value)?.label || value || '—';
+}
+
 export default function UsersPage() {
   const { toast, confirm, prompt } = useFeedback();
   const [users, setUsers] = useState([]);
   const [roleDefaults, setRoleDefaults] = useState([]);
-  const [form, setForm] = useState(emptyForm);
+  const [editor, setEditor] = useState(null);
+  const [savingUser, setSavingUser] = useState(false);
   const [savingRole, setSavingRole] = useState('');
 
   const load = async () => {
@@ -54,29 +59,53 @@ export default function UsersPage() {
     });
   }, []);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await api.post('/users', form);
-      toast.success('User created. Section access follows the assigned RBAC category.');
-      setForm(emptyForm);
-      await load();
-    } catch (err) {
-      toast.error(err.response?.data?.message || 'Create failed.');
-    }
-  };
+  useEffect(() => {
+    if (!editor) return undefined;
+    const onKey = (event) => {
+      if (event.key === 'Escape' && !savingUser) setEditor(null);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [editor, savingUser]);
 
-  const changeRole = async (user, role) => {
+  const openCreate = () => setEditor({ mode: 'create', ...emptyForm });
+
+  const openUpdate = (user) => setEditor({
+    mode: 'update',
+    id: user.id,
+    userName: user.userName,
+    fullName: user.fullName,
+    role: user.roles?.[0] || 'HRAssistant',
+    isActive: user.isActive,
+  });
+
+  const saveEditor = async (event) => {
+    event.preventDefault();
+    if (!editor) return;
+    setSavingUser(true);
     try {
-      await api.put(`/users/${user.id}`, {
-        fullName: user.fullName,
-        role,
-        isActive: user.isActive,
-      });
-      toast.success('RBAC category updated. Section access now follows that category.');
+      if (editor.mode === 'create') {
+        await api.post('/users', {
+          userName: editor.userName,
+          fullName: editor.fullName,
+          password: editor.password,
+          role: editor.role,
+        });
+        toast.success('User created. Section access follows the assigned RBAC category.');
+      } else {
+        await api.put(`/users/${editor.id}`, {
+          fullName: editor.fullName,
+          role: editor.role,
+          isActive: editor.isActive,
+        });
+        toast.success('User updated. Section access follows the assigned RBAC category.');
+      }
+      setEditor(null);
       await load();
     } catch (err) {
-      toast.error(err.response?.data?.message || 'Update failed.');
+      toast.error(err.response?.data?.message || (editor.mode === 'create' ? 'Create failed.' : 'Update failed.'));
+    } finally {
+      setSavingUser(false);
     }
   };
 
@@ -94,6 +123,27 @@ export default function UsersPage() {
       toast.success('Password updated.');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Password change failed.');
+    }
+  };
+
+  const activate = async (user) => {
+    const ok = await confirm({
+      title: 'Activate user',
+      message: `Activate ${user.fullName}? They will be able to sign in again.`,
+      confirmLabel: 'Activate',
+      tone: 'success',
+    });
+    if (!ok) return;
+    try {
+      await api.put(`/users/${user.id}`, {
+        fullName: user.fullName,
+        role: user.roles?.[0] || 'HRAssistant',
+        isActive: true,
+      });
+      toast.success('User activated.');
+      await load();
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Activate failed.');
     }
   };
 
@@ -186,56 +236,51 @@ export default function UsersPage() {
         ))}
       </section>
 
-      <div className="split-forms">
-        <form className="card-form" onSubmit={onSubmit}>
-          <h2>Create user</h2>
-          <label>Username<input required value={form.userName} onChange={(e) => setForm({ ...form, userName: e.target.value })} /></label>
-          <label>Full name<input required value={form.fullName} onChange={(e) => setForm({ ...form, fullName: e.target.value })} /></label>
-          <label>Password<input required type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} /></label>
-          <label>
-            RBAC category
-            <select value={form.role} onChange={(e) => setForm({ ...form, role: e.target.value })}>
-              {RBAC_CATEGORIES.map((role) => (
-                <option key={role.value} value={role.value}>{role.label}</option>
-              ))}
-            </select>
-          </label>
-          <button className="btn btn-primary" type="submit">Create</button>
-        </form>
-
-        <div className="table-wrap">
+      <section className="users-directory">
+        <div className="users-directory__head">
+          <div>
+            <h2>Users</h2>
+            <p className="muted">{users.length === 1 ? '1 account' : `${users.length} accounts`}</p>
+          </div>
+          <button type="button" className="btn btn-primary users-directory__create" onClick={openCreate}>
+            Create New User
+          </button>
+        </div>
+        <div className="table-wrap users-table">
           <table>
             <thead>
               <tr>
                 <th>User</th>
                 <th>Username</th>
                 <th>RBAC category</th>
-                <th>Active</th>
+                <th>Status</th>
                 <th />
               </tr>
             </thead>
             <tbody>
-              {users.map((u) => (
+              {users.length === 0 ? (
+                <tr>
+                  <td className="users-table__empty" colSpan={5}>No user accounts yet.</td>
+                </tr>
+              ) : users.map((u) => (
                 <tr key={u.id}>
                   <td>
-                    <strong>{u.fullName}</strong>
+                    <strong className="users-table__name">{u.fullName}</strong>
                   </td>
-                  <td>{u.userName}</td>
+                  <td><span className="users-table__handle">{u.userName}</span></td>
+                  <td><span className="users-table__role">{roleLabel(u.roles?.[0])}</span></td>
                   <td>
-                    <select
-                      value={u.roles?.[0] || 'HRAssistant'}
-                      onChange={(e) => changeRole(u, e.target.value)}
-                    >
-                      {RBAC_CATEGORIES.map((role) => (
-                        <option key={role.value} value={role.value}>{role.label}</option>
-                      ))}
-                    </select>
+                    <span className={`users-table__status ${u.isActive ? 'is-active' : 'is-inactive'}`}>
+                      {u.isActive ? 'Active' : 'Inactive'}
+                    </span>
                   </td>
-                  <td>{u.isActive ? 'Yes' : 'No'}</td>
-                  <td className="row-actions">
-                    <button type="button" className="btn link-btn" onClick={() => resetPassword(u.id)}>Password</button>
-                    {u.isActive && (
-                      <button type="button" className="btn link-btn danger" onClick={() => deactivate(u.id)}>Deactivate</button>
+                  <td className="row-actions users-table__actions">
+                    <button type="button" className="btn link-btn users-table__update" onClick={() => openUpdate(u)}>Update</button>
+                    <button type="button" className="btn link-btn users-table__password" onClick={() => resetPassword(u.id)}>Password</button>
+                    {u.isActive ? (
+                      <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => deactivate(u.id)}>Deactivate</button>
+                    ) : (
+                      <button type="button" className="btn link-btn users-table__activate" onClick={() => activate(u)}>Activate</button>
                     )}
                   </td>
                 </tr>
@@ -243,7 +288,71 @@ export default function UsersPage() {
             </tbody>
           </table>
         </div>
-      </div>
+      </section>
+
+      {editor && (
+        <div className="confirm-overlay" onClick={() => { if (!savingUser) setEditor(null); }}>
+          <form
+            className="confirm-dialog users-editor"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="users-editor-title"
+            onClick={(event) => event.stopPropagation()}
+            onSubmit={saveEditor}
+          >
+            <h2 id="users-editor-title">{editor.mode === 'create' ? 'Create user' : 'Update user'}</h2>
+            <p>
+              {editor.mode === 'create'
+                ? 'The new account receives the default sections for the category you choose.'
+                : 'Name and category changes apply to this account. Password resets stay on the Password action.'}
+            </p>
+            <label>
+              Username
+              <input
+                required={editor.mode === 'create'}
+                autoFocus={editor.mode === 'create'}
+                disabled={editor.mode === 'update'}
+                value={editor.userName}
+                onChange={(event) => setEditor({ ...editor, userName: event.target.value })}
+              />
+            </label>
+            <label>
+              Full name
+              <input
+                required
+                autoFocus={editor.mode === 'update'}
+                value={editor.fullName}
+                onChange={(event) => setEditor({ ...editor, fullName: event.target.value })}
+              />
+            </label>
+            {editor.mode === 'create' && (
+              <label>
+                Password
+                <input
+                  required
+                  type="password"
+                  value={editor.password}
+                  onChange={(event) => setEditor({ ...editor, password: event.target.value })}
+                />
+              </label>
+            )}
+            <label>
+              RBAC category
+              <select value={editor.role} onChange={(event) => setEditor({ ...editor, role: event.target.value })}>
+                {RBAC_CATEGORIES.map((role) => (
+                  <option key={role.value} value={role.value}>{role.label}</option>
+                ))}
+              </select>
+            </label>
+            <div className="confirm-dialog__actions">
+              <button type="button" className="btn btn-ghost" onClick={() => setEditor(null)} disabled={savingUser}>Cancel</button>
+              <button type="submit" className="btn btn-primary" disabled={savingUser}>
+                {savingUser ? 'Saving…' : editor.mode === 'create' ? 'Create' : 'Update'}
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
