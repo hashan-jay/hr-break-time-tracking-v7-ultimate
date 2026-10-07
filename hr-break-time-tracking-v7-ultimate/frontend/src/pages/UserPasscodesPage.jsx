@@ -130,7 +130,7 @@ export default function UserPasscodesPage() {
   };
 
   return (
-    <div className="page">
+    <div className="page staff-console-page">
       <header className="page-header">
         <div>
           <h1>User Passcodes</h1>
@@ -142,28 +142,31 @@ export default function UserPasscodesPage() {
 
       {canResetEmployeePasscodes && (
         <section className="list-panel passcodes-panel">
-          <div className="list-panel__head">
-            <h2>Reset employee passcodes</h2>
-            <span className="list-panel__count">{sortedEmployees.length}</span>
-          </div>
-          <p className="list-panel__hint">
-            Search an employee and reset their break passcode. You must confirm with your own staff
-            username and password. After reset, the employee creates a new passcode on the next start
-            or end break.
-          </p>
-          <div className="toolbar">
+          <header className="list-panel__head passcodes-panel__head">
+            <div>
+              <h2>Reset employee passcodes</h2>
+              <p className="list-panel__hint">
+                Search an employee and reset their break passcode. You must confirm with your own staff
+                username and password. After reset, the employee creates a new passcode on the next start
+                or end break.
+              </p>
+            </div>
+            <span className="passcodes-panel__count">{sortedEmployees.length}</span>
+          </header>
+          <div className="toolbar passcodes-panel__search">
             <input
               className="search"
               placeholder="Search by name or employee code…"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && setAppliedSearch(search.trim())}
+              aria-label="Search employees"
             />
-            <button type="button" className="btn btn-ghost" onClick={() => setAppliedSearch(search.trim())}>
+            <button type="button" className="btn btn-primary" onClick={() => setAppliedSearch(search.trim())}>
               Search
             </button>
           </div>
-          <div className="table-wrap">
+          <div className="passcodes-table">
             <table>
               <thead>
                 <tr>
@@ -172,7 +175,7 @@ export default function UserPasscodesPage() {
                   <th>Department</th>
                   <th>Shift</th>
                   <th>Passcode</th>
-                  <th />
+                  <th className="passcodes-table__action" aria-label="Reset" />
                 </tr>
               </thead>
               <tbody>
@@ -183,15 +186,19 @@ export default function UserPasscodesPage() {
                 )}
                 {sortedEmployees.map((e) => (
                   <tr key={e.id}>
-                    <td>{e.employeeCode}</td>
-                    <td>{e.fullName}</td>
+                    <td className="passcodes-table__code"><span>{e.employeeCode}</span></td>
+                    <td className="passcodes-table__name">{e.fullName}</td>
                     <td>{e.departmentName}</td>
-                    <td>{e.shiftDisplay || e.shiftName || '—'}</td>
-                    <td>{e.hasPasscode ? 'Set' : 'Not set'}</td>
-                    <td className="row-actions">
+                    <td className="passcodes-table__shift">{e.shiftDisplay || e.shiftName || '—'}</td>
+                    <td>
+                      <span className={`passcodes-table__status${e.hasPasscode ? ' is-set' : ' is-unset'}`}>
+                        {e.hasPasscode ? 'Set' : 'Not set'}
+                      </span>
+                    </td>
+                    <td className="passcodes-table__action">
                       <button
                         type="button"
-                        className="btn link-btn danger"
+                        className="btn passcodes-table__reset"
                         onClick={() => openEmployeeReset(e)}
                       >
                         Reset passcode
