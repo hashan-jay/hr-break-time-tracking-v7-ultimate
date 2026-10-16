@@ -39,21 +39,41 @@ export function FeedbackProvider({ children }) {
 
   const dismissToast = useCallback((id) => {
     setToasts((list) => list.filter((item) => item.id !== id));
-    const timer = timersRef.current.get(id);
-    if (timer) {
-      clearTimeout(timer);
-      timersRef.current.delete(id);
-    }
+    const entry = timersRef.current.get(id);
+    if (entry?.timeout) clearTimeout(entry.timeout);
+    timersRef.current.delete(id);
   }, []);
+
+  const armToast = useCallback((id, delay) => {
+    const timeout = setTimeout(() => dismissToast(id), delay);
+    timersRef.current.set(id, { timeout, remaining: delay, startedAt: Date.now() });
+  }, [dismissToast]);
+
+  const pauseToast = useCallback((id) => {
+    const entry = timersRef.current.get(id);
+    if (!entry?.timeout) return;
+    clearTimeout(entry.timeout);
+    const elapsed = Date.now() - entry.startedAt;
+    timersRef.current.set(id, {
+      timeout: null,
+      remaining: Math.max(0, entry.remaining - elapsed),
+      startedAt: Date.now(),
+    });
+  }, []);
+
+  const resumeToast = useCallback((id) => {
+    const entry = timersRef.current.get(id);
+    if (!entry || entry.timeout) return;
+    armToast(id, entry.remaining);
+  }, [armToast]);
 
   const pushToast = useCallback((type, message) => {
     const text = String(message || '').trim();
     if (!text) return;
     const id = ++idRef.current;
-    setToasts((list) => [...list.slice(-(MAX_TOASTS - 1)), { id, type, message: text }]);
-    const timer = setTimeout(() => dismissToast(id), TOAST_MS);
-    timersRef.current.set(id, timer);
-  }, [dismissToast]);
+    setToasts((list) => [{ id, type, message: text }, ...list].slice(0, MAX_TOASTS));
+    armToast(id, TOAST_MS);
+  }, [armToast]);
 
   const toast = useMemo(() => ({
     success: (message) => pushToast('success', message),
@@ -149,7 +169,15 @@ export function FeedbackProvider({ children }) {
         <div className="feedback-root" aria-live="polite">
           <div className="toast-stack">
             {toasts.map((item) => (
-              <div key={item.id} className={`toast toast--${item.type}`} role="status">
+              <div
+                key={item.id}
+                className={`toast toast--${item.type}`}
+                role="status"
+                onMouseEnter={() => pauseToast(item.id)}
+                onMouseLeave={() => resumeToast(item.id)}
+                onFocus={() => pauseToast(item.id)}
+                onBlur={() => resumeToast(item.id)}
+              >
                 <span className="toast__icon"><ToastIcon type={item.type} /></span>
                 <p className="toast__message">{item.message}</p>
                 <button
