@@ -1827,11 +1827,12 @@ tbody tr.start-limit-reached.selected {
 .portal-detail-card {
   background: #f3f4f6;
   border: 1px solid var(--portal-line, #e5e7eb);
-  border-radius: 8px;
-  padding: 0.85rem 0;
+  border-radius: 999px;
+  padding: 0.85rem 0.35rem;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0;
+  overflow: hidden;
 }
 
 .portal-detail-field {
