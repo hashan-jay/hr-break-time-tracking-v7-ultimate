@@ -5,25 +5,162 @@ const FeedbackContext = createContext(null);
 const TOAST_MS = 5000;
 const MAX_TOASTS = 4;
 
+const DISMISS_DRAG = 56;
+const RING = 2 * Math.PI * 15;
+
+const TOAST_LABEL = {
+  success: 'Success',
+  error: 'Alert',
+  info: 'Notice',
+};
+
 function ToastIcon({ type }) {
   if (type === 'success') {
     return (
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-        <path fill="currentColor" d="M9.2 16.2 5.8 12.8l-1.4 1.4 4.8 4.8 10-10-1.4-1.4z" />
+      <svg className="toast__glyph" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path d="M6 12.5 10.2 16.5 18 8" />
       </svg>
     );
   }
   if (type === 'error') {
     return (
-      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-        <path fill="currentColor" d="M12 2 1 21h22L12 2zm1 15h-2v-2h2v2zm0-4h-2V9h2v4z" />
+      <svg className="toast__glyph" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path d="M12 4.5 20.5 19.5h-17L12 4.5z" />
+        <path d="M12 10v4.2" />
+        <path d="M12 16.8h.01" />
       </svg>
     );
   }
   return (
-    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
-      <path fill="currentColor" d="M12 2a10 10 0 1 0 .01 20.01A10 10 0 0 0 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+    <svg className="toast__glyph" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <circle cx="12" cy="12" r="8" />
+      <path d="M12 11v5" />
+      <path d="M12 8h.01" />
     </svg>
+  );
+}
+
+function ToastCard({ item, onPause, onResume, onDismiss }) {
+  const [dragY, setDragY] = useState(0);
+  const [dragging, setDragging] = useState(false);
+  const startY = useRef(0);
+  const pointerId = useRef(null);
+  const hovering = useRef(false);
+  const dragRef = useRef(0);
+  const remaining = useRef(TOAST_MS);
+  const [held, setHeld] = useState(false);
+  const [ratio, setRatio] = useState(1);
+  const readyToDismiss = dragY > DISMISS_DRAG;
+  const paused = held || dragging || item.leaving;
+
+  useEffect(() => {
+    if (paused) return undefined;
+    const start = performance.now();
+    const from = remaining.current;
+    const timer = window.setInterval(() => {
+      const next = Math.max(0, from - (performance.now() - start));
+      setRatio(next / TOAST_MS);
+    }, 80);
+    return () => {
+      remaining.current = Math.max(0, from - (performance.now() - start));
+      window.clearInterval(timer);
+    };
+  }, [paused]);
+
+  const onPointerDown = (event) => {
+    if (item.leaving || event.target.closest('.toast__close')) return;
+    pointerId.current = event.pointerId;
+    startY.current = event.clientY;
+    setDragging(true);
+    onPause();
+    event.currentTarget.setPointerCapture(event.pointerId);
+  };
+
+  const onPointerMove = (event) => {
+    if (!dragging || event.pointerId !== pointerId.current) return;
+    const next = Math.max(0, event.clientY - startY.current);
+    dragRef.current = next;
+    setDragY(next);
+  };
+
+  const onPointerUp = (event) => {
+    if (event.pointerId !== pointerId.current) return;
+    const dropped = dragRef.current > DISMISS_DRAG;
+    setDragging(false);
+    pointerId.current = null;
+    dragRef.current = 0;
+    if (dropped) {
+      onDismiss();
+      return;
+    }
+    setDragY(0);
+    if (!(event.pointerType === 'mouse' && hovering.current)) onResume();
+  };
+
+  const seconds = Math.max(0, Math.ceil((ratio * TOAST_MS) / 1000));
+  const hint = dragging
+    ? (readyToDismiss ? 'Release to close' : 'Drag down to close')
+    : `Holding · ${seconds}s`;
+
+  return (
+    <div
+      className={[
+        'toast',
+        `toast--${item.type}`,
+        dragging ? 'is-dragging' : '',
+        readyToDismiss ? 'is-dismissing' : '',
+        item.leaving ? 'is-leaving' : '',
+      ].filter(Boolean).join(' ')}
+      role="status"
+      style={dragY ? { transform: `translateY(${dragY}px)` } : undefined}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+      onPointerCancel={onPointerUp}
+      onMouseEnter={() => {
+        hovering.current = true;
+        setHeld(true);
+        onPause();
+      }}
+      onMouseLeave={() => {
+        hovering.current = false;
+        setHeld(false);
+        if (!dragging) onResume();
+      }}
+      onFocus={() => onPause()}
+      onBlur={() => {
+        if (!dragging) onResume();
+      }}
+    >
+      <span className="toast__grip" aria-hidden="true" />
+      <span className="toast__icon">
+        <svg className="toast__ring" viewBox="0 0 36 36" aria-hidden="true">
+          <circle className="toast__ring-track" cx="18" cy="18" r="15" />
+          <circle
+            className="toast__ring-value"
+            cx="18"
+            cy="18"
+            r="15"
+            style={{ strokeDasharray: RING, strokeDashoffset: (1 - ratio) * RING }}
+          />
+        </svg>
+        <ToastIcon type={item.type} />
+      </span>
+      <div className="toast__copy">
+        <p className="toast__kicker">{TOAST_LABEL[item.type] || 'Notice'}</p>
+        <p className="toast__message">{item.message}</p>
+        <p className="toast__hint">{hint}</p>
+      </div>
+      <button
+        type="button"
+        className="toast__close"
+        onPointerDown={(event) => event.stopPropagation()}
+        onClick={onDismiss}
+        aria-label="Dismiss notification"
+      >
+        ×
+      </button>
+    </div>
   );
 }
 
@@ -33,15 +170,24 @@ export function FeedbackProvider({ children }) {
   const [promptValue, setPromptValue] = useState('');
   const idRef = useRef(0);
   const timersRef = useRef(new Map());
+  const leavingRef = useRef(new Set());
   const dialogRef = useRef(null);
   const inputRef = useRef(null);
   const confirmBtnRef = useRef(null);
 
   const dismissToast = useCallback((id) => {
-    setToasts((list) => list.filter((item) => item.id !== id));
+    if (leavingRef.current.has(id)) return;
+    leavingRef.current.add(id);
+    setToasts((list) => list.map((item) => (
+      item.id === id ? { ...item, leaving: true } : item
+    )));
     const entry = timersRef.current.get(id);
     if (entry?.timeout) clearTimeout(entry.timeout);
     timersRef.current.delete(id);
+    window.setTimeout(() => {
+      leavingRef.current.delete(id);
+      setToasts((list) => list.filter((item) => item.id !== id));
+    }, 220);
   }, []);
 
   const armToast = useCallback((id, delay) => {
@@ -71,7 +217,17 @@ export function FeedbackProvider({ children }) {
     const text = String(message || '').trim();
     if (!text) return;
     const id = ++idRef.current;
-    setToasts((list) => [{ id, type, message: text }, ...list].slice(0, MAX_TOASTS));
+    setToasts((list) => {
+      const next = [{ id, type, message: text, leaving: false }, ...list].slice(0, MAX_TOASTS);
+      const kept = new Set(next.map((item) => item.id));
+      list.forEach((item) => {
+        if (kept.has(item.id)) return;
+        const entry = timersRef.current.get(item.id);
+        if (entry?.timeout) clearTimeout(entry.timeout);
+        timersRef.current.delete(item.id);
+      });
+      return next;
+    });
     armToast(id, TOAST_MS);
   }, [armToast]);
 
@@ -169,27 +325,13 @@ export function FeedbackProvider({ children }) {
         <div className="feedback-root" aria-live="polite">
           <div className="toast-stack">
             {toasts.map((item) => (
-              <div
+              <ToastCard
                 key={item.id}
-                className={`toast toast--${item.type}`}
-                role="status"
-                onMouseEnter={() => pauseToast(item.id)}
-                onMouseLeave={() => resumeToast(item.id)}
-                onFocus={() => pauseToast(item.id)}
-                onBlur={() => resumeToast(item.id)}
-              >
-                <span className="toast__icon"><ToastIcon type={item.type} /></span>
-                <p className="toast__message">{item.message}</p>
-                <button
-                  type="button"
-                  className="toast__close"
-                  onClick={() => dismissToast(item.id)}
-                  aria-label="Dismiss notification"
-                >
-                  ×
-                </button>
-                <span className="toast__progress" />
-              </div>
+                item={item}
+                onPause={() => pauseToast(item.id)}
+                onResume={() => resumeToast(item.id)}
+                onDismiss={() => dismissToast(item.id)}
+              />
             ))}
           </div>
 
