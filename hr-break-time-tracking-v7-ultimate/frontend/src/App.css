@@ -1768,6 +1768,11 @@ tbody tr.start-limit-reached.selected {
   gap: 1rem;
 }
 
+.portal-roster-section__head .portal-header-stats {
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
 .portal-roster-section__head h2 {
   margin: 0 0 0.15rem;
   font-family: var(--ig-font);
@@ -7451,14 +7456,61 @@ html[data-theme="dark"] .app-portal .portal-side--ig .portal-nav__link.is-active
   justify-self: center;
 }
 
-.portal-employee-header__actions .theme-toggle {
-  flex-shrink: 0;
-  width: auto;
-  min-width: 9.6rem;
-  height: 2.05rem;
-  border: 1px solid var(--ig-line);
-  background: #eceff3;
-  box-shadow: none;
+.portal-employee-header__actions .theme-toggle.theme-toggle--circle {
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid #e4e7ee;
+  background: #fff;
+  color: #f5a018;
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  place-items: center;
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.theme-toggle--circle .theme-toggle__glyph {
+  grid-area: 1 / 1;
+  width: 1.4rem;
+  height: 1.4rem;
+  display: block;
+  transition: opacity 0.18s ease;
+}
+
+.theme-toggle--circle .theme-toggle__glyph svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.theme-toggle--circle.is-light .theme-toggle__glyph--moon,
+.theme-toggle--circle.is-dark .theme-toggle__glyph--sun {
+  opacity: 0;
+}
+
+.portal-employee-header__actions .theme-toggle.theme-toggle--circle.is-dark {
+  background: #161b22;
+  border-color: #161b22;
+  color: #fff;
+}
+
+.portal-shell .portal-employee-header__actions .theme-toggle.theme-toggle--circle:hover,
+.portal-shell .portal-employee-header__actions .theme-toggle.theme-toggle--circle:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.14);
+  border-color: #d5d8e0;
+}
+
+.portal-shell .portal-employee-header__actions .theme-toggle.theme-toggle--circle.is-dark:hover,
+.portal-shell .portal-employee-header__actions .theme-toggle.theme-toggle--circle.is-dark:focus-visible {
+  background: #161b22;
+  border-color: #2a3140;
+  color: #fff;
 }
 
 .portal-shell .theme-toggle:hover {
@@ -8304,8 +8356,15 @@ html[data-theme="dark"] .portal-shell .theme-toggle__icon {
   color: var(--ig-muted);
 }
 
-html[data-theme="dark"] .portal-shell .theme-toggle.is-light .theme-toggle__icon--sun,
-html[data-theme="dark"] .portal-shell .theme-toggle.is-dark .theme-toggle__icon--moon {
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .theme-toggle.theme-toggle--circle.is-light {
+  background: #fff;
+  border-color: #e4e7ee;
+  color: #f5a018;
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .theme-toggle.theme-toggle--circle.is-dark {
+  background: #161b22;
+  border-color: #161b22;
   color: #fff;
 }
 

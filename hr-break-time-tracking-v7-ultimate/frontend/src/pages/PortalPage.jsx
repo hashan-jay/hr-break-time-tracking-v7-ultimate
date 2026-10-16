@@ -495,24 +495,9 @@ export default function PortalPage() {
           <div className="portal-employee-header__brand">
             <h1 className="portal-employee-title">Break Portal - HTSK - PortCity BPO</h1>
           </div>
-          <PortalClock />
           <div className="portal-employee-header__actions">
-            <ThemeToggle />
-            <div
-              className="portal-header-stats"
-              aria-label={`On Meal Break ${mealOnBreakCount}. On Comfort Break ${comfortOnBreakCount}.`}
-            >
-              <span className={`portal-header-stat${mealOnBreakCount ? ' is-live' : ''}`} title="On meal break">
-                <span className="portal-header-stat__dot" aria-hidden="true" />
-                <span className="portal-header-stat__label">Meal</span>
-                <strong>{mealOnBreakCount}</strong>
-              </span>
-              <span className={`portal-header-stat portal-header-stat--comfort${comfortOnBreakCount ? ' is-live' : ''}`} title="On comfort break">
-                <span className="portal-header-stat__dot" aria-hidden="true" />
-                <span className="portal-header-stat__label">Comfort</span>
-                <strong>{comfortOnBreakCount}</strong>
-              </span>
-            </div>
+            <PortalClock />
+            <ThemeToggle variant="circle" />
             {isAuthenticated ? (
               <button
                 type="button"
@@ -630,8 +615,20 @@ export default function PortalPage() {
                 Comfort limit <strong>{board?.comfortLimitMinutes ?? '—'} min</strong>
               </p>
             </div>
-            <div className="portal-onbreak-chip">
-              On break <strong>{board?.onBreakCount ?? 0}</strong>
+            <div
+              className="portal-header-stats"
+              aria-label={`On Meal Break ${mealOnBreakCount}. On Comfort Break ${comfortOnBreakCount}.`}
+            >
+              <span className={`portal-header-stat${mealOnBreakCount ? ' is-live' : ''}`} title="On meal break">
+                <span className="portal-header-stat__dot" aria-hidden="true" />
+                <span className="portal-header-stat__label">Meal</span>
+                <strong>{mealOnBreakCount}</strong>
+              </span>
+              <span className={`portal-header-stat portal-header-stat--comfort${comfortOnBreakCount ? ' is-live' : ''}`} title="On comfort break">
+                <span className="portal-header-stat__dot" aria-hidden="true" />
+                <span className="portal-header-stat__label">Comfort</span>
+                <strong>{comfortOnBreakCount}</strong>
+              </span>
             </div>
           </header>
 
