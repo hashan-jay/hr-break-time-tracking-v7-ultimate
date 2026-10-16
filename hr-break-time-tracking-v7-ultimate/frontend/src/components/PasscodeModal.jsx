@@ -51,28 +51,11 @@ function PasscodeEntry({
   busy,
 }) {
   const inputRef = useRef(null);
-  const previousLength = useRef(0);
   const [focused, setFocused] = useState(false);
-  const [flashIndex, setFlashIndex] = useState(-1);
 
   useEffect(() => {
     if (autoFocus) inputRef.current?.focus();
   }, [autoFocus]);
-
-  useEffect(() => {
-    if (value.length > previousLength.current) {
-      const index = value.length - 1;
-      setFlashIndex(index);
-      const timer = window.setTimeout(() => {
-        setFlashIndex((current) => (current === index ? -1 : current));
-      }, 700);
-      previousLength.current = value.length;
-      return () => window.clearTimeout(timer);
-    }
-    previousLength.current = value.length;
-    setFlashIndex(-1);
-    return undefined;
-  }, [value]);
 
   const handleChange = (event) => {
     const filtered = filterPasscodeInput(event.target.value);
@@ -127,7 +110,7 @@ function PasscodeEntry({
         {Array.from({ length: PASSCODE_LENGTH }, (_, index) => {
           const filled = index < value.length;
           const active = focused && !complete && index === activeIndex;
-          const showChar = filled && (revealed || flashIndex === index);
+          const showChar = filled && revealed;
           return (
             <span
               key={index}
