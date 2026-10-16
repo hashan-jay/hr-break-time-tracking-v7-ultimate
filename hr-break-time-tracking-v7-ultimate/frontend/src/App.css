@@ -953,13 +953,62 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .portal-header-login {
-  border-radius: 999px;
-  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+  border-radius: 50%;
 }
 
-.portal-shell .portal-employee-header__actions .portal-header-login:hover {
+.portal-shell .portal-employee-header__actions .portal-header-login.btn-primary {
+  width: 3rem;
+  height: 3rem;
+  min-width: 3rem;
+  min-height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  border: 1.5px solid #14542d;
+  background-color: #14542d;
+  background-image: none;
+  color: #fff;
+  display: inline-grid;
+  place-items: center;
+  box-shadow: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease, color 0.18s ease;
+}
+
+.portal-header-login__icon {
+  grid-area: 1 / 1;
+  width: 1.35rem;
+  height: 1.35rem;
+  display: block;
+  transition: opacity 0.18s ease;
+}
+
+.portal-header-login__icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.portal-header-login__icon--key {
+  opacity: 0;
+}
+
+.portal-shell .portal-employee-header__actions .portal-header-login.btn-primary:hover,
+.portal-shell .portal-employee-header__actions .portal-header-login.btn-primary:focus-visible {
+  background-color: #fff;
+  background-image: none;
+  color: #14542d;
+  border-color: #14542d;
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(20, 84, 45, 0.22);
+}
+
+.portal-header-login:hover .portal-header-login__icon--lock,
+.portal-header-login:focus-visible .portal-header-login__icon--lock {
+  opacity: 0;
+}
+
+.portal-header-login:hover .portal-header-login__icon--key,
+.portal-header-login:focus-visible .portal-header-login__icon--key {
+  opacity: 1;
 }
 
 @keyframes portal-header-live {
@@ -8196,8 +8245,20 @@ html[data-theme="dark"] .portal-employee-header .portal-clock__section--time {
   box-shadow: none;
 }
 
-html[data-theme="dark"] .portal-shell .portal-employee-header__actions .portal-header-login:hover {
-  box-shadow: 0 10px 20px rgba(194, 65, 12, 0.28);
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .portal-header-login.btn-primary {
+  background-color: #14542d;
+  background-image: none;
+  color: #fff;
+  border-color: #14542d;
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .portal-header-login.btn-primary:hover,
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .portal-header-login.btn-primary:focus-visible {
+  background-color: #fff;
+  background-image: none;
+  color: #14542d;
+  border-color: #14542d;
+  box-shadow: 0 10px 20px rgba(20, 84, 45, 0.28);
 }
 
 html[data-theme="dark"] .portal-shell .portal-clock__time {

@@ -514,12 +514,44 @@ export default function PortalPage() {
               </span>
             </div>
             {isAuthenticated ? (
-              <button type="button" className="btn btn-primary portal-header-login" onClick={() => navigate('/app')}>
-                Open staff console
+              <button
+                type="button"
+                className="btn btn-primary portal-header-login"
+                onClick={() => navigate('/app')}
+                aria-label="Open staff console"
+                title="Open staff console"
+              >
+                <span className="portal-header-login__icon portal-header-login__icon--lock" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" fillRule="evenodd" d="M12 2.75A4.25 4.25 0 0 0 7.75 7v3.1H6.6A1.85 1.85 0 0 0 4.75 12v7.15c0 1.02.83 1.85 1.85 1.85h10.8c1.02 0 1.85-.83 1.85-1.85V12c0-1.02-.83-1.85-1.85-1.85h-1.15V7A4.25 4.25 0 0 0 12 2.75zm2.35 7.35V7a2.35 2.35 0 0 0-4.7 0v3.1h4.7z" />
+                  </svg>
+                </span>
+                <span className="portal-header-login__icon portal-header-login__icon--key" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" fillRule="evenodd" d="M7.2 6.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 2.9a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4z" />
+                    <path fill="currentColor" d="M11.6 10.7h9.6v2.55H11.6zm5.35 2.55h1.95v2.9h-1.95zm3.2 0H21.2v2.05h-1.05z" />
+                  </svg>
+                </span>
               </button>
             ) : (
-              <button type="button" className="btn btn-primary portal-header-login" onClick={() => navigate('/login')}>
-                Log in as HR Manager
+              <button
+                type="button"
+                className="btn btn-primary portal-header-login"
+                onClick={() => navigate('/login')}
+                aria-label="Log in as HR Manager"
+                title="Log in as HR Manager"
+              >
+                <span className="portal-header-login__icon portal-header-login__icon--lock" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" fillRule="evenodd" d="M12 2.75A4.25 4.25 0 0 0 7.75 7v3.1H6.6A1.85 1.85 0 0 0 4.75 12v7.15c0 1.02.83 1.85 1.85 1.85h10.8c1.02 0 1.85-.83 1.85-1.85V12c0-1.02-.83-1.85-1.85-1.85h-1.15V7A4.25 4.25 0 0 0 12 2.75zm2.35 7.35V7a2.35 2.35 0 0 0-4.7 0v3.1h4.7z" />
+                  </svg>
+                </span>
+                <span className="portal-header-login__icon portal-header-login__icon--key" aria-hidden="true">
+                  <svg viewBox="0 0 24 24">
+                    <path fill="currentColor" fillRule="evenodd" d="M7.2 6.9a5.1 5.1 0 1 0 0 10.2 5.1 5.1 0 0 0 0-10.2zm0 2.9a2.2 2.2 0 1 1 0 4.4 2.2 2.2 0 0 1 0-4.4z" />
+                    <path fill="currentColor" d="M11.6 10.7h9.6v2.55H11.6zm5.35 2.55h1.95v2.9h-1.95zm3.2 0H21.2v2.05h-1.05z" />
+                  </svg>
+                </span>
               </button>
             )}
           </div>
