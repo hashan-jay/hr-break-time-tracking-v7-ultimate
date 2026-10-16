@@ -1486,6 +1486,179 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .tracking-page .status-badge {
   border-radius: 999px;
   font-family: var(--ig-font);
+  white-space: nowrap;
+  display: inline-flex;
+}
+
+.tracking-page .portal-employee-filters,
+.tracking-page .tracking-roster {
+  border-radius: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.58)),
+    color-mix(in srgb, #fff 72%, transparent);
+  backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.tracking-page .portal-employee-filter span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tracking-page .portal-employee-filters .portal-board__shift,
+.tracking-page .portal-employee-filters .portal-board__search {
+  min-height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background-color: rgba(255, 255, 255, 0.72);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.tracking-page .portal-employee-filters .portal-board__shift {
+  appearance: none;
+  padding-right: 2.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+}
+
+.tracking-page .portal-employee-filters .portal-board__shift:hover,
+.tracking-page .portal-employee-filters .portal-board__search:hover {
+  transform: translateY(-2px);
+  border-color: rgba(20, 84, 45, 0.28);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.tracking-page .portal-employee-filters .portal-board__shift:focus,
+.tracking-page .portal-employee-filters .portal-board__search:focus {
+  outline: none;
+  border-color: #14542d;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
+}
+
+.tracking-page .tracking-roster .portal-onbreak-chip {
+  min-height: 2.4rem;
+  padding: 0.28rem 0.75rem;
+  gap: 0.45rem;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.tracking-page .portal-onbreak-chip__dot {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+
+.tracking-page .portal-onbreak-chip.is-live .portal-onbreak-chip__dot {
+  background: #16a34a;
+  animation: portal-header-live 1.4s ease infinite;
+}
+
+.tracking-page .tracking-capture {
+  border-radius: 1.05rem;
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.tracking-page .tracking-capture .btn {
+  border-radius: 999px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.tracking-page .tracking-capture .btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.1);
+}
+
+.tracking-page .portal-roster.portal-board {
+  border: none;
+  border-radius: 1.05rem;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.75);
+}
+
+.tracking-page .portal-roster .portal-board__table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(10px);
+}
+
+.tracking-page .portal-roster .portal-board__table td:nth-child(6),
+.tracking-page .portal-roster .portal-board__table td:nth-child(7) {
+  white-space: nowrap;
+}
+
+.tracking-page .tracking-roster tbody tr {
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.tracking-page tbody tr.is-clickable {
+  cursor: pointer;
+}
+
+.tracking-page .tracking-roster tbody tr:hover:not(.on-break):not(.off-shift):not(.on-other-break) {
+  background: rgba(20, 84, 45, 0.06);
+}
+
+.tracking-page .tracking-roster tbody tr.selected:not(.on-break) {
+  background: rgba(20, 84, 45, 0.1);
+  box-shadow: inset 3px 0 0 #14542d;
+}
+
+.tracking-state__pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.6rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  background: #f3f4f6;
+  color: #4b5563;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tracking-state__pill.is-live {
+  background: #fff4e5;
+  color: #c2410c;
+}
+
+.tracking-state__pill.is-other,
+.tracking-state__pill.is-off {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+html[data-theme="dark"] .tracking-page .portal-employee-filters,
+html[data-theme="dark"] .tracking-page .tracking-roster {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(18, 22, 30, 0.82);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .tracking-page .portal-employee-filters .portal-board__shift,
+html[data-theme="dark"] .tracking-page .portal-employee-filters .portal-board__search,
+html[data-theme="dark"] .tracking-page .tracking-capture,
+html[data-theme="dark"] .tracking-page .portal-roster.portal-board {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .tracking-page .portal-roster .portal-board__table th {
+  background: rgba(18, 22, 30, 0.9);
+}
+
+html[data-theme="dark"] .tracking-state__pill {
+  background: rgba(255, 255, 255, 0.06);
+  color: #d4d4d4;
 }
 
 html[data-theme="dark"] .tracking-page {
@@ -9311,3 +9484,229 @@ html[data-theme="dark"] .audit-actions__item--breakin strong { background: rgba(
 html[data-theme="dark"] .audit-action--passcodeset,
 html[data-theme="dark"] .audit-actions__item--passcodeset { background: rgba(127, 29, 29, 0.28); border-color: rgba(127, 29, 29, 0.55); color: #fecaca; }
 html[data-theme="dark"] .audit-actions__item--passcodeset strong { background: rgba(248, 113, 113, 0.28); color: #fecaca; }
+
+.tracking-employee-dialog {
+  width: min(58rem, 100%);
+  max-height: min(88vh, 46rem);
+  overflow: auto;
+  padding: 1.15rem 1.25rem 1.25rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.78)),
+    var(--ig-card, #fff);
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.18);
+  color: var(--ig-ink, var(--ink));
+  font-family: "Montserrat", sans-serif;
+  animation: confirm-in 0.18s ease;
+}
+
+.tracking-employee-dialog__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.tracking-employee-dialog__eyebrow {
+  margin: 0 0 0.2rem;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ig-muted, #64748b);
+}
+
+.tracking-employee-dialog__head h2 {
+  margin: 0;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.tracking-employee-dialog__meta {
+  margin: 0.3rem 0 0;
+  color: var(--ig-muted, #64748b);
+  font-size: 0.92rem;
+}
+
+.tracking-employee-dialog__close {
+  flex: 0 0 auto;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+  border-radius: 999px;
+  background: #fff;
+  color: #14542d;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.tracking-employee-dialog__close:hover,
+.tracking-employee-dialog__close:focus-visible {
+  background: #14542d;
+  color: #fff;
+  outline: none;
+}
+
+.tracking-employee-dialog__facts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.65rem;
+  margin: 0.95rem 0 0;
+}
+
+.tracking-employee-dialog__facts div {
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.9rem;
+  background: rgba(20, 84, 45, 0.05);
+}
+
+.tracking-employee-dialog__facts dt {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ig-muted, #64748b);
+}
+
+.tracking-employee-dialog__facts dd {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+  font-weight: 650;
+}
+
+.tracking-employee-dialog__note {
+  margin: 0.8rem 0 0;
+  padding: 0.7rem 0.85rem;
+  border-radius: 0.9rem;
+  background: rgba(245, 160, 24, 0.14);
+  color: #8a5a00;
+  font-size: 0.9rem;
+}
+
+.tracking-employee-dialog__breaks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.tracking-employee-dialog__breaks article {
+  padding: 0.85rem 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.tracking-employee-dialog__breaks header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.75rem;
+  margin-bottom: 0.55rem;
+}
+
+.tracking-employee-dialog__breaks h3 {
+  margin: 0;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 1.05rem;
+  white-space: nowrap;
+}
+
+.tracking-employee-dialog__breaks article.is-active {
+  box-shadow: inset 0 0 0 2px rgba(20, 84, 45, 0.28);
+}
+
+.tracking-employee-dialog__actions {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tracking-employee-dialog__status,
+.tracking-employee-dialog__hint {
+  margin: 0;
+  color: var(--ig-muted, #64748b);
+  font-size: 0.84rem;
+  line-height: 1.4;
+}
+
+.tracking-employee-dialog__hint {
+  margin-top: 0.85rem;
+}
+
+.tracking-employee-dialog__actions .btn {
+  border-radius: 999px;
+}
+
+.tracking-employee-dialog__actions .btn-ghost {
+  background: #fff;
+}
+
+.tracking-employee-dialog__breaks p {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0.28rem 0;
+  font-size: 0.88rem;
+  color: var(--ig-muted, #64748b);
+}
+
+.tracking-employee-dialog__breaks strong {
+  color: var(--ig-ink, var(--ink));
+  font-weight: 650;
+}
+
+html[data-theme="dark"] .tracking-employee-dialog {
+  border-color: rgba(255, 255, 255, 0.1);
+  background:
+    linear-gradient(180deg, rgba(28, 34, 44, 0.96), rgba(18, 22, 30, 0.94));
+  color: #f8fafc;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+}
+
+html[data-theme="dark"] .tracking-employee-dialog__head {
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .tracking-employee-dialog__facts div,
+html[data-theme="dark"] .tracking-employee-dialog__breaks article {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .tracking-employee-dialog__breaks article.is-active {
+  box-shadow: inset 0 0 0 2px rgba(134, 239, 172, 0.4);
+}
+
+html[data-theme="dark"] .tracking-employee-dialog__actions .btn-ghost {
+  background: transparent;
+  color: #f8fafc;
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+html[data-theme="dark"] .tracking-employee-dialog__close {
+  background: #161b22;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+html[data-theme="dark"] .tracking-employee-dialog__breaks strong,
+html[data-theme="dark"] .tracking-employee-dialog__facts dd {
+  color: #f8fafc;
+}
+
+@media (max-width: 720px) {
+  .tracking-employee-dialog__facts,
+  .tracking-employee-dialog__breaks {
+    grid-template-columns: 1fr;
+  }
+}
