@@ -493,7 +493,8 @@ export default function PortalPage() {
       <main className="portal-main">
         <header className="portal-employee-header">
           <div className="portal-employee-header__brand">
-            <h1 className="portal-employee-title">Breaks &amp; Attendance Tracker - HTSK | PortCity BPO</h1>
+            <h1 className="portal-employee-title">Employee Break &amp; Attendance Tracker</h1>
+            <span className="portal-employee-subtitle">PortCity BPO - HTSK Division</span>
           </div>
           <div className="portal-employee-header__actions">
             <PortalClock />
@@ -609,10 +610,9 @@ export default function PortalPage() {
           <header className="portal-roster-section__head">
             <div>
               <h2>Employees</h2>
-              <p>
-                Meal limit <strong>{board?.mealLimitMinutes ?? '—'} min</strong>
-                {' · '}
-                Comfort limit <strong>{board?.comfortLimitMinutes ?? '—'} min</strong>
+              <p className="portal-roster-limits">
+                <span>Meal limit <strong>{board?.mealLimitMinutes ?? '—'} min</strong></span>
+                <span>Comfort limit <strong>{board?.comfortLimitMinutes ?? '—'} min</strong></span>
               </p>
             </div>
             <div

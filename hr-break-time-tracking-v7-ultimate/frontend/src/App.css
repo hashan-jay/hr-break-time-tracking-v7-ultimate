@@ -758,9 +758,10 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 
 .portal-employee-header__brand {
   display: flex;
-  align-items: center;
+  align-items: baseline;
   align-self: center;
   flex: 0 1 auto;
+  gap: 0.75rem;
   min-width: 0;
 }
 
@@ -772,6 +773,17 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--ig-ink);
+  white-space: nowrap;
+}
+
+.portal-employee-subtitle {
+  margin: 0;
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  color: var(--ig-muted);
   white-space: nowrap;
 }
 
@@ -1836,6 +1848,125 @@ tbody tr.start-limit-reached.selected {
 .portal-roster .portal-board__table .col-name {
   font-size: 1.05rem;
   font-weight: 650;
+}
+
+.portal-shell .portal-employee-filters,
+.portal-shell .portal-roster-section {
+  border-radius: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.46)),
+    color-mix(in srgb, var(--ig-card, #fff) 70%, transparent);
+  backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.portal-shell .portal-employee-filter span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.portal-shell .portal-employee-filters .portal-board__shift,
+.portal-shell .portal-employee-filters .portal-board__search {
+  min-height: 2.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.portal-shell .portal-employee-filters .portal-board__shift {
+  appearance: none;
+  padding-right: 2.2rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+}
+
+.portal-shell .portal-employee-filters .portal-board__shift:hover,
+.portal-shell .portal-employee-filters .portal-board__search:hover {
+  transform: translateY(-2px);
+  border-color: rgba(20, 84, 45, 0.28);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.portal-shell .portal-employee-filters .portal-board__shift:focus,
+.portal-shell .portal-employee-filters .portal-board__search:focus {
+  outline: none;
+  border-color: #14542d;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
+}
+
+.portal-shell .portal-ig-search:focus-within .portal-ig-search__icon {
+  color: #14542d;
+}
+
+.portal-shell .portal-roster-section__head h2 {
+  font-family: "Syne", "Montserrat", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.03em;
+}
+
+.portal-shell .portal-roster-limits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.45rem;
+}
+
+.portal-shell .portal-roster-limits span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 1.7rem;
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.66);
+  color: var(--ig-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.portal-shell .portal-roster .portal-board {
+  border: none;
+  border-radius: 1.05rem;
+  background: rgba(255, 255, 255, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.portal-shell .portal-roster .portal-board__table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+}
+
+.portal-shell .portal-roster .portal-board__table td {
+  border-bottom-color: rgba(15, 23, 42, 0.06);
+}
+
+.portal-shell .portal-roster tbody tr {
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.portal-shell .portal-roster tbody tr:hover:not(.on-break):not(.off-shift):not(.start-limit-reached):not(.on-other-break) {
+  background: rgba(20, 84, 45, 0.06);
+}
+
+.portal-shell .portal-roster tbody tr.selected:not(.on-break) {
+  background: rgba(20, 84, 45, 0.1);
+  box-shadow: inset 3px 0 0 #14542d;
+}
+
+.portal-shell .portal-roster .col-code {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ig-muted);
 }
 
 .portal-break-status {
@@ -8160,9 +8291,50 @@ html[data-theme="dark"] .portal-roster-section__head p {
   color: var(--ig-muted);
 }
 
-html[data-theme="dark"] .portal-roster .portal-board {
-  background: var(--ig-card);
-  border-color: var(--ig-line);
+html[data-theme="dark"] .portal-shell .portal-employee-filters,
+html[data-theme="dark"] .portal-shell .portal-roster-section {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(18, 22, 30, 0.78);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-filters .portal-board__shift,
+html[data-theme="dark"] .portal-shell .portal-employee-filters .portal-board__search {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: var(--ig-ink);
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-filters .portal-board__shift:focus,
+html[data-theme="dark"] .portal-shell .portal-employee-filters .portal-board__search:focus {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #86efac;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
+}
+
+html[data-theme="dark"] .portal-shell .portal-roster-limits span {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .portal-shell .portal-roster .portal-board {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+html[data-theme="dark"] .portal-shell .portal-roster .portal-board__table th {
+  background: rgba(18, 22, 30, 0.88);
+}
+
+html[data-theme="dark"] .portal-shell .portal-roster tbody tr:hover:not(.on-break):not(.off-shift):not(.start-limit-reached):not(.on-other-break) {
+  background: rgba(134, 239, 172, 0.08);
+}
+
+html[data-theme="dark"] .portal-shell .portal-roster tbody tr.selected:not(.on-break) {
+  background: rgba(134, 239, 172, 0.12);
+  box-shadow: inset 3px 0 0 #86efac;
 }
 
 html[data-theme="dark"] .portal-roster .portal-board__table th {
