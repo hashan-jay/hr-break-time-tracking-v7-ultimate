@@ -493,7 +493,7 @@ export default function PortalPage() {
       <main className="portal-main">
         <header className="portal-employee-header">
           <div className="portal-employee-header__brand">
-            <h1 className="portal-employee-title">Break Portal - HTSK - PortCity BPO</h1>
+            <h1 className="portal-employee-title">Breaks &amp; Attendance Tracker - HTSK | PortCity BPO</h1>
           </div>
           <div className="portal-employee-header__actions">
             <PortalClock />

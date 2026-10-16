@@ -1,2 +1,3 @@
 # Ignore local Chrome browser profile
 .chrome-header-profile/
+.chrome-header-profile2/

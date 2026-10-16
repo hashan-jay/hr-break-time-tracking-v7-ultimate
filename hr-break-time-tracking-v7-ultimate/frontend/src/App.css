@@ -745,9 +745,8 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  row-gap: 0.2rem;
-  flex-wrap: wrap;
-  padding: 0.32rem 0.75rem 0.32rem 0.85rem;
+  flex-wrap: nowrap;
+  padding: 0.45rem 0.85rem;
   border-radius: 1.4rem;
   border: 1px solid rgba(255, 255, 255, 0.72);
   background:
@@ -760,14 +759,15 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header__brand {
   display: flex;
   align-items: center;
-  flex: 1 0 100%;
+  align-self: center;
+  flex: 0 1 auto;
   min-width: 0;
 }
 
 .portal-employee-title {
   margin: 0;
   font-family: "Syne", "Montserrat", sans-serif;
-  font-size: 2.55rem;
+  font-size: 2.05rem;
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
@@ -791,8 +791,9 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header__actions {
   display: flex;
   align-items: center;
+  align-self: center;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 0.65rem;
   flex: 0 0 auto;
   flex-wrap: nowrap;
   margin-left: auto;
@@ -825,6 +826,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   justify-content: center;
   min-width: 0;
   min-height: 0;
+  margin-right: 0.85rem;
   padding: 0;
   border: none;
   border-radius: 0;
@@ -860,7 +862,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   font-size: 3.4rem;
   font-weight: 700;
   letter-spacing: -0.06em;
-  line-height: 0.78;
+  line-height: 1;
   white-space: nowrap;
 }
 
@@ -7121,9 +7123,9 @@ html[data-theme="dark"] .users-table .users-table__activate:hover {
   .split-forms, .tracking-layout, .login-panel, .stats-grid.compact, .break-type-stack {
     grid-template-columns: 1fr;
   }
-  .portal-dash-header,
-  .portal-employee-header { flex-direction: column; align-items: stretch; }
-  .portal-employee-header .portal-clock { width: 100%; }
+  .portal-dash-header { flex-direction: column; align-items: stretch; }
+  .portal-employee-header { flex-direction: column; align-items: center; }
+  .portal-employee-header .portal-clock { width: auto; }
   .portal-employee-header__actions { width: 100%; min-width: 0; justify-content: center; flex-wrap: wrap; }
   .toast-stack { bottom: 0.85rem; width: min(28rem, calc(100vw - 1.25rem)); }
 }
