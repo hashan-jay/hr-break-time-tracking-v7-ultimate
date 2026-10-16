@@ -35,7 +35,10 @@ public class EmployeePasscodeService : IEmployeePasscodeService
         if (employee is null || employee.IsDeleted)
             return Fail("Employee not found.", "NOT_FOUND");
 
-        return Status(employee, "OK");
+        if (IsLocked(employee))
+            return Locked(employee);
+
+        return Status(employee, "");
     }
 
     public async Task<PasscodeApiResult> SetAsync(SetEmployeePasscodeRequest request)
@@ -177,10 +180,10 @@ public class EmployeePasscodeService : IEmployeePasscodeService
 
     private static PasscodeApiResult Locked(Employee employee)
     {
-        var until = employee.PasscodeLockoutUntil ?? DateTime.UtcNow;
+        var until = TimeDisplay.FromStoredUtc(employee.PasscodeLockoutUntil ?? DateTime.UtcNow);
         return new PasscodeApiResult(
             false,
-            $"Too many incorrect attempts. Try again after {until.ToLocalTime():HH:mm}.",
+            $"Too many incorrect attempts. Try again after {until:HH:mm}.",
             "PASSCODE_LOCKED",
             true,
             0,

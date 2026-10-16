@@ -361,7 +361,10 @@ export default function PortalPage() {
       hasPasscode = Boolean(data.hasPasscode);
       attemptsLeft = data.attemptsLeft ?? 5;
       if (data.isLocked) {
-        toast.error(data.message || 'Too many incorrect attempts. Try again later.');
+        const text = String(data.message || '').trim();
+        toast.error(!text || /^ok$/i.test(text)
+          ? 'Too many incorrect attempts. Try again later.'
+          : text);
         return;
       }
     } catch (err) {
