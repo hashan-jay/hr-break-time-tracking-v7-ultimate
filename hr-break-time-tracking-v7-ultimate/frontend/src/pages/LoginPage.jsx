@@ -33,12 +33,14 @@ export default function LoginPage() {
   return (
     <div className="app-portal login-screen login-screen--ig">
       <div className="login-theme-toggle">
-        <ThemeToggle />
+        <ThemeToggle variant="circle" />
       </div>
       <div className="login-ig">
         <section className="login-ig__card">
-          <p className="login-ig__wordmark">Employee Break Portal</p>
-          <p className="login-ig__subbrand">PortCity BPO · HTSK Division</p>
+          <div className="login-ig__brand">
+            <p className="login-ig__wordmark">Employee Break &amp; Attendance Tracker</p>
+            <p className="login-ig__subbrand">PortCity BPO - HTSK Division</p>
+          </div>
           <h1 className="login-ig__title">Staff login</h1>
           <p className="login-hint">Use your HR username and password to sign in.</p>
           <form className="login-form login-ig__form" onSubmit={onSubmit}>
