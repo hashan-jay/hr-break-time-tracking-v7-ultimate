@@ -745,6 +745,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
+  row-gap: 0.2rem;
   flex-wrap: wrap;
   padding: 0.32rem 0.75rem 0.32rem 0.85rem;
   border-radius: 1.4rem;
@@ -759,46 +760,19 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header__brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  flex: 1 0 100%;
   min-width: 0;
-}
-
-.portal-employee-header__mark {
-  width: 2.65rem;
-  height: 2.65rem;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  flex-shrink: 0;
-  color: #fff;
-  background: #14542d;
-  box-shadow: 0 8px 18px rgba(20, 84, 45, 0.28);
-}
-
-.portal-employee-header__text {
-  min-width: 0;
-  display: grid;
-  gap: 0.08rem;
 }
 
 .portal-employee-title {
   margin: 0;
   font-family: "Syne", "Montserrat", sans-serif;
-  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
+  font-size: 2.55rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  letter-spacing: -0.04em;
+  line-height: 1;
   color: var(--ig-ink);
-}
-
-.portal-employee-subtitle {
-  margin: 0;
-  font-family: "Syne", "Montserrat", sans-serif;
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-  color: var(--ig-muted);
+  white-space: nowrap;
 }
 
 .portal-employee-meta {
@@ -846,10 +820,9 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .portal-employee-header .portal-clock {
-  flex: 1 1 auto;
-  align-self: stretch;
+  flex: 0 0 auto;
+  align-self: center;
   justify-content: center;
-  container-type: inline-size;
   min-width: 0;
   min-height: 0;
   padding: 0;
@@ -884,7 +857,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .portal-employee-header .portal-clock__time,
 .portal-employee-header .portal-clock__date {
   font-family: var(--ig-font);
-  font-size: min(3.4rem, calc((100cqi - 1.6rem) / 7.9));
+  font-size: 3.4rem;
   font-weight: 700;
   letter-spacing: -0.06em;
   line-height: 0.78;
@@ -7096,7 +7069,6 @@ html[data-theme="dark"] .users-table .users-table__activate:hover {
   }
   .portal-dash-header,
   .portal-employee-header { flex-direction: column; align-items: stretch; }
-  .portal-employee-header__text { flex: none; }
   .portal-employee-header .portal-clock { width: 100%; }
   .portal-employee-header__actions { width: 100%; min-width: 0; justify-content: center; flex-wrap: wrap; }
   .toast-stack { bottom: 0.85rem; width: min(28rem, calc(100vw - 1.25rem)); }

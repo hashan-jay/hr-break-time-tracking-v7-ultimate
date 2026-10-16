@@ -493,16 +493,7 @@ export default function PortalPage() {
       <main className="portal-main">
         <header className="portal-employee-header">
           <div className="portal-employee-header__brand">
-            <span className="portal-employee-header__mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="20" height="20">
-                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
-                <path d="M12 8.2V12l2.6 1.6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            <div className="portal-employee-header__text">
-              <h1 className="portal-employee-title">Employee Break Portal</h1>
-              <h2 className="portal-employee-subtitle">PortCity BPO - HTSK Division</h2>
-            </div>
+            <h1 className="portal-employee-title">Break Portal - HTSK - PortCity BPO</h1>
           </div>
           <PortalClock />
           <div className="portal-employee-header__actions">
