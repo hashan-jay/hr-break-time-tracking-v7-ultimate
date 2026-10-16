@@ -492,33 +492,42 @@ export default function PortalPage() {
     <div className="portal-shell">
       <main className="portal-main">
         <header className="portal-employee-header">
-          <div className="portal-employee-header__text">
-            <h1 className="portal-employee-title">Employee Break Portal</h1>
-            <h2 className="portal-employee-subtitle">PortCity BPO - HTSK Division</h2>
+          <div className="portal-employee-header__brand">
+            <span className="portal-employee-header__mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20">
+                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
+                <path d="M12 8.2V12l2.6 1.6" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+            <div className="portal-employee-header__text">
+              <h1 className="portal-employee-title">Employee Break Portal</h1>
+              <h2 className="portal-employee-subtitle">PortCity BPO - HTSK Division</h2>
+            </div>
           </div>
           <div className="portal-employee-header__actions">
             <ThemeToggle />
             <PortalClock />
             <div
-              className="portal-onbreak-chip"
+              className="portal-header-stats"
               aria-label={`On Meal Break ${mealOnBreakCount}. On Comfort Break ${comfortOnBreakCount}.`}
             >
-              <span className="portal-onbreak-chip__item">
-                <span>On Meal Break</span>
+              <span className={`portal-header-stat${mealOnBreakCount ? ' is-live' : ''}`} title="On meal break">
+                <span className="portal-header-stat__dot" aria-hidden="true" />
+                <span className="portal-header-stat__label">Meal</span>
                 <strong>{mealOnBreakCount}</strong>
               </span>
-              <span className="portal-onbreak-chip__sep" aria-hidden="true">|</span>
-              <span className="portal-onbreak-chip__item">
-                <span>On Comfort Break</span>
+              <span className={`portal-header-stat portal-header-stat--comfort${comfortOnBreakCount ? ' is-live' : ''}`} title="On comfort break">
+                <span className="portal-header-stat__dot" aria-hidden="true" />
+                <span className="portal-header-stat__label">Comfort</span>
                 <strong>{comfortOnBreakCount}</strong>
               </span>
             </div>
             {isAuthenticated ? (
-              <button type="button" className="btn btn-primary" onClick={() => navigate('/app')}>
+              <button type="button" className="btn btn-primary portal-header-login" onClick={() => navigate('/app')}>
                 Open staff console
               </button>
             ) : (
-              <button type="button" className="btn btn-primary" onClick={() => navigate('/login')}>
+              <button type="button" className="btn btn-primary portal-header-login" onClick={() => navigate('/login')}>
                 Log in as HR Manager
               </button>
             )}

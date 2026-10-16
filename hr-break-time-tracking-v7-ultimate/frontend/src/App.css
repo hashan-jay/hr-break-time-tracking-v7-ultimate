@@ -744,35 +744,59 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  padding: 0.65rem 0.75rem 0.65rem 0.85rem;
+  border-radius: 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.46)),
+    color-mix(in srgb, var(--ig-card, #fff) 70%, transparent);
+  backdrop-filter: blur(16px) saturate(1.3);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.portal-employee-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.portal-employee-header__mark {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: #fff;
+  background: #14542d;
+  box-shadow: 0 8px 18px rgba(20, 84, 45, 0.28);
 }
 
 .portal-employee-header__text {
   min-width: 0;
-  flex: 0 1 auto;
-  display: flex;
-  align-items: baseline;
-  gap: 0.65rem;
-  flex-wrap: wrap;
+  display: grid;
+  gap: 0.08rem;
 }
 
 .portal-employee-title {
   margin: 0;
   font-family: "Syne", "Montserrat", sans-serif;
-  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-size: clamp(1.05rem, 1.6vw, 1.28rem);
   font-weight: 700;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.15;
   color: var(--ig-ink);
 }
 
 .portal-employee-subtitle {
   margin: 0;
   font-family: "Syne", "Montserrat", sans-serif;
-  font-size: clamp(0.92rem, 1.65vw, 1.18rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   color: var(--ig-muted);
 }
@@ -855,39 +879,114 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .portal-employee-header .portal-onbreak-chip {
+  display: none;
+}
+
+.portal-header-stats {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 0.65rem;
-  min-height: 2.5rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--ig-radius);
-  border: 1px solid var(--ig-line);
-  background: var(--ig-card);
-  white-space: nowrap;
-  font-family: var(--ig-font);
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--ig-muted);
+  gap: 0.4rem;
 }
 
-.portal-employee-header .portal-onbreak-chip__item {
+.portal-header-stat {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-}
-
-.portal-employee-header .portal-onbreak-chip__sep {
-  color: var(--ig-line);
-  font-weight: 500;
-}
-
-.portal-employee-header .portal-onbreak-chip strong {
-  color: var(--ig-like);
-  font-size: 1.18rem;
+  gap: 0.4rem;
+  min-height: 2.55rem;
+  padding: 0.28rem 0.72rem 0.28rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--ig-line);
+  background: var(--ig-card);
+  color: var(--ig-muted);
+  font-family: var(--ig-font);
+  font-size: 0.82rem;
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.02em;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.portal-header-stat:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.portal-header-stat__dot {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: #d1d5db;
+  flex-shrink: 0;
+}
+
+.portal-header-stat.is-live .portal-header-stat__dot {
+  background: #16a34a;
+  animation: portal-header-live 1.4s ease infinite;
+}
+
+.portal-header-stat--comfort.is-live .portal-header-stat__dot {
+  background: #d97706;
+  animation-name: portal-header-live-comfort;
+}
+
+.portal-header-stat strong {
+  color: var(--ig-ink);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+}
+
+.portal-employee-header .portal-clock {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.portal-employee-header .portal-clock:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+}
+
+.portal-employee-header .portal-clock__section--time {
+  gap: 0.4rem;
+}
+
+.portal-employee-header .portal-clock__section--time::before {
+  content: "";
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #16a34a;
+  animation: portal-header-live 1.4s ease infinite;
+}
+
+.portal-header-login {
+  border-radius: 999px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+}
+
+.portal-shell .portal-employee-header__actions .portal-header-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(20, 84, 45, 0.22);
+}
+
+@keyframes portal-header-live {
+  0% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.45); }
+  70% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+}
+
+@keyframes portal-header-live-comfort {
+  0% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.45); }
+  70% { box-shadow: 0 0 0 6px rgba(217, 119, 6, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portal-header-stat,
+  .portal-employee-header .portal-clock,
+  .portal-header-login,
+  .portal-header-stat__dot,
+  .portal-employee-header .portal-clock__section--time::before {
+    animation: none;
+    transition: none;
+  }
 }
 
 .portal-employee-header__title-row {
@@ -8080,11 +8179,21 @@ html[data-theme="dark"] .portal-break-action--end:hover:not(:disabled) {
   background: #b91c1c;
 }
 
-html[data-theme="dark"] .portal-shell .portal-clock,
-html[data-theme="dark"] .portal-shell .portal-employee-header .portal-clock {
-  background: var(--ig-card);
-  border-color: var(--ig-line);
-  box-shadow: none;
+html[data-theme="dark"] .portal-employee-header {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    rgba(18, 22, 30, 0.78);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
+}
+
+html[data-theme="dark"] .portal-header-stat,
+html[data-theme="dark"] .portal-employee-header .portal-clock {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="dark"] .portal-shell .portal-employee-header__actions .portal-header-login:hover {
+  box-shadow: 0 10px 20px rgba(194, 65, 12, 0.28);
 }
 
 html[data-theme="dark"] .portal-shell .portal-clock__time {
