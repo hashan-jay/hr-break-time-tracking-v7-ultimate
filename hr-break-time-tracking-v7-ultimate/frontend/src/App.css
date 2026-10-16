@@ -746,7 +746,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  padding: 0.65rem 0.75rem 0.65rem 0.85rem;
+  padding: 0.32rem 0.75rem 0.32rem 0.85rem;
   border-radius: 1.4rem;
   border: 1px solid rgba(255, 255, 255, 0.72);
   background:
@@ -832,8 +832,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   justify-content: center;
 }
 
-.portal-shell .portal-clock,
-.portal-employee-header .portal-clock {
+.portal-shell .portal-clock {
   padding: 0;
   min-width: 0;
   min-height: 2.75rem;
@@ -846,35 +845,58 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   gap: 0;
 }
 
+.portal-employee-header .portal-clock {
+  flex: 1 1 auto;
+  align-self: stretch;
+  justify-content: center;
+  container-type: inline-size;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  align-items: center;
+  overflow: visible;
+  gap: 0.7rem;
+  flex-wrap: nowrap;
+}
+
 .portal-employee-header .portal-clock__section {
   display: flex;
+  flex: 0 0 auto;
   align-items: center;
-  padding: 0.35rem 0.85rem;
+  justify-content: center;
+  min-width: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
 }
 
-.portal-employee-header .portal-clock__section--date {
-  background: var(--ig-fill);
-  border-right: 1px solid var(--ig-line);
-}
-
+.portal-employee-header .portal-clock__section--date,
 .portal-employee-header .portal-clock__section--time {
-  background: var(--ig-card);
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+.portal-employee-header .portal-clock__time,
+.portal-employee-header .portal-clock__date {
+  font-family: var(--ig-font);
+  font-size: min(3.4rem, calc((100cqi - 1.6rem) / 7.9));
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 0.78;
+  white-space: nowrap;
 }
 
 .portal-employee-header .portal-clock__time {
-  font-family: var(--ig-font);
-  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1;
   color: var(--ig-ink);
   font-variant-numeric: tabular-nums;
 }
 
 .portal-employee-header .portal-clock__date {
-  font-family: var(--ig-font);
-  font-size: 0.88rem;
-  font-weight: 700;
   color: var(--ig-muted);
 }
 
@@ -935,12 +957,12 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .portal-employee-header .portal-clock {
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  transition: none;
 }
 
 .portal-employee-header .portal-clock:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.08);
+  transform: none;
+  box-shadow: none;
 }
 
 .portal-employee-header .portal-clock__section--time {
@@ -949,10 +971,11 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 
 .portal-employee-header .portal-clock__section--time::before {
   content: "";
-  width: 0.42rem;
-  height: 0.42rem;
+  width: 0.62rem;
+  height: 0.62rem;
   border-radius: 50%;
   background: #16a34a;
+  flex-shrink: 0;
   animation: portal-header-live 1.4s ease infinite;
 }
 
@@ -7074,6 +7097,7 @@ html[data-theme="dark"] .users-table .users-table__activate:hover {
   .portal-dash-header,
   .portal-employee-header { flex-direction: column; align-items: stretch; }
   .portal-employee-header__text { flex: none; }
+  .portal-employee-header .portal-clock { width: 100%; }
   .portal-employee-header__actions { width: 100%; min-width: 0; justify-content: center; flex-wrap: wrap; }
   .toast-stack { bottom: 0.85rem; width: min(28rem, calc(100vw - 1.25rem)); }
 }
@@ -8187,9 +8211,17 @@ html[data-theme="dark"] .portal-employee-header {
   box-shadow: 0 14px 36px rgba(0, 0, 0, 0.35);
 }
 
-html[data-theme="dark"] .portal-header-stat,
-html[data-theme="dark"] .portal-employee-header .portal-clock {
+html[data-theme="dark"] .portal-header-stat {
   background: rgba(255, 255, 255, 0.04);
+}
+
+html[data-theme="dark"] .portal-employee-header .portal-clock,
+html[data-theme="dark"] .portal-employee-header .portal-clock__section,
+html[data-theme="dark"] .portal-employee-header .portal-clock__section--date,
+html[data-theme="dark"] .portal-employee-header .portal-clock__section--time {
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 html[data-theme="dark"] .portal-shell .portal-employee-header__actions .portal-header-login:hover {

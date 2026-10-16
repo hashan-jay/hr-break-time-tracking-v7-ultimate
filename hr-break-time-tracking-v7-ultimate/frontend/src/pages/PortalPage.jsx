@@ -504,9 +504,9 @@ export default function PortalPage() {
               <h2 className="portal-employee-subtitle">PortCity BPO - HTSK Division</h2>
             </div>
           </div>
+          <PortalClock />
           <div className="portal-employee-header__actions">
             <ThemeToggle />
-            <PortalClock />
             <div
               className="portal-header-stats"
               aria-label={`On Meal Break ${mealOnBreakCount}. On Comfort Break ${comfortOnBreakCount}.`}
