@@ -663,6 +663,7 @@ export default function PortalPage() {
           breakType={passcodeFlow.breakType}
           action={passcodeFlow.action}
           timeLeftDisplay={passcodeTimeLeft}
+          attemptsLeft={passcodeFlow.attemptsLeft}
           serverError={passcodeError}
           busy={passcodeBusy}
           onSave={savePasscode}

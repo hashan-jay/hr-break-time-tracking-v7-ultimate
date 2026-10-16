@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { PASSCODE_LENGTH, filterPasscodeInput, validatePasscode } from '../lib/passcode';
+import { PASSCODE_LENGTH, PASSCODE_MAX_ATTEMPTS, filterPasscodeInput, validatePasscode } from '../lib/passcode';
 
 const SYMBOLS = ['!', '"', '#', '$', '%', '&', "'", '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '\\', ']', '^', '_', '`', '{', '|', '}', '~'];
 
@@ -37,12 +37,42 @@ function PasscodeGuide() {
   );
 }
 
-function MaskedPasscodeField({ id, label, value, onChange, onError, autoFocus }) {
+function PasscodeEntry({
+  id,
+  label,
+  value,
+  onChange,
+  onError,
+  autoFocus,
+  revealed,
+  onToggleReveal,
+  tone,
+  invalid,
+  busy,
+}) {
   const inputRef = useRef(null);
+  const previousLength = useRef(0);
+  const [focused, setFocused] = useState(false);
+  const [flashIndex, setFlashIndex] = useState(-1);
 
   useEffect(() => {
     if (autoFocus) inputRef.current?.focus();
   }, [autoFocus]);
+
+  useEffect(() => {
+    if (value.length > previousLength.current) {
+      const index = value.length - 1;
+      setFlashIndex(index);
+      const timer = window.setTimeout(() => {
+        setFlashIndex((current) => (current === index ? -1 : current));
+      }, 700);
+      previousLength.current = value.length;
+      return () => window.clearTimeout(timer);
+    }
+    previousLength.current = value.length;
+    setFlashIndex(-1);
+    return undefined;
+  }, [value]);
 
   const handleChange = (event) => {
     const filtered = filterPasscodeInput(event.target.value);
@@ -59,24 +89,80 @@ function MaskedPasscodeField({ id, label, value, onChange, onError, autoFocus })
     onError('');
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key !== 'Enter' || value.length === PASSCODE_LENGTH) return;
+    event.preventDefault();
+    onError(`Passcode must be exactly ${PASSCODE_LENGTH} characters.`);
+  };
+
+  const activeIndex = Math.min(value.length, PASSCODE_LENGTH - 1);
+  const complete = value.length === PASSCODE_LENGTH;
+
   return (
-    <label className="passcode-field" htmlFor={id}>
-      {label}
-      <input
-        ref={inputRef}
-        id={id}
-        type="password"
-        inputMode="text"
-        autoComplete="off"
-        autoCapitalize="off"
-        autoCorrect="off"
-        spellCheck="false"
-        maxLength={PASSCODE_LENGTH}
-        value={value}
-        onChange={handleChange}
-        placeholder="***"
-      />
-    </label>
+    <div className={`passcode-entry passcode-entry--${tone}${invalid ? ' is-invalid' : ''}${complete ? ' is-complete' : ''}`}>
+      <div className="passcode-entry__head">
+        <label htmlFor={id}>{label}</label>
+        <div className="passcode-entry__tools">
+          <span className="passcode-entry__count">{value.length} / {PASSCODE_LENGTH}</span>
+          {onToggleReveal && (
+            <button
+              type="button"
+              className="passcode-reveal"
+              onClick={onToggleReveal}
+              aria-pressed={revealed}
+            >
+              {revealed ? 'Hide' : 'Show'}
+            </button>
+          )}
+        </div>
+      </div>
+      <div
+        className="passcode-slots"
+        onMouseDown={(event) => {
+          if (event.target === inputRef.current) return;
+          event.preventDefault();
+          inputRef.current?.focus();
+        }}
+      >
+        {Array.from({ length: PASSCODE_LENGTH }, (_, index) => {
+          const filled = index < value.length;
+          const active = focused && !complete && index === activeIndex;
+          const showChar = filled && (revealed || flashIndex === index);
+          return (
+            <span
+              key={index}
+              className={[
+                'passcode-slot',
+                filled ? 'is-filled' : '',
+                active ? 'is-active' : '',
+              ].filter(Boolean).join(' ')}
+              aria-hidden="true"
+            >
+              {showChar ? value[index] : filled ? '•' : ''}
+            </span>
+          );
+        })}
+        <input
+          ref={inputRef}
+          id={id}
+          className="passcode-slots__input"
+          type="password"
+          inputMode="text"
+          autoComplete="off"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck="false"
+          maxLength={PASSCODE_LENGTH}
+          value={value}
+          disabled={busy}
+          aria-invalid={invalid || undefined}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+        />
+      </div>
+    </div>
   );
 }
 
@@ -86,6 +172,7 @@ export default function PasscodeModal({
   breakType,
   action,
   timeLeftDisplay,
+  attemptsLeft,
   serverError,
   busy,
   onSave,
@@ -95,22 +182,98 @@ export default function PasscodeModal({
   const [passcode, setPasscode] = useState('');
   const [confirmPasscode, setConfirmPasscode] = useState('');
   const [localError, setLocalError] = useState('');
+  const [dismissedServerError, setDismissedServerError] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const [hoverReady, setHoverReady] = useState(false);
+  const [shaking, setShaking] = useState(false);
+  const [shakeKey, setShakeKey] = useState(0);
+  const announcedError = useRef('');
 
   useEffect(() => {
     setPasscode('');
     setConfirmPasscode('');
     setLocalError('');
+    setDismissedServerError(false);
+    setRevealed(false);
     setHoverReady(false);
     const timer = window.setTimeout(() => setHoverReady(true), 120);
     return () => window.clearTimeout(timer);
   }, [mode, employee?.employeeId]);
 
-  const error = localError || serverError || '';
+  useEffect(() => {
+    if (!serverError) return undefined;
+    setPasscode('');
+    setConfirmPasscode('');
+    setLocalError('');
+    setDismissedServerError(false);
+    const focusTimer = window.setTimeout(() => {
+      document.getElementById('employee-passcode')?.focus();
+    }, 30);
+    return () => window.clearTimeout(focusTimer);
+  }, [serverError]);
+
+  useEffect(() => {
+    if (!shakeKey) return undefined;
+    setShaking(true);
+    const timer = window.setTimeout(() => setShaking(false), 460);
+    return () => window.clearTimeout(timer);
+  }, [shakeKey]);
+
+  useEffect(() => {
+    const onKey = (event) => {
+      if (event.key !== 'Escape' || busy) return;
+      event.preventDefault();
+      onCancel();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [busy, onCancel]);
+
+  const error = localError || (dismissedServerError ? '' : serverError) || '';
+
+  useEffect(() => {
+    if (!error) {
+      announcedError.current = '';
+      return undefined;
+    }
+    if (error === announcedError.current) return undefined;
+    announcedError.current = error;
+    setShakeKey((key) => key + 1);
+    return undefined;
+  }, [error]);
+
   const isCreate = mode === 'create';
+  const isEnd = action === 'end';
+  const tone = isEnd ? 'end' : 'start';
   const title = isCreate
     ? 'Create your passcode'
-    : `Enter passcode to ${action === 'end' ? 'end' : 'start'} ${breakType} break`;
+    : `Enter passcode to ${isEnd ? 'end' : 'start'} ${breakType} break`;
+  const passcodeReady = passcode.length === PASSCODE_LENGTH;
+  const confirmReady = !isCreate || (confirmPasscode.length === PASSCODE_LENGTH && confirmPasscode === passcode);
+  const canSubmit = passcodeReady && confirmReady && !busy;
+  const attempts = Number.isFinite(Number(attemptsLeft)) ? Number(attemptsLeft) : null;
+  const breakTone = String(breakType || '').toLowerCase() === 'comfort' ? 'comfort' : 'meal';
+
+  const note = (() => {
+    if (busy) return 'Checking passcode…';
+    if (!passcode.length) return 'Type your 3-character passcode. Each circle fills as you go.';
+    if (!passcodeReady) {
+      const left = PASSCODE_LENGTH - passcode.length;
+      return `${left} more ${left === 1 ? 'character' : 'characters'}.`;
+    }
+    if (isCreate && confirmPasscode.length < PASSCODE_LENGTH) return 'Now type the same passcode again to confirm.';
+    if (isCreate && confirmPasscode !== passcode) return 'Those two passcodes do not match yet.';
+    if (isCreate) return 'Passcodes match. Press Enter or Save passcode.';
+    return isEnd ? 'Press Enter or End break.' : 'Press Enter or Start break.';
+  })();
+
+  const submitLabel = busy
+    ? 'Please wait…'
+    : isCreate
+      ? 'Save passcode'
+      : isEnd
+        ? 'End break'
+        : 'Start break';
 
   const submit = (event) => {
     event.preventDefault();
@@ -120,16 +283,22 @@ export default function PasscodeModal({
     });
     if (message) {
       setLocalError(message);
+      setShakeKey((key) => key + 1);
       return;
     }
     if (isCreate) onSave(passcode, confirmPasscode);
     else onVerify(passcode);
   };
 
+  const editPasscode = (value) => {
+    setPasscode(value);
+    if (serverError) setDismissedServerError(true);
+  };
+
   return (
     <div className="confirm-overlay passcode-overlay" role="presentation">
       <form
-        className={`confirm-dialog passcode-dialog${hoverReady ? ' confirm-dialog--interactive' : ''}`}
+        className={`confirm-dialog passcode-dialog passcode-dialog--${tone}${hoverReady ? ' confirm-dialog--interactive' : ''}${shaking ? ' is-shaking' : ''}`}
         onSubmit={submit}
         role="dialog"
         aria-modal="true"
@@ -137,43 +306,65 @@ export default function PasscodeModal({
       >
         <h2 id="passcode-title">{title}</h2>
         <dl className="passcode-meta">
-          <div>
+          <div className="passcode-meta__item">
             <dt>Employee</dt>
             <dd>{employee?.fullName || '—'}</dd>
           </div>
-          <div>
+          <div className="passcode-meta__item">
             <dt>Employee code</dt>
             <dd>{employee?.employeeCode || '—'}</dd>
           </div>
-          <div>
+          <div className="passcode-meta__item">
             <dt>Break type</dt>
-            <dd>{breakType}</dd>
+            <dd>
+              <span className={`passcode-type passcode-type--${breakTone}`}>{breakType}</span>
+            </dd>
           </div>
-          <div>
+          <div className="passcode-meta__item">
             <dt>Time left</dt>
-            <dd>{timeLeftDisplay || '—'}</dd>
+            <dd className={`passcode-time${isEnd ? ' is-live' : ''}`}>{timeLeftDisplay || '—'}</dd>
           </div>
         </dl>
 
-        <MaskedPasscodeField
+        <PasscodeEntry
           id="employee-passcode"
           label="Passcode"
           value={passcode}
-          onChange={setPasscode}
+          onChange={editPasscode}
           onError={setLocalError}
           autoFocus
+          revealed={revealed}
+          onToggleReveal={() => setRevealed((current) => !current)}
+          tone={tone}
+          invalid={Boolean(error)}
+          busy={busy}
         />
         {isCreate && (
-          <MaskedPasscodeField
+          <PasscodeEntry
             id="employee-passcode-confirm"
             label="Confirm passcode"
             value={confirmPasscode}
             onChange={setConfirmPasscode}
             onError={setLocalError}
+            revealed={revealed}
+            tone={tone}
+            invalid={confirmPasscode.length === PASSCODE_LENGTH && confirmPasscode !== passcode}
+            busy={busy}
           />
         )}
 
+        <p className="passcode-note" aria-live="polite">{note}</p>
         {error && <p className="passcode-error" role="alert">{error}</p>}
+        {!isCreate && attempts != null && (
+          <p className={`passcode-attempts${attempts <= 1 ? ' is-low' : ''}`}>
+            <span className="passcode-attempts__dots" aria-hidden="true">
+              {Array.from({ length: PASSCODE_MAX_ATTEMPTS }, (_, index) => (
+                <span key={index} className={index < attempts ? 'is-left' : 'is-used'} />
+              ))}
+            </span>
+            <span>{attempts} {attempts === 1 ? 'attempt' : 'attempts'} left</span>
+          </p>
+        )}
         {isCreate && <PasscodeGuide />}
 
         <div className="confirm-dialog__actions">
@@ -183,15 +374,15 @@ export default function PasscodeModal({
           <button
             type="submit"
             className={`btn ${
-              action === 'end'
+              isEnd
                 ? 'btn-end-break'
                 : isCreate
                   ? 'btn-primary'
                   : 'btn-start-break'
-            }`}
-            disabled={busy}
+            }${canSubmit ? ' is-ready' : ''}`}
+            disabled={!canSubmit}
           >
-            {busy ? 'Please wait…' : isCreate ? 'Save passcode' : action === 'end' ? 'End break' : 'Start break'}
+            {submitLabel}
           </button>
         </div>
       </form>
