@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
 import { useLiveUpdates } from '../api/liveUpdates';
 import { LoadingBlock, StatusBadge } from '../components/UiBits';
+import DialogWeather from '../components/DialogWeather';
 import { useFeedback } from '../feedback/FeedbackContext';
 import {
   BREAK_TYPES,
@@ -15,52 +16,29 @@ import {
   typeFields,
 } from '../lib/breakHelpers';
 
-function minutesLabel(value) {
-  if (value == null || value === '') return '—';
-  const n = Number(value);
-  if (!Number.isFinite(n)) return '—';
-  return `${n} min`;
+function shiftLabel(employee) {
+  return employee?.shiftDisplay || employee?.shiftName || 'Unassigned';
 }
 
-function captureStatus(employee, breakType, fields) {
-  if (fields.isOnThisBreak) {
-    return `Out since ${formatLocalClock(employee.currentOutTime)} · open ${formatElapsed(employee.currentBreakElapsedSeconds)}`;
-  }
-  if (fields.blockedByOther) return `Currently on ${employee.currentBreakType} break — end that first`;
-  if (isOffShift(employee)) return offShiftReason(employee);
-  return 'Currently in office';
-}
-
-function BreakCaptureActions({ employee, breakType, active, busy, onCapture, onActivate }) {
+function trackingButtonState(employee, breakType) {
   const fields = typeFields(employee, breakType);
   const offShift = isOffShift(employee);
-  const captureLocked = Boolean(fields.blockedByOther || (offShift && !fields.isOnThisBreak));
-  const label = breakType === BREAK_TYPES.MEAL ? 'Meal' : 'Comfort';
-
-  return (
-    <div className="tracking-employee-dialog__actions">
-      <p className="tracking-employee-dialog__status">{captureStatus(employee, breakType, fields)}</p>
-      <button
-        type="button"
-        className={`btn ${fields.isOnThisBreak ? 'btn-in' : 'btn-out'} btn-xl`}
-        disabled={busy || captureLocked}
-        onClick={() => {
-          onActivate(breakType);
-          onCapture('toggle', breakType);
-        }}
-      >
-        {fields.isOnThisBreak
-          ? `End ${label} break${active ? ' (Space / Enter)' : ''}`
-          : `Start ${label} break${active ? ' (Enter / Space)' : ''}`}
-      </button>
-    </div>
-  );
+  const reason = fields.blockedByOther
+    ? `On ${employee.currentBreakType} break — end that first`
+    : offShift && !fields.isOnThisBreak
+      ? offShiftReason(employee)
+      : '';
+  return {
+    fields,
+    onThisBreak: fields.isOnThisBreak,
+    disabled: Boolean(!fields.isOnThisBreak && (fields.blockedByOther || offShift)),
+    reason,
+  };
 }
 
-function TrackingEmployeeDialog({ employee, activeBreakType, busy, onClose, onCapture, onActivate }) {
-  const meal = typeFields(employee, BREAK_TYPES.MEAL);
-  const comfort = typeFields(employee, BREAK_TYPES.COMFORT);
-  const offShift = isOffShift(employee);
+function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, onClose, onCapture, onActivate }) {
+  const meal = trackingButtonState(employee, BREAK_TYPES.MEAL);
+  const comfort = trackingButtonState(employee, BREAK_TYPES.COMFORT);
   const mealLeft = remainingStarts(employee, BREAK_TYPES.MEAL, employee.mealStartLimit);
   const comfortLeft = remainingStarts(employee, BREAK_TYPES.COMFORT, employee.comfortStartLimit);
 
@@ -73,134 +51,131 @@ function TrackingEmployeeDialog({ employee, activeBreakType, busy, onClose, onCa
       if (event.target?.closest('button, a, input, select, textarea')) return;
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
+        onActivate(activeBreakType);
         onCapture('toggle', activeBreakType);
-      } else if (event.key.toLowerCase() === 'o') {
-        event.preventDefault();
-        onCapture('out', activeBreakType);
-      } else if (event.key.toLowerCase() === 'i') {
-        event.preventDefault();
-        onCapture('in', activeBreakType);
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [activeBreakType, onCapture, onClose]);
+  }, [activeBreakType, onActivate, onCapture, onClose]);
+
+  const press = (breakType) => {
+    onActivate(breakType);
+    onCapture('toggle', breakType);
+  };
 
   return (
     <div
-      className="confirm-overlay tracking-employee-overlay"
+      className="confirm-overlay portal-employee-overlay"
       role="presentation"
       onClick={(event) => {
         if (event.target === event.currentTarget) onClose();
       }}
     >
       <div
-        className="tracking-employee-dialog"
+        className="portal-employee-dialog"
         role="dialog"
         aria-modal="true"
         aria-labelledby="tracking-employee-dialog-title"
       >
-        <header className="tracking-employee-dialog__head">
-          <div>
-            <p className="tracking-employee-dialog__eyebrow">Employee details</p>
+        <DialogWeather mode={String(weather || 'rain').toLowerCase()} />
+        <header className="portal-employee-dialog__head">
+          <div className="portal-employee-dialog__title">
+            <p className="portal-employee-dialog__eyebrow">Employee details</p>
             <h2 id="tracking-employee-dialog-title">{employee.fullName}</h2>
-            <p className="tracking-employee-dialog__meta">
-              {employee.employeeCode} · {employee.departmentName}
-            </p>
           </div>
-          <button type="button" className="tracking-employee-dialog__close" onClick={onClose} aria-label="Close">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
+          <button
+            type="button"
+            className="portal-employee-dialog__close"
+            onClick={onClose}
+            aria-label="Close"
+            title="Close"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
             </svg>
           </button>
         </header>
 
-        <dl className="tracking-employee-dialog__facts">
-          <div>
-            <dt>Shift</dt>
-            <dd>{employee.shiftDisplay || employee.shiftName || 'Unassigned'}</dd>
-          </div>
-          <div>
-            <dt>Shift ends</dt>
-            <dd>{formatLocalClock(employee.shiftPeriodEnd)}</dd>
-          </div>
-          <div>
-            <dt>Next shift</dt>
-            <dd>{formatLocalClock(employee.nextShiftStart)}</dd>
-          </div>
-          <div>
-            <dt>State</dt>
-            <dd>
-              {employee.isOnBreak
-                ? `On ${String(employee.currentBreakType || 'break').toLowerCase()} break`
-                : offShift
-                  ? 'Off shift'
-                  : 'In office'}
-            </dd>
-          </div>
-          <div>
-            <dt>Out since</dt>
-            <dd>{employee.isOnBreak ? formatLocalClock(employee.currentOutTime) : '—'}</dd>
-          </div>
-          <div>
-            <dt>Open time</dt>
-            <dd>{employee.isOnBreak ? formatElapsed(employee.currentBreakElapsedSeconds) : '—'}</dd>
-          </div>
-          <div>
-            <dt>Passcode</dt>
-            <dd>{employee.hasPasscode ? 'Set' : 'Not set'}</dd>
-          </div>
-        </dl>
+        <div className="portal-employee-dialog__body">
+          <aside className="portal-employee-dialog__details">
+            <div className="portal-detail-card">
+              <div className="portal-detail-field">
+                <span className="portal-detail-label">Code</span>
+                <strong className="portal-detail-value">{employee.employeeCode || '—'}</strong>
+              </div>
+              <div className="portal-detail-field">
+                <span className="portal-detail-label">Employee</span>
+                <strong className="portal-detail-value">{employee.fullName || '—'}</strong>
+              </div>
+              <div className="portal-detail-field">
+                <span className="portal-detail-label">Department</span>
+                <strong className="portal-detail-value">{employee.departmentName || '—'}</strong>
+              </div>
+              <div className="portal-detail-field">
+                <span className="portal-detail-label">This shift</span>
+                <strong className="portal-detail-value">{shiftLabel(employee)}</strong>
+              </div>
+            </div>
+          </aside>
 
-        {offShift && (
-          <p className="tracking-employee-dialog__note">{offShiftReason(employee)}</p>
-        )}
-
-        <div className="tracking-employee-dialog__breaks">
-          <article className={activeBreakType === BREAK_TYPES.MEAL ? 'is-active' : undefined}>
-            <header>
-              <h3>Meal break</h3>
-              <StatusBadge status={meal.status} color={meal.statusColor} />
-            </header>
-            <p><span>Used this shift</span><strong>{meal.totalDisplay}</strong></p>
-            <p><span>Daily limit</span><strong>{minutesLabel(employee.mealLimitMinutes)}</strong></p>
-            <p><span>Starts used</span><strong>{employee.mealStartCountToday ?? 0} / {employee.mealStartLimit ?? '—'}</strong></p>
-            <p><span>Limits left</span><strong>{mealLeft}</strong></p>
-            <p><span>Closed breaks</span><strong>{employee.mealClosedCountToday ?? 0}</strong></p>
-            <p><span>Adjustment</span><strong>{minutesLabel(employee.mealAdjustmentMinutes)}</strong></p>
-            <BreakCaptureActions
-              employee={employee}
-              breakType={BREAK_TYPES.MEAL}
-              active={activeBreakType === BREAK_TYPES.MEAL}
-              busy={busy}
-              onCapture={onCapture}
-              onActivate={onActivate}
-            />
-          </article>
-          <article className={activeBreakType === BREAK_TYPES.COMFORT ? 'is-active' : undefined}>
-            <header>
-              <h3>Comfort break</h3>
-              <StatusBadge status={comfort.status} color={comfort.statusColor} />
-            </header>
-            <p><span>Used this shift</span><strong>{comfort.totalDisplay}</strong></p>
-            <p><span>Daily limit</span><strong>{minutesLabel(employee.comfortLimitMinutes)}</strong></p>
-            <p><span>Starts used</span><strong>{employee.comfortStartCountToday ?? 0} / {employee.comfortStartLimit ?? '—'}</strong></p>
-            <p><span>Limits left</span><strong>{comfortLeft}</strong></p>
-            <p><span>Closed breaks</span><strong>{employee.comfortClosedCountToday ?? 0}</strong></p>
-            <p><span>Adjustment</span><strong>{minutesLabel(employee.comfortAdjustmentMinutes)}</strong></p>
-            <BreakCaptureActions
-              employee={employee}
-              breakType={BREAK_TYPES.COMFORT}
-              active={activeBreakType === BREAK_TYPES.COMFORT}
-              busy={busy}
-              onCapture={onCapture}
-              onActivate={onActivate}
-            />
-          </article>
+          <div className="portal-break-actions">
+            <div className="portal-break-action-wrap">
+              <div className="portal-break-action-slot">
+                <span
+                  className="portal-break-remaining portal-break-remaining--meal"
+                  title="Meal breaks left this shift"
+                  aria-label={`Limits Left ${mealLeft}`}
+                >
+                  <span className="portal-break-remaining__label">Limits Left</span>
+                  <span className="portal-break-remaining__count">{mealLeft}</span>
+                </span>
+                <button
+                  type="button"
+                  className={`portal-break-action ${meal.onThisBreak ? 'portal-break-action--end' : 'portal-break-action--start'}`}
+                  disabled={busy || meal.disabled}
+                  title={meal.reason || undefined}
+                  onClick={() => press(BREAK_TYPES.MEAL)}
+                >
+                  <span className="portal-break-action__verb">{meal.onThisBreak ? 'END' : 'START'}</span>
+                  <span className="portal-break-action__type">MEAL</span>
+                  <span className="portal-break-action__noun">BREAK</span>
+                </button>
+              </div>
+              <p className={`portal-break-used${meal.onThisBreak ? ' is-live' : ''}`}>
+                Meal used
+                <strong>{meal.fields.totalDisplay}</strong>
+              </p>
+            </div>
+            <div className="portal-break-action-wrap">
+              <div className="portal-break-action-slot">
+                <button
+                  type="button"
+                  className={`portal-break-action ${comfort.onThisBreak ? 'portal-break-action--end' : 'portal-break-action--start'}`}
+                  disabled={busy || comfort.disabled}
+                  title={comfort.reason || undefined}
+                  onClick={() => press(BREAK_TYPES.COMFORT)}
+                >
+                  <span className="portal-break-action__verb">{comfort.onThisBreak ? 'END' : 'START'}</span>
+                  <span className="portal-break-action__type">COMFORT</span>
+                  <span className="portal-break-action__noun">BREAK</span>
+                </button>
+                <span
+                  className="portal-break-remaining portal-break-remaining--comfort"
+                  title="Comfort breaks left this shift"
+                  aria-label={`Limits Left ${comfortLeft}`}
+                >
+                  <span className="portal-break-remaining__label">Limits Left</span>
+                  <span className="portal-break-remaining__count">{comfortLeft}</span>
+                </span>
+              </div>
+              <p className={`portal-break-used${comfort.onThisBreak ? ' is-live' : ''}`}>
+                Comfort used
+                <strong>{comfort.fields.totalDisplay}</strong>
+              </p>
+            </div>
+          </div>
         </div>
-        <p className="tracking-employee-dialog__hint">
-          Meal and Comfort are tracked separately. Only one break can be open at a time.
-        </p>
       </div>
     </div>
   );
@@ -859,6 +834,7 @@ export default function TrackingPage() {
           employee={detailEmployee}
           activeBreakType={activeType}
           busy={busy}
+          weather={board?.portalWeather}
           onClose={closeEmployee}
           onCapture={(mode, breakType) => capture(mode, breakType, detailEmployee.employeeId)}
           onActivate={(breakType) => {
