@@ -1635,3 +1635,10 @@ D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTrack
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\StackExchange.Redis.dll
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.Pkcs.dll
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\appsettings.Development.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\appsettings.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.deps.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.runtimeconfig.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.pdb

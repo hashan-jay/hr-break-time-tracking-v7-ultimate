@@ -401,6 +401,30 @@ public class BreakTrackingService : IBreakTrackingService
             .OrderBy(b => b.OutTime)
             .ToListAsync();
 
+        var adjustments = await _db.BreakTimeAdjustments.AsNoTracking()
+            .Where(a => a.EmployeeId == employeeId)
+            .ToListAsync();
+        var offsetsChanged = false;
+        foreach (var adjustment in adjustments)
+        {
+            offsetsChanged |= await BreakStartOffsetSync.SyncAsync(
+                _db,
+                employeeId,
+                adjustment.BreakDate,
+                adjustment.BreakType,
+                adjustment.AdjustmentMinutes);
+        }
+
+        if (offsetsChanged)
+            await _db.SaveChangesAsync();
+
+        var sessionIds = sessions.Select(s => s.Id).ToList();
+        var addedMinutes = sessionIds.Count == 0
+            ? new Dictionary<int, int>()
+            : await _db.BreakSessionStartOffsets.AsNoTracking()
+                .Where(offset => sessionIds.Contains(offset.BreakSessionId))
+                .ToDictionaryAsync(offset => offset.BreakSessionId, offset => offset.AddedMinutes);
+
         return sessions
             .Where(s => string.IsNullOrEmpty(s.RecordedByUserId) && ShiftWindow.StartedIn(s.OutTime, period))
             .Select(s =>
@@ -409,15 +433,23 @@ public class BreakTrackingService : IBreakTrackingService
                 s.InTime = TimeDisplay.AsLocal(s.InTime);
                 if (string.IsNullOrWhiteSpace(s.BreakType))
                     s.BreakType = BreakTypes.Comfort;
-                return MapSession(s);
+                return MapSession(s, addedMinutes.GetValueOrDefault(s.Id));
             })
             .ToList();
     }
 
-    private static BreakSessionDto MapSession(BreakSession b)
+    private static BreakSessionDto MapSession(BreakSession b, int addedStartMinutes = 0)
     {
         var outTime = TimeDisplay.AsLocal(b.OutTime);
         var inTime = TimeDisplay.AsLocal(b.InTime);
+        if (addedStartMinutes > 0)
+        {
+            var shifted = outTime.AddMinutes(addedStartMinutes);
+            var limit = inTime ?? TimeDisplay.NowLocal();
+            if (shifted < limit)
+                outTime = shifted;
+        }
+
         var duration = inTime.HasValue
             ? TimeDisplay.ElapsedSeconds(outTime, inTime.Value)
             : TimeDisplay.ElapsedSeconds(outTime);

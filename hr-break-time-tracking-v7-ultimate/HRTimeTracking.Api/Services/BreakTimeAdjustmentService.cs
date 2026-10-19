@@ -153,6 +153,7 @@ public class BreakTimeAdjustmentService : IBreakTimeAdjustmentService
         existing.AttemptsUsed += 1;
         existing.UpdatedByUserId = userId;
         existing.UpdatedAt = DateTime.UtcNow;
+        await BreakStartOffsetSync.SyncAsync(_db, request.EmployeeId, request.Date, breakType, newMinutes);
         await _db.SaveChangesAsync();
 
         await _audit.LogAsync(

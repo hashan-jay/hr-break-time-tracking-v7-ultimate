@@ -196,3 +196,17 @@ D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTrack
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\obj\Debug\net10.0\ref\HRTimeTracking.Tests.dll
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\bin\Debug\net10.0\StackExchange.Redis.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\.msCoverageSourceRootsMapping_HRTimeTracking.Tests
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.deps.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.runtimeconfig.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\appsettings.Development.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\appsettings.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\testhost.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\xunit.abstractions.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\testhost.exe
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\xunit.runner.visualstudio.testadapter.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Tests.deps.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Tests.runtimeconfig.json
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Tests.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Tests.pdb

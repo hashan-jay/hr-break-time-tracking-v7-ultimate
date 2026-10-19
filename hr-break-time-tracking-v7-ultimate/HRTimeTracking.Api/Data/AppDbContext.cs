@@ -20,6 +20,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<RolePermission> RolePermissions => Set<RolePermission>();
     public DbSet<UserPermission> UserPermissions => Set<UserPermission>();
     public DbSet<BreakTimeAdjustment> BreakTimeAdjustments => Set<BreakTimeAdjustment>();
+    public DbSet<BreakSessionStartOffset> BreakSessionStartOffsets => Set<BreakSessionStartOffset>();
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
@@ -154,6 +155,15 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
             entity.HasOne(x => x.Employee)
                 .WithMany()
                 .HasForeignKey(x => x.EmployeeId)
+                .OnDelete(DeleteBehavior.Cascade);
+        });
+
+        builder.Entity<BreakSessionStartOffset>(entity =>
+        {
+            entity.HasIndex(x => x.BreakSessionId).IsUnique();
+            entity.HasOne(x => x.BreakSession)
+                .WithMany()
+                .HasForeignKey(x => x.BreakSessionId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
     }

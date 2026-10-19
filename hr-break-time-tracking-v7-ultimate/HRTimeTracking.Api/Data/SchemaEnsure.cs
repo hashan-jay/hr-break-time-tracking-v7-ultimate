@@ -470,6 +470,42 @@ public static class SchemaEnsure
             END
             """);
 
+        await db.Database.ExecuteSqlRawAsync("""
+            IF OBJECT_ID(N'dbo.BreakSessionStartOffsets', N'U') IS NULL
+            BEGIN
+                CREATE TABLE dbo.BreakSessionStartOffsets (
+                    Id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
+                    BreakSessionId int NOT NULL,
+                    AddedMinutes int NOT NULL
+                );
+            END
+            """);
+
+        await db.Database.ExecuteSqlRawAsync("""
+            IF OBJECT_ID(N'dbo.BreakSessionStartOffsets', N'U') IS NOT NULL
+               AND OBJECT_ID(N'dbo.BreakSessions', N'U') IS NOT NULL
+               AND NOT EXISTS (
+                    SELECT 1 FROM sys.foreign_keys
+                    WHERE name = N'FK_BreakSessionStartOffsets_BreakSessions_BreakSessionId')
+            BEGIN
+                ALTER TABLE dbo.BreakSessionStartOffsets
+                ADD CONSTRAINT FK_BreakSessionStartOffsets_BreakSessions_BreakSessionId
+                FOREIGN KEY (BreakSessionId) REFERENCES dbo.BreakSessions (Id) ON DELETE CASCADE;
+            END
+            """);
+
+        await db.Database.ExecuteSqlRawAsync("""
+            IF OBJECT_ID(N'dbo.BreakSessionStartOffsets', N'U') IS NOT NULL
+               AND NOT EXISTS (
+                    SELECT 1 FROM sys.indexes
+                    WHERE name = N'IX_BreakSessionStartOffsets_BreakSessionId'
+                      AND object_id = OBJECT_ID(N'dbo.BreakSessionStartOffsets'))
+            BEGIN
+                CREATE UNIQUE INDEX IX_BreakSessionStartOffsets_BreakSessionId
+                    ON dbo.BreakSessionStartOffsets (BreakSessionId);
+            END
+            """);
+
         // Additive grants only. Existing role rows are never updated or removed.
         await GrantSectionIfMissingAsync(db, "HRManager", "attendance");
         await GrantSectionIfMissingAsync(db, "HRAssistant", "attendance");
