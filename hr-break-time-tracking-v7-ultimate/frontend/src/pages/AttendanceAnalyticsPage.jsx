@@ -6,6 +6,7 @@ import { useLiveUpdates } from '../api/liveUpdates';
 import { useAuth } from '../auth/AuthContext';
 import { StatusBadge } from '../components/UiBits';
 import { useFeedback } from '../feedback/FeedbackContext';
+import { downloadHtmlReport, formatGeneratedAt, printHtmlReport } from '../lib/downloadReport';
 import { useTheme } from '../theme/ThemeContext';
 
 function currentMonthValue() {
@@ -43,6 +44,79 @@ function csvCell(value) {
   const text = String(value ?? '');
   if (/[",\n]/.test(text)) return `"${text.replaceAll('"', '""')}"`;
   return text;
+}
+
+function escapeHtml(value) {
+  return String(value ?? '')
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
+function viewLabel(view) {
+  if (view === 'watch') return 'At the limit';
+  if (view === 'all') return 'Everyone';
+  return 'Over limit';
+}
+
+function peopleReportHtml(report, rows, { view, query, shiftLabel, departmentLabel }) {
+  const generatedAt = formatGeneratedAt();
+  const listLabel = viewLabel(view);
+  const searchLabel = query.trim() || 'None';
+  const body = rows.length
+    ? rows.map((row) => `<tr>
+        <td>${escapeHtml(row.employeeCode)}</td>
+        <td>${escapeHtml(row.fullName)}</td>
+        <td>${escapeHtml(row.departmentName)}</td>
+        <td>${escapeHtml(row.shiftName)}</td>
+        <td>${escapeHtml(row.holidayDays)} / ${escapeHtml(row.holidayDayLimit)}</td>
+        <td>${escapeHtml(row.excessDays)}</td>
+        <td>${escapeHtml(row.presentDays)}</td>
+        <td>${escapeHtml(row.pendingDays)}</td>
+        <td>${escapeHtml(formatRate(row.attendanceRate))}</td>
+        <td>${escapeHtml(formatDay(row.lastHolidayDate))}</td>
+        <td class="${row.exceedsLimit ? 'status-red' : 'status-green'}">${row.exceedsLimit ? 'OVER LIMIT' : 'WITHIN LIMIT'}</td>
+      </tr>`).join('')
+    : '<tr><td colspan="11">No people match this list.</td></tr>';
+
+  return `
+    <h1>HR Break Time Tracking</h1>
+    <h2>Attendance analytics — People</h2>
+    <p>Generated ${escapeHtml(generatedAt)} (PC local time)</p>
+    <div class="meta">
+      <div><span>Month</span><strong>${escapeHtml(report.monthLabel)}</strong></div>
+      <div><span>Shift</span><strong>${escapeHtml(shiftLabel)}</strong></div>
+      <div><span>Department</span><strong>${escapeHtml(departmentLabel)}</strong></div>
+      <div><span>List</span><strong>${escapeHtml(listLabel)}</strong></div>
+      <div><span>Search</span><strong>${escapeHtml(searchLabel)}</strong></div>
+      <div><span>Monthly holiday limit</span><strong>${escapeHtml(report.holidayDayLimit)} days</strong></div>
+      <div><span>People in this list</span><strong>${rows.length}</strong></div>
+      <div><span>Over the limit</span><strong>${escapeHtml(report.exceededCount)}</strong></div>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><strong>${escapeHtml(report.exceededCount)}</strong><span>OVER LIMIT</span></div>
+      <div class="kpi"><strong>${escapeHtml(report.withinLimitCount)}</strong><span>WITHIN LIMIT</span></div>
+      <div class="kpi"><strong>${escapeHtml(report.holidayDayCount)}</strong><span>HOLIDAY DAYS</span></div>
+      <div class="kpi"><strong>${escapeHtml(formatRate(report.attendanceRate))}</strong><span>ATTENDANCE</span></div>
+    </div>
+    <p>${escapeHtml(report.ruleSummary)}</p>
+    <h3>${escapeHtml(listLabel)}</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Code</th><th>Employee</th><th>Department</th><th>Shift</th>
+          <th>Holiday days</th><th>Excess</th><th>Present</th><th>In progress</th>
+          <th>Rate</th><th>Last holiday</th><th>Status</th>
+        </tr>
+      </thead>
+      <tbody>${body}</tbody>
+    </table>
+    <div class="footer">
+      ${rows.length} people in ${escapeHtml(listLabel)} for ${escapeHtml(report.monthLabel)}.
+      A holiday day is a confirmed absent shift day. The monthly limit is ${escapeHtml(report.holidayDayLimit)} days.
+    </div>
+  `;
 }
 
 function downloadCsv(filename, rows) {
@@ -196,9 +270,36 @@ export default function AttendanceAnalyticsPage() {
 
   const sortLabel = (key) => (sort.key === key ? (sort.dir === 'asc' ? ' ↑' : ' ↓') : '');
 
+  const reportFileBase = () => {
+    const label = (report?.monthLabel || month).replaceAll(' ', '-').toLowerCase();
+    return `attendance-analytics-people-${label}-${view}`;
+  };
+
+  const shiftLabel = report?.shiftName || 'All active shifts';
+  const departmentLabel = departmentId
+    ? (report?.departmentOptions || []).find((item) => String(item.id) === String(departmentId))?.name || 'Selected department'
+    : 'All departments';
+
+  const reportBody = () => peopleReportHtml(report, rows, {
+    view,
+    query,
+    shiftLabel,
+    departmentLabel,
+  });
+
   const exportRows = () => {
-    const label = report?.monthLabel || month;
-    downloadCsv(`attendance-holiday-${label.replaceAll(' ', '-').toLowerCase()}.csv`, rows);
+    downloadCsv(`${reportFileBase()}.csv`, rows);
+  };
+
+  const saveHtml = () => {
+    if (!report) return;
+    downloadHtmlReport(`${reportFileBase()}.html`, reportBody());
+  };
+
+  const printA4 = () => {
+    if (!report) return;
+    const opened = printHtmlReport(`Attendance analytics — ${report.monthLabel}`, reportBody());
+    if (!opened) toast.error('Could not open the print dialog. Use Save HTML instead.');
   };
 
   return (
@@ -411,9 +512,17 @@ export default function AttendanceAnalyticsPage() {
                   onChange={(e) => setQuery(e.target.value)}
                 />
               </label>
-              <button type="button" className="btn" onClick={exportRows} disabled={rows.length === 0}>
-                Export CSV
-              </button>
+              <div className="header-actions">
+                <button type="button" className="btn btn-ghost" onClick={exportRows}>
+                  Export CSV
+                </button>
+                <button type="button" className="btn btn-ghost" onClick={saveHtml}>
+                  Save HTML
+                </button>
+                <button type="button" className="btn btn-primary" onClick={printA4}>
+                  Print A4 Report
+                </button>
+              </div>
             </div>
 
             <div className="table-wrap">

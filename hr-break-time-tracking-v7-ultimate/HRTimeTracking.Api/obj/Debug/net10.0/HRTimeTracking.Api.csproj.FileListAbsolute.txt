@@ -1633,3 +1633,5 @@ D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTrack
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\StackExchange.Redis.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\System.Security.Cryptography.Pkcs.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\runtimes\win\lib\net10.0\System.Security.Cryptography.Pkcs.dll

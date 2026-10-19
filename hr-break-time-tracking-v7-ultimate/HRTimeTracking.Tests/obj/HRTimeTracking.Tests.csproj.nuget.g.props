@@ -4,13 +4,13 @@
     <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
-    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\AppData\Local\Temp\cursor-sandbox-cache\9f7f2ed4c34010fe539bda8baafc777e\nuget</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9f7f2ed4c34010fe539bda8baafc777e\nuget;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\AppData\Local\Temp\cursor-sandbox-cache\9661d841afcc165623901686b8225586\nuget</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9661d841afcc165623901686b8225586\nuget;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">7.0.0</NuGetToolVersion>
   </PropertyGroup>
   <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <SourceRoot Include="C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9f7f2ed4c34010fe539bda8baafc777e\nuget\" />
+    <SourceRoot Include="C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9661d841afcc165623901686b8225586\nuget\" />
     <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
@@ -23,7 +23,7 @@
     <Import Project="$(NuGetPackageRoot)\microsoft.entityframeworkcore\10.0.11\buildTransitive\net10.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)\microsoft.entityframeworkcore\10.0.11\buildTransitive\net10.0\Microsoft.EntityFrameworkCore.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9f7f2ed4c34010fe539bda8baafc777e\nuget\xunit.analyzers\1.18.0</Pkgxunit_analyzers>
-    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9f7f2ed4c34010fe539bda8baafc777e\nuget\microsoft.extensions.apidescription.server\10.0.0</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <Pkgxunit_analyzers Condition=" '$(Pkgxunit_analyzers)' == '' ">C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9661d841afcc165623901686b8225586\nuget\xunit.analyzers\1.18.0</Pkgxunit_analyzers>
+    <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\Administrator\AppData\Local\Temp\cursor-sandbox-cache\9661d841afcc165623901686b8225586\nuget\microsoft.extensions.apidescription.server\10.0.0</PkgMicrosoft_Extensions_ApiDescription_Server>
   </PropertyGroup>
 </Project>

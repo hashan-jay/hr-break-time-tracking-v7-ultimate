@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\HRTimeTracking.Api.csproj",
         "projectName": "HRTimeTracking.Api",
         "projectPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\HRTimeTracking.Api.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9f7f2ed4c34010fe539bda8baafc777e\\nuget",
+        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9661d841afcc165623901686b8225586\\nuget",
         "outputPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -108,6 +108,10 @@
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
               "version": "[8.22.0, )"
+            },
+            "System.Security.Cryptography.Pkcs": {
+              "target": "Package",
+              "version": "[10.0.13, )"
             }
           },
           "imports": [
@@ -553,7 +557,7 @@
         "projectUniqueName": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Tests\\HRTimeTracking.Tests.csproj",
         "projectName": "HRTimeTracking.Tests",
         "projectPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Tests\\HRTimeTracking.Tests.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9f7f2ed4c34010fe539bda8baafc777e\\nuget",
+        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9661d841afcc165623901686b8225586\\nuget",
         "outputPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [

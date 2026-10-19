@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HRTimeTracking.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dd294fab55a73bd3aa254cc106c37a1d883f2ad")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+58172bbe00f800fb4c0c1bbbe01bef27c9600266")]
 [assembly: System.Reflection.AssemblyProductAttribute("HRTimeTracking.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HRTimeTracking.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
