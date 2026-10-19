@@ -9,6 +9,12 @@ public interface IReportService
 {
     Task<DashboardDto> GetDashboardAsync();
     Task<ReportSummaryDto> GetReportAsync(DateOnly from, DateOnly to, int? departmentId, int? employeeId, int? shiftId);
+    Task<ExceededDayDto> GetExceededDayAsync(
+        DateOnly date,
+        string? search = null,
+        int? departmentId = null,
+        int? shiftId = null,
+        int? shiftId2 = null);
 }
 
 public class ReportService : IReportService
@@ -364,8 +370,65 @@ public class ReportService : IReportService
             shiftName,
             shiftDisplay,
             rows,
-            comfortStartLimit,
-            mealStartLimit);
+        comfortStartLimit,
+        mealStartLimit);
+    }
+
+    public async Task<ExceededDayDto> GetExceededDayAsync(
+        DateOnly date,
+        string? search = null,
+        int? departmentId = null,
+        int? shiftId = null,
+        int? shiftId2 = null)
+    {
+        var today = TimeDisplay.TodayLocal();
+        if (date > today)
+            date = today;
+
+        var primary = await GetReportAsync(date, date, departmentId, null, shiftId);
+        var rows = primary.Rows.ToList();
+        if (shiftId2.HasValue && shiftId2 != shiftId)
+        {
+            var overlap = await GetReportAsync(date, date, departmentId, null, shiftId2);
+            var seen = rows.Select(row => row.EmployeeId).ToHashSet();
+            rows.AddRange(overlap.Rows.Where(row => seen.Add(row.EmployeeId)));
+        }
+
+        if (!string.IsNullOrWhiteSpace(search))
+        {
+            var needle = search.Trim();
+            rows = rows.Where(row =>
+                row.EmployeeName.Contains(needle, StringComparison.OrdinalIgnoreCase)
+                || row.EmployeeCode.Contains(needle, StringComparison.OrdinalIgnoreCase)
+                || row.DepartmentName.Contains(needle, StringComparison.OrdinalIgnoreCase)
+                || (row.ShiftName?.Contains(needle, StringComparison.OrdinalIgnoreCase) ?? false))
+                .ToList();
+        }
+
+        var exceeded = rows
+            .Where(row =>
+                row.MealStatus == BreakStatusCodes.Exceeded
+                || row.ComfortStatus == BreakStatusCodes.Exceeded)
+            .OrderBy(row => row.EmployeeName)
+            .Select(row => new ExceededDayRowDto(
+                row.EmployeeId,
+                row.EmployeeCode,
+                row.EmployeeName,
+                row.DepartmentName,
+                row.ShiftName,
+                row.MealBreakSeconds,
+                row.MealBreakDisplay,
+                row.MealStatus,
+                row.MealStatusColor,
+                row.MealBreakCount,
+                row.ComfortBreakSeconds,
+                row.ComfortBreakDisplay,
+                row.ComfortStatus,
+                row.ComfortStatusColor,
+                row.ComfortBreakCount))
+            .ToList();
+
+        return new ExceededDayDto(date, primary.MealLimitMinutes, primary.ComfortLimitMinutes, exceeded);
     }
 
     private static (int TotalSeconds, int Count, bool Exceeded) SumBreakType(

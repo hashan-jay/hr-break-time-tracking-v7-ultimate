@@ -1572,7 +1572,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .tracking-page .portal-roster .portal-board__table {
-  max-height: min(48vh, 560px);
+  max-height: min(68vh, 760px);
   overflow-x: clip;
   overflow-y: auto;
   container-type: inline-size;
@@ -1585,13 +1585,27 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   table-layout: fixed;
 }
 
-.tracking-page .tracking-roster .tracking-col-code { width: 13%; }
-.tracking-page .tracking-roster .tracking-col-employee { width: 18%; }
-.tracking-page .tracking-roster .tracking-col-limits { width: 15%; }
+.tracking-page .tracking-roster .tracking-col-code { width: 10%; }
+.tracking-page .tracking-roster .tracking-col-employee { width: 16%; }
+.tracking-page .tracking-roster .tracking-col-limits { width: 13%; }
 .tracking-page .tracking-roster .tracking-col-dept { width: 14%; }
-.tracking-page .tracking-roster .tracking-col-shift { width: 14%; }
-.tracking-page .tracking-roster .tracking-col-status { width: 15%; }
+.tracking-page .tracking-roster .tracking-col-meal { width: 18%; }
+.tracking-page .tracking-roster .tracking-col-comfort { width: 18%; }
 .tracking-page .tracking-roster .tracking-col-state { width: 11%; }
+
+.tracking-page .tracking-break-cell {
+  display: grid;
+  gap: 0.28rem;
+  align-content: center;
+}
+
+.tracking-page .tracking-break-cell strong {
+  font-variant-numeric: tabular-nums;
+}
+
+.tracking-page .tracking-break-cell.is-live-total strong {
+  color: #b45309;
+}
 
 .tracking-page .tracking-roster .portal-board__table th,
 .tracking-page .tracking-roster .portal-board__table td {
@@ -5375,6 +5389,39 @@ html[data-theme="dark"] .passcodes-table__status.is-unset {
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
+}
+
+.onbreak-now__count {
+  display: grid;
+  justify-items: center;
+  flex: 0 0 auto;
+  min-width: 4.75rem;
+}
+
+.exceeded-board__tools {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.exceeded-board__date {
+  display: grid;
+  gap: 0.28rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.exceeded-board__date input {
+  min-height: 2.4rem;
+  border-radius: 12px;
+  font-size: 0.92rem;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 600;
 }
 
 .onbreak-now__head h2,

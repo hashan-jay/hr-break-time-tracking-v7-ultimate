@@ -37,6 +37,18 @@ function trackingButtonState(employee, breakType) {
   };
 }
 
+function formatCalendarDay(value) {
+  if (!value) return '—';
+  const parsed = new Date(`${String(value).slice(0, 10)}T00:00:00`);
+  if (Number.isNaN(parsed.getTime())) return String(value);
+  return parsed.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+}
+
+function todayInputValue() {
+  const now = new Date();
+  return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+}
+
 function formatBreakStamp(value) {
   const d = parseLocalDateTime(value);
   if (!d) return '—';
@@ -292,31 +304,32 @@ function LimitsLeftCell({ employee, mealStartLimit, comfortStartLimit }) {
   );
 }
 
-function BreakTypeBoard({
-  title,
-  subtitle,
-  breakType,
-  limitMinutes,
+function LiveRoster({
+  mealLimitMinutes,
+  comfortLimitMinutes,
   mealStartLimit,
   comfortStartLimit,
   employees,
-  selectedId,
+  selectedMealId,
+  selectedComfortId,
   onSelect,
   onInspect,
-  emptyLabel,
 }) {
+  const onBreakCount = employees.filter((employee) => employee.isOnBreak).length;
   return (
     <section className="portal-roster-section break-type-board tracking-roster">
       <header className="portal-roster-section__head">
         <div>
-          <h2>{title}</h2>
+          <h2>Breaks</h2>
           <p>
-            {subtitle} Daily limit <strong>{limitMinutes ?? '—'} min</strong>
+            Meal limit <strong>{mealLimitMinutes ?? '—'} min</strong>
+            {' · '}
+            Comfort limit <strong>{comfortLimitMinutes ?? '—'} min</strong>
           </p>
         </div>
-        <div className={`portal-onbreak-chip${employees.filter((e) => typeFields(e, breakType).isOnThisBreak).length ? ' is-live' : ''}`}>
+        <div className={`portal-onbreak-chip${onBreakCount ? ' is-live' : ''}`}>
           <span className="portal-onbreak-chip__dot" aria-hidden="true" />
-          On break <strong>{employees.filter((e) => typeFields(e, breakType).isOnThisBreak).length}</strong>
+          On break <strong>{onBreakCount}</strong>
         </div>
       </header>
 
@@ -328,8 +341,8 @@ function BreakTypeBoard({
               <col className="tracking-col-employee" />
               <col className="tracking-col-limits" />
               <col className="tracking-col-dept" />
-              <col className="tracking-col-shift" />
-              <col className="tracking-col-status" />
+              <col className="tracking-col-meal" />
+              <col className="tracking-col-comfort" />
               <col className="tracking-col-state" />
             </colgroup>
             <thead>
@@ -338,75 +351,81 @@ function BreakTypeBoard({
                 <th>Employee</th>
                 <th>Limits Left</th>
                 <th>Department</th>
-                <th>This shift</th>
-                <th>Status</th>
+                <th>Meal</th>
+                <th>Comfort</th>
                 <th>State</th>
               </tr>
             </thead>
             <tbody>
-              {employees.map((e) => {
-                const fields = typeFields(e, breakType);
-                const blocked = fields.blockedByOther;
-                const offShift = isOffShift(e);
-                const selectable = canSelectForCapture(e, breakType);
-                const lockReason = blocked
-                  ? `On ${e.currentBreakType} break — end that first`
-                  : offShift
-                    ? offShiftReason(e)
-                    : undefined;
+              {employees.map((employee) => {
+                const meal = typeFields(employee, BREAK_TYPES.MEAL);
+                const comfort = typeFields(employee, BREAK_TYPES.COMFORT);
+                const offShift = isOffShift(employee);
+                const onBreak = Boolean(employee.isOnBreak);
+                const selected = selectedMealId === employee.employeeId || selectedComfortId === employee.employeeId;
+                const stateLabel = meal.isOnThisBreak
+                  ? 'On meal'
+                  : comfort.isOnThisBreak
+                    ? 'On comfort'
+                    : offShift
+                      ? 'Off shift'
+                      : 'In office';
                 return (
                   <tr
-                    key={`${breakType}-${e.employeeId}`}
+                    key={employee.employeeId}
                     className={[
-                      selectedId === e.employeeId ? 'selected' : '',
-                      fields.isOnThisBreak ? 'on-break' : '',
-                      blocked ? 'on-other-break' : '',
-                      offShift && !fields.isOnThisBreak ? 'off-shift' : '',
+                      selected ? 'selected' : '',
+                      onBreak ? 'on-break' : '',
+                      offShift && !onBreak ? 'off-shift' : '',
                       'is-clickable',
                     ].filter(Boolean).join(' ')}
-                    aria-disabled={selectable ? undefined : 'true'}
-                    title={lockReason}
+                    title={offShift && !onBreak ? offShiftReason(employee) : undefined}
                     onClick={() => {
-                      onInspect?.(e, breakType);
-                      if (selectable) onSelect(e.employeeId);
+                      const openType = meal.isOnThisBreak
+                        ? BREAK_TYPES.MEAL
+                        : comfort.isOnThisBreak
+                          ? BREAK_TYPES.COMFORT
+                          : BREAK_TYPES.MEAL;
+                      onInspect?.(employee, openType);
+                      onSelect?.(employee);
                     }}
                   >
-                    <td className="col-code">{e.employeeCode}</td>
-                    <td className="col-name">{e.fullName}</td>
+                    <td className="col-code">{employee.employeeCode}</td>
+                    <td className="col-name">{employee.fullName}</td>
                     <LimitsLeftCell
-                      employee={e}
+                      employee={employee}
                       mealStartLimit={mealStartLimit}
                       comfortStartLimit={comfortStartLimit}
                     />
-                    <td>{e.departmentName}</td>
-                    <td className={`tracking-time${fields.isOnThisBreak ? ' is-live-total' : ''}`}>
-                      <strong>{fields.totalDisplay}</strong>
+                    <td>{employee.departmentName}</td>
+                    <td>
+                      <div className={`tracking-break-cell${meal.isOnThisBreak ? ' is-live-total' : ''}`}>
+                        <strong>{meal.totalDisplay}</strong>
+                        <StatusBadge status={meal.status} color={meal.statusColor} />
+                      </div>
                     </td>
-                    <td><StatusBadge status={fields.status} color={fields.statusColor} /></td>
+                    <td>
+                      <div className={`tracking-break-cell${comfort.isOnThisBreak ? ' is-live-total' : ''}`}>
+                        <strong>{comfort.totalDisplay}</strong>
+                        <StatusBadge status={comfort.status} color={comfort.statusColor} />
+                      </div>
+                    </td>
                     <td className="tracking-state" title={
-                      fields.isOnThisBreak
-                        ? `On ${breakType.toLowerCase()} break (${formatElapsed(e.currentBreakElapsedSeconds)}) · out ${formatLocalClock(e.currentOutTime)}`
-                        : blocked
-                          ? `On ${e.currentBreakType} break`
-                          : offShift
-                            ? offShiftReason(e)
-                            : 'In office'
+                      onBreak
+                        ? `On ${String(employee.currentBreakType || '').toLowerCase()} break (${formatElapsed(employee.currentBreakElapsedSeconds)}) · out ${formatLocalClock(employee.currentOutTime)}`
+                        : offShift
+                          ? offShiftReason(employee)
+                          : 'In office'
                     }>
-                      <span className={`tracking-state__pill${fields.isOnThisBreak ? ' is-live' : ''}${blocked ? ' is-other' : ''}${offShift && !fields.isOnThisBreak ? ' is-off' : ''}`}>
-                        {fields.isOnThisBreak
-                          ? 'On break'
-                          : blocked
-                            ? 'Other break'
-                            : offShift
-                              ? 'Off shift'
-                              : 'In office'}
+                      <span className={`tracking-state__pill${onBreak ? ' is-live' : ''}${offShift && !onBreak ? ' is-off' : ''}`}>
+                        {stateLabel}
                       </span>
                     </td>
                   </tr>
                 );
               })}
               {!employees.length && (
-                <tr><td colSpan={7} className="empty">{emptyLabel}</td></tr>
+                <tr><td colSpan={7} className="empty">No employees found.</td></tr>
               )}
             </tbody>
           </table>
@@ -418,10 +437,10 @@ function BreakTypeBoard({
 
 const EXCEEDED = 'EXCEEDED BREAK TIME LIMIT';
 
-function sortLiveFirst(employees, breakType) {
+function sortRoster(employees) {
   return [...employees].sort((a, b) => {
-    const aOn = typeFields(a, breakType).isOnThisBreak ? 0 : 1;
-    const bOn = typeFields(b, breakType).isOnThisBreak ? 0 : 1;
+    const aOn = a.isOnBreak ? 0 : 1;
+    const bOn = b.isOnBreak ? 0 : 1;
     if (aOn !== bOn) return aOn - bOn;
     return String(a.fullName || '').localeCompare(String(b.fullName || ''));
   });
@@ -479,18 +498,46 @@ function OnBreakNowBar({ employees, mealStartLimit, comfortStartLimit, onOpen })
   );
 }
 
-function ExceededShiftBoard({ employees, mealStartLimit, comfortStartLimit, onInspect }) {
+function ExceededShiftBoard({
+  date,
+  maxDate,
+  onDateChange,
+  isToday,
+  busy,
+  employees,
+  mealLimitMinutes,
+  comfortLimitMinutes,
+  mealStartLimit,
+  comfortStartLimit,
+  onInspect,
+}) {
+  const headingDate = formatCalendarDay(date);
   return (
     <section className="exceeded-board headlines-card" aria-label="Employees over break limits">
       <header className="exceeded-board__head">
         <div>
-          <h2>Over limit this shift</h2>
-          <p>Employees who have gone past their meal or comfort limit on the current shift, with their live totals.</p>
+          <h2>{isToday ? 'Over limit this shift' : `Over limit on ${headingDate}`}</h2>
+          <p>
+            {isToday
+              ? 'Employees who have gone past their meal or comfort limit on the current shift, with their live totals.'
+              : 'Employees who went past their meal or comfort limit on the selected day.'}
+          </p>
         </div>
-        <span className="header-stat-tile">
-          <span>Over limit</span>
-          <strong>{employees.length}</strong>
-        </span>
+        <div className="exceeded-board__tools">
+          <label className="exceeded-board__date">
+            <span>Date</span>
+            <input
+              type="date"
+              value={date}
+              max={maxDate}
+              onChange={(event) => onDateChange(event.target.value || maxDate)}
+            />
+          </label>
+          <span className="header-stat-tile">
+            <span>Over limit</span>
+            <strong>{busy ? '…' : employees.length}</strong>
+          </span>
+        </div>
       </header>
       <div className="table-wrap">
         <table>
@@ -498,54 +545,69 @@ function ExceededShiftBoard({ employees, mealStartLimit, comfortStartLimit, onIn
             <tr>
               <th>Code</th>
               <th>Employee</th>
-              <th>Limits Left</th>
+              <th>{isToday ? 'Limits Left' : 'Breaks taken'}</th>
               <th>Department</th>
               <th>Shift</th>
-              <th>Meal this shift</th>
+              <th>{isToday ? 'Meal this shift' : 'Meal'}</th>
               <th>Meal status</th>
-              <th>Comfort this shift</th>
+              <th>{isToday ? 'Comfort this shift' : 'Comfort'}</th>
               <th>Comfort status</th>
               <th>State</th>
             </tr>
           </thead>
           <tbody>
-            {employees.map((e) => (
+            {employees.map((employee) => (
               <tr
-                key={e.employeeId}
-                className={e.isOnBreak ? 'on-break is-clickable' : 'is-clickable'}
-                onClick={() => onInspect?.(e)}
+                key={employee.employeeId}
+                className={isToday ? (employee.isOnBreak ? 'on-break is-clickable' : 'is-clickable') : undefined}
+                onClick={isToday ? () => onInspect?.(employee) : undefined}
               >
-                <td>{e.employeeCode}</td>
-                <td className="col-name">{e.fullName}</td>
-                <LimitsLeftCell
-                  employee={e}
-                  mealStartLimit={mealStartLimit}
-                  comfortStartLimit={comfortStartLimit}
-                />
-                <td>{e.departmentName}</td>
-                <td>{e.shiftDisplay || e.shiftName || '—'}</td>
+                <td>{employee.employeeCode}</td>
+                <td className="col-name">{employee.fullName || employee.employeeName}</td>
+                {isToday ? (
+                  <LimitsLeftCell
+                    employee={employee}
+                    mealStartLimit={mealStartLimit}
+                    comfortStartLimit={comfortStartLimit}
+                  />
+                ) : (
+                  <td>
+                    <div>Meal <strong>{employee.mealBreakCount}</strong></div>
+                    <div>Comfort <strong>{employee.comfortBreakCount}</strong></div>
+                  </td>
+                )}
+                <td>{employee.departmentName}</td>
+                <td>{employee.shiftDisplay || employee.shiftName || '—'}</td>
                 <td>
-                  <strong>{e.mealBreakDisplay}</strong>
-                  <div className="muted">{e.mealBreakSecondsToday}s · limit {e.mealLimitMinutes ?? '—'} min</div>
+                  <strong>{employee.mealBreakDisplay}</strong>
+                  <div className="muted">{employee.mealBreakSecondsToday ?? employee.mealBreakSeconds}s · limit {employee.mealLimitMinutes ?? mealLimitMinutes ?? '—'} min</div>
                 </td>
-                <td><StatusBadge status={e.mealStatus} color={e.mealStatusColor} /></td>
+                <td><StatusBadge status={employee.mealStatus} color={employee.mealStatusColor} /></td>
                 <td>
-                  <strong>{e.comfortBreakDisplay}</strong>
-                  <div className="muted">{e.comfortBreakSecondsToday}s · limit {e.comfortLimitMinutes ?? '—'} min</div>
+                  <strong>{employee.comfortBreakDisplay}</strong>
+                  <div className="muted">{employee.comfortBreakSecondsToday ?? employee.comfortBreakSeconds}s · limit {employee.comfortLimitMinutes ?? comfortLimitMinutes ?? '—'} min</div>
                 </td>
-                <td><StatusBadge status={e.comfortStatus} color={e.comfortStatusColor} /></td>
+                <td><StatusBadge status={employee.comfortStatus} color={employee.comfortStatusColor} /></td>
                 <td>
-                  {e.isOnBreak
-                    ? `On ${String(e.currentBreakType || '').toLowerCase()} break (${formatElapsed(e.currentBreakElapsedSeconds)}) · out ${formatLocalClock(e.currentOutTime)}`
-                    : e.isWithinShift === false
-                      ? 'Off shift'
-                      : 'In office'}
+                  {isToday
+                    ? (employee.isOnBreak
+                      ? `On ${String(employee.currentBreakType || '').toLowerCase()} break (${formatElapsed(employee.currentBreakElapsedSeconds)}) · out ${formatLocalClock(employee.currentOutTime)}`
+                      : employee.isWithinShift === false
+                        ? 'Off shift'
+                        : 'In office')
+                    : headingDate}
                 </td>
               </tr>
             ))}
             {!employees.length && (
               <tr>
-                <td colSpan={10} className="empty">No one has exceeded a break limit on this shift.</td>
+                <td colSpan={10} className="empty">
+                  {busy
+                    ? 'Loading over-limit records…'
+                    : isToday
+                      ? 'No one has exceeded a break limit on this shift.'
+                      : `No one exceeded a break limit on ${headingDate}.`}
+                </td>
               </tr>
             )}
           </tbody>
@@ -565,6 +627,9 @@ export default function TrackingPage() {
   const [shiftId, setShiftId] = useState('');
   const [shiftId2, setShiftId2] = useState('');
   const [listView, setListView] = useState('live');
+  const [exceededDate, setExceededDate] = useState(todayInputValue);
+  const [pastExceeded, setPastExceeded] = useState(null);
+  const [pastExceededBusy, setPastExceededBusy] = useState(false);
   const [activeType, setActiveType] = useState(BREAK_TYPES.MEAL);
   const [selectedMealId, setSelectedMealId] = useState(null);
   const [selectedComfortId, setSelectedComfortId] = useState(null);
@@ -638,12 +703,8 @@ export default function TrackingPage() {
     }),
     [board, nowMs],
   );
-  const mealEmployees = useMemo(
-    () => sortLiveFirst(employeesView, BREAK_TYPES.MEAL),
-    [employeesView],
-  );
-  const comfortEmployees = useMemo(
-    () => sortLiveFirst(employeesView, BREAK_TYPES.COMFORT),
+  const rosterEmployees = useMemo(
+    () => sortRoster(employeesView),
     [employeesView],
   );
   const exceededEmployees = useMemo(
@@ -653,6 +714,44 @@ export default function TrackingPage() {
     }),
     [employeesView],
   );
+  const todayValue = todayInputValue();
+  const exceededIsToday = exceededDate === todayValue;
+  useEffect(() => {
+    if (exceededIsToday) {
+      setPastExceeded(null);
+      setPastExceededBusy(false);
+      return undefined;
+    }
+
+    let cancelled = false;
+    setPastExceededBusy(true);
+    api.get('/breaks/exceeded', {
+      params: {
+        date: exceededDate,
+        search: search || undefined,
+        departmentId: departmentId || undefined,
+        shiftId: shiftId || undefined,
+        shiftId2: shiftId && shiftId2 ? shiftId2 : undefined,
+      },
+    })
+      .then(({ data }) => {
+        if (!cancelled) setPastExceeded(data);
+      })
+      .catch((err) => {
+        if (cancelled) return;
+        setPastExceeded({ rows: [] });
+        toast.error(apiErrorMessage(err, 'Failed to load over-limit records for that date.'));
+      })
+      .finally(() => {
+        if (!cancelled) setPastExceededBusy(false);
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [departmentId, exceededDate, exceededIsToday, search, shiftId, shiftId2, toast]);
+  const exceededRows = exceededIsToday ? exceededEmployees : (pastExceeded?.rows || []);
+  const exceededCount = exceededIsToday ? exceededEmployees.length : (pastExceeded?.rows?.length ?? 0);
   const detailEmployee = useMemo(() => {
     if (!detailEmployeeId) return null;
     return employeesView.find((e) => e.employeeId === detailEmployeeId) || detailSnapshot;
@@ -864,7 +963,7 @@ export default function TrackingPage() {
           onClick={() => setListView('exceeded')}
         >
           Over limit
-          <span className="list-switch__count">{exceededEmployees.length}</span>
+          <span className="list-switch__count">{exceededCount}</span>
         </button>
       </div>
 
@@ -881,51 +980,39 @@ export default function TrackingPage() {
               else setSelectedComfortId(e.employeeId);
             }}
           />
-          <div className="break-type-stack tracking-break-stack">
-            <div className={`break-type-focus ${activeType === BREAK_TYPES.MEAL ? 'is-active' : ''}`}>
-              <BreakTypeBoard
-                title="Meal Break"
-                subtitle="Lunch / meal time tracking."
-                breakType={BREAK_TYPES.MEAL}
-                limitMinutes={board?.mealLimitMinutes}
-                mealStartLimit={board?.mealStartLimit}
-                comfortStartLimit={board?.comfortStartLimit}
-                employees={mealEmployees}
-                selectedId={selectedMealId}
-                onSelect={(id) => {
-                  setActiveType(BREAK_TYPES.MEAL);
-                  setSelectedMealId(id);
-                }}
-                onInspect={openEmployee}
-                emptyLabel="No employees found."
-              />
-            </div>
-
-            <div className={`break-type-focus ${activeType === BREAK_TYPES.COMFORT ? 'is-active' : ''}`}>
-              <BreakTypeBoard
-                title="Comfort Break"
-                subtitle="Short comfort break tracking."
-                breakType={BREAK_TYPES.COMFORT}
-                limitMinutes={board?.comfortLimitMinutes}
-                mealStartLimit={board?.mealStartLimit}
-                comfortStartLimit={board?.comfortStartLimit}
-                employees={comfortEmployees}
-                selectedId={selectedComfortId}
-                onSelect={(id) => {
-                  setActiveType(BREAK_TYPES.COMFORT);
-                  setSelectedComfortId(id);
-                }}
-                onInspect={openEmployee}
-                emptyLabel="No employees found."
-              />
-            </div>
-          </div>
+          <LiveRoster
+            mealLimitMinutes={board?.mealLimitMinutes}
+            comfortLimitMinutes={board?.comfortLimitMinutes}
+            mealStartLimit={board?.mealStartLimit}
+            comfortStartLimit={board?.comfortStartLimit}
+            employees={rosterEmployees}
+            selectedMealId={selectedMealId}
+            selectedComfortId={selectedComfortId}
+            onSelect={(employee) => {
+              const mealOn = typeFields(employee, BREAK_TYPES.MEAL).isOnThisBreak;
+              const comfortOn = typeFields(employee, BREAK_TYPES.COMFORT).isOnThisBreak;
+              if (mealOn || canSelectForCapture(employee, BREAK_TYPES.MEAL)) {
+                setSelectedMealId(employee.employeeId);
+              }
+              if (comfortOn || canSelectForCapture(employee, BREAK_TYPES.COMFORT)) {
+                setSelectedComfortId(employee.employeeId);
+              }
+            }}
+            onInspect={openEmployee}
+          />
         </>
       )}
 
       {listView === 'exceeded' && (
         <ExceededShiftBoard
-          employees={exceededEmployees}
+          date={exceededDate}
+          maxDate={todayValue}
+          onDateChange={setExceededDate}
+          isToday={exceededIsToday}
+          busy={pastExceededBusy}
+          employees={exceededRows}
+          mealLimitMinutes={pastExceeded?.mealLimitMinutes ?? board?.mealLimitMinutes}
+          comfortLimitMinutes={pastExceeded?.comfortLimitMinutes ?? board?.comfortLimitMinutes}
           mealStartLimit={board?.mealStartLimit}
           comfortStartLimit={board?.comfortStartLimit}
           onInspect={openEmployee}

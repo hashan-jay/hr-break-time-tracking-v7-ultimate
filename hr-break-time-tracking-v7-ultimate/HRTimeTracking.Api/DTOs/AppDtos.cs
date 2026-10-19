@@ -260,6 +260,29 @@ public record ReportSummaryDto(
     int ComfortStartLimit = BreakStatusCodes.DefaultComfortStartLimit,
     int MealStartLimit = BreakStatusCodes.DefaultMealStartLimit);
 
+public record ExceededDayRowDto(
+    int EmployeeId,
+    string EmployeeCode,
+    string EmployeeName,
+    string DepartmentName,
+    string? ShiftName,
+    int MealBreakSeconds,
+    string MealBreakDisplay,
+    string MealStatus,
+    string MealStatusColor,
+    int MealBreakCount,
+    int ComfortBreakSeconds,
+    string ComfortBreakDisplay,
+    string ComfortStatus,
+    string ComfortStatusColor,
+    int ComfortBreakCount);
+
+public record ExceededDayDto(
+    DateOnly Date,
+    int MealLimitMinutes,
+    int ComfortLimitMinutes,
+    IReadOnlyList<ExceededDayRowDto> Rows);
+
 public record DashboardTrendPointDto(
     DateOnly Date,
     int Breaks,

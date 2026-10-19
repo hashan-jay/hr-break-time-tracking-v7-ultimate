@@ -1642,3 +1642,10 @@ C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.deps.
 C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.runtimeconfig.json
 C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.dll
 C:\Users\Administrator\AppData\Local\Temp\hr-offset-out\HRTimeTracking.Api.pdb
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\appsettings.Development.json
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\appsettings.json
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.staticwebassets.endpoints.json
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.deps.json
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.runtimeconfig.json
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.dll
+C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.pdb

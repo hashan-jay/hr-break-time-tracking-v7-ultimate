@@ -13,10 +13,12 @@ namespace HRTimeTracking.Api.Controllers;
 public class BreaksController : ControllerBase
 {
     private readonly IBreakTrackingService _service;
+    private readonly IReportService _reports;
 
-    public BreaksController(IBreakTrackingService service)
+    public BreaksController(IBreakTrackingService service, IReportService reports)
     {
         _service = service;
+        _reports = reports;
     }
 
     [HttpGet("live")]
@@ -42,6 +44,21 @@ public class BreaksController : ControllerBase
     {
         var rows = await _service.GetEmployeeTakenBreaksAsync(employeeId);
         return rows is null ? NotFound(new ApiMessage("Employee not found.")) : Ok(rows);
+    }
+
+    [HttpGet("exceeded")]
+    [RequireSection(AppSections.Tracking)]
+    public async Task<ActionResult<ExceededDayDto>> Exceeded(
+        [FromQuery] string? date = null,
+        [FromQuery] string? search = null,
+        [FromQuery] int? departmentId = null,
+        [FromQuery] int? shiftId = null,
+        [FromQuery] int? shiftId2 = null)
+    {
+        var day = DateOnly.TryParse(date, out var parsed) ? parsed : TimeDisplay.TodayLocal();
+        if (day > TimeDisplay.TodayLocal())
+            return BadRequest(new ApiMessage("Choose today or an earlier date."));
+        return Ok(await _reports.GetExceededDayAsync(day, search, departmentId, shiftId, shiftId2));
     }
 
     [HttpGet("sessions")]
