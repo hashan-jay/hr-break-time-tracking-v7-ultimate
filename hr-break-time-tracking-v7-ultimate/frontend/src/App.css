@@ -203,31 +203,151 @@
 }
 
 .app-portal .portal-side--ig .portal-side__dock {
-  gap: 0.65rem;
-  padding: 0.35rem 0.35rem 0;
+  gap: 0.75rem;
+  padding: 0.35rem 0.15rem 0;
+}
+
+.app-portal .portal-side__tools {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  min-width: 0;
+}
+
+.app-portal {
+  --ig-ink: #262626;
+  --ig-muted: #737373;
+  --ig-font: "Montserrat", "Segoe UI", sans-serif;
 }
 
 .app-portal .portal-side--ig .portal-clock {
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  background: var(--portal-card);
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.app-portal .portal-side--ig .portal-clock__section {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  background: transparent;
+  border: none;
+}
+
+.app-portal .portal-side--ig .portal-clock__time,
+.app-portal .portal-side--ig .portal-clock__date {
+  font-family: var(--ig-font);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .app-portal .portal-side--ig .portal-clock__time {
+  color: var(--ig-ink);
   font-size: 1.45rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.app-portal .portal-side--ig .portal-clock__date {
+  color: var(--ig-muted);
+  font-size: 0.92rem;
+}
+
+.app-portal .portal-side--ig .portal-clock__section--time {
+  gap: 0.38rem;
+}
+
+.app-portal .portal-side--ig .portal-clock__section--time::before {
+  content: "";
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 50%;
+  background: #16a34a;
+  flex-shrink: 0;
+  animation: portal-header-live 1.4s ease infinite;
+}
+
+.app-portal .portal-side--ig .portal-side__dock .theme-toggle--circle {
+  justify-self: end;
+  flex: 0 0 auto;
+}
+
+.app-portal .portal-side--ig .portal-logout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  border: 1px solid rgba(180, 35, 24, 0.28);
+  border-radius: 999px;
+  padding: 0.62rem 0.9rem;
+  background: transparent;
+  color: #b42318;
+  font-family: var(--ig-font);
   font-weight: 700;
+  letter-spacing: -0.02em;
+  box-shadow: none;
+}
+
+.app-portal .portal-side--ig .portal-logout__icon {
+  display: block;
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.app-portal .portal-side--ig .portal-logout:hover,
+.app-portal .portal-side--ig .portal-logout:focus-visible {
+  background: #b42318;
+  border-color: #b42318;
+  color: #fff;
+}
+
+.app-portal .portal-credits--dock {
+  gap: 0.22rem;
+  margin: 0;
+  padding: 0.7rem 0.1rem 0;
+  border-top: 1px solid var(--portal-line);
+  text-align: center;
+  font-family: var(--ig-font);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--ig-muted);
+}
+
+.app-portal .portal-credits--dock span:last-child {
+  justify-self: center;
+  width: fit-content;
+  margin-top: 0.15rem;
+  padding: 0.16rem 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, #14542d 12%, transparent);
+  color: #14542d;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
 }
 
 .app-portal .portal-side--ig .portal-side__footer {
   gap: 0.7rem;
-  padding-top: 0.85rem;
+  padding-top: 0.15rem;
+  border-top: none;
 }
 
 .app-portal .portal-side--ig .portal-user {
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  padding: 0.35rem 0.35rem;
+  padding: 0.15rem 0.2rem 0.35rem;
 }
 
 .app-portal .portal-side--ig .portal-user__avatar {
@@ -256,25 +376,6 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.app-portal .portal-side--ig .portal-logout {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-  border-radius: 8px;
-  padding: 0.62rem 0.75rem;
-}
-
-.app-portal .portal-side--ig .portal-logout__icon {
-  display: none;
-  width: 1.15rem;
-  height: 1.15rem;
-}
-
-.app-portal .portal-side--ig .portal-credits {
-  padding-left: 0.15rem;
 }
 
 .portal-clock {
@@ -2801,8 +2902,32 @@ html[data-theme="dark"] .portal-side {
   background: var(--portal-side);
 }
 
-html[data-theme="dark"] .portal-side__footer {
+html[data-theme="dark"] .app-portal {
+  --ig-ink: #f5f5f5;
+  --ig-muted: #a8a8a8;
+}
+
+html[data-theme="dark"] .app-portal .portal-side--ig .portal-logout {
+  background: transparent;
+  color: #fca5a5;
+  border-color: rgba(248, 113, 113, 0.4);
+  box-shadow: none;
+}
+
+html[data-theme="dark"] .app-portal .portal-side--ig .portal-logout:hover,
+html[data-theme="dark"] .app-portal .portal-side--ig .portal-logout:focus-visible {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+html[data-theme="dark"] .app-portal .portal-credits--dock {
   border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .app-portal .portal-credits--dock span:last-child {
+  background: rgba(74, 222, 128, 0.14);
+  color: #86efac;
 }
 
 html[data-theme="dark"] .portal-brand {
@@ -7687,6 +7812,12 @@ html[data-theme="dark"] .users-table .users-table__activate:hover {
     padding: 0.55rem 0.35rem;
   }
 
+  .app-portal .portal-side--ig .portal-side__tools {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
   .app-portal .portal-side--ig .portal-side__dock {
     justify-items: center;
     padding: 0.2rem 0 0;
@@ -7695,12 +7826,17 @@ html[data-theme="dark"] .users-table .users-table__activate:hover {
   .app-portal .portal-side--ig .portal-clock {
     width: 100%;
     justify-content: center;
-    padding: 0.4rem 0.2rem;
+    padding: 0;
   }
 
   .app-portal .portal-side--ig .portal-clock__time {
-    font-size: 0.78rem;
-    letter-spacing: -0.02em;
+    font-size: 0.72rem;
+    letter-spacing: -0.04em;
+  }
+
+  .app-portal .portal-side--ig .portal-clock__section--time::before {
+    width: 0.32rem;
+    height: 0.32rem;
   }
 
   .app-portal .portal-side--ig .portal-user {
@@ -7712,11 +7848,7 @@ html[data-theme="dark"] .users-table .users-table__activate:hover {
     width: 2.5rem;
     height: 2.5rem;
     padding: 0;
-    border-radius: 8px;
-  }
-
-  .app-portal .portal-side--ig .portal-logout__icon {
-    display: block;
+    border-radius: 50%;
   }
 
   .app-portal .portal-side--ig .portal-side__dock .theme-toggle {

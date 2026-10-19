@@ -162,8 +162,10 @@ function StaffSidebar({ user, items, onLogout, onNavigate }) {
       <SidebarNav items={items} onNavigate={onNavigate} />
 
       <div className="portal-side__dock">
-        <ThemeToggle />
-        <PortalClock />
+        <div className="portal-side__tools">
+          <PortalClock />
+          <ThemeToggle variant="circle" />
+        </div>
         <div className="portal-side__footer">
           <div className="portal-user">
             <span className="portal-user__avatar" aria-hidden="true">{userInitials(user?.fullName)}</span>
@@ -173,14 +175,14 @@ function StaffSidebar({ user, items, onLogout, onNavigate }) {
             </div>
           </div>
           <button type="button" className="portal-logout" onClick={onLogout}>
-            <svg className="portal-logout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <svg className="portal-logout__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
               <path d="M16 17l5-5-5-5" />
               <path d="M21 12H9" />
             </svg>
-            <span className="portal-logout__label">Logout</span>
+            <span className="portal-logout__label">Log out</span>
           </button>
-          <PortalCredits />
+          <PortalCredits className="portal-credits--dock" />
         </div>
       </div>
     </aside>
