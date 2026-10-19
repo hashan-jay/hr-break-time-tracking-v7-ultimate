@@ -2,7 +2,6 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
 import { useLiveUpdates } from '../api/liveUpdates';
 import { LoadingBlock, StatusBadge } from '../components/UiBits';
-import DialogWeather from '../components/DialogWeather';
 import { useFeedback } from '../feedback/FeedbackContext';
 import {
   BREAK_TYPES,
@@ -58,7 +57,7 @@ function takenDurationSeconds(session, nowMs) {
   return Math.max(0, Number(session?.durationSeconds) || 0);
 }
 
-function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, nowMs, onClose, onCapture, onActivate }) {
+function TrackingEmployeeDialog({ employee, activeBreakType, busy, nowMs, onClose, onCapture, onActivate }) {
   const meal = trackingButtonState(employee, BREAK_TYPES.MEAL);
   const comfort = trackingButtonState(employee, BREAK_TYPES.COMFORT);
   const mealLeft = remainingStarts(employee, BREAK_TYPES.MEAL, employee.mealStartLimit);
@@ -130,7 +129,6 @@ function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, nowM
         aria-modal="true"
         aria-labelledby="tracking-employee-dialog-title"
       >
-        <DialogWeather mode={String(weather || 'rain').toLowerCase()} />
         <header className="portal-employee-dialog__head">
           <div className="portal-employee-dialog__title">
             <p className="portal-employee-dialog__eyebrow">Employee details</p>
@@ -939,7 +937,6 @@ export default function TrackingPage() {
           employee={detailEmployee}
           activeBreakType={activeType}
           busy={busy}
-          weather={board?.portalWeather}
           nowMs={nowMs}
           onClose={closeEmployee}
           onCapture={(mode, breakType) => capture(mode, breakType, detailEmployee.employeeId)}
