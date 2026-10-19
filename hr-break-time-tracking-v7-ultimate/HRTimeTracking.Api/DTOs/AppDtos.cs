@@ -136,7 +136,8 @@ public record BreakSessionDto(
     string? DurationDisplay,
     DateOnly BreakDate,
     bool IsOpen,
-    bool IsAutoClosed = false);
+    bool IsAutoClosed = false,
+    bool StartedByEmployee = false);
 
 public record EmployeeBreakStatusDto(
     int EmployeeId,

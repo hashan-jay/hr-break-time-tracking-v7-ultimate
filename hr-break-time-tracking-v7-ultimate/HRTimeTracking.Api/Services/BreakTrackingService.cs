@@ -13,6 +13,7 @@ public interface IBreakTrackingService
     Task<(bool Ok, string? Error, EmployeeBreakStatusDto? Data)> RecordOutAsync(int employeeId, string breakType, string? userId);
     Task<(bool Ok, string? Error, EmployeeBreakStatusDto? Data)> RecordInAsync(int employeeId, string? breakType, string? userId);
     Task<IReadOnlyList<BreakSessionDto>> GetSessionsAsync(DateOnly? from, DateOnly? to, int? employeeId, int? departmentId, string? breakType = null);
+    Task<IReadOnlyList<BreakSessionDto>?> GetEmployeeTakenBreaksAsync(int employeeId);
 }
 
 public class BreakTrackingService : IBreakTrackingService
@@ -379,6 +380,40 @@ public class BreakTrackingService : IBreakTrackingService
             .ToList();
     }
 
+    /// <summary>
+    /// Breaks the employee started on the portal during the current (or most recent) shift.
+    /// Live Tracking rows store the HR user id and are left out.
+    /// </summary>
+    public async Task<IReadOnlyList<BreakSessionDto>?> GetEmployeeTakenBreaksAsync(int employeeId)
+    {
+        await _autoClose.CloseExpiredAsync(employeeId);
+        var employee = await _db.Employees.AsNoTracking()
+            .Include(e => e.Shift)
+            .FirstOrDefaultAsync(e => e.Id == employeeId);
+        if (employee is null) return null;
+
+        var now = TimeDisplay.NowLocal();
+        var period = ShiftWindow.Resolve(employee.Shift, now);
+        var lookback = period.Start.AddHours(-2);
+        var sessions = await _db.BreakSessions.AsNoTracking()
+            .Include(b => b.Employee).ThenInclude(e => e.Department)
+            .Where(b => b.EmployeeId == employeeId && (b.InTime == null || b.OutTime >= lookback))
+            .OrderBy(b => b.OutTime)
+            .ToListAsync();
+
+        return sessions
+            .Where(s => string.IsNullOrEmpty(s.RecordedByUserId) && ShiftWindow.StartedIn(s.OutTime, period))
+            .Select(s =>
+            {
+                s.OutTime = TimeDisplay.AsLocal(s.OutTime);
+                s.InTime = TimeDisplay.AsLocal(s.InTime);
+                if (string.IsNullOrWhiteSpace(s.BreakType))
+                    s.BreakType = BreakTypes.Comfort;
+                return MapSession(s);
+            })
+            .ToList();
+    }
+
     private static BreakSessionDto MapSession(BreakSession b)
     {
         var outTime = TimeDisplay.AsLocal(b.OutTime);
@@ -401,7 +436,8 @@ public class BreakTrackingService : IBreakTrackingService
             TimeDisplay.FormatSeconds(duration),
             b.BreakDate,
             inTime is null,
-            b.IsAutoClosed);
+            b.IsAutoClosed,
+            string.IsNullOrEmpty(b.RecordedByUserId));
     }
 
     private static int LookupAdjustment(

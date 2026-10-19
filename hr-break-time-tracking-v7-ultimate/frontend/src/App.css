@@ -1726,6 +1726,102 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   color: #9ca3af;
 }
 
+.tracking-employee-dialog {
+  width: min(110rem, calc(100vw - 1.5rem));
+  max-height: calc(100vh - 1.5rem);
+  overflow: auto;
+}
+
+.tracking-employee-dialog .portal-employee-dialog__head {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: inherit;
+}
+
+.tracking-employee-dialog .portal-break-actions {
+  min-height: 0;
+  grid-template-columns: repeat(2, minmax(12rem, 16rem));
+}
+
+.tracking-break-log {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.tracking-break-log__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.tracking-break-log__head h3 {
+  margin: 0 0 0.2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.tracking-break-log__head p {
+  margin: 0;
+  color: var(--muted, #64748b);
+  font-size: 0.86rem;
+}
+
+.tracking-break-log__totals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.tracking-break-log__totals span {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  min-height: 2rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.tracking-break-log__totals strong {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.95rem;
+}
+
+.tracking-break-log__table {
+  overflow: auto;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.tracking-break-log table {
+  width: 100%;
+  min-width: 0;
+}
+
+.tracking-break-log th,
+.tracking-break-log td {
+  padding: 0.65rem 0.8rem;
+  white-space: nowrap;
+}
+
+.tracking-break-log th {
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.tracking-break-log__time {
+  font-variant-numeric: tabular-nums;
+}
+
 html[data-theme="dark"] .tracking-page .portal-employee-filters,
 html[data-theme="dark"] .tracking-page .tracking-roster {
   background:
@@ -1750,6 +1846,12 @@ html[data-theme="dark"] .tracking-page .portal-roster .portal-board__table th {
 html[data-theme="dark"] .tracking-state__pill {
   background: rgba(255, 255, 255, 0.06);
   color: #d4d4d4;
+}
+
+html[data-theme="dark"] .tracking-break-log__totals span,
+html[data-theme="dark"] .tracking-break-log__table {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
 }
 
 html[data-theme="dark"] .tracking-page {

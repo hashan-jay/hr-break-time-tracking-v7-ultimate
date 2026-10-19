@@ -36,6 +36,14 @@ public class BreaksController : ControllerBase
         return status is null ? NotFound(new ApiMessage("Employee not found.")) : Ok(status);
     }
 
+    [HttpGet("employee/{employeeId:int}/taken")]
+    [RequireSection(AppSections.Tracking)]
+    public async Task<ActionResult<IReadOnlyList<BreakSessionDto>>> Taken(int employeeId)
+    {
+        var rows = await _service.GetEmployeeTakenBreaksAsync(employeeId);
+        return rows is null ? NotFound(new ApiMessage("Employee not found.")) : Ok(rows);
+    }
+
     [HttpGet("sessions")]
     [RequireSection(AppSections.Tracking, AppSections.Reports)]
     public async Task<ActionResult<IReadOnlyList<BreakSessionDto>>> Sessions(

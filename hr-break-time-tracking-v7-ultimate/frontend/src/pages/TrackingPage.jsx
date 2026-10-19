@@ -10,6 +10,8 @@ import {
   enrichEmployeesLive,
   formatElapsed,
   formatLocalClock,
+  liveElapsedSeconds,
+  parseLocalDateTime,
   isOffShift,
   offShiftReason,
   remainingStarts,
@@ -36,11 +38,61 @@ function trackingButtonState(employee, breakType) {
   };
 }
 
-function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, onClose, onCapture, onActivate }) {
+function formatBreakStamp(value) {
+  const d = parseLocalDateTime(value);
+  if (!d) return '—';
+  const time = d.toLocaleTimeString(undefined, {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false,
+  });
+  const today = new Date();
+  if (d.toDateString() === today.toDateString()) return time;
+  const date = d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  return `${date} ${time}`;
+}
+
+function takenDurationSeconds(session, nowMs) {
+  if (session?.isOpen) return liveElapsedSeconds(session.outTime, nowMs, null);
+  return Math.max(0, Number(session?.durationSeconds) || 0);
+}
+
+function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, nowMs, onClose, onCapture, onActivate }) {
   const meal = trackingButtonState(employee, BREAK_TYPES.MEAL);
   const comfort = trackingButtonState(employee, BREAK_TYPES.COMFORT);
   const mealLeft = remainingStarts(employee, BREAK_TYPES.MEAL, employee.mealStartLimit);
   const comfortLeft = remainingStarts(employee, BREAK_TYPES.COMFORT, employee.comfortStartLimit);
+  const [taken, setTaken] = useState([]);
+  const [takenState, setTakenState] = useState('loading');
+
+  useEffect(() => {
+    let cancelled = false;
+    setTakenState('loading');
+    api.get(`/breaks/employee/${employee.employeeId}/taken`)
+      .then(({ data }) => {
+        if (cancelled) return;
+        const rows = (Array.isArray(data) ? data : [])
+          .filter((row) => row.startedByEmployee !== false)
+          .slice()
+          .sort((a, b) => String(a.outTime || '').localeCompare(String(b.outTime || '')));
+        setTaken(rows);
+        setTakenState('ready');
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setTaken([]);
+        setTakenState('error');
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [employee.employeeId, employee.isOnBreak, employee.currentOutTime]);
+
+  const mealTaken = taken.filter((row) => row.breakType === BREAK_TYPES.MEAL);
+  const comfortTaken = taken.filter((row) => row.breakType !== BREAK_TYPES.MEAL);
+  const mealTakenSeconds = mealTaken.reduce((sum, row) => sum + takenDurationSeconds(row, nowMs), 0);
+  const comfortTakenSeconds = comfortTaken.reduce((sum, row) => sum + takenDurationSeconds(row, nowMs), 0);
 
   useEffect(() => {
     const onKey = (event) => {
@@ -73,7 +125,7 @@ function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, onCl
       }}
     >
       <div
-        className="portal-employee-dialog"
+        className="portal-employee-dialog tracking-employee-dialog"
         role="dialog"
         aria-modal="true"
         aria-labelledby="tracking-employee-dialog-title"
@@ -175,6 +227,50 @@ function TrackingEmployeeDialog({ employee, activeBreakType, busy, weather, onCl
               </p>
             </div>
           </div>
+
+          <section className="tracking-break-log" aria-label="Breaks taken this shift">
+            <header className="tracking-break-log__head">
+              <div>
+                <h3>Breaks taken this shift</h3>
+                <p>Start, end, and time taken for meal and comfort breaks the employee started.</p>
+              </div>
+              <div className="tracking-break-log__totals">
+                <span>Meal <strong>{formatElapsed(mealTakenSeconds)}</strong> · {mealTaken.length}</span>
+                <span>Comfort <strong>{formatElapsed(comfortTakenSeconds)}</strong> · {comfortTaken.length}</span>
+              </div>
+            </header>
+            <div className="tracking-break-log__table">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Break</th>
+                    <th>Started</th>
+                    <th>Ended</th>
+                    <th>Time taken</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {takenState === 'loading' && (
+                    <tr><td colSpan={4} className="empty">Loading breaks…</td></tr>
+                  )}
+                  {takenState === 'error' && (
+                    <tr><td colSpan={4} className="empty">Could not load the breaks this employee started.</td></tr>
+                  )}
+                  {takenState === 'ready' && !taken.length && (
+                    <tr><td colSpan={4} className="empty">No meal or comfort breaks started by this employee this shift.</td></tr>
+                  )}
+                  {takenState === 'ready' && taken.map((row, index) => (
+                    <tr key={row.id ?? `${row.breakType}-${row.outTime}-${index}`} className={row.isOpen ? 'on-break' : undefined}>
+                      <td>{row.breakType === BREAK_TYPES.MEAL ? 'Meal' : 'Comfort'}</td>
+                      <td className="tracking-break-log__time">{formatBreakStamp(row.outTime)}</td>
+                      <td className="tracking-break-log__time">{row.isOpen ? 'On break' : formatBreakStamp(row.inTime)}</td>
+                      <td className="tracking-break-log__time"><strong>{formatElapsed(takenDurationSeconds(row, nowMs))}</strong></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
         </div>
       </div>
     </div>
@@ -844,6 +940,7 @@ export default function TrackingPage() {
           activeBreakType={activeType}
           busy={busy}
           weather={board?.portalWeather}
+          nowMs={nowMs}
           onClose={closeEmployee}
           onCapture={(mode, breakType) => capture(mode, breakType, detailEmployee.employeeId)}
           onActivate={(breakType) => {
