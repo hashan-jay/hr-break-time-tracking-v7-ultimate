@@ -174,7 +174,7 @@ export default function DashboardPage() {
               )}
               {auth.can('attendance') && (
                 <QuickLink
-                  title="Attendance analytics"
+                  title="Attendance Analytics"
                   description="See who is over the monthly holiday limit and how attendance moved this month."
                   to="/app/attendance/analytics"
                   cta="Open analytics"

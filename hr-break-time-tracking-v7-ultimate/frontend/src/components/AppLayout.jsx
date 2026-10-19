@@ -216,7 +216,7 @@ export default function AppLayout() {
     can('dashboard') && { to: '/app', end: true, label: 'Dashboard', icon: ICONS.dashboard },
     can('tracking') && { to: '/app/tracking', label: 'Live Tracking', icon: ICONS.tracking },
     can('attendance') && { to: '/app/attendance', end: true, label: 'Attendance', icon: ICONS.attendance },
-    can('attendance') && { to: '/app/attendance/analytics', label: 'Analytics', icon: ICONS.analytics },
+    can('attendance') && { to: '/app/attendance/analytics', label: 'Attendance Analytics', icon: ICONS.analytics },
     can('employees') && { to: '/app/employees', label: 'Employees', icon: ICONS.employees },
     can('departments') && { to: '/app/departments', label: 'Departments', icon: ICONS.departments },
     can('shifts') && { to: '/app/shifts', label: 'Shifts', icon: ICONS.shifts },

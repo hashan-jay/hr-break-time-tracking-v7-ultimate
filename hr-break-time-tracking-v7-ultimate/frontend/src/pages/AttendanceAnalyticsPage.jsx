@@ -303,10 +303,10 @@ export default function AttendanceAnalyticsPage() {
   };
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page attendance-analytics">
       <header className="page-header">
         <div>
-          <h1>Attendance analytics</h1>
+          <h1>Attendance Analytics</h1>
           <p>
             Monthly holiday days come from confirmed absences on the attendance roster.
             People over the developer-set monthly limit are listed first.
@@ -315,7 +315,7 @@ export default function AttendanceAnalyticsPage() {
         <Link className="btn" to="/app/attendance">Daily attendance</Link>
       </header>
 
-      <form className="toolbar report-filters" onSubmit={(event) => { event.preventDefault(); load(); }}>
+      <form className="toolbar report-filters attendance-analytics__filters" onSubmit={(event) => { event.preventDefault(); load(); }}>
         <label>
           Month
           <input type="month" value={month} onChange={(e) => setMonth(e.target.value)} />
@@ -387,17 +387,10 @@ export default function AttendanceAnalyticsPage() {
               <p className="headlines-metric__note">Not counted as holiday yet</p>
             </article>
             <article className="headlines-metric">
-              <span className="headlines-metric__label">Cache</span>
+              <span className="headlines-metric__label">Last updated</span>
               <div className="headlines-metric__row">
-                <strong className={report.cacheProvider === 'redis' ? 'is-good' : undefined}>
-                  {report.cacheProvider === 'redis' ? 'Redis' : 'Memory'}
-                </strong>
+                <strong className="is-time">{formatWhen(report.generatedAt)}</strong>
               </div>
-              <p className="headlines-metric__note">
-                {report.fromCache ? 'Served from cache' : 'Calculated now'}
-                {' · '}
-                {formatWhen(report.generatedAt)}
-              </p>
             </article>
           </section>
 
@@ -417,11 +410,19 @@ export default function AttendanceAnalyticsPage() {
                     <CartesianGrid stroke={grid} vertical={false} />
                     <XAxis dataKey="label" tick={{ fill: axis, fontSize: 12 }} interval="preserveStartEnd" />
                     <YAxis allowDecimals={false} tick={{ fill: axis, fontSize: 12 }} width={36} />
-                    <Tooltip />
+                    <Tooltip
+                      cursor={{ fill: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(20,84,45,0.06)' }}
+                      contentStyle={{
+                        borderRadius: 14,
+                        border: isDark ? '1px solid rgba(255,255,255,0.08)' : '1px solid rgba(15,23,42,0.08)',
+                        background: isDark ? '#161b22' : '#fff',
+                        boxShadow: '0 16px 40px rgba(15, 23, 42, 0.12)',
+                      }}
+                    />
                     <Legend />
-                    <Bar dataKey="present" name="Present" fill={presentColor} radius={[3, 3, 0, 0]} />
-                    <Bar dataKey="holiday" name="Holiday" fill={holidayColor} radius={[3, 3, 0, 0]} />
-                    <Bar dataKey="pending" name="In progress" fill={pendingColor} radius={[3, 3, 0, 0]} />
+                    <Bar dataKey="present" name="Present" fill={presentColor} radius={[8, 8, 0, 0]} maxBarSize={22} />
+                    <Bar dataKey="holiday" name="Holiday" fill={holidayColor} radius={[8, 8, 0, 0]} maxBarSize={22} />
+                    <Bar dataKey="pending" name="In progress" fill={pendingColor} radius={[8, 8, 0, 0]} maxBarSize={22} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
