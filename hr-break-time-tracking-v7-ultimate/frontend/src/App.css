@@ -1726,36 +1726,96 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   color: #9ca3af;
 }
 
-.tracking-employee-dialog {
-  width: min(110rem, calc(100vw - 1.5rem));
-  max-height: calc(100vh - 1.5rem);
-  overflow: auto;
+.tracking-page .portal-employee-overlay {
+  padding: 0.55rem;
+  overflow: hidden;
+}
+
+.tracking-employee-dialog.portal-employee-dialog {
+  width: min(96rem, calc(100vw - 1.1rem));
+  max-height: calc(100vh - 1.1rem);
+  overflow: hidden;
+  gap: 0.45rem;
+  padding: 0.7rem 1rem 0.75rem;
+  grid-template-rows: auto minmax(0, 1fr);
 }
 
 .tracking-employee-dialog .portal-employee-dialog__head {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 4;
-  background: inherit;
+  padding: 0.05rem 2.5rem 0.35rem;
+}
+
+.tracking-employee-dialog .portal-employee-dialog__head h2 {
+  font-size: clamp(1.45rem, 2.4vw, 2rem);
+}
+
+.tracking-employee-dialog .portal-employee-dialog__body {
+  min-height: 0;
+  overflow: hidden;
+  gap: 0.5rem;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  align-content: stretch;
+}
+
+.tracking-employee-dialog .portal-detail-card {
+  padding: 0.55rem 0.3rem;
 }
 
 .tracking-employee-dialog .portal-break-actions {
   min-height: 0;
-  grid-template-columns: repeat(2, minmax(12rem, 16rem));
+  width: min(100%, 58rem);
+  margin-inline: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.25rem 3.4rem;
+  align-items: start;
+}
+
+.tracking-employee-dialog .portal-break-action {
+  width: min(100%, 22rem, 30vh);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  container-type: inline-size;
+  overflow: hidden;
+  overflow-wrap: normal;
+  word-break: keep-all;
+  padding: 7%;
+  font-size: clamp(1.05rem, 13cqi, 2.15rem);
+  line-height: 1.05;
+}
+
+.tracking-employee-dialog .portal-break-action__verb,
+.tracking-employee-dialog .portal-break-action__noun,
+.tracking-employee-dialog .portal-break-action__type {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
+
+.tracking-employee-dialog .portal-break-action__type {
+  font-size: clamp(1.35rem, 17cqi, 3.55rem);
+  letter-spacing: 0.01em;
+  line-height: 1;
 }
 
 .tracking-break-log {
   display: grid;
-  gap: 0.75rem;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 0.4rem;
   min-width: 0;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .tracking-break-log__head {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.tracking-break-log__head > div:first-child {
+  min-width: 0;
 }
 
 .tracking-break-log__head h3 {
@@ -1773,7 +1833,9 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 .tracking-break-log__totals {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
   gap: 0.45rem;
+  max-width: 100%;
 }
 
 .tracking-break-log__totals span {
@@ -1795,7 +1857,8 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 }
 
 .tracking-break-log__table {
-  overflow: auto;
+  min-height: 0;
+  overflow: hidden;
   border: 1px solid rgba(15, 23, 42, 0.08);
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.72);
@@ -1808,7 +1871,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
 
 .tracking-break-log th,
 .tracking-break-log td {
-  padding: 0.65rem 0.8rem;
+  padding: 0.4rem 0.75rem;
   white-space: nowrap;
 }
 
@@ -9679,10 +9742,10 @@ html[data-theme="dark"] .audit-actions__item--passcodeset { background: rgba(127
 html[data-theme="dark"] .audit-actions__item--passcodeset strong { background: rgba(248, 113, 113, 0.28); color: #fecaca; }
 
 .tracking-employee-dialog {
-  width: min(58rem, 100%);
-  max-height: min(88vh, 46rem);
-  overflow: auto;
-  padding: 1.15rem 1.25rem 1.25rem;
+  width: min(96rem, calc(100vw - 1.1rem));
+  max-height: calc(100vh - 1.1rem);
+  overflow: hidden;
+  padding: 0.7rem 1rem 0.75rem;
   border-radius: 1.4rem;
   border: 1px solid rgba(255, 255, 255, 0.72);
   background:
