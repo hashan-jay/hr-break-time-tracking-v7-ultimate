@@ -8,6 +8,7 @@ import AdjustTimeSection from '../components/AdjustTimeSection';
 const DURATION_KEYS = ['MealBreakLimitMinutes', 'ComfortBreakLimitMinutes'];
 const START_KEYS = ['MealBreakStartLimit', 'ComfortBreakStartLimit'];
 const PORTAL_WEATHER_KEY = 'PortalWeatherEffect';
+const HOLIDAY_LIMIT_KEY = 'MonthlyHolidayDayLimit';
 const WEATHER_OPTIONS = [
   { value: 'none', label: 'Nothing' },
   { value: 'rain', label: 'Rain' },
@@ -58,7 +59,10 @@ export default function SettingsPage() {
   const [shiftGroups, setShiftGroups] = useState([]);
   const [savingKey, setSavingKey] = useState(null);
   const [savingShiftId, setSavingShiftId] = useState(null);
-  const [listView, setListView] = useState('shifts');
+  const [listView, setListView] = useState(() => {
+    const section = new URLSearchParams(window.location.search).get('section');
+    return section === 'holiday' && isDeveloper ? 'holiday' : 'shifts';
+  });
 
   const load = async () => {
     const [settingsRes, shiftRes] = await Promise.all([
@@ -175,8 +179,9 @@ export default function SettingsPage() {
   const starts = settings.filter((s) => START_KEYS.includes(s.key));
   const otherAliasOrder = ['DailyBreakLimitMinutes', 'DailyMealBreakLimitMinutes'];
   const weatherSetting = settings.find((s) => s.key === PORTAL_WEATHER_KEY);
+  const holidaySetting = settings.find((s) => s.key === HOLIDAY_LIMIT_KEY);
   const other = settings
-    .filter((s) => !DURATION_KEYS.includes(s.key) && !START_KEYS.includes(s.key) && s.key !== PORTAL_WEATHER_KEY)
+    .filter((s) => !DURATION_KEYS.includes(s.key) && !START_KEYS.includes(s.key) && s.key !== PORTAL_WEATHER_KEY && s.key !== HOLIDAY_LIMIT_KEY)
     .slice()
     .sort((a, b) => {
       const ai = otherAliasOrder.indexOf(a.key);
@@ -246,6 +251,18 @@ export default function SettingsPage() {
             onClick={() => setListView('adjust-time')}
           >
             Adjust Time
+          </button>
+        )}
+        {isDeveloper && (
+          <button
+            type="button"
+            role="tab"
+            aria-selected={listView === 'holiday'}
+            className={`list-switch__btn${listView === 'holiday' ? ' is-active' : ''}`}
+            onClick={() => setListView('holiday')}
+          >
+            Holiday limit
+            <span className="list-switch__count">{holidaySetting?.value ?? '—'}</span>
           </button>
         )}
         {isDeveloper && (
@@ -428,6 +445,28 @@ export default function SettingsPage() {
 
       {listView === 'adjust-time' && isDeveloper && (
         <AdjustTimeSection />
+      )}
+
+      {listView === 'holiday' && isDeveloper && (
+        <section className="settings-list">
+          <h2 className="settings-section-title">Monthly holiday day limit</h2>
+          <p className="hint">
+            Developer only. This is the number of confirmed absent shift days each employee may
+            take in a calendar month. Attendance analytics uses this value and does not change
+            employee, break, or shift records. Use 0 when any confirmed holiday day should be over the limit.
+          </p>
+          {holidaySetting ? (
+            <SettingRow
+              setting={holidaySetting}
+              min={0}
+              max={31}
+              onChange={updateLocal}
+              onSave={save}
+            />
+          ) : (
+            <p className="hint">The holiday limit is not stored yet. Restart the API so it can be added without changing existing settings.</p>
+          )}
+        </section>
       )}
 
       {listView === 'portal-weather' && isDeveloper && (

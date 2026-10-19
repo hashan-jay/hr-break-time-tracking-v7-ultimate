@@ -525,3 +525,60 @@ public record AttendanceReportDto(
     int PendingShiftDays,
     bool AbsentIncluded,
     IReadOnlyList<AttendanceReportRowDto> Rows);
+
+public record AttendanceAnalyticsOptionDto(int Id, string Name);
+
+public record AttendanceAnalyticsDayDto(
+    DateOnly Date,
+    int Present,
+    int Holiday,
+    int Pending);
+
+public record AttendanceAnalyticsDepartmentDto(
+    string DepartmentName,
+    int EmployeeCount,
+    int HolidayDays,
+    int ExceededCount,
+    decimal? AttendanceRate);
+
+public record AttendanceAnalyticsPersonDto(
+    int EmployeeId,
+    string EmployeeCode,
+    string FullName,
+    string DepartmentName,
+    string ShiftName,
+    int PresentDays,
+    int HolidayDays,
+    int PendingDays,
+    int HolidayDayLimit,
+    int ExcessDays,
+    bool ExceedsLimit,
+    decimal? AttendanceRate,
+    DateOnly? LastHolidayDate);
+
+public record AttendanceAnalyticsDto(
+    int Year,
+    int Month,
+    string MonthLabel,
+    DateOnly From,
+    DateOnly To,
+    int? ShiftId,
+    string? ShiftName,
+    int? DepartmentId,
+    int HolidayDayLimit,
+    int EmployeeCount,
+    int PresentDayCount,
+    int HolidayDayCount,
+    int PendingDayCount,
+    decimal? AttendanceRate,
+    int ExceededCount,
+    int WithinLimitCount,
+    string RuleSummary,
+    bool FromCache,
+    string CacheProvider,
+    DateTime GeneratedAt,
+    List<AttendanceAnalyticsOptionDto> DepartmentOptions,
+    List<AttendanceAnalyticsDayDto> Daily,
+    List<AttendanceAnalyticsDepartmentDto> Departments,
+    List<AttendanceAnalyticsPersonDto> Exceeded,
+    List<AttendanceAnalyticsPersonDto> People);

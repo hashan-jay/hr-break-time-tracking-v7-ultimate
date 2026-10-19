@@ -130,6 +130,18 @@ public static class DbSeeder
             await db.SaveChangesAsync();
         }
 
+        // Additive monthly holiday allowance. Insert only; never overwrite a developer-chosen value.
+        if (!await db.SystemSettings.AnyAsync(s => s.Key == Services.SettingsService.MonthlyHolidayDayLimitKey))
+        {
+            db.SystemSettings.Add(new SystemSetting
+            {
+                Key = Services.SettingsService.MonthlyHolidayDayLimitKey,
+                Value = HolidayLimitRules.DefaultDays.ToString(),
+                Description = HolidayLimitRules.Description
+            });
+            await db.SaveChangesAsync();
+        }
+
         // Soft-update start-limit descriptions only (values untouched).
         var mealStartSetting = await db.SystemSettings.FirstOrDefaultAsync(s => s.Key == Services.SettingsService.MealStartLimitKey);
         if (mealStartSetting is not null &&

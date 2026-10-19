@@ -158,6 +158,7 @@ public interface ISettingsService
     Task<int> GetComfortStartLimitAsync();
     Task<int> GetMealStartLimitAsync();
     Task<string> GetPortalWeatherAsync();
+    Task<int> GetMonthlyHolidayDayLimitAsync();
     Task<IReadOnlyList<DepartmentStartLimitDto>> GetDepartmentStartLimitsAsync(bool includeDeleted = false);
     Task<(bool Ok, string? Error, DepartmentStartLimitDto? Data)> UpdateDepartmentStartLimitsAsync(
         int departmentId, int mealStartLimit, int comfortStartLimit, string? userId);
@@ -186,6 +187,7 @@ public class SettingsService : ISettingsService
     public const string ComfortStartLimitKey = "ComfortBreakStartLimit";
     public const string MealStartLimitKey = "MealBreakStartLimit";
     public const string PortalWeatherKey = "PortalWeatherEffect";
+    public const string MonthlyHolidayDayLimitKey = HolidayLimitRules.SettingKey;
     public const string PortalWeatherNone = "none";
     public const string PortalWeatherRain = "rain";
     public const string PortalWeatherSnow = "snow";
@@ -246,6 +248,10 @@ public class SettingsService : ISettingsService
         var isStartKey = key is ComfortStartLimitKey or MealStartLimitKey;
         if (isStartKey && (!int.TryParse(value, out var starts) || starts < BreakStatusCodes.MinStartLimit || starts > BreakStatusCodes.MaxStartLimit))
             return (false, $"Break start limit must be between {BreakStatusCodes.MinStartLimit} and {BreakStatusCodes.MaxStartLimit} times per shift.", null);
+
+        if (string.Equals(key, MonthlyHolidayDayLimitKey, StringComparison.OrdinalIgnoreCase)
+            && !HolidayLimitRules.TryParse(value, out _))
+            return (false, $"Monthly holiday day limit must be a whole number from {HolidayLimitRules.MinDays} to {HolidayLimitRules.MaxDays}.", null);
 
         var previousValue = setting.Value;
         var trimmed = value.Trim();
@@ -319,6 +325,15 @@ public class SettingsService : ISettingsService
         return weather is not null && PortalWeatherValues.Contains(weather)
             ? weather
             : PortalWeatherRain;
+    }
+
+    public async Task<int> GetMonthlyHolidayDayLimitAsync()
+    {
+        var value = await _db.SystemSettings.AsNoTracking()
+            .Where(s => s.Key == MonthlyHolidayDayLimitKey)
+            .Select(s => s.Value)
+            .FirstOrDefaultAsync();
+        return HolidayLimitRules.ParseOrDefault(value);
     }
 
     public async Task<IReadOnlyList<DepartmentStartLimitDto>> GetDepartmentStartLimitsAsync(bool includeDeleted = false)

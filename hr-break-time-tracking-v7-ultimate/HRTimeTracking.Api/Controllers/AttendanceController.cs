@@ -13,10 +13,12 @@ namespace HRTimeTracking.Api.Controllers;
 public class AttendanceController : ControllerBase
 {
     private readonly IAttendanceService _attendance;
+    private readonly IAttendanceAnalyticsService _analytics;
 
-    public AttendanceController(IAttendanceService attendance)
+    public AttendanceController(IAttendanceService attendance, IAttendanceAnalyticsService analytics)
     {
         _attendance = attendance;
+        _analytics = analytics;
     }
 
     [HttpGet("shifts")]
@@ -37,6 +39,33 @@ public class AttendanceController : ControllerBase
         var result = await _attendance.GetRosterAsync(day, shiftId is > 0 ? shiftId : null);
         if (!result.Ok || result.Data is null)
             return NotFound(new ApiMessage(result.Error ?? "Attendance is unavailable."));
+
+        return Ok(result.Data);
+    }
+
+    [HttpGet("analytics")]
+    [RequireSection(AppSections.Attendance)]
+    public async Task<ActionResult<AttendanceAnalyticsDto>> Analytics(
+        [FromQuery] int? year = null,
+        [FromQuery] int? month = null,
+        [FromQuery] int? shiftId = null,
+        [FromQuery] int? departmentId = null,
+        CancellationToken cancellationToken = default)
+    {
+        var result = await _analytics.GetAsync(
+            year,
+            month,
+            shiftId is > 0 ? shiftId : null,
+            departmentId is > 0 ? departmentId : null,
+            cancellationToken);
+
+        if (!result.Ok || result.Data is null)
+        {
+            var message = result.Error ?? "Attendance analytics are unavailable.";
+            if (message.Contains("valid month", StringComparison.OrdinalIgnoreCase))
+                return BadRequest(new ApiMessage(message));
+            return NotFound(new ApiMessage(message));
+        }
 
         return Ok(result.Data);
     }

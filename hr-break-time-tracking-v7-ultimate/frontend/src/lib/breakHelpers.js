@@ -230,5 +230,6 @@ export function settingLabel(key) {
   if (key === 'ComfortBreakStartLimit') return 'Default Comfort start limit for new departments';
   if (key === 'DailyBreakLimitMinutes') return 'Legacy comfort limit alias (synced)';
   if (key === 'DailyMealBreakLimitMinutes') return 'Legacy meal limit alias (synced)';
+  if (key === 'MonthlyHolidayDayLimit') return 'Monthly holiday day limit';
   return key;
 }

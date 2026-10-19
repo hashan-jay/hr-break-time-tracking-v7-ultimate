@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import api, { apiErrorMessage } from '../api/client';
 import { useLiveUpdates } from '../api/liveUpdates';
 import { StatusBadge } from '../components/UiBits';
@@ -93,6 +94,7 @@ export default function AttendancePage() {
             The date is the day that shift starts. Today refreshes as breaks are closed.
           </p>
         </div>
+        <Link className="btn" to="/app/attendance/analytics">Monthly analytics</Link>
       </header>
 
       <form className="toolbar report-filters" onSubmit={(event) => { event.preventDefault(); load(); }}>

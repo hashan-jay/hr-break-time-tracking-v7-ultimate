@@ -172,6 +172,15 @@ export default function DashboardPage() {
                   tone="sky"
                 />
               )}
+              {auth.can('attendance') && (
+                <QuickLink
+                  title="Attendance analytics"
+                  description="See who is over the monthly holiday limit and how attendance moved this month."
+                  to="/app/attendance/analytics"
+                  cta="Open analytics"
+                  tone="rose"
+                />
+              )}
               {auth.can('reports') && (
                 <QuickLink
                   title="Reports"

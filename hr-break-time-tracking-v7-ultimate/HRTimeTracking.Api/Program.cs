@@ -151,13 +151,17 @@ builder.Services.AddScoped<ISettingsService, SettingsService>();
 builder.Services.AddScoped<IPermissionService, PermissionService>();
 builder.Services.AddScoped<IBreakAutoCloseService, BreakAutoCloseService>();
 builder.Services.AddScoped<IBreakTrackingService, BreakTrackingService>();
-        builder.Services.AddScoped<IReportService, ReportService>();
-        builder.Services.AddScoped<IAttendanceService, AttendanceService>();
-        builder.Services.AddScoped<IBreakTimeAdjustmentService, BreakTimeAdjustmentService>();
+builder.Services.AddMemoryCache();
+builder.Services.AddSingleton<IAttendanceAnalyticsCache, AttendanceAnalyticsCache>();
+builder.Services.AddScoped<IReportService, ReportService>();
+builder.Services.AddScoped<IAttendanceService, AttendanceService>();
+builder.Services.AddScoped<IAttendanceAnalyticsService, AttendanceAnalyticsService>();
+builder.Services.AddScoped<IBreakTimeAdjustmentService, BreakTimeAdjustmentService>();
 builder.Services.AddScoped<IUserAdminService, UserAdminService>();
 builder.Services.AddHostedService<BreakAutoCloseHostedService>();
 builder.Services.AddSignalR();
-builder.Services.AddSingleton<ILiveUpdateNotifier, LiveUpdateNotifier>();
+builder.Services.AddSingleton<LiveUpdateNotifier>();
+builder.Services.AddSingleton<ILiveUpdateNotifier, CacheInvalidatingLiveUpdateNotifier>();
 
 var app = builder.Build();
 

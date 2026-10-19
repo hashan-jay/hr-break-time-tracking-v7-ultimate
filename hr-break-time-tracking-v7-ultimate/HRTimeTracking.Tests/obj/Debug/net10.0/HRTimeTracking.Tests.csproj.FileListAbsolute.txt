@@ -194,3 +194,5 @@ D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTrack
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\obj\Debug\net10.0\HRTimeTracking.Tests.pdb
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\obj\Debug\net10.0\HRTimeTracking.Tests.genruntimeconfig.cache
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\obj\Debug\net10.0\ref\HRTimeTracking.Tests.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Tests\bin\Debug\net10.0\StackExchange.Redis.dll

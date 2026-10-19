@@ -49,6 +49,15 @@ const ICONS = {
       <path d="M9.5 9.5h5M9.5 13h5" />
     </Icon>
   ),
+  analytics: (
+    <Icon>
+      <path d="M4 19V5" />
+      <path d="M4 19h16" />
+      <path d="M8 16v-5" />
+      <path d="M12 16V8" />
+      <path d="M16 16v-3" />
+    </Icon>
+  ),
   employees: (
     <Icon>
       <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -206,7 +215,8 @@ export default function AppLayout() {
     { to: '/', end: true, label: 'Employee portal', icon: ICONS.portal },
     can('dashboard') && { to: '/app', end: true, label: 'Dashboard', icon: ICONS.dashboard },
     can('tracking') && { to: '/app/tracking', label: 'Live Tracking', icon: ICONS.tracking },
-    can('attendance') && { to: '/app/attendance', label: 'Attendance', icon: ICONS.attendance },
+    can('attendance') && { to: '/app/attendance', end: true, label: 'Attendance', icon: ICONS.attendance },
+    can('attendance') && { to: '/app/attendance/analytics', label: 'Analytics', icon: ICONS.analytics },
     can('employees') && { to: '/app/employees', label: 'Employees', icon: ICONS.employees },
     can('departments') && { to: '/app/departments', label: 'Departments', icon: ICONS.departments },
     can('shifts') && { to: '/app/shifts', label: 'Shifts', icon: ICONS.shifts },

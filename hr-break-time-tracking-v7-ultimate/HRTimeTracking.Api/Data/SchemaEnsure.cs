@@ -140,6 +140,16 @@ public static class SchemaEnsure
             END
             """);
 
+        // Additive holiday allowance. Insert only; never overwrite a developer-chosen value.
+        await db.Database.ExecuteSqlRawAsync("""
+            IF OBJECT_ID(N'dbo.SystemSettings', N'U') IS NOT NULL
+               AND NOT EXISTS (SELECT 1 FROM dbo.SystemSettings WHERE [Key] = N'MonthlyHolidayDayLimit')
+            BEGIN
+                INSERT INTO dbo.SystemSettings ([Key], [Value], [Description])
+                VALUES (N'MonthlyHolidayDayLimit', N'2', N'Developer only. Maximum confirmed holiday days allowed per employee in a calendar month. A holiday day is a confirmed absent shift day.');
+            END
+            """);
+
         // Per-department start limits. Additive columns only; copy current global defaults onto
         // existing departments once, then never overwrite department-specific values.
         await db.Database.ExecuteSqlRawAsync("""

@@ -970,6 +970,19 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Scalar.AspNetCore/2.16.18": {
         "type": "package",
         "compile": {
@@ -985,6 +998,22 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "StackExchange.Redis/2.8.58": {
+        "type": "package",
+        "dependencies": {
+          "Pipelines.Sockets.Unofficial": "2.2.8"
+        },
+        "compile": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "related": ".xml"
+          }
+        }
       },
       "Swashbuckle.AspNetCore/10.2.3": {
         "type": "package",
@@ -3443,6 +3472,29 @@
         "packageIcon.png"
       ]
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "sha512": "zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "type": "package",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net461/Pipelines.Sockets.Unofficial.dll",
+        "lib/net461/Pipelines.Sockets.Unofficial.xml",
+        "lib/net472/Pipelines.Sockets.Unofficial.dll",
+        "lib/net472/Pipelines.Sockets.Unofficial.xml",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/net5.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netcoreapp3.1/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.0/Pipelines.Sockets.Unofficial.xml",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.dll",
+        "lib/netstandard2.1/Pipelines.Sockets.Unofficial.xml",
+        "pipelines.sockets.unofficial.2.2.8.nupkg.sha512",
+        "pipelines.sockets.unofficial.nuspec"
+      ]
+    },
     "Scalar.AspNetCore/2.16.18": {
       "sha512": "R/S9FSpMLjdd75uOe22YPNnfDtPYygK31feG6XJ9BLjX/y4WM8cGRzwT49iEBKhnJB2CnWUnfLlWGV7TsVDk+Q==",
       "type": "package",
@@ -3460,6 +3512,30 @@
         "lib/net9.0/Scalar.AspNetCore.xml",
         "scalar.aspnetcore.2.16.18.nupkg.sha512",
         "scalar.aspnetcore.nuspec"
+      ]
+    },
+    "StackExchange.Redis/2.8.58": {
+      "sha512": "0XGRE2UoF/n2/qhCpcyBBZovpGhHu4hRtkdsx4fZFu1H5Q/Z8Q+U/z/nWwnosWDRJnEasntNatd9Mf+Isc8plg==",
+      "type": "package",
+      "path": "stackexchange.redis/2.8.58",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net461/StackExchange.Redis.dll",
+        "lib/net461/StackExchange.Redis.xml",
+        "lib/net472/StackExchange.Redis.dll",
+        "lib/net472/StackExchange.Redis.xml",
+        "lib/net6.0/StackExchange.Redis.dll",
+        "lib/net6.0/StackExchange.Redis.xml",
+        "lib/net8.0/StackExchange.Redis.dll",
+        "lib/net8.0/StackExchange.Redis.xml",
+        "lib/netcoreapp3.1/StackExchange.Redis.dll",
+        "lib/netcoreapp3.1/StackExchange.Redis.xml",
+        "lib/netstandard2.0/StackExchange.Redis.dll",
+        "lib/netstandard2.0/StackExchange.Redis.xml",
+        "stackexchange.redis.2.8.58.nupkg.sha512",
+        "stackexchange.redis.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/10.2.3": {
@@ -3945,6 +4021,7 @@
       "Microsoft.EntityFrameworkCore.Tools >= 10.0.11",
       "Microsoft.Extensions.Hosting.WindowsServices >= 10.0.12",
       "Scalar.AspNetCore >= 2.16.18",
+      "StackExchange.Redis >= 2.8.58",
       "Swashbuckle.AspNetCore >= 10.2.3",
       "System.IdentityModel.Tokens.Jwt >= 8.22.0"
     ]
@@ -4045,6 +4122,10 @@
           "Scalar.AspNetCore": {
             "target": "Package",
             "version": "[2.16.18, )"
+          },
+          "StackExchange.Redis": {
+            "target": "Package",
+            "version": "[2.8.58, )"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -4491,5 +4572,27 @@
         }
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-2fmv-rv2c-59x7",
+      "libraryId": "System.Security.Cryptography.Pkcs",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Security.Cryptography.Pkcs' 9.0.11 has a known high severity vulnerability, https://github.com/advisories/GHSA-846f-f764-76mx",
+      "libraryId": "System.Security.Cryptography.Pkcs",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

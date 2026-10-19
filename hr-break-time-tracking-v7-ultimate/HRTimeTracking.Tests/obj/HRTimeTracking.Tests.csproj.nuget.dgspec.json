@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\HRTimeTracking.Api.csproj",
         "projectName": "HRTimeTracking.Api",
         "projectPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\HRTimeTracking.Api.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9f7f2ed4c34010fe539bda8baafc777e\\nuget",
         "outputPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -96,6 +96,10 @@
             "Scalar.AspNetCore": {
               "target": "Package",
               "version": "[2.16.18, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.58, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -549,7 +553,7 @@
         "projectUniqueName": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Tests\\HRTimeTracking.Tests.csproj",
         "projectName": "HRTimeTracking.Tests",
         "projectPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Tests\\HRTimeTracking.Tests.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\9f7f2ed4c34010fe539bda8baafc777e\\nuget",
         "outputPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [

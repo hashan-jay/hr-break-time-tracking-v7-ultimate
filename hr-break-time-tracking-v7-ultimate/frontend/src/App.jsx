@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import TrackingPage from './pages/TrackingPage';
 import AttendancePage from './pages/AttendancePage';
+import AttendanceAnalyticsPage from './pages/AttendanceAnalyticsPage';
 import EmployeesPage from './pages/EmployeesPage';
 import DepartmentsPage from './pages/DepartmentsPage';
 import ReportsPage from './pages/ReportsPage';
@@ -47,6 +48,7 @@ function AppRoutes() {
           </Route>
           <Route element={<ProtectedRoute allowSections={['attendance']} />}>
             <Route path="attendance" element={<AttendancePage />} />
+            <Route path="attendance/analytics" element={<AttendanceAnalyticsPage />} />
           </Route>
           <Route element={<ProtectedRoute allowSections={['reports']} />}>
             <Route path="reports" element={<ReportsPage />} />

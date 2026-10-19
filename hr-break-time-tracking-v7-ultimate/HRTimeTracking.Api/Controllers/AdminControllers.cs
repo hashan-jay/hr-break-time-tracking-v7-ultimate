@@ -120,7 +120,8 @@ public class SettingsController : ControllerBase
         if (!User.IsInRole(AppRoles.Developer))
         {
             settings = settings
-                .Where(s => !string.Equals(s.Key, SettingsService.PortalWeatherKey, StringComparison.OrdinalIgnoreCase))
+                .Where(s => !string.Equals(s.Key, SettingsService.PortalWeatherKey, StringComparison.OrdinalIgnoreCase)
+                    && !string.Equals(s.Key, SettingsService.MonthlyHolidayDayLimitKey, StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
         return Ok(settings);
@@ -167,9 +168,11 @@ public class SettingsController : ControllerBase
     [HttpPut("{key}")]
     public async Task<ActionResult<SystemSettingDto>> Update(string key, [FromBody] UpdateSettingRequest request)
     {
-        if (string.Equals(key, SettingsService.PortalWeatherKey, StringComparison.OrdinalIgnoreCase)
+        if ((string.Equals(key, SettingsService.PortalWeatherKey, StringComparison.OrdinalIgnoreCase)
+                || string.Equals(key, SettingsService.MonthlyHolidayDayLimitKey, StringComparison.OrdinalIgnoreCase))
             && !User.IsInRole(AppRoles.Developer))
-            return Forbid();
+            return StatusCode(StatusCodes.Status403Forbidden,
+                new ApiMessage("Only a Developer can change this setting."));
 
         var (ok, error, data) = await _service.UpdateAsync(key, request.Value, User.GetUserId());
         if (!ok || data is null) return BadRequest(new ApiMessage(error ?? "Update failed."));

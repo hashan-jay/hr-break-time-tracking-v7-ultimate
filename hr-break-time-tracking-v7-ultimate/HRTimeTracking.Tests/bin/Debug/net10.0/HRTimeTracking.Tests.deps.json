@@ -1035,11 +1035,31 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.2.8.1080"
+          }
+        }
+      },
       "Scalar.AspNetCore/2.16.18": {
         "runtime": {
           "lib/net10.0/Scalar.AspNetCore.dll": {
             "assemblyVersion": "2.16.18.0",
             "fileVersion": "2.16.18.0"
+          }
+        }
+      },
+      "StackExchange.Redis/2.8.58": {
+        "dependencies": {
+          "Microsoft.Extensions.Logging.Abstractions": "10.0.12",
+          "Pipelines.Sockets.Unofficial": "2.2.8"
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.8.58.19568"
           }
         }
       },
@@ -1227,6 +1247,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.11",
           "Microsoft.Extensions.Hosting.WindowsServices": "10.0.12",
           "Scalar.AspNetCore": "2.16.18",
+          "StackExchange.Redis": "2.8.58",
           "Swashbuckle.AspNetCore": "10.2.3",
           "System.IdentityModel.Tokens.Jwt": "8.22.0"
         },
@@ -1658,12 +1679,26 @@
       "path": "newtonsoft.json/13.0.3",
       "hashPath": "newtonsoft.json.13.0.3.nupkg.sha512"
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
     "Scalar.AspNetCore/2.16.18": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-R/S9FSpMLjdd75uOe22YPNnfDtPYygK31feG6XJ9BLjX/y4WM8cGRzwT49iEBKhnJB2CnWUnfLlWGV7TsVDk+Q==",
       "path": "scalar.aspnetcore/2.16.18",
       "hashPath": "scalar.aspnetcore.2.16.18.nupkg.sha512"
+    },
+    "StackExchange.Redis/2.8.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0XGRE2UoF/n2/qhCpcyBBZovpGhHu4hRtkdsx4fZFu1H5Q/Z8Q+U/z/nWwnosWDRJnEasntNatd9Mf+Isc8plg==",
+      "path": "stackexchange.redis/2.8.58",
+      "hashPath": "stackexchange.redis.2.8.58.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/10.2.3": {
       "type": "package",

@@ -1631,3 +1631,5 @@ D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTrack
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTr.199D3FF9.Up2Date
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\HRTimeTracking.Api.genruntimeconfig.cache
 D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\ref\HRTimeTracking.Api.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\Pipelines.Sockets.Unofficial.dll
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\StackExchange.Redis.dll
