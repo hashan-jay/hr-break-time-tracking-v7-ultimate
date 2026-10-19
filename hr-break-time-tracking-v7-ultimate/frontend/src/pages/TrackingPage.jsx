@@ -229,6 +229,15 @@ function BreakTypeBoard({
       <div className="portal-board portal-roster">
         <div className="portal-board__table">
           <table>
+            <colgroup>
+              <col className="tracking-col-code" />
+              <col className="tracking-col-employee" />
+              <col className="tracking-col-limits" />
+              <col className="tracking-col-dept" />
+              <col className="tracking-col-shift" />
+              <col className="tracking-col-status" />
+              <col className="tracking-col-state" />
+            </colgroup>
             <thead>
               <tr>
                 <th>Code</th>
