@@ -256,8 +256,10 @@ export default function AppLayout() {
 
       <div className="portal-main-wrap">
         <header className="portal-mobile-bar">
-          <button type="button" className="portal-menu-btn" onClick={() => setMobileOpen(true)}>
-            Menu
+          <button type="button" className="portal-menu-btn" aria-label="Menu" onClick={() => setMobileOpen(true)}>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+            </svg>
           </button>
           <div className="portal-mobile-bar__title">{portalTitle(user?.roles)}</div>
         </header>
