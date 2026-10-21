@@ -565,10 +565,13 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   flex: 0 0 auto;
 }
 
-.portal-menu-btn svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  display: block;
+.portal-mobile-bar .theme-toggle--circle {
+  margin-left: auto;
+  flex: 0 0 auto;
+}
+
+.portal-mobile .theme-toggle.theme-toggle--circle {
+  display: none;
 }
 
 .portal-mobile {

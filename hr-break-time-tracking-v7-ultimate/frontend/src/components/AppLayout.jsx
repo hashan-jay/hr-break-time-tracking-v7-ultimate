@@ -262,6 +262,7 @@ export default function AppLayout() {
             </svg>
           </button>
           <div className="portal-mobile-bar__title">{portalTitle(user?.roles)}</div>
+          <ThemeToggle variant="circle" />
         </header>
         <main className="main-panel">
           <Outlet />
