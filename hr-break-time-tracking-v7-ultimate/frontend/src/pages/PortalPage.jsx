@@ -598,7 +598,7 @@ export default function PortalPage() {
               <input
                 ref={searchRef}
                 className="portal-board__search"
-                placeholder="Search by name or employee ID…  (/ to focus)"
+                placeholder="Name or employee ID"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
@@ -659,12 +659,12 @@ export default function PortalPage() {
                         title={offShift ? offShiftReason(e) : 'Open employee details'}
                         onClick={() => openEmployee(e.employeeId)}
                       >
-                        <td className="col-code">{e.employeeCode}</td>
-                        <td className="col-name">{e.fullName}</td>
-                        <td>{e.departmentName}</td>
-                        <td>{shiftLabel(e)}</td>
-                        <td><BreakStatusCell employee={e} breakType={BREAK_TYPES.MEAL} /></td>
-                        <td><BreakStatusCell employee={e} breakType={BREAK_TYPES.COMFORT} /></td>
+                        <td className="col-code" data-label="Code">{e.employeeCode}</td>
+                        <td className="col-name" data-label="Employee">{e.fullName}</td>
+                        <td data-label="Department">{e.departmentName}</td>
+                        <td data-label="This shift">{shiftLabel(e)}</td>
+                        <td data-label="Meal"><BreakStatusCell employee={e} breakType={BREAK_TYPES.MEAL} /></td>
+                        <td data-label="Comfort"><BreakStatusCell employee={e} breakType={BREAK_TYPES.COMFORT} /></td>
                       </tr>
                     );
                   })}

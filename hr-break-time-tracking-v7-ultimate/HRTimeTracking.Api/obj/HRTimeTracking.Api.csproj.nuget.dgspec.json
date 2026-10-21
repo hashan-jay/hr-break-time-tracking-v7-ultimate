@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\HRTimeTracking.Api.csproj",
         "projectName": "HRTimeTracking.Api",
         "projectPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\HRTimeTracking.Api.csproj",
-        "packagesPath": "C:\\Users\\Administrator\\AppData\\Local\\Temp\\cursor-sandbox-cache\\bf5f796b912fa078a85b84e46bbaedec\\nuget",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
         "outputPath": "D:\\Projects\\HRBreakTimeTrackingV7\\hr-break-time-tracking-v7-ultimate\\HRTimeTracking.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
