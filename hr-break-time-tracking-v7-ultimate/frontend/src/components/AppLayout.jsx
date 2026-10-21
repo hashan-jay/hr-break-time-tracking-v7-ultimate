@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 import { useFeedback } from '../feedback/FeedbackContext';
@@ -195,10 +195,85 @@ export default function AppLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [drawerShift, setDrawerShift] = useState(0);
+  const [drawerDragging, setDrawerDragging] = useState(false);
+  const [drawerEntering, setDrawerEntering] = useState(true);
+  const drawerRef = useRef(null);
+  const dragRef = useRef(null);
+  const shiftRef = useRef(0);
+  const closeTimer = useRef(null);
+
+  const applyShift = (value) => {
+    shiftRef.current = value;
+    setDrawerShift(value);
+  };
+
+  const closeDrawer = () => {
+    const width = drawerRef.current?.getBoundingClientRect().width || 320;
+    setDrawerDragging(false);
+    dragRef.current = null;
+    applyShift(-(width + 32));
+    window.clearTimeout(closeTimer.current);
+    closeTimer.current = window.setTimeout(() => {
+      setMobileOpen(false);
+      applyShift(0);
+    }, 280);
+  };
+
+  useEffect(() => () => window.clearTimeout(closeTimer.current), []);
 
   useEffect(() => {
     setMobileOpen(false);
+    applyShift(0);
   }, [location.pathname]);
+
+  const onDrawerPointerDown = (event) => {
+    if (event.button !== 0) return;
+    dragRef.current = {
+      id: event.pointerId,
+      x: event.clientX,
+      y: event.clientY,
+      active: false,
+      lastX: event.clientX,
+      lastT: performance.now(),
+      vx: 0,
+    };
+  };
+
+  const onDrawerPointerMove = (event) => {
+    const drag = dragRef.current;
+    if (!drag || drag.id !== event.pointerId) return;
+    const dx = event.clientX - drag.x;
+    const dy = event.clientY - drag.y;
+    if (!drag.active) {
+      if (Math.abs(dx) < 8) return;
+      if (Math.abs(dy) > Math.abs(dx)) {
+        dragRef.current = null;
+        return;
+      }
+      drag.active = true;
+      setDrawerDragging(true);
+      setDrawerEntering(false);
+      event.currentTarget.setPointerCapture?.(event.pointerId);
+    }
+    const now = performance.now();
+    const dt = now - drag.lastT || 16;
+    drag.vx = (event.clientX - drag.lastX) / dt;
+    drag.lastX = event.clientX;
+    drag.lastT = now;
+    applyShift(Math.min(0, dx));
+  };
+
+  const onDrawerPointerUp = (event) => {
+    const drag = dragRef.current;
+    if (!drag || drag.id !== event.pointerId) return;
+    dragRef.current = null;
+    if (!drag.active) return;
+    setDrawerDragging(false);
+    const width = drawerRef.current?.getBoundingClientRect().width || 320;
+    if (shiftRef.current < -width * 0.28 || drag.vx < -0.55) closeDrawer();
+    else applyShift(0);
+  };
 
   const onLogout = async () => {
     const ok = await confirm({
@@ -241,14 +316,24 @@ export default function AppLayout() {
             type="button"
             className="portal-mobile__backdrop"
             aria-label="Close menu"
-            onClick={() => setMobileOpen(false)}
+            onClick={closeDrawer}
           />
-          <div className="portal-mobile__drawer">
+          <div
+            ref={drawerRef}
+            className={`portal-mobile__drawer${drawerDragging ? ' is-dragging' : ''}${drawerEntering ? ' is-entering' : ''}`}
+            style={drawerDragging || drawerShift !== 0 ? { transform: `translateX(${drawerShift}px)` } : undefined}
+            onAnimationEnd={() => setDrawerEntering(false)}
+            onPointerDown={onDrawerPointerDown}
+            onPointerMove={onDrawerPointerMove}
+            onPointerUp={onDrawerPointerUp}
+            onPointerCancel={onDrawerPointerUp}
+          >
+            <span className="portal-mobile__handle" aria-hidden="true" />
             <StaffSidebar
               user={user}
               items={items}
               onLogout={onLogout}
-              onNavigate={() => setMobileOpen(false)}
+              onNavigate={closeDrawer}
             />
           </div>
         </div>
@@ -256,7 +341,7 @@ export default function AppLayout() {
 
       <div className="portal-main-wrap">
         <header className="portal-mobile-bar">
-          <button type="button" className="portal-menu-btn" aria-label="Menu" onClick={() => setMobileOpen(true)}>
+          <button type="button" className="portal-menu-btn" aria-label="Menu" onClick={() => { setDrawerEntering(true); setMobileOpen(true); }}>
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
             </svg>

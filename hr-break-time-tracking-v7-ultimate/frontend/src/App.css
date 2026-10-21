@@ -586,6 +586,7 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   border: 0;
   background: rgba(17, 24, 39, 0.35);
   cursor: pointer;
+  animation: portal-backdrop-in 0.34s ease;
 }
 
 .portal-mobile__drawer {
@@ -596,6 +597,45 @@ html[data-theme="dark"] .portal-logout:focus-visible {
   box-shadow: 8px 0 30px rgba(15, 23, 42, 0.12);
   border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
   overflow: hidden;
+  touch-action: pan-y;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.portal-mobile__drawer.is-entering {
+  animation: portal-drawer-in 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.portal-mobile__drawer.is-dragging {
+  transition: none;
+  animation: none;
+}
+
+@keyframes portal-drawer-in {
+  from { transform: translateX(-105%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes portal-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.portal-mobile__handle {
+  position: absolute;
+  top: 50%;
+  right: 0.4rem;
+  z-index: 3;
+  width: 4px;
+  height: 3.4rem;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.28);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+html[data-theme="dark"] .portal-mobile__handle {
+  background: rgba(255, 255, 255, 0.42);
 }
 
 .brand {
