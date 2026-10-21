@@ -21,9 +21,10 @@ public static class DbSeeder
         {
             await db.Database.MigrateAsync();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            // Existing databases may predate EF history. Additive schema below still applies.
+            var logger = sp.GetRequiredService<ILoggerFactory>().CreateLogger("DbSeeder");
+            logger.LogError(ex, "EF migrations did not finish. Startup will still try to add any missing tables.");
         }
 
         await SchemaEnsure.ApplyAsync(db);

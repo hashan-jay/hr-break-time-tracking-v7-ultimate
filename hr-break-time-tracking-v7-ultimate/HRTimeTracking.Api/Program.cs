@@ -64,7 +64,9 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString, sql =>
-        sql.EnableRetryOnFailure(maxRetryCount: 5, maxRetryDelay: TimeSpan.FromSeconds(10), errorNumbersToAdd: null)));
+        sql.EnableRetryOnFailure(maxRetryCount: 5, maxRetryDelay: TimeSpan.FromSeconds(10), errorNumbersToAdd: null))
+    .ConfigureWarnings(warnings =>
+        warnings.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning)));
 
 builder.Services
     .AddIdentity<ApplicationUser, IdentityRole>(options =>
@@ -185,11 +187,15 @@ app.UseExceptionHandler(errorApp =>
     });
 });
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.UseCors("Frontend");
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.MapHub<LiveUpdatesHub>(LiveUpdatesHub.Path);
+app.MapFallbackToFile("index.html");
 
 try
 {

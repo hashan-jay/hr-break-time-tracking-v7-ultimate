@@ -12,11 +12,14 @@
           "Microsoft.AspNetCore.Authentication.JwtBearer": "10.0.11",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "10.0.11",
           "Microsoft.AspNetCore.OpenApi": "10.0.11",
+          "Microsoft.Data.SqlClient": "6.1.6",
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.11",
           "Microsoft.Extensions.Hosting.WindowsServices": "10.0.12",
           "Scalar.AspNetCore": "2.16.18",
+          "StackExchange.Redis": "2.8.58",
           "Swashbuckle.AspNetCore": "10.2.3",
-          "System.IdentityModel.Tokens.Jwt": "8.22.0"
+          "System.IdentityModel.Tokens.Jwt": "8.22.0",
+          "System.Security.Cryptography.Pkcs": "10.0.13"
         },
         "runtime": {
           "HRTimeTracking.Api.dll": {}
@@ -116,7 +119,8 @@
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "8.19.2",
           "Microsoft.SqlServer.Server": "1.0.0",
           "System.Configuration.ConfigurationManager": "9.0.11",
-          "System.IdentityModel.Tokens.Jwt": "8.22.0"
+          "System.IdentityModel.Tokens.Jwt": "8.22.0",
+          "System.Security.Cryptography.Pkcs": "10.0.13"
         },
         "runtime": {
           "lib/net9.0/Microsoft.Data.SqlClient.dll": {
@@ -408,11 +412,30 @@
           }
         }
       },
+      "Pipelines.Sockets.Unofficial/2.2.8": {
+        "runtime": {
+          "lib/net5.0/Pipelines.Sockets.Unofficial.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "2.2.8.1080"
+          }
+        }
+      },
       "Scalar.AspNetCore/2.16.18": {
         "runtime": {
           "lib/net10.0/Scalar.AspNetCore.dll": {
             "assemblyVersion": "2.16.18.0",
             "fileVersion": "2.16.18.0"
+          }
+        }
+      },
+      "StackExchange.Redis/2.8.58": {
+        "dependencies": {
+          "Pipelines.Sockets.Unofficial": "2.2.8"
+        },
+        "runtime": {
+          "lib/net8.0/StackExchange.Redis.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.8.58.19568"
           }
         }
       },
@@ -492,6 +515,22 @@
           "lib/net8.0/System.Memory.Data.dll": {
             "assemblyVersion": "8.0.0.1",
             "fileVersion": "8.0.1024.46610"
+          }
+        }
+      },
+      "System.Security.Cryptography.Pkcs/10.0.13": {
+        "runtime": {
+          "lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1326.50504"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/net10.0/System.Security.Cryptography.Pkcs.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "10.0.0.0",
+            "fileVersion": "10.0.1326.50504"
           }
         }
       },
@@ -716,12 +755,26 @@
       "path": "microsoft.sqlserver.server/1.0.0",
       "hashPath": "microsoft.sqlserver.server.1.0.0.nupkg.sha512"
     },
+    "Pipelines.Sockets.Unofficial/2.2.8": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
+      "path": "pipelines.sockets.unofficial/2.2.8",
+      "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
+    },
     "Scalar.AspNetCore/2.16.18": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-R/S9FSpMLjdd75uOe22YPNnfDtPYygK31feG6XJ9BLjX/y4WM8cGRzwT49iEBKhnJB2CnWUnfLlWGV7TsVDk+Q==",
       "path": "scalar.aspnetcore/2.16.18",
       "hashPath": "scalar.aspnetcore.2.16.18.nupkg.sha512"
+    },
+    "StackExchange.Redis/2.8.58": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0XGRE2UoF/n2/qhCpcyBBZovpGhHu4hRtkdsx4fZFu1H5Q/Z8Q+U/z/nWwnosWDRJnEasntNatd9Mf+Isc8plg==",
+      "path": "stackexchange.redis/2.8.58",
+      "hashPath": "stackexchange.redis.2.8.58.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/10.2.3": {
       "type": "package",
@@ -778,6 +831,13 @@
       "sha512": "sha512-BVYuec3jV23EMRDeR7Dr1/qhx7369dZzJ9IWy2xylvb4YfXsrUxspWc4UWYid/tj4zZK58uGZqn2WQiaDMhmAg==",
       "path": "system.memory.data/8.0.1",
       "hashPath": "system.memory.data.8.0.1.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Pkcs/10.0.13": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-a+EovgC1fBnwdlQ6cn3j4JFBfKqiFaFvoAhjisOoSvazLAcIznaBzPQP0oYnvccmeXfqUH1KebVZOxSeH6rMaw==",
+      "path": "system.security.cryptography.pkcs/10.0.13",
+      "hashPath": "system.security.cryptography.pkcs.10.0.13.nupkg.sha512"
     },
     "System.Security.Cryptography.ProtectedData/9.0.11": {
       "type": "package",

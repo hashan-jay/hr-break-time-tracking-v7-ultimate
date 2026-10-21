@@ -1649,3 +1649,9 @@ C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.d
 C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.runtimeconfig.json
 C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.dll
 C:\Users\Administrator\AppData\Local\Temp\hr-exceeded-check\HRTimeTracking.Api.pdb
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\bin\Debug\net10.0\HRTimeTracking.Api.staticwebassets.runtime.json
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\compressed\yurzzbrenm-{0}-3ugd39vali-3ugd39vali.gz
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\compressed\3knpa3r0l8-{0}-wa6c5k9339-wa6c5k9339.gz
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\compressed\45425yztqw-{0}-180dmtdpho-180dmtdpho.gz
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\compressed\fvp9t2e8cn-{0}-gz8wlyv3qd-gz8wlyv3qd.gz
+D:\Projects\HRBreakTimeTrackingV7\hr-break-time-tracking-v7-ultimate\HRTimeTracking.Api\obj\Debug\net10.0\compressed\coaqt8o733-{0}-cxp0vae2ze-cxp0vae2ze.gz
