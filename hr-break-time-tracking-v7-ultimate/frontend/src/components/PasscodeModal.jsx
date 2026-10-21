@@ -281,7 +281,7 @@ export default function PasscodeModal({
   return (
     <div className="confirm-overlay passcode-overlay" role="presentation">
       <form
-        className={`confirm-dialog passcode-dialog passcode-dialog--${tone}${hoverReady ? ' confirm-dialog--interactive' : ''}${shaking ? ' is-shaking' : ''}`}
+        className={`confirm-dialog passcode-dialog passcode-dialog--${tone}${isCreate ? ' passcode-dialog--create' : ''}${hoverReady ? ' confirm-dialog--interactive' : ''}${shaking ? ' is-shaking' : ''}`}
         onSubmit={submit}
         role="dialog"
         aria-modal="true"
