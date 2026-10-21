@@ -49,8 +49,8 @@ export default function DashboardHeadlines({ data }) {
       />
       <div className="headlines-card portal-widget-3d dash-panel--violet">
       <div className="headlines-chart" aria-hidden={trend.length === 0}>
-        <ResponsiveContainer width="100%" height={128}>
-          <AreaChart data={trend} margin={{ top: 8, right: 4, left: 4, bottom: 0 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={trend} margin={{ top: 12, right: 8, left: 8, bottom: 12 }}>
             <defs>
               <linearGradient id="headlinesFill" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={line} stopOpacity={0.2} />

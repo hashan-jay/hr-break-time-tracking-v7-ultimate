@@ -3925,6 +3925,7 @@ html[data-theme="dark"] .portal-dash-header .btn-soft-green:hover {
 .headlines-chart {
   width: 100%;
   height: 128px;
+  overflow: hidden;
 }
 
 .headlines-tooltip {
@@ -11442,5 +11443,105 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     overflow-wrap: anywhere;
     padding-left: 0.75rem;
     padding-right: 0.75rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-portal .main-panel:has(.portal-dashboard) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .portal-dashboard,
+  .portal-dashboard .dashboard-shell,
+  .portal-dashboard .dashboard-main {
+    gap: 0.7rem;
+  }
+
+  .portal-dashboard .dashboard-title-box {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .portal-dashboard .dashboard-title-box h1 {
+    font-size: 1.4rem;
+    line-height: 1.15;
+  }
+
+  .portal-dashboard .dashboard-title-box p {
+    font-size: 0.88rem;
+  }
+
+  .portal-dashboard .dashboard-title-box .btn {
+    width: 100%;
+    min-height: 2.75rem;
+    text-align: center;
+  }
+
+  .portal-dashboard .section-title-box {
+    padding: 0.8rem 0.9rem;
+  }
+
+  .portal-dashboard .glance-rail {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem;
+  }
+
+  .portal-dashboard .glance-rail .section-title-box,
+  .portal-dashboard .glance-card--note,
+  .portal-dashboard .glance-card--efficiency {
+    grid-column: 1 / -1;
+  }
+
+  .portal-dashboard .headlines-metrics,
+  .portal-dashboard .headlines-metrics--3,
+  .portal-dashboard .headlines-metrics--4,
+  .portal-dashboard .headlines-metrics--5 {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 0.65rem;
+  }
+
+  .portal-dashboard .headlines-chart {
+    height: 128px;
+    overflow: hidden;
+  }
+
+  .portal-dashboard .workforce-analytics__chart {
+    height: 150px;
+  }
+
+  .portal-dashboard .workforce-shift-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portal-dashboard .portal-quick-grid {
+    grid-template-columns: 1fr;
+    gap: 0.55rem;
+  }
+
+  .portal-dashboard .portal-quick {
+    min-height: 0;
+    padding: 0.8rem 0.9rem;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title cta"
+      "desc desc";
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.2rem;
+  }
+
+  .portal-dashboard .portal-quick h3 {
+    grid-area: title;
+  }
+
+  .portal-dashboard .portal-quick p {
+    grid-area: desc;
+  }
+
+  .portal-dashboard .portal-quick__cta {
+    grid-area: cta;
+    margin-top: 0;
   }
 }
