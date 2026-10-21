@@ -260,7 +260,6 @@ export default function AppLayout() {
             Menu
           </button>
           <div className="portal-mobile-bar__title">{portalTitle(user?.roles)}</div>
-          <ThemeToggle compact />
         </header>
         <main className="main-panel">
           <Outlet />
