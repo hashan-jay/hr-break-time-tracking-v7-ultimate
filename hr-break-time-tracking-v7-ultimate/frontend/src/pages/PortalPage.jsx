@@ -37,6 +37,69 @@ function SnowflakeIcon() {
   );
 }
 
+function PortalShiftSelect({ value, onChange, disabled, label, options }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const selected = options.find((option) => String(option.value) === String(value)) || options[0];
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onPointer = (event) => {
+      if (!rootRef.current?.contains(event.target)) setOpen(false);
+    };
+    const onKey = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="portal-shift-select" ref={rootRef}>
+      <button
+        type="button"
+        className="portal-board__shift portal-shift-select__button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={label}
+        disabled={disabled}
+        onClick={() => setOpen((currentOpen) => !currentOpen)}
+      >
+        {selected?.label || ''}
+      </button>
+      {open && (
+        <ul className="portal-menu portal-shift-select__menu" role="listbox" aria-label={label}>
+          {options.map((option) => {
+            const isSelected = String(option.value) === String(value);
+            return (
+              <li key={option.value || 'all'}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={isSelected}
+                  disabled={option.disabled}
+                  className={isSelected ? 'is-active' : undefined}
+                  onClick={() => {
+                    if (option.disabled) return;
+                    setOpen(false);
+                    if (!isSelected) onChange(option.value);
+                  }}
+                >
+                  {option.label}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function PortalWeatherPicker({ value, disabled, onSelect }) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef(null);
@@ -73,7 +136,7 @@ function PortalWeatherPicker({ value, disabled, onSelect }) {
         <SnowflakeIcon />
       </button>
       {open && (
-        <ul className="portal-weather-picker__menu" role="listbox" aria-label="Portal weather">
+        <ul className="portal-menu portal-weather-picker__menu" role="listbox" aria-label="Portal weather">
           {PORTAL_WEATHER_OPTIONS.map((option) => {
             const selected = option.value === current;
             return (
@@ -656,44 +719,41 @@ export default function PortalPage() {
         )}
 
         <div className="portal-employee-filters">
-          <label className="portal-employee-filter">
-            <span>Shift</span>
-            <select
-              className="portal-board__shift"
+          <div className="portal-employee-filter">
+            <span id="portal-shift-label">Shift</span>
+            <PortalShiftSelect
+              label="Primary shift"
               value={shiftId}
-              onChange={(e) => {
-                const next = e.target.value;
+              onChange={(next) => {
                 setShiftId(next);
                 if (!next || next === shiftId2) setShiftId2('');
               }}
-              aria-label="Primary shift"
-            >
-              <option value="">All Employees</option>
-              {shifts.map((s) => (
-                <option key={s.id} value={s.id}>{s.displayLabel || s.name}</option>
-              ))}
-            </select>
-          </label>
-          <label className="portal-employee-filter">
-            <span>Overlap</span>
-            <select
-              className="portal-board__shift"
+              options={[
+                { value: '', label: 'All Employees' },
+                ...shifts.map((s) => ({ value: String(s.id), label: s.displayLabel || s.name })),
+              ]}
+            />
+          </div>
+          <div className="portal-employee-filter">
+            <span id="portal-overlap-label">Overlap</span>
+            <PortalShiftSelect
+              label="Overlapping shift"
               value={shiftId2}
-              onChange={(e) => setShiftId2(e.target.value)}
               disabled={!shiftId}
-              aria-label="Overlapping shift"
-            >
-              <option value="">No overlap</option>
-              {shifts.map((s) => {
-                const locked = String(s.id) === String(shiftId);
-                return (
-                  <option key={s.id} value={s.id} disabled={locked}>
-                    {locked ? `${s.displayLabel || s.name} (selected)` : (s.displayLabel || s.name)}
-                  </option>
-                );
-              })}
-            </select>
-          </label>
+              onChange={setShiftId2}
+              options={[
+                { value: '', label: 'No overlap' },
+                ...shifts.map((s) => {
+                  const locked = String(s.id) === String(shiftId);
+                  return {
+                    value: String(s.id),
+                    disabled: locked,
+                    label: locked ? `${s.displayLabel || s.name} (selected)` : (s.displayLabel || s.name),
+                  };
+                }),
+              ]}
+            />
+          </div>
           <label className="portal-employee-filter portal-employee-filter--search">
             <span>Search</span>
             <div className="portal-ig-search">
