@@ -8038,6 +8038,22 @@ html[data-theme="dark"] .passcode-slot {
   color: #f8fafc;
 }
 
+html[data-theme="dark"] .passcode-slot.is-filled {
+  background: #2e9b57;
+  border-color: #2e9b57;
+  color: #fff;
+}
+
+html[data-theme="dark"] .passcode-entry--end .passcode-slot.is-filled {
+  background: #c0392b;
+  border-color: #c0392b;
+}
+
+html[data-theme="dark"] .passcode-entry.is-invalid .passcode-slot.is-filled {
+  background: #dc2626;
+  border-color: #dc2626;
+}
+
 html[data-theme="dark"] .passcode-reveal {
   background: #121820;
   border-color: rgba(255, 255, 255, 0.14);
