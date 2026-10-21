@@ -10914,3 +10914,280 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     transform: none;
   }
 }
+
+@media (min-width: 721px) and (max-width: 1366px) {
+  .portal-shell {
+    overflow-x: clip;
+  }
+
+  .portal-shell .portal-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portal-shell .portal-employee-header {
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: center;
+    height: auto;
+    row-gap: 0.45rem;
+  }
+
+  .portal-shell .portal-employee-header__brand,
+  .portal-shell .portal-employee-header__actions {
+    flex: 0 1 auto;
+    height: auto;
+    align-self: center;
+  }
+
+  .portal-shell .portal-employee-header {
+    position: relative;
+    z-index: 30;
+  }
+
+  .portal-shell .portal-weather-picker {
+    display: block;
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .portal-weather-picker__button {
+    width: 3rem;
+    height: 3rem;
+    min-width: 3rem;
+    min-height: 3rem;
+    padding: 0;
+    border-radius: 50%;
+    border: 1.5px solid #e4e7ee;
+    background: #fff;
+    color: #5ec4f0;
+    display: inline-grid;
+    place-items: center;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.08);
+    cursor: pointer;
+  }
+
+  .portal-weather-picker__button svg {
+    width: 1.45rem;
+    height: 1.45rem;
+    display: block;
+  }
+
+  .portal-weather-picker__menu {
+    position: absolute;
+    top: calc(100% + 0.4rem);
+    right: 0;
+    z-index: 40;
+    margin: 0;
+    padding: 0.35rem;
+    list-style: none;
+    width: max-content;
+    min-width: 11.5rem;
+    max-height: min(62vh, 22rem);
+    overflow: auto;
+    border-radius: 0.9rem;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.16);
+  }
+
+  .portal-weather-picker__menu button {
+    width: 100%;
+    text-align: left;
+    border: 0;
+    background: transparent;
+    border-radius: 0.55rem;
+    padding: 0.48rem 0.7rem;
+    font-family: var(--ig-font);
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: #111827;
+    cursor: pointer;
+  }
+
+  .portal-weather-picker__menu button.is-active {
+    background: #e0f2fe;
+    color: #0369a1;
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-weather-picker__button {
+    background: #5ec4f0;
+    border-color: #5ec4f0;
+    color: #fff;
+  }
+
+  html[data-theme="dark"] .portal-weather-picker__menu {
+    background: #171717;
+    border-color: #333;
+  }
+
+  html[data-theme="dark"] .portal-weather-picker__menu button {
+    color: #f5f5f5;
+  }
+
+  html[data-theme="dark"] .portal-weather-picker__menu button.is-active {
+    background: rgba(94, 196, 240, 0.2);
+    color: #7dd3fc;
+  }
+
+  .portal-shell .portal-roster-section,
+  .portal-shell .portal-roster,
+  .portal-shell .portal-roster .portal-board__table {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .portal-shell .portal-roster .portal-board__table {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .portal-shell .portal-roster .portal-board__table table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .portal-shell .portal-roster .portal-board__table thead {
+    display: none;
+  }
+
+  .portal-shell .portal-roster .portal-board__table tbody {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  .portal-shell .portal-roster .portal-board__table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name name"
+      "code dept"
+      "shift shift"
+      "meal comfort";
+    gap: 0.4rem 0.7rem;
+    margin: 0;
+    padding: 0.85rem 0.9rem;
+    border-radius: 1.05rem;
+    background: rgba(255, 255, 255, 0.72);
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.06);
+  }
+
+  .portal-shell .portal-roster .portal-board__table td {
+    display: grid;
+    gap: 0.12rem;
+    width: auto;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+    font-size: 0.92rem;
+  }
+
+  .portal-shell .portal-roster .portal-board__table td[data-label]::before {
+    content: attr(data-label);
+    color: var(--ig-muted);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .portal-shell .portal-roster .portal-board__table td.col-name {
+    grid-area: name;
+    font-size: 1.05rem;
+  }
+
+  .portal-shell .portal-roster .portal-board__table td.col-name::before {
+    display: none;
+  }
+
+  .portal-shell .portal-roster .portal-board__table td.col-code { grid-area: code; }
+  .portal-shell .portal-roster .portal-board__table td:nth-child(3) { grid-area: dept; }
+  .portal-shell .portal-roster .portal-board__table td:nth-child(4) { grid-area: shift; }
+  .portal-shell .portal-roster .portal-board__table td:nth-child(5) { grid-area: meal; }
+  .portal-shell .portal-roster .portal-board__table td:nth-child(6) { grid-area: comfort; }
+
+  .portal-shell .portal-roster .portal-board__table td.empty {
+    grid-column: 1 / -1;
+  }
+
+  .portal-shell .portal-roster tbody tr.selected:not(.on-break) {
+    box-shadow: inset 0 0 0 2px #14542d;
+  }
+
+  .portal-shell .portal-roster tbody tr.on-break,
+  .portal-shell .portal-roster tbody tr.on-break.selected {
+    box-shadow: inset 0 0 0 2px #ea580c;
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-roster .portal-board__table tr {
+    background: rgba(255, 255, 255, 0.06);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    color: var(--ig-ink);
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-roster .portal-board__table td,
+  html[data-theme="dark"] .portal-shell .portal-roster .portal-board__table .col-name,
+  html[data-theme="dark"] .portal-shell .portal-roster .col-code {
+    color: var(--ig-ink);
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-roster .portal-board__table td[data-label]::before {
+    color: var(--ig-muted);
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-roster tbody tr.selected:not(.on-break) {
+    background: rgba(134, 239, 172, 0.14);
+    box-shadow: inset 0 0 0 2px #86efac;
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-roster tbody tr.on-break,
+  html[data-theme="dark"] .portal-shell .portal-roster tbody tr.on-break.selected {
+    background: #3b2410;
+    box-shadow: inset 0 0 0 2px #fb923c;
+    color: var(--ig-ink);
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-roster tbody tr.off-shift,
+  html[data-theme="dark"] .portal-shell .portal-roster tbody tr.on-other-break,
+  html[data-theme="dark"] .portal-shell .portal-roster tbody tr.start-limit-reached {
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    color: #8b939e;
+  }
+}
+
+@media (min-width: 981px) and (max-width: 1366px) {
+  .portal-shell .portal-employee-header {
+    flex-wrap: wrap;
+    row-gap: 0.65rem;
+  }
+
+  .portal-shell .portal-employee-title,
+  .portal-shell .portal-employee-subtitle {
+    white-space: normal;
+  }
+
+  .portal-shell .portal-employee-header__brand {
+    flex: 1 1 100%;
+    height: auto;
+    min-width: 0;
+  }
+
+  .portal-shell .portal-employee-header__actions {
+    flex: 1 1 100%;
+    height: auto;
+    justify-content: flex-end;
+    margin-left: 0;
+  }
+
+  .portal-shell .portal-credits--page {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+}
