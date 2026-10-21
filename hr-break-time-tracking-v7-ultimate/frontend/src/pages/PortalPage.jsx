@@ -22,6 +22,82 @@ import {
   startLimitReached,
   typeFields,
 } from '../lib/breakHelpers';
+import { PORTAL_WEATHER_OPTIONS } from '../lib/portalWeather';
+
+function SnowflakeIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <g fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2.2v19.6M4.1 6.4 19.9 17.6M19.9 6.4 4.1 17.6" />
+        <path d="M12 5.6 10.3 3.6M12 5.6l1.7-2M12 18.4 10.3 20.4M12 18.4l1.7 2" />
+        <path d="M7.1 8.1 5.2 6.9M7.1 8.1 6.2 10.2M16.9 8.1l1.9-1.2M16.9 8.1l.9 2.1" />
+        <path d="M7.1 15.9 5.2 17.1M7.1 15.9 6.2 13.8M16.9 15.9l1.9 1.2M16.9 15.9l.9-2.1" />
+      </g>
+    </svg>
+  );
+}
+
+function PortalWeatherPicker({ value, disabled, onSelect }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const current = String(value || 'rain').toLowerCase();
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onPointer = (event) => {
+      if (!rootRef.current?.contains(event.target)) setOpen(false);
+    };
+    const onKey = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="portal-weather-picker" ref={rootRef}>
+      <button
+        type="button"
+        className="portal-weather-picker__button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label="Portal weather"
+        title="Portal weather"
+        disabled={disabled}
+        onClick={() => setOpen((currentOpen) => !currentOpen)}
+      >
+        <SnowflakeIcon />
+      </button>
+      {open && (
+        <ul className="portal-weather-picker__menu" role="listbox" aria-label="Portal weather">
+          {PORTAL_WEATHER_OPTIONS.map((option) => {
+            const selected = option.value === current;
+            return (
+              <li key={option.value}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={selected}
+                  className={selected ? 'is-active' : undefined}
+                  onClick={() => {
+                    setOpen(false);
+                    if (!selected) onSelect(option.value);
+                  }}
+                >
+                  {option.label}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 function shiftLabel(employee) {
   return employee?.shiftDisplay || employee?.shiftName || 'Unassigned';
@@ -208,6 +284,7 @@ export default function PortalPage() {
   const searchRef = useRef(null);
   const busyRef = useRef(false);
   const lastLoadError = useRef('');
+  const weatherOverride = useRef(null);
 
   const checkApi = useCallback(async () => {
     try {
@@ -233,7 +310,14 @@ export default function PortalPage() {
         shiftId2: shiftId && shiftId2 ? shiftId2 : undefined,
       },
     });
-    setBoard(data);
+    setBoard(() => {
+      const chosen = weatherOverride.current;
+      if (chosen && String(data.portalWeather || '').toLowerCase() !== chosen) {
+        return { ...data, portalWeather: chosen };
+      }
+      weatherOverride.current = null;
+      return data;
+    });
     setNowMs(Date.now());
   }, [checkApi, search, shiftId, shiftId2]);
 
@@ -304,6 +388,21 @@ export default function PortalPage() {
       setSelectedEmployeeId(null);
     }
   }, [board, employeesView, selectedEmployeeId]);
+
+  const selectPortalWeather = useCallback(async (value) => {
+    const next = String(value || '').toLowerCase();
+    if (!next) return;
+    const previous = weatherOverride.current || board?.portalWeather || 'rain';
+    weatherOverride.current = next;
+    setBoard((current) => (current ? { ...current, portalWeather: next } : current));
+    try {
+      await api.put('/portal/weather', { value: next });
+    } catch (err) {
+      weatherOverride.current = previous;
+      setBoard((current) => (current ? { ...current, portalWeather: previous } : current));
+      toast.error(apiErrorMessage(err, 'Could not change portal weather.'));
+    }
+  }, [board, toast]);
 
   const openEmployee = useCallback(async (employeeId) => {
     setSelectedEmployeeId(employeeId);
@@ -498,7 +597,13 @@ export default function PortalPage() {
           </div>
           <div className="portal-employee-header__actions">
             <PortalClock />
-            <ThemeToggle variant="circle" />
+            <div className="portal-employee-header__tools">
+              <PortalWeatherPicker
+                value={board?.portalWeather}
+                disabled={apiOnline === false}
+                onSelect={selectPortalWeather}
+              />
+              <ThemeToggle variant="circle" />
             {isAuthenticated ? (
               <button
                 type="button"
@@ -540,6 +645,7 @@ export default function PortalPage() {
                 </span>
               </button>
             )}
+            </div>
           </div>
         </header>
 

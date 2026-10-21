@@ -3,26 +3,12 @@ import api from '../api/client';
 import { useAuth } from '../auth/AuthContext';
 import { useFeedback } from '../feedback/FeedbackContext';
 import { settingLabel } from '../lib/breakHelpers';
+import { PORTAL_WEATHER_KEY, PORTAL_WEATHER_OPTIONS } from '../lib/portalWeather';
 import AdjustTimeSection from '../components/AdjustTimeSection';
 
 const DURATION_KEYS = ['MealBreakLimitMinutes', 'ComfortBreakLimitMinutes'];
 const START_KEYS = ['MealBreakStartLimit', 'ComfortBreakStartLimit'];
-const PORTAL_WEATHER_KEY = 'PortalWeatherEffect';
 const HOLIDAY_LIMIT_KEY = 'MonthlyHolidayDayLimit';
-const WEATHER_OPTIONS = [
-  { value: 'none', label: 'Nothing' },
-  { value: 'rain', label: 'Rain' },
-  { value: 'snow', label: 'Snow' },
-  { value: 'ducks', label: 'Yellow ducks' },
-  { value: 'birds', label: 'Birds' },
-  { value: 'watermelon', label: 'Watermelon slices' },
-  { value: 'orange', label: 'Orange slices' },
-  { value: 'clowns', label: 'Clown faces' },
-  { value: 'bananas', label: 'Bananas' },
-  { value: 'stars', label: 'Stars' },
-  { value: 'weedpaper', label: 'Weed paper' },
-  { value: 'joker', label: 'Joker masquerade' },
-];
 
 function SettingRow({ setting, min, max, onChange, onSave }) {
   return (
@@ -487,7 +473,7 @@ export default function SettingsPage() {
                 onChange={(e) => weatherSetting && updateLocal(weatherSetting.id, e.target.value)}
                 aria-label="Portal weather"
               >
-                {WEATHER_OPTIONS.map((option) => (
+                {PORTAL_WEATHER_OPTIONS.map((option) => (
                   <option key={option.value} value={option.value}>{option.label}</option>
                 ))}
               </select>

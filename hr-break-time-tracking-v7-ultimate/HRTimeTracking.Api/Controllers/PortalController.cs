@@ -16,12 +16,18 @@ public class PortalController : ControllerBase
     private readonly IBreakTrackingService _breaks;
     private readonly IShiftService _shifts;
     private readonly IEmployeePasscodeService _passcodes;
+    private readonly ISettingsService _settings;
 
-    public PortalController(IBreakTrackingService breaks, IShiftService shifts, IEmployeePasscodeService passcodes)
+    public PortalController(
+        IBreakTrackingService breaks,
+        IShiftService shifts,
+        IEmployeePasscodeService passcodes,
+        ISettingsService settings)
     {
         _breaks = breaks;
         _shifts = shifts;
         _passcodes = passcodes;
+        _settings = settings;
     }
 
     [HttpGet("live")]
@@ -61,6 +67,21 @@ public class PortalController : ControllerBase
         var result = await _passcodes.SetAsync(request);
         if (!result.Ok && result.ErrorCode != "ALREADY_SET") return BadRequest(result);
         return Ok(result);
+    }
+
+    /// <summary>
+    /// Public portal weather. Anyone on the employee portal can change the effect
+    /// shown in the employee details window. Other settings stay restricted.
+    /// </summary>
+    [HttpPut("weather")]
+    public async Task<ActionResult<SystemSettingDto>> SetWeather([FromBody] UpdateSettingRequest request)
+    {
+        var (ok, error, data) = await _settings.UpdateAsync(
+            SettingsService.PortalWeatherKey,
+            request.Value,
+            userId: null);
+        if (!ok || data is null) return BadRequest(new ApiMessage(error ?? "Update failed."));
+        return Ok(data);
     }
 
     [HttpPost("toggle")]
