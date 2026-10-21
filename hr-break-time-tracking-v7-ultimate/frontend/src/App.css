@@ -10573,9 +10573,16 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   html[data-theme="dark"] .portal-shell .portal-weather-picker__button {
-    background: #fff;
-    border-color: #e4e7ee;
-    color: #5ec4f0;
+    background: #5ec4f0;
+    border-color: #5ec4f0;
+    color: #fff;
+  }
+
+  html[data-theme="dark"] .portal-shell .portal-weather-picker__button:hover,
+  html[data-theme="dark"] .portal-shell .portal-weather-picker__button:focus-visible {
+    background: #7dd3f5;
+    border-color: #7dd3f5;
+    color: #fff;
   }
 
   html[data-theme="dark"] .portal-weather-picker__menu {
