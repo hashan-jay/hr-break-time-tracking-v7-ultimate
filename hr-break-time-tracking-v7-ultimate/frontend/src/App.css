@@ -11824,4 +11824,125 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   html[data-theme="dark"] .tracking-page .tracking-roster .portal-board__table td::before {
     color: #94a3b8;
   }
+
+  .tracking-page .exceeded-board__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .tracking-page .exceeded-board__head h2 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+
+  .tracking-page .exceeded-board__tools {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+
+  .tracking-page .exceeded-board__date input {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .tracking-page .exceeded-board .table-wrap {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .tracking-page .exceeded-board table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tracking-page .exceeded-board thead {
+    display: none;
+  }
+
+  .tracking-page .exceeded-board tbody {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .tracking-page .exceeded-board tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name name"
+      "code dept"
+      "shift state"
+      "limits limits"
+      "meal mealstatus"
+      "comfort comfortstatus";
+    gap: 0.45rem 0.7rem;
+    padding: 0.75rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .tracking-page .exceeded-board tbody tr:has(td.empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.4rem 0;
+  }
+
+  .tracking-page .exceeded-board td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .tracking-page .exceeded-board td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tracking-page .exceeded-board td:nth-child(1) { grid-area: code; }
+  .tracking-page .exceeded-board td:nth-child(2) { grid-area: name; }
+  .tracking-page .exceeded-board td:nth-child(3) { grid-area: limits; }
+  .tracking-page .exceeded-board td:nth-child(4) { grid-area: dept; }
+  .tracking-page .exceeded-board td:nth-child(5) { grid-area: shift; }
+  .tracking-page .exceeded-board td:nth-child(6) { grid-area: meal; }
+  .tracking-page .exceeded-board td:nth-child(7) { grid-area: mealstatus; }
+  .tracking-page .exceeded-board td:nth-child(8) { grid-area: comfort; }
+  .tracking-page .exceeded-board td:nth-child(9) { grid-area: comfortstatus; }
+  .tracking-page .exceeded-board td:nth-child(10) { grid-area: state; }
+
+  .tracking-page .exceeded-board td.col-name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .tracking-page .exceeded-board td.col-name::before,
+  .tracking-page .exceeded-board td.empty::before {
+    content: none;
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board tbody tr:has(td.empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board td::before {
+    color: #94a3b8;
+  }
 }

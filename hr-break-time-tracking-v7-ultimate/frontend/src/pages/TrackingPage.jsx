@@ -562,8 +562,8 @@ function ExceededShiftBoard({
                 className={isToday ? (employee.isOnBreak ? 'on-break is-clickable' : 'is-clickable') : undefined}
                 onClick={isToday ? () => onInspect?.(employee) : undefined}
               >
-                <td>{employee.employeeCode}</td>
-                <td className="col-name">{employee.fullName || employee.employeeName}</td>
+                <td data-label="Code">{employee.employeeCode}</td>
+                <td className="col-name" data-label="Employee">{employee.fullName || employee.employeeName}</td>
                 {isToday ? (
                   <LimitsLeftCell
                     employee={employee}
@@ -571,24 +571,24 @@ function ExceededShiftBoard({
                     comfortStartLimit={comfortStartLimit}
                   />
                 ) : (
-                  <td>
+                  <td data-label="Breaks taken">
                     <div>Meal <strong>{employee.mealBreakCount}</strong></div>
                     <div>Comfort <strong>{employee.comfortBreakCount}</strong></div>
                   </td>
                 )}
-                <td>{employee.departmentName}</td>
-                <td>{employee.shiftDisplay || employee.shiftName || '—'}</td>
-                <td>
+                <td data-label="Department">{employee.departmentName}</td>
+                <td data-label="Shift">{employee.shiftDisplay || employee.shiftName || '—'}</td>
+                <td data-label="Meal">
                   <strong>{employee.mealBreakDisplay}</strong>
                   <div className="muted">{employee.mealBreakSecondsToday ?? employee.mealBreakSeconds}s · limit {employee.mealLimitMinutes ?? mealLimitMinutes ?? '—'} min</div>
                 </td>
-                <td><StatusBadge status={employee.mealStatus} color={employee.mealStatusColor} /></td>
-                <td>
+                <td data-label="Meal status"><StatusBadge status={employee.mealStatus} color={employee.mealStatusColor} /></td>
+                <td data-label="Comfort">
                   <strong>{employee.comfortBreakDisplay}</strong>
                   <div className="muted">{employee.comfortBreakSecondsToday ?? employee.comfortBreakSeconds}s · limit {employee.comfortLimitMinutes ?? comfortLimitMinutes ?? '—'} min</div>
                 </td>
-                <td><StatusBadge status={employee.comfortStatus} color={employee.comfortStatusColor} /></td>
-                <td>
+                <td data-label="Comfort status"><StatusBadge status={employee.comfortStatus} color={employee.comfortStatusColor} /></td>
+                <td data-label="State">
                   {isToday
                     ? (employee.isOnBreak
                       ? `On ${String(employee.currentBreakType || '').toLowerCase()} break (${formatElapsed(employee.currentBreakElapsedSeconds)}) · out ${formatLocalClock(employee.currentOutTime)}`
