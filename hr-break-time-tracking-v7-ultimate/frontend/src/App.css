@@ -4722,7 +4722,7 @@ html[data-theme="dark"] .confirm-dialog--interactive .btn.btn-start-break:hover:
   color: var(--muted);
 }
 
-.search, .toolbar input, .toolbar select, .card-form input, .card-form select, .card-form textarea, .setting-edit input, .setting-edit select, table select {
+.search, .toolbar input, .toolbar select, .card-form input, .card-form select, .card-form textarea, .setting-edit input, .setting-edit select, .adjust-time-field select, .adjust-time-date input, table select {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: 0.65rem 0.75rem;
@@ -5001,7 +5001,9 @@ tbody tr.is-deleted:hover { background: var(--portal-accent-soft); }
 .staff-console-page .card-form select,
 .staff-console-page .card-form textarea,
 .staff-console-page .setting-edit input,
-.staff-console-page .setting-edit select {
+.staff-console-page .setting-edit select,
+.staff-console-page .adjust-time-field select,
+.staff-console-page .adjust-time-date input {
   background: #efefef;
   border: 1px solid transparent;
   border-radius: 8px;
@@ -5013,7 +5015,9 @@ tbody tr.is-deleted:hover { background: var(--portal-accent-soft); }
 .staff-console-page .staff-filters select:focus,
 .staff-console-page .card-form input:focus,
 .staff-console-page .card-form select:focus,
-.staff-console-page .card-form textarea:focus {
+.staff-console-page .card-form textarea:focus,
+.staff-console-page .adjust-time-field select:focus,
+.staff-console-page .adjust-time-date input:focus {
   outline: none;
   border-color: #14542d;
   background: #fff;
@@ -5325,6 +5329,8 @@ html[data-theme="dark"] .staff-console-page .card-form input,
 html[data-theme="dark"] .staff-console-page .card-form select,
 html[data-theme="dark"] .staff-console-page .card-form textarea,
 html[data-theme="dark"] .staff-console-page .setting-edit input,
+html[data-theme="dark"] .staff-console-page .adjust-time-field select,
+html[data-theme="dark"] .staff-console-page .adjust-time-date input,
 html[data-theme="dark"] .adjust-time-manual__field input {
   background: #262626;
   color: #f5f5f5;
@@ -12022,5 +12028,128 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .settings-page .shift-limits__table {
     max-width: 100%;
     overflow-x: auto;
+  }
+
+  .adjust-time-toolbar {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .adjust-time-field,
+  .adjust-time-date,
+  .adjust-time-field--search,
+  .adjust-time-field select,
+  .adjust-time-date input {
+    width: 100%;
+    min-width: 0;
+    flex: none;
+  }
+
+  .adjust-time-section .table-wrap {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .adjust-time-section table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .adjust-time-section thead {
+    display: none;
+  }
+
+  .adjust-time-section tbody {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .adjust-time-section tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name name"
+      "code dept"
+      "shift type"
+      "total status"
+      "attempts attempts"
+      "action action";
+    gap: 0.45rem 0.7rem;
+    padding: 0.75rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .adjust-time-section tbody tr:has(td.empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.35rem 0;
+  }
+
+  .adjust-time-section td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .adjust-time-section td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .adjust-time-section td:nth-child(1) { grid-area: name; }
+  .adjust-time-section td:nth-child(2) { grid-area: code; }
+  .adjust-time-section td:nth-child(3) { grid-area: dept; }
+  .adjust-time-section td:nth-child(4) { grid-area: shift; }
+  .adjust-time-section td:nth-child(5) { grid-area: type; }
+  .adjust-time-section td:nth-child(6) { grid-area: total; }
+  .adjust-time-section td:nth-child(7) { grid-area: status; }
+  .adjust-time-section td:nth-child(8) { grid-area: attempts; }
+  .adjust-time-section td:nth-child(9) { grid-area: action; }
+
+  .adjust-time-section td.col-name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .adjust-time-section td.col-name::before,
+  .adjust-time-section td.empty::before,
+  .adjust-time-section td[data-label="Adjust"]::before {
+    content: none;
+  }
+
+  .adjust-time-section td[data-label="Adjust"] .btn {
+    width: 100%;
+  }
+
+  .adjust-time-dialog {
+    width: min(100%, 22.5rem);
+    max-width: calc(100vw - 1.2rem);
+    box-sizing: border-box;
+  }
+
+  html[data-theme="dark"] .adjust-time-section tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .adjust-time-section tbody tr:has(td.empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .adjust-time-section td::before {
+    color: #94a3b8;
   }
 }

@@ -241,20 +241,20 @@ export default function AdjustTimeSection() {
           <tbody>
             {visibleRows.map((row) => (
               <tr key={`${row.employeeId}-${row.breakType}-${row.date}`}>
-                <td className="col-name">{row.employeeName}</td>
-                <td>{row.employeeCode}</td>
-                <td>{row.departmentName}</td>
-                <td>{row.shiftName || '—'}</td>
-                <td>{row.breakType}</td>
-                <td className="mono">{row.displayedTotalDisplay}</td>
-                <td>
+                <td className="col-name" data-label="Employee">{row.employeeName}</td>
+                <td data-label="Code">{row.employeeCode}</td>
+                <td data-label="Department">{row.departmentName}</td>
+                <td data-label="Shift">{row.shiftName || '—'}</td>
+                <td data-label="Break type">{row.breakType}</td>
+                <td className="mono" data-label="Break total">{row.displayedTotalDisplay}</td>
+                <td data-label="Status">
                   <StatusBadge
                     status={row.status || (row.statusColor === 'red' ? 'EXCEEDED BREAK TIME LIMIT' : 'WELL SATISFIED')}
                     color={row.statusColor || 'green'}
                   />
                 </td>
-                <td>{row.attemptsLeft}</td>
-                <td>
+                <td data-label="Attempts left">{row.attemptsLeft}</td>
+                <td data-label="Adjust">
                   <button
                     type="button"
                     className="btn btn-primary"
