@@ -11735,4 +11735,93 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     padding: 0.35rem 0.4rem;
     font-size: 0.7rem;
   }
+
+  .tracking-page .tracking-roster .portal-roster-section__head,
+  .tracking-page .portal-roster-section__head {
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table {
+    overflow: visible;
+    max-height: none;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table table {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table thead {
+    display: none;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table tbody {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name name"
+      "code dept"
+      "limits state"
+      "meal comfort";
+    gap: 0.45rem 0.7rem;
+    padding: 0.75rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(1) { grid-area: code; }
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(2) { grid-area: name; }
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(3) { grid-area: limits; }
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(4) { grid-area: dept; }
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(5) { grid-area: meal; }
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(6) { grid-area: comfort; }
+  .tracking-page .tracking-roster .portal-board__table td:nth-child(7) { grid-area: state; }
+
+  .tracking-page .tracking-roster .portal-board__table td.col-name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table td.col-name::before {
+    content: none;
+  }
+
+  .tracking-page .tracking-roster .portal-board__table td.empty {
+    grid-column: 1 / -1;
+  }
+
+  html[data-theme="dark"] .tracking-page .tracking-roster .portal-board__table tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .tracking-page .tracking-roster .portal-board__table td::before {
+    color: #94a3b8;
+  }
 }

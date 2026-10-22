@@ -291,7 +291,7 @@ function LimitsLeftCell({ employee, mealStartLimit, comfortStartLimit }) {
   const mealLeft = remainingStarts(employee, BREAK_TYPES.MEAL, mealStartLimit);
   const comfortLeft = remainingStarts(employee, BREAK_TYPES.COMFORT, comfortStartLimit);
   return (
-    <td className="tracking-limits-left">
+    <td className="tracking-limits-left" data-label="Limits left">
       <span className="tracking-limits-left__row" title="Meal starts the employee can still begin on the portal this shift">
         <span className="tracking-limits-left__kind">Meal</span>
         <strong className={mealLeft === 0 ? 'is-none' : undefined}>{mealLeft}</strong>
@@ -390,27 +390,27 @@ function LiveRoster({
                       onSelect?.(employee);
                     }}
                   >
-                    <td className="col-code">{employee.employeeCode}</td>
-                    <td className="col-name">{employee.fullName}</td>
+                    <td className="col-code" data-label="Code">{employee.employeeCode}</td>
+                    <td className="col-name" data-label="Employee">{employee.fullName}</td>
                     <LimitsLeftCell
                       employee={employee}
                       mealStartLimit={mealStartLimit}
                       comfortStartLimit={comfortStartLimit}
                     />
-                    <td>{employee.departmentName}</td>
-                    <td>
+                    <td data-label="Department">{employee.departmentName}</td>
+                    <td data-label="Meal">
                       <div className={`tracking-break-cell${meal.isOnThisBreak ? ' is-live-total' : ''}`}>
                         <strong>{meal.totalDisplay}</strong>
                         <StatusBadge status={meal.status} color={meal.statusColor} />
                       </div>
                     </td>
-                    <td>
+                    <td data-label="Comfort">
                       <div className={`tracking-break-cell${comfort.isOnThisBreak ? ' is-live-total' : ''}`}>
                         <strong>{comfort.totalDisplay}</strong>
                         <StatusBadge status={comfort.status} color={comfort.statusColor} />
                       </div>
                     </td>
-                    <td className="tracking-state" title={
+                    <td className="tracking-state" data-label="State" title={
                       onBreak
                         ? `On ${String(employee.currentBreakType || '').toLowerCase()} break (${formatElapsed(employee.currentBreakElapsedSeconds)}) · out ${formatLocalClock(employee.currentOutTime)}`
                         : offShift
