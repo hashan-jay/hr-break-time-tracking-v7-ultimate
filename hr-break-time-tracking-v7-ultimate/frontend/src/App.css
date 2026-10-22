@@ -11544,4 +11544,49 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     grid-area: cta;
     margin-top: 0;
   }
+
+  .tracking-page .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .tracking-page .page-header p {
+    max-width: none;
+  }
+
+  .tracking-page .header-stat-tiles {
+    width: 100%;
+    justify-items: stretch;
+  }
+
+  .tracking-page .header-stat-tiles__period {
+    max-width: none;
+    text-align: left;
+  }
+
+  .tracking-page .header-stat-tiles__row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .tracking-page .header-stat-tile {
+    min-width: 0;
+  }
+
+  .tracking-page .tracking-filters {
+    grid-template-columns: 1fr;
+    min-width: 0;
+  }
+
+  .tracking-page .portal-board__table {
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  .app-portal .main-panel:has(.tracking-page) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
 }
