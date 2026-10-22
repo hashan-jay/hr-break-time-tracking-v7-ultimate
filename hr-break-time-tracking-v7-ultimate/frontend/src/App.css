@@ -11946,3 +11946,81 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     color: #94a3b8;
   }
 }
+
+@media (max-width: 720px) {
+  .app-portal .main-panel:has(.settings-page) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .settings-page .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .settings-page .page-header p {
+    max-width: none;
+  }
+
+  .settings-page .header-stat-tiles,
+  .settings-page .header-stat-tiles__row {
+    width: 100%;
+    justify-content: stretch;
+    justify-items: stretch;
+  }
+
+  .settings-page .header-stat-tile {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .settings-page .list-switch {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    border-radius: 1.15rem;
+    overflow: hidden;
+    padding: 0.4rem;
+  }
+
+  .settings-page .list-switch__btn {
+    flex: 1 1 calc(50% - 0.4rem);
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    justify-content: center;
+  }
+
+  .settings-page .setting-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .settings-page .setting-edit {
+    width: 100%;
+  }
+
+  .settings-page .setting-edit input,
+  .settings-page .setting-edit select {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: 100%;
+  }
+
+  .settings-page .settings-shift-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .settings-page .settings-shift-head .btn {
+    width: 100%;
+  }
+
+  .settings-page .shift-limits__table {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}

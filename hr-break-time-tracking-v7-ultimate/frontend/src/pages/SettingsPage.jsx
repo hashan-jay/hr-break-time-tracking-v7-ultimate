@@ -179,7 +179,7 @@ export default function SettingsPage() {
     });
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page settings-page">
       <header className="page-header">
         <div>
           <h1>System Settings</h1>
