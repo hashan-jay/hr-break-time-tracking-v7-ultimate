@@ -188,7 +188,7 @@ export default function UsersPage() {
   };
 
   return (
-    <div className="page">
+    <div className="page users-page">
       <header className="page-header">
         <div>
           <h1>Users &amp; RBAC</h1>
@@ -264,17 +264,17 @@ export default function UsersPage() {
                 </tr>
               ) : users.map((u) => (
                 <tr key={u.id}>
-                  <td>
+                  <td data-label="User">
                     <strong className="users-table__name">{u.fullName}</strong>
                   </td>
-                  <td><span className="users-table__handle">{u.userName}</span></td>
-                  <td><span className="users-table__role">{roleLabel(u.roles?.[0])}</span></td>
-                  <td>
+                  <td data-label="Username"><span className="users-table__handle">{u.userName}</span></td>
+                  <td data-label="RBAC category"><span className="users-table__role">{roleLabel(u.roles?.[0])}</span></td>
+                  <td data-label="Status">
                     <span className={`users-table__status ${u.isActive ? 'is-active' : 'is-inactive'}`}>
                       {u.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </td>
-                  <td className="row-actions users-table__actions">
+                  <td className="row-actions users-table__actions" data-label="Actions">
                     <button type="button" className="btn link-btn users-table__update" onClick={() => openUpdate(u)}>Update</button>
                     <button type="button" className="btn link-btn users-table__password" onClick={() => resetPassword(u.id)}>Password</button>
                     {u.isActive ? (
