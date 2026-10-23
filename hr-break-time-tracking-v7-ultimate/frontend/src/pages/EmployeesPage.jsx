@@ -70,18 +70,18 @@ function EmployeeTable({
           )}
           {rows.map((e) => (
             <tr key={e.id}>
-              <td><strong className="users-table__name">{e.fullName}</strong></td>
-              <td><span className="users-table__handle">{e.employeeCode}</span></td>
-              <td><span className="users-table__role">{e.departmentName || '—'}</span></td>
-              <td><span className="users-table__role">{e.shiftDisplay || e.shiftName || 'No shift'}</span></td>
-              <td>
+              <td data-label="Name"><strong className="users-table__name">{e.fullName}</strong></td>
+              <td data-label="Code"><span className="users-table__handle">{e.employeeCode}</span></td>
+              <td data-label="Department"><span className="users-table__role">{e.departmentName || '—'}</span></td>
+              <td data-label="Shift"><span className="users-table__role">{e.shiftDisplay || e.shiftName || 'No shift'}</span></td>
+              <td data-label="Passcode">
                 <span className={`users-table__status ${e.hasPasscode ? 'is-active' : 'is-inactive'}`}>
                   {e.hasPasscode ? 'Set' : 'Not set'}
                 </span>
               </td>
-              {showDeactivatedMeta && <td className="muted">{formatWhen(e.deactivatedAt)}</td>}
+              {showDeactivatedMeta && <td className="muted" data-label="Deactivated">{formatWhen(e.deactivatedAt)}</td>}
               {showActions && (
-                <td className="row-actions users-table__actions">
+                <td className="row-actions users-table__actions" data-label="Actions">
                   {canEdit && !e.isDeactivated && (
                     <button type="button" className="btn link-btn users-table__update" onClick={() => onEdit(e)} disabled={busyId === e.id}>
                       Update
@@ -383,7 +383,7 @@ export default function EmployeesPage() {
   const shiftOptions = shifts.filter((s) => s.isActive || String(s.id) === String(form.shiftId));
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page employees-page">
       <header className="page-header">
         <div>
           <h1>Employees</h1>
