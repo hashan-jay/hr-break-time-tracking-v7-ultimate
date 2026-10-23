@@ -85,7 +85,7 @@ export default function AttendancePage() {
   const revealLabel = formatClock(roster?.absentRevealAt);
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page attendance-page">
       <header className="page-header">
         <div>
           <h1>Attendance</h1>
@@ -121,7 +121,7 @@ export default function AttendancePage() {
 
       {roster && (
         <>
-          <section className="staff-results headlines-card">
+          <section className="staff-results headlines-card attendance-roster attendance-roster--present">
             <header className="list-panel__head">
               <div>
                 <h2>Present</h2>
@@ -157,12 +157,12 @@ export default function AttendancePage() {
                 <tbody>
                   {present.map((row) => (
                     <tr key={row.employeeId}>
-                      <td>{row.employeeCode}</td>
-                      <td>{row.fullName}</td>
-                      <td>{row.departmentName}</td>
-                      <td>{row.breakSummary || '—'}</td>
-                      <td>{formatWhen(row.lastEndedAt)}</td>
-                      <td><StatusBadge status="PRESENT" color="green" /></td>
+                      <td data-label="Code">{row.employeeCode}</td>
+                      <td className="col-name" data-label="Employee">{row.fullName}</td>
+                      <td data-label="Department">{row.departmentName}</td>
+                      <td data-label="Breaks ended">{row.breakSummary || '—'}</td>
+                      <td data-label="Last ended">{formatWhen(row.lastEndedAt)}</td>
+                      <td data-label="Status"><StatusBadge status="PRESENT" color="green" /></td>
                     </tr>
                   ))}
                   {!present.length && (
@@ -178,7 +178,7 @@ export default function AttendancePage() {
           </section>
 
           {roster.showAbsent && (
-            <section className="staff-results headlines-card">
+            <section className="staff-results headlines-card attendance-roster attendance-roster--absent">
               <header className="list-panel__head">
                 <div>
                   <h2>Absent</h2>
@@ -206,10 +206,10 @@ export default function AttendancePage() {
                   <tbody>
                     {absent.map((row) => (
                       <tr key={row.employeeId}>
-                        <td>{row.employeeCode}</td>
-                        <td>{row.fullName}</td>
-                        <td>{row.departmentName}</td>
-                        <td><StatusBadge status="ABSENT" color="red" /></td>
+                        <td data-label="Code">{row.employeeCode}</td>
+                        <td className="col-name" data-label="Employee">{row.fullName}</td>
+                        <td data-label="Department">{row.departmentName}</td>
+                        <td data-label="Status"><StatusBadge status="ABSENT" color="red" /></td>
                       </tr>
                     ))}
                     {!absent.length && (

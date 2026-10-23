@@ -12171,4 +12171,150 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   html[data-theme="dark"] .adjust-time-section td::before {
     color: #94a3b8;
   }
+
+  .app-portal .main-panel:has(.attendance-page) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .attendance-page .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .attendance-page .page-header p {
+    max-width: none;
+  }
+
+  .attendance-page .page-header .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .attendance-page .report-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .attendance-page .report-filters .btn {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .attendance-page .list-panel__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .attendance-page .header-stat-tile {
+    width: fit-content;
+  }
+
+  .attendance-page .attendance-roster .table-wrap {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .attendance-page .attendance-roster table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .attendance-page .attendance-roster thead {
+    display: none;
+  }
+
+  .attendance-page .attendance-roster tbody {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .attendance-page .attendance-roster tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.45rem 0.7rem;
+    padding: 0.75rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .attendance-page .attendance-roster--present tbody tr {
+    grid-template-areas:
+      "name name"
+      "code dept"
+      "breaks ended"
+      "status status";
+  }
+
+  .attendance-page .attendance-roster--absent tbody tr {
+    grid-template-areas:
+      "name name"
+      "code dept"
+      "status status";
+  }
+
+  .attendance-page .attendance-roster tbody tr:has(td.empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.3rem 0;
+  }
+
+  .attendance-page .attendance-roster td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .attendance-page .attendance-roster td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .attendance-page .attendance-roster--present td:nth-child(1) { grid-area: code; }
+  .attendance-page .attendance-roster--present td:nth-child(2) { grid-area: name; }
+  .attendance-page .attendance-roster--present td:nth-child(3) { grid-area: dept; }
+  .attendance-page .attendance-roster--present td:nth-child(4) { grid-area: breaks; }
+  .attendance-page .attendance-roster--present td:nth-child(5) { grid-area: ended; }
+  .attendance-page .attendance-roster--present td:nth-child(6) { grid-area: status; }
+
+  .attendance-page .attendance-roster--absent td:nth-child(1) { grid-area: code; }
+  .attendance-page .attendance-roster--absent td:nth-child(2) { grid-area: name; }
+  .attendance-page .attendance-roster--absent td:nth-child(3) { grid-area: dept; }
+  .attendance-page .attendance-roster--absent td:nth-child(4) { grid-area: status; }
+
+  .attendance-page .attendance-roster td.col-name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .attendance-page .attendance-roster td.col-name::before,
+  .attendance-page .attendance-roster td.empty::before {
+    content: none;
+  }
+
+  html[data-theme="dark"] .attendance-page .attendance-roster tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .attendance-page .attendance-roster tbody tr:has(td.empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .attendance-page .attendance-roster td::before {
+    color: #94a3b8;
+  }
 }
