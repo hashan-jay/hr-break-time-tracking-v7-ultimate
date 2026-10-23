@@ -127,6 +127,7 @@ export default function EmployeesPage() {
   const [saving, setSaving] = useState(false);
   const [search, setSearch] = useState('');
   const [appliedSearch, setAppliedSearch] = useState('');
+  const [departmentId, setDepartmentId] = useState('');
   const [listView, setListView] = useState('active');
   const [busyId, setBusyId] = useState(null);
   const loadSeq = useRef(0);
@@ -234,13 +235,24 @@ export default function EmployeesPage() {
     };
   }, [form.employeeCode, editingId, employees]);
 
+  const departmentOptions = useMemo(
+    () => departments
+      .filter((d) => !d.isDeleted)
+      .slice()
+      .sort((a, b) => String(a.name).localeCompare(String(b.name))),
+    [departments],
+  );
+  const visibleEmployees = useMemo(() => {
+    if (!departmentId) return employees;
+    return employees.filter((e) => String(e.departmentId) === departmentId);
+  }, [departmentId, employees]);
   const activeEmployees = useMemo(
-    () => employees.filter((e) => !e.isDeactivated),
-    [employees],
+    () => visibleEmployees.filter((e) => !e.isDeactivated),
+    [visibleEmployees],
   );
   const deactivatedEmployees = useMemo(
-    () => employees.filter((e) => e.isDeactivated),
-    [employees],
+    () => visibleEmployees.filter((e) => e.isDeactivated),
+    [visibleEmployees],
   );
 
   const closeEditor = () => {
@@ -426,6 +438,19 @@ export default function EmployeesPage() {
         </div>
 
         <div className="users-directory__tools">
+          <label className="employees-dept-filter">
+            Employees by department
+            <select
+              value={departmentId}
+              onChange={(e) => setDepartmentId(e.target.value)}
+              aria-label="Employees by department"
+            >
+              <option value="">All departments</option>
+              {departmentOptions.map((d) => (
+                <option key={d.id} value={d.id}>{d.name}</option>
+              ))}
+            </select>
+          </label>
           <input
             className="search"
             placeholder="Search employees…"
