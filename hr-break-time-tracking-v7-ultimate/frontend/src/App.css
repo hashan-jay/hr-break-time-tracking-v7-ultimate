@@ -11858,6 +11858,20 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     gap: 0.55rem;
   }
 
+  html[data-theme="dark"] .tracking-page .tracking-roster .portal-onbreak-chip {
+    background: #262626;
+    border-color: #3a3a3a;
+    color: #d4d4d4;
+  }
+
+  html[data-theme="dark"] .tracking-page .tracking-roster .portal-onbreak-chip strong {
+    color: #f5f5f5;
+  }
+
+  html[data-theme="dark"] .tracking-page .portal-onbreak-chip__dot {
+    background: #525252;
+  }
+
   .tracking-page .tracking-roster .portal-board__table {
     overflow: visible;
     max-height: none;
