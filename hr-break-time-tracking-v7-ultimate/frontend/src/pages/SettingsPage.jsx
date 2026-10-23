@@ -469,6 +469,7 @@ export default function SettingsPage() {
             </div>
             <div className="setting-edit">
               <select
+                className="portal-weather-select"
                 value={weatherSetting?.value || 'rain'}
                 onChange={(e) => weatherSetting && updateLocal(weatherSetting.id, e.target.value)}
                 aria-label="Portal weather"

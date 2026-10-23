@@ -5340,6 +5340,25 @@ html[data-theme="dark"] .adjust-time-manual {
   border-color: #363636;
 }
 
+html[data-theme="dark"] .portal-weather-select {
+  background: #262626;
+  color: #f5f5f5;
+  border: 1px solid #3a3a3a;
+  color-scheme: dark;
+}
+
+html[data-theme="dark"] .portal-weather-select:focus {
+  outline: none;
+  border-color: #86efac;
+  background: #1c1c1c;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
+}
+
+html[data-theme="dark"] .portal-weather-select option {
+  background: #171717;
+  color: #f5f5f5;
+}
+
 html[data-theme="dark"] .staff-console-page .list-panel__head h2,
 html[data-theme="dark"] .staff-console-page .card-form h2,
 html[data-theme="dark"] .staff-console-page .settings-section-title,
