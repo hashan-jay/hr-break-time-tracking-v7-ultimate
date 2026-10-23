@@ -6935,6 +6935,7 @@ html[data-theme="dark"] .perm-checks input {
 .employees-page .users-directory__tools {
   position: relative;
   z-index: 4;
+  align-items: flex-end;
 }
 
 .employees-page .users-directory {
@@ -12606,6 +12607,187 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   html[data-theme="dark"] .employees-page .users-table td::before {
+    color: #94a3b8;
+  }
+}
+
+@media (max-width: 1366px) {
+  .app-portal .main-panel:has(.departments-page) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .departments-page .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .departments-page .page-header p {
+    max-width: none;
+  }
+
+  .departments-page .header-stat-tiles {
+    justify-items: start;
+  }
+
+  .departments-page .header-stat-tiles__row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+  }
+
+  .departments-page .users-directory__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .departments-page .users-directory__create {
+    width: 100%;
+  }
+
+  .departments-page .list-switch {
+    display: flex;
+    width: auto;
+    border-radius: 1.15rem;
+    overflow: hidden;
+  }
+
+  .departments-page .list-switch__btn {
+    flex: 1 1 0;
+    min-width: 0;
+    justify-content: center;
+  }
+
+  .departments-page .users-table {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .departments-page .users-table table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .departments-page .users-table thead {
+    display: none;
+  }
+
+  .departments-page .users-table tbody {
+    display: grid;
+    gap: 0.65rem;
+    padding: 0.75rem 0.8rem 0.9rem;
+  }
+
+  .departments-page .users-table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.6rem 0.65rem;
+    padding: 0.85rem 0.9rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .departments-page .users-table tbody tr:has(.users-table__empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.3rem 0;
+  }
+
+  .departments-page .users-table td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .departments-page .users-table td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .departments-page .users-table td:nth-child(1),
+  .departments-page .users-table td:nth-child(n + 4),
+  .departments-page .users-table__empty {
+    grid-column: 1 / -1;
+  }
+
+  .departments-page .users-table td:nth-child(1) {
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .departments-page .users-table td:nth-child(1)::before,
+  .departments-page .users-table td.users-table__actions::before,
+  .departments-page .users-table__empty::before {
+    content: none;
+  }
+
+  .departments-page .users-table__name {
+    font-size: 1.05rem;
+    line-height: 1.25;
+  }
+
+  .departments-page .users-table__handle,
+  .departments-page .users-table__status {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    min-height: 2.15rem;
+    justify-content: flex-start;
+    white-space: normal;
+    line-height: 1.3;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .departments-page .users-table td.users-table__actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.15rem;
+  }
+
+  .departments-page .users-table .users-table__update,
+  .departments-page .users-table .users-table__activate,
+  .departments-page .users-table .users-table__deactivate {
+    flex: 1 1 0;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .departments-page .users-editor {
+    width: min(100%, 22.5rem);
+    max-height: calc(100vh - 1.5rem);
+    overflow: auto;
+  }
+
+  html[data-theme="dark"] .departments-page .users-table td:nth-child(1) {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .departments-page .users-table tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .departments-page .users-table tbody tr:has(.users-table__empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .departments-page .users-table td::before {
     color: #94a3b8;
   }
 }

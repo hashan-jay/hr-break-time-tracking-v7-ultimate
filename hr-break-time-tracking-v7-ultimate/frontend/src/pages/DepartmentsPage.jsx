@@ -117,7 +117,7 @@ export default function DepartmentsPage() {
   };
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page departments-page">
       <header className="page-header">
         <div>
           <h1>Departments</h1>
@@ -192,18 +192,18 @@ export default function DepartmentsPage() {
             <tbody>
               {visibleItems.map((d) => (
                 <tr key={d.id}>
-                  <td>
+                  <td data-label="Name">
                     <strong className="users-table__name">{d.name}</strong>
                     <div className="muted">{d.description || '—'}</div>
                   </td>
-                  <td><span className="users-table__handle">{d.employeeCount}</span></td>
-                  <td>
+                  <td data-label="Employees"><span className="users-table__handle">{d.employeeCount}</span></td>
+                  <td data-label="Status">
                     <span className={`users-table__status ${d.isDeleted ? 'is-inactive' : 'is-active'}`}>
                       {d.isDeleted ? 'Deleted' : 'Active'}
                     </span>
                   </td>
                   {canEdit && (
-                    <td className="row-actions users-table__actions">
+                    <td className="row-actions users-table__actions" data-label="Actions">
                       {!d.isDeleted && (
                         <>
                           <button type="button" className="btn link-btn users-table__update" onClick={() => openUpdate(d)}>Update</button>
