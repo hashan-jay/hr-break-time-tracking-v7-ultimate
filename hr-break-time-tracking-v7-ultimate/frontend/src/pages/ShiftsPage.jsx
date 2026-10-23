@@ -138,7 +138,7 @@ export default function ShiftsPage() {
   };
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page shifts-page">
       <header className="page-header">
         <div>
           <h1>Shifts</h1>
@@ -209,16 +209,16 @@ export default function ShiftsPage() {
             <tbody>
               {visibleItems.map((s) => (
                 <tr key={s.id}>
-                  <td><strong className="users-table__name">{s.name}</strong></td>
-                  <td><span className="users-table__handle">{s.startTime} – {s.spansNextDay ? `${s.endTime} (+1)` : s.endTime}</span></td>
-                  <td><span className="users-table__role">{s.spansNextDay ? 'Overnight' : 'Same day'}</span></td>
-                  <td><span className="users-table__handle">{s.employeeCount}</span></td>
-                  <td>
+                  <td data-label="Name"><strong className="users-table__name">{s.name}</strong></td>
+                  <td data-label="Hours"><span className="users-table__handle">{s.startTime} – {s.spansNextDay ? `${s.endTime} (+1)` : s.endTime}</span></td>
+                  <td data-label="Overnight"><span className="users-table__role">{s.spansNextDay ? 'Overnight' : 'Same day'}</span></td>
+                  <td data-label="Employees"><span className="users-table__handle">{s.employeeCount}</span></td>
+                  <td data-label="Status">
                     <span className={`users-table__status ${s.isActive ? 'is-active' : 'is-inactive'}`}>
                       {s.isActive ? 'Active' : 'Inactive'}
                     </span>
                   </td>
-                  <td className="row-actions users-table__actions">
+                  <td className="row-actions users-table__actions" data-label="Actions">
                     <button type="button" className="btn link-btn users-table__update" onClick={() => startEdit(s)}>Update</button>
                     {s.isActive ? (
                       <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => deactivate(s.id)}>Deactivate</button>
