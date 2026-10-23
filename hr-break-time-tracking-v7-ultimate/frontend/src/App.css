@@ -6870,6 +6870,7 @@ html[data-theme="dark"] .perm-checks input {
 }
 
 .employees-dept-filter {
+  position: relative;
   display: grid;
   gap: 0.28rem;
   flex: 0 1 16rem;
@@ -6881,14 +6882,63 @@ html[data-theme="dark"] .perm-checks input {
   color: #5d6b64;
 }
 
-.employees-dept-filter select {
+.employees-dept-filter__button {
+  position: relative;
+  width: 100%;
   height: 2.55rem;
-  border-radius: 12px;
-  text-transform: none;
-  letter-spacing: 0;
+  padding: 0 2rem 0 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #efefef;
+  color: #1c2a24;
+  font: inherit;
   font-size: 0.92rem;
   font-weight: 600;
-  color: #1c2a24;
+  letter-spacing: 0;
+  text-align: left;
+  text-transform: none;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.employees-dept-filter__button::after {
+  content: "";
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+}
+
+.employees-dept-filter__button:focus,
+.employees-dept-filter__button[aria-expanded="true"] {
+  outline: none;
+  border-color: #14542d;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
+}
+
+.employees-dept-filter__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.28rem);
+  z-index: 30;
+  max-height: min(46vh, 16rem);
+}
+
+.employees-page .users-directory__tools {
+  position: relative;
+  z-index: 4;
+}
+
+.employees-page .users-directory {
+  overflow: visible;
 }
 
 .app-portal .users-directory__tools .btn {
@@ -7177,21 +7227,27 @@ html[data-theme="dark"] .users-editor .users-editor__check {
   color: #f5f5f5;
 }
 
-html[data-theme="dark"] .users-directory__tools .search,
-html[data-theme="dark"] .employees-dept-filter select {
+html[data-theme="dark"] .users-directory__tools .search {
   background: #1c1c1c;
   border-color: #3a3a3a;
   color: #f5f5f5;
-  color-scheme: dark;
 }
 
 html[data-theme="dark"] .employees-dept-filter {
   color: #a3a3a3;
 }
 
-html[data-theme="dark"] .employees-dept-filter option {
-  background: #171717;
+html[data-theme="dark"] .employees-dept-filter__button {
+  background: #262626;
+  border-color: #3a3a3a;
   color: #f5f5f5;
+}
+
+html[data-theme="dark"] .employees-dept-filter__button:focus,
+html[data-theme="dark"] .employees-dept-filter__button[aria-expanded="true"] {
+  border-color: #86efac;
+  background: #1c1c1c;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
 }
 
 html[data-theme="dark"] .users-editor input,
@@ -12387,6 +12443,8 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   .employees-page .users-directory__tools {
+    position: relative;
+    z-index: 4;
     flex-direction: column;
     align-items: stretch;
   }
@@ -12396,6 +12454,12 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .employees-page .users-directory__tools .btn {
     width: 100%;
     min-width: 0;
+  }
+
+  .employees-page .employees-dept-filter {
+    flex: none;
+    align-content: start;
+    gap: 0.35rem;
   }
 
   .employees-page .list-switch {

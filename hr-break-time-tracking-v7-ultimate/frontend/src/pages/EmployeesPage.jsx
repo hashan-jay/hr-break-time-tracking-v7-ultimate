@@ -32,6 +32,81 @@ function formatWhen(value) {
   return Number.isNaN(d.getTime()) ? '—' : d.toLocaleString();
 }
 
+function DepartmentFilter({ value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const selected = options.find((option) => String(option.id) === String(value));
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onPointer = (event) => {
+      if (!rootRef.current?.contains(event.target)) setOpen(false);
+    };
+    const onKey = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="employees-dept-filter" ref={rootRef}>
+      <span>Employees by department</span>
+      <button
+        type="button"
+        className="employees-dept-filter__button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label="Employees by department"
+        onClick={() => setOpen((current) => !current)}
+      >
+        {selected?.name || 'All departments'}
+      </button>
+      {open && (
+        <ul className="portal-menu employees-dept-filter__menu" role="listbox" aria-label="Employees by department">
+          <li>
+            <button
+              type="button"
+              role="option"
+              aria-selected={!value}
+              className={!value ? 'is-active' : undefined}
+              onClick={() => {
+                setOpen(false);
+                if (value) onChange('');
+              }}
+            >
+              All departments
+            </button>
+          </li>
+          {options.map((department) => {
+            const isSelected = String(department.id) === String(value);
+            return (
+              <li key={department.id}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={isSelected}
+                  className={isSelected ? 'is-active' : undefined}
+                  onClick={() => {
+                    setOpen(false);
+                    if (!isSelected) onChange(String(department.id));
+                  }}
+                >
+                  {department.name}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function EmployeeTable({
   rows,
   emptyLabel,
@@ -438,19 +513,11 @@ export default function EmployeesPage() {
         </div>
 
         <div className="users-directory__tools">
-          <label className="employees-dept-filter">
-            Employees by department
-            <select
-              value={departmentId}
-              onChange={(e) => setDepartmentId(e.target.value)}
-              aria-label="Employees by department"
-            >
-              <option value="">All departments</option>
-              {departmentOptions.map((d) => (
-                <option key={d.id} value={d.id}>{d.name}</option>
-              ))}
-            </select>
-          </label>
+          <DepartmentFilter
+            value={departmentId}
+            onChange={setDepartmentId}
+            options={departmentOptions}
+          />
           <input
             className="search"
             placeholder="Search employees…"
