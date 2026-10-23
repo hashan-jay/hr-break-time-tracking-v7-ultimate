@@ -21,6 +21,69 @@ function shiftLabel(employee) {
   return employee?.shiftDisplay || employee?.shiftName || 'Unassigned';
 }
 
+function TrackingFilterSelect({ value, onChange, disabled, label, options }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef(null);
+  const selected = options.find((option) => String(option.value) === String(value));
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onPointer = (event) => {
+      if (!rootRef.current?.contains(event.target)) setOpen(false);
+    };
+    const onKey = (event) => {
+      if (event.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('pointerdown', onPointer);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onPointer);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
+
+  return (
+    <div className="tracking-filter-select" ref={rootRef}>
+      <button
+        type="button"
+        className="portal-board__shift tracking-filter-select__button"
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label={label}
+        disabled={disabled}
+        onClick={() => setOpen((current) => !current)}
+      >
+        {selected?.label || ''}
+      </button>
+      {open && (
+        <ul className="portal-menu tracking-filter-select__menu" role="listbox" aria-label={label}>
+          {options.map((option) => {
+            const isSelected = String(option.value) === String(value);
+            return (
+              <li key={option.value || 'all'}>
+                <button
+                  type="button"
+                  role="option"
+                  aria-selected={isSelected}
+                  disabled={option.disabled}
+                  className={isSelected ? 'is-active' : undefined}
+                  onClick={() => {
+                    if (option.disabled) return;
+                    setOpen(false);
+                    if (!isSelected) onChange(option.value);
+                  }}
+                >
+                  {option.label}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+
 function trackingButtonState(employee, breakType) {
   const fields = typeFields(employee, breakType);
   const offShift = isOffShift(employee);
@@ -876,55 +939,50 @@ export default function TrackingPage() {
       <div className="portal-employee-filters tracking-filters">
         <label className="portal-employee-filter">
           <span>Shift</span>
-          <select
-            className="portal-board__shift"
+          <TrackingFilterSelect
+            label="Primary shift"
             value={shiftId}
-            onChange={(e) => {
-              const next = e.target.value;
+            onChange={(next) => {
               setShiftId(next);
               if (!next || next === shiftId2) setShiftId2('');
             }}
-            aria-label="Primary shift"
-          >
-            <option value="">All shifts</option>
-            {shifts.map((s) => (
-              <option key={s.id} value={s.id}>{s.displayLabel || s.name}</option>
-            ))}
-          </select>
+            options={[
+              { value: '', label: 'All shifts' },
+              ...shifts.map((s) => ({ value: String(s.id), label: s.displayLabel || s.name })),
+            ]}
+          />
         </label>
         <label className="portal-employee-filter">
           <span>Overlap</span>
-          <select
-            className="portal-board__shift"
+          <TrackingFilterSelect
+            label="Overlapping shift"
             value={shiftId2}
-            onChange={(e) => setShiftId2(e.target.value)}
             disabled={!shiftId}
-            aria-label="Overlapping shift"
-          >
-            <option value="">No overlap</option>
-            {shifts.map((s) => {
-              const locked = String(s.id) === String(shiftId);
-              return (
-                <option key={s.id} value={s.id} disabled={locked}>
-                  {locked ? `${s.displayLabel || s.name} (selected)` : (s.displayLabel || s.name)}
-                </option>
-              );
-            })}
-          </select>
+            onChange={setShiftId2}
+            options={[
+              { value: '', label: 'No overlap' },
+              ...shifts.map((s) => {
+                const locked = String(s.id) === String(shiftId);
+                return {
+                  value: String(s.id),
+                  label: locked ? `${s.displayLabel || s.name} (selected)` : (s.displayLabel || s.name),
+                  disabled: locked,
+                };
+              }),
+            ]}
+          />
         </label>
         <label className="portal-employee-filter">
           <span>Department</span>
-          <select
-            className="portal-board__shift"
+          <TrackingFilterSelect
+            label="Filter by department"
             value={departmentId}
-            onChange={(e) => setDepartmentId(e.target.value)}
-            aria-label="Filter by department"
-          >
-            <option value="">All departments</option>
-            {departments.map((d) => (
-              <option key={d.id} value={d.id}>{d.name}</option>
-            ))}
-          </select>
+            onChange={setDepartmentId}
+            options={[
+              { value: '', label: 'All departments' },
+              ...departments.map((d) => ({ value: String(d.id), label: d.name })),
+            ]}
+          />
         </label>
         <label className="portal-employee-filter portal-employee-filter--search">
           <span>Search</span>

@@ -1604,6 +1604,8 @@ html[data-theme="dark"] .portal-shell .portal-weather-picker__button:focus-visib
 }
 
 .tracking-page .tracking-filters {
+  position: relative;
+  z-index: 25;
   grid-template-columns: minmax(9rem, 13rem) minmax(9rem, 13rem) minmax(9rem, 13rem) minmax(14rem, 1fr);
 }
 
@@ -1922,6 +1924,31 @@ html[data-theme="dark"] .portal-shell .portal-weather-picker__button:focus-visib
   box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
 }
 
+.tracking-filter-select {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+}
+
+.tracking-filter-select__button {
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tracking-filter-select__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.28rem);
+  z-index: 40;
+  max-height: min(46vh, 16rem);
+}
+
 .tracking-page .tracking-roster .portal-onbreak-chip {
   min-height: 2.4rem;
   padding: 0.28rem 0.75rem;
@@ -2196,6 +2223,16 @@ html[data-theme="dark"] .tracking-page .tracking-capture,
 html[data-theme="dark"] .tracking-page .portal-roster.portal-board {
   background-color: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
+}
+
+html[data-theme="dark"] .tracking-page .portal-employee-filters .tracking-filter-select__button:focus,
+html[data-theme="dark"] .tracking-page .portal-employee-filters .tracking-filter-select__button[aria-expanded="true"],
+html[data-theme="dark"] .tracking-page .portal-employee-filters .portal-board__search:focus {
+  outline: none;
+  border-color: #86efac;
+  background-color: #1c1c1c;
+  color: #f5f5f5;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
 }
 
 html[data-theme="dark"] .tracking-page .portal-roster .portal-board__table th {
