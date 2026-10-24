@@ -151,7 +151,7 @@ export default function AuditPage() {
   };
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page audit-page">
       <header className="page-header no-print">
         <div>
           <h1>Audit Log</h1>
@@ -244,20 +244,20 @@ export default function AuditPage() {
               <tbody>
                 {report.rows.map((row) => (
                   <tr key={row.id}>
-                    <td><WhenCell value={row.createdAt} /></td>
-                    <td className="audit-log__employee">{row.employeeName || <span className="audit-log__empty">—</span>}</td>
-                    <td><WhenCell value={row.outTime} /></td>
-                    <td><WhenCell value={row.inTime} /></td>
-                    <td>
+                    <td data-label="When"><WhenCell value={row.createdAt} /></td>
+                    <td className="audit-log__employee" data-label="Employee">{row.employeeName || <span className="audit-log__empty">—</span>}</td>
+                    <td data-label="Out"><WhenCell value={row.outTime} /></td>
+                    <td data-label="In"><WhenCell value={row.inTime} /></td>
+                    <td data-label="User">
                       <div className="audit-log__who">
                         <span className="audit-log__user">{row.userName || row.userId || '—'}</span>
                         {row.ipAddress && <span className="audit-log__ip">{row.ipAddress}</span>}
                       </div>
                     </td>
-                    <td>
+                    <td data-label="Action">
                       <span className={`audit-action audit-action--${actionTone(row.action)}`}>{row.action}</span>
                     </td>
-                    <td>
+                    <td data-label="Entity">
                       <div className="audit-log__entity">
                         <span>{entityLabel(row.entityType)}</span>
                         <small>
@@ -266,7 +266,7 @@ export default function AuditPage() {
                         </small>
                       </div>
                     </td>
-                    <td className="audit-log__details">
+                    <td className="audit-log__details" data-label="Details">
                       <AuditDetails details={row.details} />
                     </td>
                   </tr>
