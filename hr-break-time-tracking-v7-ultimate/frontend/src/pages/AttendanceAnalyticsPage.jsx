@@ -5,6 +5,7 @@ import api, { apiErrorMessage } from '../api/client';
 import { useLiveUpdates } from '../api/liveUpdates';
 import { useAuth } from '../auth/AuthContext';
 import { StatusBadge } from '../components/UiBits';
+import StaffMenuSelect from '../components/StaffMenuSelect';
 import { useFeedback } from '../feedback/FeedbackContext';
 import { downloadHtmlReport, formatGeneratedAt, printHtmlReport } from '../lib/downloadReport';
 import { useTheme } from '../theme/ThemeContext';
@@ -322,24 +323,33 @@ export default function AttendanceAnalyticsPage() {
         </label>
         <label>
           Shift
-          <select value={shiftId} onChange={(e) => setShiftId(e.target.value)}>
-            <option value="">All active shifts</option>
-            {shifts.map((shift) => {
-              const id = entityId(shift);
-              return id ? (
-                <option key={id} value={id}>{shift.displayLabel || shift.name}</option>
-              ) : null;
-            })}
-          </select>
+          <StaffMenuSelect
+            label="Shift"
+            value={shiftId}
+            onChange={setShiftId}
+            options={[
+              { value: '', label: 'All active shifts' },
+              ...shifts.map((shift) => {
+                const id = entityId(shift);
+                return id ? { value: id, label: shift.displayLabel || shift.name } : null;
+              }).filter(Boolean),
+            ]}
+          />
         </label>
         <label>
           Department
-          <select value={departmentId} onChange={(e) => setDepartmentId(e.target.value)}>
-            <option value="">All departments</option>
-            {(report?.departmentOptions || []).map((department) => (
-              <option key={department.id} value={department.id}>{department.name}</option>
-            ))}
-          </select>
+          <StaffMenuSelect
+            label="Department"
+            value={departmentId}
+            onChange={setDepartmentId}
+            options={[
+              { value: '', label: 'All departments' },
+              ...(report?.departmentOptions || []).map((department) => ({
+                value: String(department.id),
+                label: department.name,
+              })),
+            ]}
+          />
         </label>
         <button type="submit" className="btn btn-primary" disabled={busy}>
           {busy ? 'Loading…' : 'Refresh'}

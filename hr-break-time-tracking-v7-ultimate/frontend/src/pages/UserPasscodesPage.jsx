@@ -130,7 +130,7 @@ export default function UserPasscodesPage() {
   };
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page user-passcodes-page">
       <header className="page-header">
         <div>
           <h1>User Passcodes</h1>
@@ -186,16 +186,16 @@ export default function UserPasscodesPage() {
                 )}
                 {sortedEmployees.map((e) => (
                   <tr key={e.id}>
-                    <td className="passcodes-table__code"><span>{e.employeeCode}</span></td>
-                    <td className="passcodes-table__name">{e.fullName}</td>
-                    <td>{e.departmentName}</td>
-                    <td className="passcodes-table__shift">{e.shiftDisplay || e.shiftName || '—'}</td>
-                    <td>
+                    <td className="passcodes-table__code" data-label="Code"><span>{e.employeeCode}</span></td>
+                    <td className="passcodes-table__name" data-label="Name">{e.fullName}</td>
+                    <td data-label="Department">{e.departmentName}</td>
+                    <td className="passcodes-table__shift" data-label="Shift">{e.shiftDisplay || e.shiftName || '—'}</td>
+                    <td data-label="Passcode">
                       <span className={`passcodes-table__status${e.hasPasscode ? ' is-set' : ' is-unset'}`}>
                         {e.hasPasscode ? 'Set' : 'Not set'}
                       </span>
                     </td>
-                    <td className="passcodes-table__action">
+                    <td className="passcodes-table__action" data-label="Reset">
                       <button
                         type="button"
                         className="btn passcodes-table__reset"

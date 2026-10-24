@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import api, { apiErrorMessage } from '../api/client';
 import { useLiveUpdates } from '../api/liveUpdates';
 import { StatusBadge } from '../components/UiBits';
+import StaffMenuSelect from '../components/StaffMenuSelect';
 import { useFeedback } from '../feedback/FeedbackContext';
 
 const todayIso = () => {
@@ -104,15 +105,18 @@ export default function AttendancePage() {
         </label>
         <label>
           Shift
-          <select value={shiftId} onChange={(e) => setShiftId(e.target.value)}>
-            {shifts.length === 0 && <option value="">No shifts</option>}
-            {shifts.map((shift) => {
-              const id = entityId(shift);
-              return id ? (
-                <option key={id} value={id}>{shift.displayLabel || shift.name}</option>
-              ) : null;
-            })}
-          </select>
+          <StaffMenuSelect
+            label="Shift"
+            value={shiftId}
+            onChange={setShiftId}
+            disabled={shifts.length === 0}
+            options={shifts.length === 0
+              ? [{ value: '', label: 'No shifts', disabled: true }]
+              : shifts.map((shift) => {
+                const id = entityId(shift);
+                return id ? { value: id, label: shift.displayLabel || shift.name } : null;
+              }).filter(Boolean)}
+          />
         </label>
         <button type="submit" className="btn btn-primary" disabled={busy}>
           {busy ? 'Loading…' : 'Refresh'}

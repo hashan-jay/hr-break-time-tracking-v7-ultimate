@@ -6970,6 +6970,72 @@ html[data-theme="dark"] .perm-checks input {
   max-height: min(46vh, 16rem);
 }
 
+.staff-menu-select {
+  position: relative;
+  z-index: 6;
+  min-width: 0;
+}
+
+.staff-menu-select__button {
+  position: relative;
+  width: 100%;
+  height: 2.55rem;
+  padding: 0 2rem 0 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: #efefef;
+  color: #1c2a24;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.staff-menu-select__button::after {
+  content: "";
+  position: absolute;
+  right: 0.85rem;
+  top: 50%;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-70%) rotate(45deg);
+}
+
+.staff-menu-select__button:focus,
+.staff-menu-select__button[aria-expanded="true"] {
+  outline: none;
+  border-color: #14542d;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
+}
+
+.staff-menu-select__button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.staff-menu-select__menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.28rem);
+  z-index: 40;
+  max-height: min(46vh, 16rem);
+}
+
+.attendance-page .report-filters,
+.attendance-analytics .report-filters {
+  position: relative;
+  z-index: 8;
+  overflow: visible;
+}
+
 .employees-page .users-directory__tools {
   position: relative;
   z-index: 4;
@@ -7284,6 +7350,19 @@ html[data-theme="dark"] .employees-dept-filter__button {
 
 html[data-theme="dark"] .employees-dept-filter__button:focus,
 html[data-theme="dark"] .employees-dept-filter__button[aria-expanded="true"] {
+  border-color: #86efac;
+  background: #1c1c1c;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
+}
+
+html[data-theme="dark"] .staff-menu-select__button {
+  background: #262626;
+  border-color: #3a3a3a;
+  color: #f5f5f5;
+}
+
+html[data-theme="dark"] .staff-menu-select__button:focus,
+html[data-theme="dark"] .staff-menu-select__button[aria-expanded="true"] {
   border-color: #86efac;
   background: #1c1c1c;
   box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
@@ -13202,6 +13281,156 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   html[data-theme="dark"] .users-page .users-table td::before {
+    color: #94a3b8;
+  }
+}
+
+@media (max-width: 720px) {
+  .app-portal .main-panel:has(.user-passcodes-page) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .user-passcodes-page .page-header {
+    padding: 0.95rem 1rem;
+  }
+
+  .user-passcodes-page .page-header p {
+    max-width: none;
+  }
+
+  .user-passcodes-page .passcodes-panel__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .user-passcodes-page .passcodes-panel__count {
+    width: fit-content;
+  }
+
+  .user-passcodes-page .passcodes-panel__search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .user-passcodes-page .passcodes-panel__search .search,
+  .user-passcodes-page .passcodes-panel__search .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .user-passcodes-page .passcodes-table {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .user-passcodes-page .passcodes-table table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .user-passcodes-page .passcodes-table thead {
+    display: none;
+  }
+
+  .user-passcodes-page .passcodes-table tbody {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .user-passcodes-page .passcodes-table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.6rem 0.65rem;
+    padding: 0.85rem 0.9rem 0.8rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .user-passcodes-page .passcodes-table tbody tr:has(td.empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.3rem 0;
+  }
+
+  .user-passcodes-page .passcodes-table td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .user-passcodes-page .passcodes-table td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .user-passcodes-page .passcodes-table td:nth-child(2),
+  .user-passcodes-page .passcodes-table td:nth-child(4),
+  .user-passcodes-page .passcodes-table td:nth-child(n + 6),
+  .user-passcodes-page .passcodes-table td.empty {
+    grid-column: 1 / -1;
+  }
+
+  .user-passcodes-page .passcodes-table td:nth-child(2) {
+    order: -1;
+    padding-bottom: 0.55rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .user-passcodes-page .passcodes-table td:nth-child(2)::before,
+  .user-passcodes-page .passcodes-table td.passcodes-table__action::before,
+  .user-passcodes-page .passcodes-table td.empty::before {
+    content: none;
+  }
+
+  .user-passcodes-page .passcodes-table__name {
+    font-size: 1.05rem;
+  }
+
+  .user-passcodes-page .passcodes-table__code span,
+  .user-passcodes-page .passcodes-table__shift,
+  .user-passcodes-page .passcodes-table__status {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    height: auto;
+    min-height: 2.15rem;
+    justify-content: flex-start;
+    white-space: normal;
+    line-height: 1.3;
+  }
+
+  .user-passcodes-page .passcodes-table__reset {
+    width: 100%;
+    justify-content: center;
+  }
+
+  html[data-theme="dark"] .user-passcodes-page .passcodes-table td:nth-child(2) {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .user-passcodes-page .passcodes-table tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .user-passcodes-page .passcodes-table tbody tr:has(td.empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .user-passcodes-page .passcodes-table td::before {
     color: #94a3b8;
   }
 }
