@@ -13497,6 +13497,28 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     width: fit-content;
   }
 
+  .audit-page .audit-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .audit-page .audit-actions__item {
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    justify-content: space-between;
+  }
+
+  .audit-page .audit-actions__item > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .audit-page .audit-actions__item strong {
+    flex-shrink: 0;
+  }
+
   .audit-page .audit-log {
     overflow: visible;
     max-width: 100%;
