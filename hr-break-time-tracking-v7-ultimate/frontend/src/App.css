@@ -13384,7 +13384,6 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
 
   .user-passcodes-page .passcodes-table td:nth-child(2),
   .user-passcodes-page .passcodes-table td:nth-child(4),
-  .user-passcodes-page .passcodes-table td:nth-child(n + 6),
   .user-passcodes-page .passcodes-table td.empty {
     grid-column: 1 / -1;
   }
@@ -13418,8 +13417,15 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     line-height: 1.3;
   }
 
+  .user-passcodes-page .passcodes-table td.passcodes-table__action {
+    align-self: end;
+    justify-items: end;
+  }
+
   .user-passcodes-page .passcodes-table__reset {
-    width: 100%;
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
     justify-content: center;
   }
 
