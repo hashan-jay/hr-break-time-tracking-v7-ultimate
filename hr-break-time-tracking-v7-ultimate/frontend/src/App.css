@@ -5451,21 +5451,27 @@ html[data-theme="dark"] .staff-console-page .staff-results h2 {
 }
 
 .staff-console-page .passcodes-panel__search .search {
-  height: 2.6rem;
-  border: 1px solid #d7e0db;
+  box-sizing: border-box;
+  height: 3rem;
+  min-height: 3rem;
+  font-size: 1rem;
+  border: 1px solid var(--line);
   border-radius: 12px;
-  background: #fff;
-  padding: 0 0.9rem;
+  background: var(--input-bg);
+  color: var(--ink);
+  padding: 0 0.95rem;
 }
 
 .staff-console-page .passcodes-panel__search .search:focus {
+  outline: none;
   border-color: #14542d;
   background: #fff;
   box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.16);
 }
 
 .passcodes-panel__search .btn {
-  height: 2.6rem;
+  height: 2.55rem;
+  min-height: 2.55rem;
   border-radius: 999px;
   padding-inline: 1.05rem;
 }
@@ -5589,13 +5595,6 @@ html[data-theme="dark"] .staff-console-page .staff-results h2 {
 html[data-theme="dark"] .passcodes-panel__count,
 html[data-theme="dark"] .passcodes-table__code span {
   background: #262626;
-  color: #f5f5f5;
-}
-
-html[data-theme="dark"] .staff-console-page .passcodes-panel__search .search,
-html[data-theme="dark"] .staff-console-page .passcodes-panel__search .search:focus {
-  background: #262626;
-  border-color: #3a3a3a;
   color: #f5f5f5;
 }
 
@@ -7332,10 +7331,18 @@ html[data-theme="dark"] .users-editor .users-editor__check {
   color: #f5f5f5;
 }
 
-html[data-theme="dark"] .users-directory__tools .search {
+html[data-theme="dark"] .users-directory__tools .search,
+html[data-theme="dark"] .staff-console-page .passcodes-panel__search .search {
   background: #1c1c1c;
   border-color: #3a3a3a;
   color: #f5f5f5;
+}
+
+html[data-theme="dark"] .staff-console-page .passcodes-panel__search .search:focus {
+  outline: none;
+  border-color: #86efac;
+  background: #1c1c1c;
+  box-shadow: 0 0 0 3px rgba(134, 239, 172, 0.18);
 }
 
 html[data-theme="dark"] .employees-dept-filter {
