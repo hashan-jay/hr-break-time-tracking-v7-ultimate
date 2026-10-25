@@ -64,4 +64,14 @@ public class ShiftsController : ControllerBase
         if (!ok) return BadRequest(new ApiMessage(error ?? "Deactivate failed."));
         return Ok(new ApiMessage("Shift deactivated."));
     }
+
+    [HttpDelete("{id:int}")]
+    [Authorize(Roles = AppRoles.Developer)]
+    [RequireSection(AppSections.Shifts)]
+    public async Task<ActionResult<ApiMessage>> Delete(int id)
+    {
+        var (ok, error) = await _service.DeleteAsync(id, User.GetUserId());
+        if (!ok) return BadRequest(new ApiMessage(error ?? "Delete failed."));
+        return Ok(new ApiMessage("Shift permanently deleted."));
+    }
 }

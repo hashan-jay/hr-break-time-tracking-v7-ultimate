@@ -12,6 +12,7 @@ public interface IShiftService
     Task<(bool Ok, string? Error, ShiftDto? Data)> CreateAsync(CreateShiftRequest request, string? userId);
     Task<(bool Ok, string? Error, ShiftDto? Data)> UpdateAsync(int id, UpdateShiftRequest request, string? userId);
     Task<(bool Ok, string? Error)> DeactivateAsync(int id, string? userId);
+    Task<(bool Ok, string? Error)> DeleteAsync(int id, string? userId);
 }
 
 public class ShiftService : IShiftService
@@ -168,6 +169,29 @@ public class ShiftService : IShiftService
         await _db.SaveChangesAsync();
         await _audit.LogAsync(userId, "Deactivate", "Shift", entity.Id.ToString(), $"Deactivated shift '{entity.Name}'.");
         await _liveUpdates.NotifyAsync("shifts");
+        return (true, null);
+    }
+
+    public async Task<(bool Ok, string? Error)> DeleteAsync(int id, string? userId)
+    {
+        var entity = await _db.Shifts.FirstOrDefaultAsync(s => s.Id == id);
+        if (entity is null) return (false, "Shift not found.");
+
+        var name = entity.Name;
+        var limits = await _db.ShiftDepartmentBreakLimits.Where(x => x.ShiftId == id).ToListAsync();
+        var employees = await _db.Employees.Where(e => e.ShiftId == id).ToListAsync();
+
+        _db.ShiftDepartmentBreakLimits.RemoveRange(limits);
+        foreach (var employee in employees)
+            employee.ShiftId = null;
+
+        _db.Shifts.Remove(entity);
+        await _db.SaveChangesAsync();
+        await _audit.LogAsync(userId, "Delete", "Shift", id.ToString(),
+            $"Permanently deleted shift '{name}' and cleared it from {employees.Count} employee record(s).");
+        await _liveUpdates.NotifyAsync("shifts");
+        if (employees.Count > 0)
+            await _liveUpdates.NotifyAsync("employees");
         return (true, null);
     }
 }

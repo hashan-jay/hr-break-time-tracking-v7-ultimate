@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import api from '../api/client';
+import { useAuth } from '../auth/AuthContext';
 import { useFeedback } from '../feedback/FeedbackContext';
 
 const HALF_HOUR_OPTIONS = Array.from({ length: 48 }, (_, i) => {
@@ -17,6 +18,7 @@ const emptyForm = {
 
 export default function ShiftsPage() {
   const { toast, confirm } = useFeedback();
+  const { isDeveloper } = useAuth();
   const [items, setItems] = useState([]);
   const [form, setForm] = useState(emptyForm);
   const [editingId, setEditingId] = useState(null);
@@ -137,6 +139,24 @@ export default function ShiftsPage() {
     }
   };
 
+  const remove = async (shift) => {
+    const ok = await confirm({
+      title: 'Delete shift',
+      message: `Permanently delete ${shift.name}? This removes the shift record from the system. Employees assigned to it will have no shift.`,
+      confirmLabel: 'Delete',
+      tone: 'danger',
+    });
+    if (!ok) return;
+    try {
+      await api.delete(`/shifts/${shift.id}`);
+      toast.success('Shift permanently deleted.');
+      if (editingId === shift.id) closeEditor();
+      await load();
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Delete failed.');
+    }
+  };
+
   return (
     <div className="page staff-console-page shifts-page">
       <header className="page-header">
@@ -219,11 +239,18 @@ export default function ShiftsPage() {
                     </span>
                   </td>
                   <td className="row-actions users-table__actions" data-label="Actions">
-                    <button type="button" className="btn link-btn users-table__update" onClick={() => startEdit(s)}>Update</button>
                     {s.isActive ? (
-                      <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => deactivate(s.id)}>Deactivate</button>
+                      <>
+                        <button type="button" className="btn link-btn users-table__update" onClick={() => startEdit(s)}>Update</button>
+                        <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => deactivate(s.id)}>Deactivate</button>
+                      </>
                     ) : (
-                      <button type="button" className="btn link-btn users-table__activate" onClick={() => activate(s)}>Activate</button>
+                      <>
+                        <button type="button" className="btn link-btn users-table__activate" onClick={() => activate(s)}>Activate</button>
+                        {isDeveloper && (
+                          <button type="button" className="btn link-btn danger users-table__deactivate" onClick={() => remove(s)}>Delete</button>
+                        )}
+                      </>
                     )}
                   </td>
                 </tr>
