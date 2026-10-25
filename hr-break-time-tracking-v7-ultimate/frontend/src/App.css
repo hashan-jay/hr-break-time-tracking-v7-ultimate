@@ -13615,7 +13615,7 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1366px) {
   .attendance-analytics .analytics-people .list-switch {
     display: flex;
     flex-direction: column;
@@ -13683,6 +13683,14 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 1rem;
     background: #fff;
+  }
+
+  .attendance-analytics .analytics-people tr.analytics-row-over {
+    border-left: 3px solid var(--red);
+  }
+
+  .attendance-analytics .analytics-people tr.analytics-row-over td:first-child {
+    box-shadow: none;
   }
 
   .attendance-analytics .analytics-people tbody tr:has(td.empty) {
