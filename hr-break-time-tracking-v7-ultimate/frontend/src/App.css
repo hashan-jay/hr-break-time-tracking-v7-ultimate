@@ -12638,18 +12638,19 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
 
   .employees-page .users-table tbody {
     display: grid;
-    gap: 0.65rem;
+    gap: 0.8rem;
     padding: 0.75rem 0.8rem 0.9rem;
   }
 
   .employees-page .users-table tbody tr {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 0.6rem 0.65rem;
-    padding: 0.85rem 0.9rem 0.8rem;
+    gap: 0.7rem 0.75rem;
+    padding: 1rem 0.95rem 0.9rem;
     border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 1rem;
+    border-radius: 1.05rem;
     background: #fff;
+    box-shadow: 0 8px 22px rgba(15, 23, 42, 0.04);
   }
 
   .employees-page .users-table tbody tr:has(.users-table__empty) {
@@ -12672,7 +12673,7 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .employees-page .users-table td::before {
     content: attr(data-label);
     color: #64748b;
-    font-size: 0.62rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
@@ -12698,8 +12699,10 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   .employees-page .users-table__name {
-    font-size: 1.05rem;
-    line-height: 1.25;
+    display: block;
+    font-size: 1.12rem;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
   }
 
   .employees-page .users-table__handle,
@@ -12707,26 +12710,38 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .employees-page .users-table__status {
     box-sizing: border-box;
     width: 100%;
+    max-width: 100%;
     height: auto;
-    min-height: 2.15rem;
+    min-height: 2.35rem;
     justify-content: flex-start;
     white-space: normal;
-    line-height: 1.3;
-    padding: 0.4rem 0.7rem;
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+    padding: 0.45rem 0.75rem;
   }
 
   .employees-page .users-table td.users-table__actions {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: 0.15rem;
+    align-items: stretch;
+    gap: 0.55rem;
+    width: auto;
+    margin-top: 0.1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(15, 23, 42, 0.08);
+    white-space: normal;
   }
 
   .employees-page .users-table .users-table__update,
   .employees-page .users-table .users-table__activate,
   .employees-page .users-table .users-table__deactivate {
     flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+    min-height: 2.75rem;
+    margin: 0;
+    padding: 0.55rem 0.7rem;
+    font-size: 0.92rem;
     justify-content: center;
     text-align: center;
   }
@@ -12737,8 +12752,9 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     overflow: auto;
   }
 
-  html[data-theme="dark"] .employees-page .users-table td:nth-child(1) {
-    border-bottom-color: rgba(255, 255, 255, 0.1);
+  html[data-theme="dark"] .employees-page .users-table td:nth-child(1),
+  html[data-theme="dark"] .employees-page .users-table td.users-table__actions {
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
   html[data-theme="dark"] .employees-page .users-table tbody tr {
