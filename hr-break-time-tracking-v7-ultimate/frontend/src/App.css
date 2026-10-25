@@ -14107,9 +14107,11 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   .reports-page .absent-switch {
-    width: 100%;
+    width: fit-content;
+    max-width: 100%;
     min-height: 2.75rem;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 0.7rem;
   }
 
   .reports-page .stats-grid.compact {
@@ -14158,16 +14160,36 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     text-transform: uppercase;
   }
 
+  .reports-page .attendance-table-block {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .reports-page .attendance-table-block + .attendance-table-block {
+    margin-top: 0.35rem;
+  }
+
+  .reports-page .attendance-table-block h3 {
+    margin: 0.2rem 0 0.65rem;
+  }
+
   .reports-page .attendance-table-block .table-wrap,
   .reports-page .staff-results > .table-wrap {
     overflow: visible;
     max-width: 100%;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
   }
 
   .reports-page .attendance-table-block table,
-  .reports-page .staff-results > .table-wrap table {
+  .reports-page .attendance-table-block tbody,
+  .reports-page .staff-results > .table-wrap table,
+  .reports-page .staff-results > .table-wrap tbody {
     display: block;
     width: 100%;
+    max-width: 100%;
     min-width: 0;
   }
 
@@ -14180,6 +14202,8 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .reports-page .staff-results > .table-wrap tbody {
     display: grid;
     gap: 0.75rem;
+    width: 100%;
+    min-width: 0;
   }
 
   .reports-page .attendance-table-block tbody tr,
@@ -14187,6 +14211,10 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 0.65rem 0.75rem;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
     padding: 0.9rem;
     border: 1px solid rgba(15, 23, 42, 0.08);
     border-radius: 1rem;
@@ -14234,9 +14262,17 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .reports-page .attendance-table-block tbody tr:has(td.empty),
   .reports-page .staff-results > .table-wrap tbody tr:has(td.empty) {
     display: block;
+    width: 100%;
     background: transparent;
     border: 0;
     padding: 0.3rem 0;
+  }
+
+  .reports-page .attendance-table-block tbody tr:has(td.empty) td,
+  .reports-page .staff-results > .table-wrap tbody tr:has(td.empty) td {
+    display: block;
+    width: 100%;
+    grid-area: auto;
   }
 
   .reports-page .attendance-table-block td,
