@@ -70,14 +70,14 @@ function AttendancePeopleTable({ title, rows, empty }) {
           <tbody>
             {rows.map((row) => (
               <tr key={`${row.date}-${row.shiftId}-${row.employeeId}`}>
-                <td>{row.date}</td>
-                <td>{row.employeeCode}</td>
-                <td>{row.employeeName}</td>
-                <td>{row.departmentName}</td>
-                <td>{row.shiftDisplay || row.shiftName || '—'}</td>
-                <td>{row.breakSummary || '—'}</td>
-                <td>{formatWhen(row.lastEndedAt)}</td>
-                <td><StatusBadge status={row.status} color={row.statusColor} /></td>
+                <td data-label="Date">{row.date}</td>
+                <td data-label="Code">{row.employeeCode}</td>
+                <td data-label="Employee">{row.employeeName}</td>
+                <td data-label="Department">{row.departmentName}</td>
+                <td data-label="Shift">{row.shiftDisplay || row.shiftName || '—'}</td>
+                <td data-label="Breaks ended">{row.breakSummary || '—'}</td>
+                <td data-label="Last ended">{formatWhen(row.lastEndedAt)}</td>
+                <td data-label="Status"><StatusBadge status={row.status} color={row.statusColor} /></td>
               </tr>
             ))}
             {!rows.length && (
@@ -293,7 +293,7 @@ export default function ReportsPage() {
   const attendanceHint = absentNote(attendanceReport);
 
   return (
-    <div className="page staff-console-page">
+    <div className="page staff-console-page reports-page">
       <header className="page-header no-print">
         <div>
           <h1>Reports</h1>
@@ -526,15 +526,15 @@ export default function ReportsPage() {
               <tbody>
                 {report.rows.map((r) => (
                   <tr key={`${r.employeeId}-${r.date}-${r.periodLabel || ''}`}>
-                    <td>{r.periodLabel || r.date}</td>
-                    <td>{r.employeeCode}</td>
-                    <td>{r.employeeName}</td>
-                    <td>{r.departmentName}</td>
-                    <td>{r.shiftName || '—'}</td>
-                    <td>{r.mealBreakDisplay}</td>
-                    <td><StatusBadge status={r.mealStatus} color={r.mealStatusColor} /></td>
-                    <td>{r.comfortBreakDisplay}</td>
-                    <td><StatusBadge status={r.comfortStatus} color={r.comfortStatusColor} /></td>
+                    <td data-label="Period">{r.periodLabel || r.date}</td>
+                    <td data-label="Code">{r.employeeCode}</td>
+                    <td data-label="Employee">{r.employeeName}</td>
+                    <td data-label="Department">{r.departmentName}</td>
+                    <td data-label="Shift">{r.shiftName || '—'}</td>
+                    <td data-label="Meal total">{r.mealBreakDisplay}</td>
+                    <td data-label="Meal status"><StatusBadge status={r.mealStatus} color={r.mealStatusColor} /></td>
+                    <td data-label="Comfort total">{r.comfortBreakDisplay}</td>
+                    <td data-label="Comfort status"><StatusBadge status={r.comfortStatus} color={r.comfortStatusColor} /></td>
                   </tr>
                 ))}
                 {!report.rows.length && (

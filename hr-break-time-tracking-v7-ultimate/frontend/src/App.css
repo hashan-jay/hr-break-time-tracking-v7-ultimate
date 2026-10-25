@@ -14001,3 +14001,233 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     border-color: rgba(255, 255, 255, 0.1);
   }
 }
+
+@media (max-width: 720px) {
+  .app-portal .main-panel:has(.reports-page) {
+    padding: 0.85rem 0.8rem 1.25rem;
+  }
+
+  .reports-page {
+    min-width: 0;
+  }
+
+  .reports-page .page-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+    padding: 0.95rem 1rem;
+  }
+
+  .reports-page .page-header p {
+    max-width: none;
+    overflow-wrap: anywhere;
+  }
+
+  .reports-page .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .reports-page .header-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .reports-page .reports-kind {
+    display: flex;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .reports-page .reports-kind .list-switch__btn {
+    flex: 1 1 0;
+    justify-content: center;
+    min-width: 0;
+    text-align: center;
+  }
+
+  .reports-page .report-filters {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .reports-page .report-filters label,
+  .reports-page .report-filters input,
+  .reports-page .report-filters select,
+  .reports-page .report-filters .btn {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .reports-page .report-filters .btn {
+    justify-self: stretch;
+  }
+
+  .reports-page .staff-results.headlines-card {
+    min-width: 0;
+    padding: 0.9rem 0.85rem 1rem;
+  }
+
+  .reports-page .list-panel__head,
+  .reports-page .attendance-results__head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+
+  .reports-page .list-panel__hint {
+    overflow-wrap: anywhere;
+  }
+
+  .reports-page .attendance-results__tools {
+    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .reports-page .stats-grid.compact {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .reports-page .attendance-table-block .table-wrap,
+  .reports-page .staff-results > .table-wrap {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .reports-page .attendance-table-block table,
+  .reports-page .staff-results > .table-wrap table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .reports-page .attendance-table-block thead,
+  .reports-page .staff-results > .table-wrap thead {
+    display: none;
+  }
+
+  .reports-page .attendance-table-block tbody,
+  .reports-page .staff-results > .table-wrap tbody {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .reports-page .attendance-table-block tbody tr,
+  .reports-page .staff-results > .table-wrap tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.65rem 0.75rem;
+    padding: 0.9rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .reports-page .attendance-table-block tbody tr {
+    grid-template-areas:
+      "name name"
+      "date code"
+      "dept shift"
+      "breaks ended"
+      "status status";
+  }
+
+  .reports-page .attendance-table-block td:nth-child(1) { grid-area: date; }
+  .reports-page .attendance-table-block td:nth-child(2) { grid-area: code; }
+  .reports-page .attendance-table-block td:nth-child(3) { grid-area: name; }
+  .reports-page .attendance-table-block td:nth-child(4) { grid-area: dept; }
+  .reports-page .attendance-table-block td:nth-child(5) { grid-area: shift; }
+  .reports-page .attendance-table-block td:nth-child(6) { grid-area: breaks; }
+  .reports-page .attendance-table-block td:nth-child(7) { grid-area: ended; }
+  .reports-page .attendance-table-block td:nth-child(8) { grid-area: status; }
+
+  .reports-page .staff-results > .table-wrap tbody tr {
+    grid-template-areas:
+      "name name"
+      "period period"
+      "code dept"
+      "shift shift"
+      "meal mealstatus"
+      "comfort comfortstatus";
+  }
+
+  .reports-page .staff-results > .table-wrap td:nth-child(1) { grid-area: period; }
+  .reports-page .staff-results > .table-wrap td:nth-child(2) { grid-area: code; }
+  .reports-page .staff-results > .table-wrap td:nth-child(3) { grid-area: name; }
+  .reports-page .staff-results > .table-wrap td:nth-child(4) { grid-area: dept; }
+  .reports-page .staff-results > .table-wrap td:nth-child(5) { grid-area: shift; }
+  .reports-page .staff-results > .table-wrap td:nth-child(6) { grid-area: meal; }
+  .reports-page .staff-results > .table-wrap td:nth-child(7) { grid-area: mealstatus; }
+  .reports-page .staff-results > .table-wrap td:nth-child(8) { grid-area: comfort; }
+  .reports-page .staff-results > .table-wrap td:nth-child(9) { grid-area: comfortstatus; }
+
+  .reports-page .attendance-table-block tbody tr:has(td.empty),
+  .reports-page .staff-results > .table-wrap tbody tr:has(td.empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.3rem 0;
+  }
+
+  .reports-page .attendance-table-block td,
+  .reports-page .staff-results > .table-wrap td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .reports-page .attendance-table-block td::before,
+  .reports-page .staff-results > .table-wrap td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .reports-page .attendance-table-block td:nth-child(3),
+  .reports-page .staff-results > .table-wrap td:nth-child(3) {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .reports-page .attendance-table-block td.empty::before,
+  .reports-page .staff-results > .table-wrap td.empty::before {
+    content: none;
+  }
+
+  html[data-theme="dark"] .reports-page .attendance-table-block tbody tr,
+  html[data-theme="dark"] .reports-page .staff-results > .table-wrap tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .reports-page .attendance-table-block tbody tr:has(td.empty),
+  html[data-theme="dark"] .reports-page .staff-results > .table-wrap tbody tr:has(td.empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .reports-page .attendance-table-block td:nth-child(3),
+  html[data-theme="dark"] .reports-page .staff-results > .table-wrap td:nth-child(3) {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .reports-page .attendance-table-block td::before,
+  html[data-theme="dark"] .reports-page .staff-results > .table-wrap td::before {
+    color: #94a3b8;
+  }
+}
