@@ -185,7 +185,18 @@ export default function AttendanceAnalyticsPage() {
   const [view, setView] = useState('over');
   const [query, setQuery] = useState('');
   const [sort, setSort] = useState({ key: 'excessDays', dir: 'desc' });
+  const [compactChart, setCompactChart] = useState(() => (
+    typeof window !== 'undefined' && window.matchMedia('(max-width: 720px)').matches
+  ));
   const requestRef = useRef(0);
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 720px)');
+    const sync = () => setCompactChart(media.matches);
+    sync();
+    media.addEventListener('change', sync);
+    return () => media.removeEventListener('change', sync);
+  }, []);
 
   useEffect(() => {
     api.get('/attendance/shifts')
@@ -416,10 +427,15 @@ export default function AttendanceAnalyticsPage() {
             {chartData.length > 0 ? (
               <div className="analytics-chart">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={chartData} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
+                  <BarChart data={chartData} margin={{ top: 8, right: compactChart ? 2 : 8, left: compactChart ? -18 : 0, bottom: 0 }}>
                     <CartesianGrid stroke={grid} vertical={false} />
-                    <XAxis dataKey="label" tick={{ fill: axis, fontSize: 12 }} interval="preserveStartEnd" />
-                    <YAxis allowDecimals={false} tick={{ fill: axis, fontSize: 12 }} width={36} />
+                    <XAxis
+                      dataKey="label"
+                      tick={{ fill: axis, fontSize: compactChart ? 10 : 12 }}
+                      interval={compactChart ? 6 : 'preserveStartEnd'}
+                      minTickGap={compactChart ? 8 : 16}
+                    />
+                    <YAxis allowDecimals={false} tick={{ fill: axis, fontSize: compactChart ? 10 : 12 }} width={compactChart ? 32 : 36} />
                     <Tooltip
                       cursor={{ fill: isDark ? 'rgba(255,255,255,0.04)' : 'rgba(20,84,45,0.06)' }}
                       contentStyle={{
@@ -429,7 +445,7 @@ export default function AttendanceAnalyticsPage() {
                         boxShadow: '0 16px 40px rgba(15, 23, 42, 0.12)',
                       }}
                     />
-                    <Legend />
+                    <Legend iconSize={compactChart ? 10 : 14} wrapperStyle={{ fontSize: compactChart ? 12 : 14 }} />
                     <Bar dataKey="present" name="Present" fill={presentColor} radius={[8, 8, 0, 0]} maxBarSize={22} />
                     <Bar dataKey="holiday" name="Holiday" fill={holidayColor} radius={[8, 8, 0, 0]} maxBarSize={22} />
                     <Bar dataKey="pending" name="In progress" fill={pendingColor} radius={[8, 8, 0, 0]} maxBarSize={22} />
