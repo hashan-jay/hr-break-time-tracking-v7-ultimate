@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
+import StaffMenuSelect from '../components/StaffMenuSelect';
 import { StatusBadge } from '../components/UiBits';
 import { renderBreakReportHtml } from '../components/BreakReportDocument';
 import { absentNote, splitAttendanceRows, renderAttendanceReportHtml } from '../components/AttendanceReportDocument';
@@ -128,6 +129,43 @@ export default function ReportsPage() {
       return empDept === dept;
     });
   }, [employees, departmentId]);
+
+  const shiftOptions = useMemo(() => ([
+    { value: '', label: 'All shifts' },
+    ...shifts.map((shift) => {
+      const id = entityId(shift);
+      return id ? { value: id, label: shift.displayLabel || shift.name } : null;
+    }).filter(Boolean),
+  ]), [shifts]);
+
+  const departmentOptions = useMemo(() => ([
+    { value: '', label: 'All' },
+    ...departments.map((department) => {
+      const id = entityId(department);
+      return id ? { value: id, label: department.name } : null;
+    }).filter(Boolean),
+  ]), [departments]);
+
+  const employeeSelectOptions = useMemo(() => ([
+    { value: '', label: 'All' },
+    ...employeeOptions.map((emp) => {
+      const id = entityId(emp);
+      if (!id) return null;
+      const code = emp.employeeCode ? ` (${emp.employeeCode})` : '';
+      const deactivated = emp.isDeactivated ? ' — deactivated' : '';
+      return { value: id, label: `${emp.fullName}${code}${deactivated}` };
+    }).filter(Boolean),
+  ]), [employeeOptions]);
+
+  const onDepartmentChange = (next) => {
+    setDepartmentId(next);
+    const stillVisible = (employees || []).some((emp) => {
+      if (entityId(emp) !== employeeId) return false;
+      if (!queryId(next)) return true;
+      return Number(emp.departmentId ?? emp.DepartmentId) === queryId(next);
+    });
+    if (!stillVisible) setEmployeeId('');
+  };
 
   const filters = useMemo(() => ({
     departmentName: departments.find((d) => entityId(d) === String(departmentId))?.name,
@@ -351,49 +389,30 @@ export default function ReportsPage() {
         </label>
         <label>
           Shift
-          <select value={shiftId} onChange={(e) => setShiftId(e.target.value)}>
-            <option value="">All shifts</option>
-            {shifts.map((s) => {
-              const id = entityId(s);
-              return id ? <option key={id} value={id}>{s.displayLabel || s.name}</option> : null;
-            })}
-          </select>
+          <StaffMenuSelect
+            label="Shift"
+            value={shiftId}
+            onChange={setShiftId}
+            options={shiftOptions}
+          />
         </label>
         <label>
           Department
-          <select
+          <StaffMenuSelect
+            label="Department"
             value={departmentId}
-            onChange={(e) => {
-              const next = e.target.value;
-              setDepartmentId(next);
-              const stillVisible = (employees || []).some((emp) => {
-                if (entityId(emp) !== employeeId) return false;
-                if (!queryId(next)) return true;
-                return Number(emp.departmentId ?? emp.DepartmentId) === queryId(next);
-              });
-              if (!stillVisible) setEmployeeId('');
-            }}
-          >
-            <option value="">All</option>
-            {departments.map((d) => {
-              const id = entityId(d);
-              return id ? <option key={id} value={id}>{d.name}</option> : null;
-            })}
-          </select>
+            onChange={onDepartmentChange}
+            options={departmentOptions}
+          />
         </label>
         <label>
           Employee
-          <select value={employeeId} onChange={(e) => setEmployeeId(e.target.value)}>
-            <option value="">All</option>
-            {employeeOptions.map((emp) => {
-              const id = entityId(emp);
-              return id ? (
-                <option key={id} value={id}>
-                  {emp.fullName}{emp.employeeCode ? ` (${emp.employeeCode})` : ''}{emp.isDeactivated ? ' — deactivated' : ''}
-                </option>
-              ) : null;
-            })}
-          </select>
+          <StaffMenuSelect
+            label="Employee"
+            value={employeeId}
+            onChange={setEmployeeId}
+            options={employeeSelectOptions}
+          />
         </label>
         <button type="submit" className="btn btn-primary" disabled={busy}>
           {busy ? 'Generating…' : 'Generate'}

@@ -7031,6 +7031,18 @@ html[data-theme="dark"] .perm-checks input {
   max-height: min(46vh, 16rem);
 }
 
+.staff-menu-select:has(.staff-menu-select__button[aria-expanded="true"]),
+.employees-dept-filter:has(.employees-dept-filter__button[aria-expanded="true"]) {
+  z-index: 30;
+}
+
+.report-filters:has(.staff-menu-select__button[aria-expanded="true"]),
+.users-directory__tools:has(.employees-dept-filter__button[aria-expanded="true"]) {
+  position: relative;
+  z-index: 12;
+  overflow: visible;
+}
+
 .attendance-page .report-filters,
 .attendance-analytics .report-filters {
   position: relative;
@@ -14229,5 +14241,76 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   html[data-theme="dark"] .reports-page .attendance-table-block td::before,
   html[data-theme="dark"] .reports-page .staff-results > .table-wrap td::before {
     color: #94a3b8;
+  }
+
+  .reports-page .report-filters {
+    overflow: visible;
+  }
+
+  .reports-page .staff-menu-select,
+  .reports-page .staff-menu-select__button,
+  .employees-page .employees-dept-filter,
+  .employees-page .employees-dept-filter__button,
+  .attendance-page .staff-menu-select,
+  .attendance-page .staff-menu-select__button,
+  .attendance-analytics .staff-menu-select,
+  .attendance-analytics .staff-menu-select__button {
+    width: 100%;
+  }
+
+  .staff-menu-select__button,
+  .employees-dept-filter__button {
+    height: 2.85rem;
+    font-size: 1rem;
+  }
+
+  .staff-menu-select__menu,
+  .employees-dept-filter__menu {
+    max-height: min(42vh, 15rem);
+  }
+
+  .staff-menu-select__menu button,
+  .employees-dept-filter__menu button {
+    min-height: 2.75rem;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.98rem;
+  }
+}
+
+@media (min-width: 721px) and (max-width: 1366px) {
+  .reports-page .report-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    overflow: visible;
+  }
+
+  .reports-page .report-filters .btn {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+  }
+
+  .reports-page .staff-menu-select,
+  .attendance-page .staff-menu-select,
+  .attendance-analytics .staff-menu-select,
+  .employees-page .employees-dept-filter {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .staff-menu-select__button,
+  .employees-dept-filter__button {
+    height: 2.7rem;
+    font-size: 0.95rem;
+  }
+
+  .staff-menu-select__menu,
+  .employees-dept-filter__menu {
+    max-height: min(36vh, 18rem);
+  }
+
+  .staff-menu-select__menu button,
+  .employees-dept-filter__menu button {
+    min-height: 2.5rem;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.92rem;
   }
 }
