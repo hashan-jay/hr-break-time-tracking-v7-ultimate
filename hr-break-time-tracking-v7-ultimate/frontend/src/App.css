@@ -12598,6 +12598,10 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     min-width: 0;
   }
 
+  .employees-page .users-directory__tools .employees-search-submit {
+    display: none;
+  }
+
   .employees-page .employees-dept-filter {
     flex: none;
     align-content: start;

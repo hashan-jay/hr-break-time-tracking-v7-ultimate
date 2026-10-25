@@ -526,7 +526,7 @@ export default function EmployeesPage() {
             onKeyDown={(e) => e.key === 'Enter' && setAppliedSearch(search.trim())}
             aria-label="Search employees"
           />
-          <button type="button" className="btn btn-ghost" onClick={() => setAppliedSearch(search.trim())}>Search</button>
+          <button type="button" className="btn btn-ghost employees-search-submit" onClick={() => setAppliedSearch(search.trim())}>Search</button>
         </div>
 
         {canDeactivate && (
