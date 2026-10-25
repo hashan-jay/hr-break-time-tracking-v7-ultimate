@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import api, { apiErrorMessage } from '../api/client';
 import { adjustTimeBounds, formatElapsed, splitElapsed } from '../lib/breakHelpers';
 import { StatusBadge } from './UiBits';
+import StaffMenuSelect from './StaffMenuSelect';
 import { useFeedback } from '../feedback/FeedbackContext';
 
 function todayIso() {
@@ -199,13 +200,19 @@ export default function AdjustTimeSection() {
         </label>
         <label className="adjust-time-field">
           Shift
-          <select value={shiftId} onChange={(e) => setShiftId(e.target.value)}>
-            <option value="">All shifts</option>
-            {hasUnassigned && <option value="none">No shift</option>}
-            {shifts.map((shift) => (
-              <option key={shift.id} value={shift.id}>{shift.displayLabel || shift.name}</option>
-            ))}
-          </select>
+          <StaffMenuSelect
+            label="Shift"
+            value={shiftId}
+            onChange={setShiftId}
+            options={[
+              { value: '', label: 'All shifts' },
+              ...(hasUnassigned ? [{ value: 'none', label: 'No shift' }] : []),
+              ...shifts.map((shift) => ({
+                value: String(shift.id),
+                label: shift.displayLabel || shift.name,
+              })),
+            ]}
+          />
         </label>
         <label className="adjust-time-date">
           Shift start date

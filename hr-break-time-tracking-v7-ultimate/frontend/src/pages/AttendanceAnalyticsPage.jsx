@@ -468,7 +468,7 @@ export default function AttendanceAnalyticsPage() {
             </div>
           </section>
 
-          <section className="staff-results headlines-card">
+          <section className="staff-results headlines-card analytics-people">
             <header className="list-panel__head">
               <div>
                 <h2>People</h2>
@@ -554,18 +554,18 @@ export default function AttendanceAnalyticsPage() {
                 <tbody>
                   {rows.map((row) => (
                     <tr key={row.employeeId} className={row.exceedsLimit ? 'analytics-row-over' : undefined}>
-                      <td>
+                      <td data-label="Employee">
                         <strong>{row.fullName}</strong>
                         <div className="muted mono">{row.employeeCode}</div>
                       </td>
-                      <td>{row.departmentName}</td>
-                      <td>{row.shiftName}</td>
-                      <td>{row.holidayDays} / {row.holidayDayLimit}</td>
-                      <td>{row.excessDays}</td>
-                      <td>{row.presentDays}</td>
-                      <td>{formatRate(row.attendanceRate)}</td>
-                      <td>{formatDay(row.lastHolidayDate)}</td>
-                      <td>
+                      <td data-label="Department">{row.departmentName}</td>
+                      <td data-label="Shift">{row.shiftName}</td>
+                      <td data-label="Holiday days">{row.holidayDays} / {row.holidayDayLimit}</td>
+                      <td data-label="Excess">{row.excessDays}</td>
+                      <td data-label="Present">{row.presentDays}</td>
+                      <td data-label="Rate">{formatRate(row.attendanceRate)}</td>
+                      <td data-label="Last holiday">{formatDay(row.lastHolidayDate)}</td>
+                      <td data-label="Status">
                         <StatusBadge
                           status={row.exceedsLimit ? 'OVER LIMIT' : 'WITHIN LIMIT'}
                           color={row.exceedsLimit ? 'red' : 'green'}

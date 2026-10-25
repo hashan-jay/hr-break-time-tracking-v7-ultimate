@@ -5234,6 +5234,9 @@ html[data-theme="dark"] .absent-switch input:focus-visible + .absent-switch__tra
   align-items: end;
   gap: 0.75rem 1rem;
   margin: 0 0 0.85rem;
+  position: relative;
+  z-index: 6;
+  overflow: visible;
 }
 
 .adjust-time-field,
@@ -13608,6 +13611,137 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   html[data-theme="dark"] .audit-page .audit-log td::before {
+    color: #94a3b8;
+  }
+}
+
+@media (max-width: 720px) {
+  .attendance-analytics .analytics-people .list-switch {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 1.15rem;
+    overflow: hidden;
+  }
+
+  .attendance-analytics .analytics-people .list-switch__btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .attendance-analytics .analytics-people-tools {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+
+  .attendance-analytics .analytics-people-tools > label {
+    flex: none;
+    align-content: start;
+    min-width: 0;
+  }
+
+  .attendance-analytics .analytics-people-tools label,
+  .attendance-analytics .analytics-people-tools input,
+  .attendance-analytics .analytics-people-tools .header-actions,
+  .attendance-analytics .analytics-people-tools .btn {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .attendance-analytics .analytics-people-tools .header-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .attendance-analytics .analytics-people .table-wrap {
+    overflow: visible;
+    max-width: 100%;
+  }
+
+  .attendance-analytics .analytics-people table {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .attendance-analytics .analytics-people thead {
+    display: none;
+  }
+
+  .attendance-analytics .analytics-people tbody {
+    display: grid;
+    gap: 0.65rem;
+  }
+
+  .attendance-analytics .analytics-people tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 0.55rem 0.65rem;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 1rem;
+    background: #fff;
+  }
+
+  .attendance-analytics .analytics-people tbody tr:has(td.empty) {
+    display: block;
+    background: transparent;
+    border: 0;
+    padding: 0.3rem 0;
+  }
+
+  .attendance-analytics .analytics-people td {
+    display: grid;
+    align-content: start;
+    gap: 0.12rem;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    white-space: normal;
+  }
+
+  .attendance-analytics .analytics-people td::before {
+    content: attr(data-label);
+    color: #64748b;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(1),
+  .attendance-analytics .analytics-people td:nth-child(n + 8),
+  .attendance-analytics .analytics-people td.empty {
+    grid-column: 1 / -1;
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(1) {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+    font-size: 1.02rem;
+  }
+
+  .attendance-analytics .analytics-people td.empty::before {
+    content: none;
+  }
+
+  html[data-theme="dark"] .attendance-analytics .analytics-people td:nth-child(1) {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .attendance-analytics .analytics-people tbody tr {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  html[data-theme="dark"] .attendance-analytics .analytics-people tbody tr:has(td.empty) {
+    background: transparent;
+    border: 0;
+  }
+
+  html[data-theme="dark"] .attendance-analytics .analytics-people td::before {
     color: #94a3b8;
   }
 }
