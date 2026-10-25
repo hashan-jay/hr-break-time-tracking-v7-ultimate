@@ -14098,11 +14098,64 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .reports-page .attendance-results__tools {
     flex-wrap: wrap;
     align-items: stretch;
+    width: 100%;
+  }
+
+  .reports-page .list-panel__head > .header-stat-tile,
+  .reports-page .attendance-results__tools .header-stat-tile {
+    display: none;
+  }
+
+  .reports-page .absent-switch {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: space-between;
   }
 
   .reports-page .stats-grid.compact {
     grid-template-columns: 1fr 1fr;
-    gap: 0.6rem;
+    gap: 0.65rem;
+    align-items: stretch;
+  }
+
+  .reports-page .stats-grid.compact .stat-card:first-child {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 0;
+    padding: 0.9rem 1rem;
+  }
+
+  .reports-page .stats-grid.compact .stat-card:first-child .stat-label {
+    margin: 0;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .reports-page .stat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 6.4rem;
+    margin: 0;
+    padding: 0.85rem 0.9rem;
+    border-radius: 16px;
+  }
+
+  .reports-page .stat-value {
+    font-size: 1.7rem;
+    line-height: 1;
+  }
+
+  .reports-page .stat-label {
+    margin-top: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    line-height: 1.3;
+    text-transform: uppercase;
   }
 
   .reports-page .attendance-table-block .table-wrap,
