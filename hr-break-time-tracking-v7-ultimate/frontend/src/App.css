@@ -11838,6 +11838,13 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
     min-width: 0;
   }
 
+  .tracking-page .list-switch {
+    justify-self: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
+  }
+
   .tracking-page .portal-board__table {
     overflow-x: auto;
     max-width: 100%;
