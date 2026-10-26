@@ -14079,7 +14079,79 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   }
 
   .attendance-analytics .analytics-people .table-wrap {
-    margin-inline: -0.15rem;
+    margin-inline: 0;
+    overflow: visible;
+  }
+
+  .attendance-analytics .analytics-people tbody {
+    gap: 0.8rem;
+  }
+
+  .attendance-analytics .analytics-people tbody tr:not(:has(td.empty)) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas:
+      "name name"
+      "dept dept"
+      "shift shift"
+      "holiday excess"
+      "present rate"
+      "last last"
+      "status status";
+    gap: 0.72rem 0.9rem;
+    padding: 1rem 1rem 0.95rem;
+    border-radius: 1.05rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 20px rgba(15, 23, 42, 0.04);
+  }
+
+  .attendance-analytics .analytics-people tr.analytics-row-over {
+    border-left: 0;
+    box-shadow: inset 3px 0 0 var(--red), 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 20px rgba(15, 23, 42, 0.04);
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(1) { grid-area: name; }
+  .attendance-analytics .analytics-people td:nth-child(2) { grid-area: dept; }
+  .attendance-analytics .analytics-people td:nth-child(3) { grid-area: shift; }
+  .attendance-analytics .analytics-people td:nth-child(4) { grid-area: holiday; }
+  .attendance-analytics .analytics-people td:nth-child(5) { grid-area: excess; }
+  .attendance-analytics .analytics-people td:nth-child(6) { grid-area: present; }
+  .attendance-analytics .analytics-people td:nth-child(7) { grid-area: rate; }
+  .attendance-analytics .analytics-people td:nth-child(8) { grid-area: last; }
+  .attendance-analytics .analytics-people td:nth-child(9) { grid-area: status; }
+
+  .attendance-analytics .analytics-people td {
+    overflow-wrap: anywhere;
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(1) {
+    gap: 0.15rem;
+    padding-bottom: 0.7rem;
+    font-size: 1.08rem;
+    line-height: 1.2;
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(1) strong {
+    display: block;
+    font-size: 1.08rem;
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(n + 4):nth-child(-n + 7) {
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .attendance-analytics .analytics-people td:nth-child(9) .status-badge {
+    display: flex;
+    width: 100%;
+    min-height: 2.35rem;
+    justify-content: center;
+    border-radius: 999px;
+    box-sizing: border-box;
+  }
+
+  html[data-theme="dark"] .attendance-analytics .analytics-people tbody tr:not(:has(td.empty)) {
+    background: rgba(255, 255, 255, 0.04);
   }
 }
 
