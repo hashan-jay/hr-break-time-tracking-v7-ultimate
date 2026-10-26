@@ -499,6 +499,23 @@ function LiveRoster({
 }
 
 const EXCEEDED = 'EXCEEDED BREAK TIME LIMIT';
+const PHONE_LAYOUT = '(max-width: 720px)';
+
+function usePhoneLayout() {
+  const [phone, setPhone] = useState(() => (
+    typeof window !== 'undefined' && window.matchMedia(PHONE_LAYOUT).matches
+  ));
+
+  useEffect(() => {
+    const query = window.matchMedia(PHONE_LAYOUT);
+    const sync = () => setPhone(query.matches);
+    sync();
+    query.addEventListener('change', sync);
+    return () => query.removeEventListener('change', sync);
+  }, []);
+
+  return phone;
+}
 
 function sortRoster(employees) {
   return [...employees].sort((a, b) => {
@@ -575,6 +592,17 @@ function ExceededShiftBoard({
   onInspect,
 }) {
   const headingDate = formatCalendarDay(date);
+  const phone = usePhoneLayout();
+  const [openId, setOpenId] = useState(null);
+
+  useEffect(() => {
+    setOpenId(null);
+  }, [date]);
+
+  const toggleCard = (employeeId) => {
+    setOpenId((current) => (current === employeeId ? null : employeeId));
+  };
+
   return (
     <section className="exceeded-board headlines-card" aria-label="Employees over break limits">
       <header className="exceeded-board__head">
@@ -619,14 +647,44 @@ function ExceededShiftBoard({
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee) => (
+            {employees.map((employee) => {
+              const mealOver = employee.mealStatus === EXCEEDED;
+              const comfortOver = employee.comfortStatus === EXCEEDED;
+              const open = phone && openId === employee.employeeId;
+              return (
               <tr
                 key={employee.employeeId}
-                className={isToday ? (employee.isOnBreak ? 'on-break is-clickable' : 'is-clickable') : undefined}
-                onClick={isToday ? () => onInspect?.(employee) : undefined}
+                className={[
+                  isToday ? 'is-clickable' : '',
+                  isToday && employee.isOnBreak ? 'on-break' : '',
+                  mealOver ? 'is-meal-over' : '',
+                  comfortOver ? 'is-comfort-over' : '',
+                  open ? 'is-open' : '',
+                ].filter(Boolean).join(' ')}
+                aria-expanded={phone ? open : undefined}
+                tabIndex={phone ? 0 : undefined}
+                onClick={(event) => {
+                  if (event.target.closest('button, a, input, select, textarea')) return;
+                  if (phone) {
+                    toggleCard(employee.employeeId);
+                    return;
+                  }
+                  if (isToday) onInspect?.(employee);
+                }}
+                onKeyDown={(event) => {
+                  if (!phone || (event.key !== 'Enter' && event.key !== ' ')) return;
+                  event.preventDefault();
+                  toggleCard(employee.employeeId);
+                }}
               >
                 <td data-label="Code">{employee.employeeCode}</td>
-                <td className="col-name" data-label="Employee">{employee.fullName || employee.employeeName}</td>
+                <td className="col-name" data-label="Employee">
+                  <span className="exceeded-card__title">{employee.fullName || employee.employeeName}</span>
+                  <span className="exceeded-card__summary">
+                    {mealOver && <span className="exceeded-card__flag is-meal">Meal exceeded</span>}
+                    {comfortOver && <span className="exceeded-card__flag is-comfort">Comfort exceeded</span>}
+                  </span>
+                </td>
                 {isToday ? (
                   <LimitsLeftCell
                     employee={employee}
@@ -660,8 +718,20 @@ function ExceededShiftBoard({
                         : 'In office')
                     : headingDate}
                 </td>
+                <td className="exceeded-card__action">
+                  {isToday && (
+                    <button
+                      type="button"
+                      className="btn exceeded-card__open"
+                      onClick={() => onInspect?.(employee)}
+                    >
+                      Open record
+                    </button>
+                  )}
+                </td>
               </tr>
-            ))}
+              );
+            })}
             {!employees.length && (
               <tr>
                 <td colSpan={10} className="empty">

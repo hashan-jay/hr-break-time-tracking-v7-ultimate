@@ -5825,6 +5825,11 @@ html[data-theme="dark"] .passcodes-table__status.is-unset {
   font-variant-numeric: tabular-nums;
 }
 
+.exceeded-card__summary,
+.exceeded-board td.exceeded-card__action {
+  display: none;
+}
+
 .exceeded-board .table-wrap {
   max-height: min(62vh, 720px);
   overflow: auto;
@@ -12155,12 +12160,47 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
       "shift state"
       "limits limits"
       "meal mealstatus"
-      "comfort comfortstatus";
+      "comfort comfortstatus"
+      "action action";
     gap: 0.45rem 0.7rem;
-    padding: 0.75rem 0.8rem;
+    padding: 0.85rem 0.9rem;
     border: 1px solid rgba(15, 23, 42, 0.08);
-    border-radius: 1rem;
-    background: rgba(255, 255, 255, 0.72);
+    border-radius: 1.05rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .tracking-page .exceeded-board tbody tr:not(.is-open):not(:has(td.empty)) {
+    grid-template-areas: "name name";
+  }
+
+  .tracking-page .exceeded-board tbody tr:not(.is-open):not(:has(td.empty)) td:not(.col-name) {
+    display: none;
+  }
+
+  .tracking-page .exceeded-board tbody tr:not(:has(td.empty)):active {
+    border-color: #86efac;
+    background: #f7fdf9;
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-open {
+    border-color: #14542d;
+    box-shadow: 0 0 0 3px rgba(20, 84, 45, 0.12);
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-meal-over {
+    box-shadow: inset 3px 0 0 #dc2626, 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-comfort-over:not(.is-meal-over) {
+    box-shadow: inset 3px 0 0 #ea580c, 0 1px 2px rgba(15, 23, 42, 0.04);
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-open.is-meal-over,
+  .tracking-page .exceeded-board tbody tr.is-open.is-comfort-over {
+    box-shadow: inset 3px 0 0 #dc2626, 0 0 0 3px rgba(20, 84, 45, 0.12);
   }
 
   .tracking-page .exceeded-board tbody tr:has(td.empty) {
@@ -12201,13 +12241,86 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
   .tracking-page .exceeded-board td:nth-child(10) { grid-area: state; }
 
   .tracking-page .exceeded-board td.col-name {
-    font-size: 1rem;
+    position: relative;
+    display: grid;
+    gap: 0.4rem;
+    padding-right: 1.4rem;
+    font-size: 1.05rem;
     font-weight: 700;
   }
 
   .tracking-page .exceeded-board td.col-name::before,
   .tracking-page .exceeded-board td.empty::before {
     content: none;
+  }
+
+  .tracking-page .exceeded-board tbody tr:not(:has(td.empty)) td.col-name::after {
+    content: "";
+    position: absolute;
+    top: 0.35rem;
+    right: 0.1rem;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-right: 2px solid #64748b;
+    border-bottom: 2px solid #64748b;
+    transform: rotate(45deg);
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-open td.col-name::after {
+    top: 0.5rem;
+    transform: rotate(225deg);
+  }
+
+  .tracking-page .exceeded-board .exceeded-card__title {
+    line-height: 1.2;
+  }
+
+  .tracking-page .exceeded-board .exceeded-card__summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-open .exceeded-card__summary {
+    display: none;
+  }
+
+  .tracking-page .exceeded-board .exceeded-card__flag {
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.6rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .tracking-page .exceeded-board .exceeded-card__flag.is-meal {
+    color: #9f1239;
+    background: #ffe4e6;
+  }
+
+  .tracking-page .exceeded-board .exceeded-card__flag.is-comfort {
+    color: #9a3412;
+    background: #ffedd5;
+  }
+
+  .tracking-page .exceeded-board tbody tr.is-open td.exceeded-card__action:has(.exceeded-card__open) {
+    display: block;
+    grid-area: action;
+    padding-top: 0.35rem;
+  }
+
+  .tracking-page .exceeded-board .exceeded-card__open {
+    width: 100%;
+    min-height: 2.75rem;
+    justify-content: center;
+  }
+
+  .tracking-page .exceeded-board tbody tr:has(td.empty) {
+    cursor: default;
   }
 
   html[data-theme="dark"] .tracking-page .exceeded-board tbody tr {
@@ -12222,6 +12335,25 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
 
   html[data-theme="dark"] .tracking-page .exceeded-board td::before {
     color: #94a3b8;
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board tbody tr:not(:has(td.empty)):active {
+    background: rgba(20, 84, 45, 0.18);
+    border-color: #86efac;
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board .exceeded-card__flag.is-meal {
+    color: #fecdd3;
+    background: rgba(159, 18, 57, 0.35);
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board .exceeded-card__flag.is-comfort {
+    color: #fed7aa;
+    background: rgba(154, 52, 18, 0.35);
+  }
+
+  html[data-theme="dark"] .tracking-page .exceeded-board tbody tr:not(:has(td.empty)) td.col-name::after {
+    border-color: #94a3b8;
   }
 }
 
