@@ -440,7 +440,15 @@ export default function ReportsPage() {
                   type="checkbox"
                   role="switch"
                   checked={showAbsentPeople}
-                  onChange={(event) => setShowAbsentPeople(event.target.checked)}
+                  onChange={(event) => {
+                    const scroller = event.currentTarget.closest('.main-panel');
+                    const scrollTop = scroller?.scrollTop ?? 0;
+                    setShowAbsentPeople(event.target.checked);
+                    requestAnimationFrame(() => {
+                      window.scrollTo(0, 0);
+                      if (scroller) scroller.scrollTop = scrollTop;
+                    });
+                  }}
                   aria-label="Show absent people"
                 />
                 <span className="absent-switch__track" aria-hidden="true" />

@@ -5098,6 +5098,7 @@ tbody tr.is-deleted:hover { background: var(--portal-accent-soft); }
 }
 
 .absent-switch {
+  position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
@@ -5110,10 +5111,12 @@ tbody tr.is-deleted:hover { background: var(--portal-accent-soft); }
 
 .absent-switch input {
   position: absolute;
-  width: 1px;
-  height: 1px;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   margin: 0;
   opacity: 0;
+  cursor: pointer;
 }
 
 .absent-switch__track {
@@ -14015,8 +14018,23 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
 }
 
 @media (max-width: 720px) {
+  html:has(.reports-page),
+  body:has(.reports-page) {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .app-shell:has(.reports-page) {
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+  }
+
   .app-portal .main-panel:has(.reports-page) {
     padding: 0.85rem 0.8rem 1.25rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
   }
 
   .reports-page {
@@ -14081,6 +14099,9 @@ html[data-theme="dark"] .attendance-analytics .analytics-dept {
 
   .reports-page .staff-results.headlines-card {
     min-width: 0;
+    height: auto;
+    overflow: visible;
+    overflow-anchor: none;
     padding: 0.9rem 0.85rem 1rem;
   }
 
